@@ -2,13 +2,16 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://leviathanwz.github.io/categories/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://leviathanwz.github.io/tags/git/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://leviathanwz.github.io/categories/git/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://leviathanwz.github.io/git%E4%BD%BF%E7%94%A8/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://leviathanwz.github.io/posts/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://leviathanwz.github.io/tags/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://leviathanwz.github.io/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://leviathanwz.github.io/categories/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/posts/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/tags/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/tags/%E8%BF%90%E7%BB%B4/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/categories/%E8%BF%90%E7%BB%B4/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/tags/git/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/categories/git/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://leviathanwz.github.io/git%E4%BD%BF%E7%94%A8/</loc><lastmod>2021-12-21T21:45:19&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://leviathanwz.github.io/tags/linux/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://leviathanwz.github.io/categories/linux/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://leviathanwz.github.io/linux%E5%91%BD%E4%BB%A4/</loc><lastmod>2021-01-23T13:16:06&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

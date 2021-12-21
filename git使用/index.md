@@ -116,7 +116,7 @@
   * **编辑前三个commit**
   * 通过**squash**可用于多个commit信息的**合并**
   * 通过**edit**可用于历史commit信息的**编辑**
-  > 编辑完文件后仍需要**多次运行`git commit --amend`**来编辑多次历史提交信息
+  > 编辑完文件后仍需要多次运行`git commit --amend`来编辑多次历史提交信息
   >
   > 每次运行上述命令之后，**需要`git rebase --continue`代表保存并进行下一条**
   >
