@@ -83,12 +83,14 @@
 
 ## 链接远程库
 
+![](/连接远程库1.PNG)
+
+![](/连接远程库2.PNG)
 * `git remote add origin ***`**关联远程库，`***`代表远程库的地址，可以为git或者https,git地址速度块**
-* **首次使用`git push -u origin master`来进行`push`操作**
-  * `-u`代表`--up-stream`
+* 首次`s`
 * `git remote -v`**查看远程仓库**
-* **`git push --force origin master`或者`git push -f origin master`强制覆盖远程分支**
-* **`git checkout -b a origin/a`从远程a分支拉取分支信息到本地a分支**
+* `git push --force origin master`或者`git push -f origin master`**强制覆盖远程分支**
+* `git checkout -b a origin/a`从远程a分支拉取分支信息到本地a分支
 
 ## 分支创建和基本使用
 
