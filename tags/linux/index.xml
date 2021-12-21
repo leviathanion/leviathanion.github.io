@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux - 标签 - leviathan的个人博客</title>
+        <link>https://leviathanChu.github.io/tags/linux/</link>
+        <description>linux - 标签 - leviathan的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>Chu.quntao@gmail.com (leviathan)</managingEditor>
+            <webMaster>Chu.quntao@gmail.com (leviathan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 22 Jan 2021 23:17:52 &#43;0800</lastBuildDate><atom:link href="https://leviathanChu.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux命令</title>
+    <link>https://leviathanChu.github.io/linux%E5%91%BD%E4%BB%A4/</link>
+    <pubDate>Fri, 22 Jan 2021 23:17:52 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://leviathanChu.github.io/linux%E5%91%BD%E4%BB%A4/</guid>
+    <description><![CDATA[linux命令 小技巧： ctrl + shift + =放大终端字体 ctrl + -缩小终端字体 tab 若不存在歧义，则自动补全 若tab目标太多不能自动补全时，按两次tab可显示符]]></description>
+</item></channel>
+</rss>
