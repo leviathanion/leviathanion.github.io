@@ -3,6 +3,7 @@
 # 运维问题记录
 
 ## 多网卡路由配置
+> 可查询此链接[linux网络命令](http://linux-ip.net/html/index.html)查看linux网络命令的使用
 
 * 使用策略路由
 
@@ -41,15 +42,22 @@
   ip route show table 254
   ```
 
-  * 修改rt_tables文件向指定路由表添加规则使用`ip route`命令
+  * 修改rt_tables文件向指定路由表添加或删除规则使用`ip route`命令
 
   ```shell
   ip route add 192.168.80.0/24 via 192.168.20.20 table 251 
   ip route add 192.168.80.0/24 via 192.168.30.20 table 252
-  ip route flush 251
-  ip route flush 252
+  ip route del 192.168.80.0/24 via 192.168.30.20 table 251
+  ip route del 192.168.80.0/24 via 192.168.30.20 table 252
   ```
+  * 快速删除某一特定路由或者路由表可使用`ip route flush`
 
+  ```shell
+  #清除192.168.0.0的路由信息
+  ip route flush 192.168.0.0
+  #清空main路由表 
+  ip route flush table main 
+  ```
   * 查看路由表策略
 
   ```shell
