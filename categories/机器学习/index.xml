@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>机器学习 - 分类 - w.z的个人博客</title>
+        <link>https://leviathanwz.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+        <description>机器学习 - 分类 - w.z的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>Chu.quntao@gmail.com (w.z)</managingEditor>
+            <webMaster>Chu.quntao@gmail.com (w.z)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</lastBuildDate><atom:link href="https://leviathanwz.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>IRNN</title>
+    <link>https://leviathanwz.github.io/irnn/</link>
+    <pubDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://leviathanwz.github.io/irnn/</guid>
+    <description><![CDATA[IRNN模型1 问题和动机 梯度消失和梯度爆炸的问题导致RNN模型难以学习到远距离依赖 过去的解决方法依赖于复杂的优化技术和网络架构 提出一种较为简]]></description>
+</item></channel>
+</rss>
