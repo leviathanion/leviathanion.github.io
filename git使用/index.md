@@ -3,8 +3,6 @@
 
 # git使用[^1]
 
-{{< music auto="https://music.163.com/#/song?id=1418131335" >}}
-
 ## 基本命令
 
 * **创建仓库**`git init`
