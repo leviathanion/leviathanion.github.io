@@ -4,7 +4,14 @@
         <link>https://leviathanwz.github.io/categories/rnns/</link>
         <description>RNNs - 分类 - w.z的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>Chu.quntao@gmail.com (w.z)</managingEditor>
-            <webMaster>Chu.quntao@gmail.com (w.z)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</lastBuildDate><atom:link href="https://leviathanwz.github.io/categories/rnns/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Chu.quntao@gmail.com (w.z)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 24 Dec 2021 15:39:14 &#43;0800</lastBuildDate><atom:link href="https://leviathanwz.github.io/categories/rnns/" rel="self" type="application/rss+xml" /><item>
+    <title>RNN和LSTM</title>
+    <link>https://leviathanwz.github.io/rnn%E5%92%8Clstm/</link>
+    <pubDate>Fri, 24 Dec 2021 15:39:14 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://leviathanwz.github.io/rnn%E5%92%8Clstm/</guid>
+    <description><![CDATA[RNN和LSTM RNN 问题和动机 自然界中很多事物都是序列相关的，想要理解某一时刻，必须要获取过去时刻的信息 过去的模型难以捕获序列信息 idea 通过一个状]]></description>
+</item><item>
     <title>IRNN</title>
     <link>https://leviathanwz.github.io/irnn/</link>
     <pubDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</pubDate>
