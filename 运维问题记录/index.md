@@ -122,23 +122,50 @@
               routing-policy:
                - from: 192.168.3.0/24
                  table: 101
+                 priority: 10
+              nameservers: 
+                address: [192.168.3.1]
+              gateway4: 192.168.3.1
           ens5:
               addresses:
                - 192.168.5.24/24
               dhcp4: no
               routes:
-               - to: default
+               - to: 0.0.0.0/0
                  via: 192.168.5.1
+                 table: 102
                - to: 192.168.5.0/24
                  via: 192.168.5.1
                  table: 102
               routing-policy:
                - from: 192.168.5.0/24
                  table: 102
+                 priority: 10
   ```
 
+> 当设置了gateway4之后将在默认的default表自动设置对应的默认路由
+> 
+> 当render设置为NetWorkManager时,可能会提示不能设置没有默认路由的路由表,将render一行删除即可
   
-
+## 设置开机启动自动运行的脚本
+旧的版本中可以直接编辑 rc.local 添加开机启动脚本，而新版本这个功能默认是禁用的
+* Ubuntu20.04按下操作开启rc-local.service
+  * 给`rc.local`文件执行权限`chmod +x`或者`chmod 755`
+  * `vi /lib/systemd/system/rc-local.service`添加如下代码
+    ```shell
+    [Install]
+    WantedBy=multi-user.target
+    ```
+  * 启动服务`systemctl enable rc-local`
+* Ubuntu18.04使用`rc.local`来对文件和服务命名,因此基本只需将20.04命令中的`rc-loca`改为`rc.local`即可
+  * 给`rc.local`文件执行权限`chmod +x`或者`chmod 755`
+  * `vi /lib/systemd/system/rc.local.service`,添加如下代码
+    ```shell
+    [Install]
+    WantedBy=multi-user.target
+    Alias=rc-local.service
+    ```
+  * 启用服务`systemctl enable rc.local.service` 
 ## ubuntu驱动内核更新导致nvidia驱动失效解决
 
 * `sudo apt-get autoremove --purge nvidia-*`删除nvidia相关包
