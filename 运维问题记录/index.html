@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://leviathanwz.github.io/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" />
 <meta property="og:image" content="https://leviathanwz.github.io/logo.png"/>
 <meta property="article:published_time" content="2021-12-21T21:38:39+08:00" />
-<meta property="article:modified_time" content="2021-12-25T17:06:55+08:00" />
+<meta property="article:modified_time" content="2021-12-30T15:14:28+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://leviathanwz.github.io/logo.png"/>
 
@@ -29,8 +29,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanwz.github.io\/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95\/"
-        },"image": ["https:\/\/leviathanwz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "运维","wordcount":  1214 ,
-        "url": "https:\/\/leviathanwz.github.io\/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95\/","datePublished": "2021-12-21T21:38:39+08:00","dateModified": "2021-12-25T17:06:55+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/leviathanwz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "运维","wordcount":  1367 ,
+        "url": "https:\/\/leviathanwz.github.io\/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95\/","datePublished": "2021-12-21T21:38:39+08:00","dateModified": "2021-12-30T15:14:28+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "w.z","logo": "https:\/\/leviathanwz.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">运维问题记录</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>w.z</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%BF%90%E7%BB%B4/"><i class="far fa-folder fa-fw"></i>运维</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1214 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1367 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -118,6 +118,7 @@
     <li><a href="#多网卡路由配置">多网卡路由配置</a></li>
     <li><a href="#设置开机启动自动运行的脚本">设置开机启动自动运行的脚本</a></li>
     <li><a href="#ubuntu驱动内核更新导致nvidia驱动失效解决">ubuntu驱动内核更新导致nvidia驱动失效解决</a></li>
+    <li><a href="#ubuntu更新内核">ubuntu更新内核</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="运维问题记录">运维问题记录</h1>
@@ -438,8 +439,14 @@ ip rule del table wangtong
 <h2 id="ubuntu驱动内核更新导致nvidia驱动失效解决">ubuntu驱动内核更新导致nvidia驱动失效解决</h2>
 <ul>
 <li><code>sudo apt-get autoremove --purge nvidia-*</code>删除nvidia相关包</li>
-<li><code>sudo apt-get install linux-headers-$(uname -r)</code>安装新内核的linux-headers</li>
+<li><code>sudo apt-get install linux-headers-$(uname -r)</code>安装新内核的linux-headers,用于编译各种内核模块</li>
 <li><code>sudo apt-get install nvidia-drivers-4**</code>安装新的nvidia驱动</li>
+</ul>
+<h2 id="ubuntu更新内核">ubuntu更新内核</h2>
+<ul>
+<li><code>sudo apt-get install linux-image-version-generic</code>安装Linux镜像</li>
+<li><code>sudo apt-get install linux-image-extra-version-generic</code>安装新内核的额外驱动</li>
+<li><code>sudo apt-get install linux-headers-version-generic</code>安装linux-headers</li>
 </ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -453,8 +460,8 @@ ip rule del table wangtong
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-12-25&nbsp;<a class="git-hash" href="https://github.com/leviathanwz/hugoBlogFile.git/commit/b4729e8fa8d4056c6812edf107423f5a6d693c3b" target="_blank" title="commit by w.z(zhu.quntao@foxmail.com) b4729e8fa8d4056c6812edf107423f5a6d693c3b: 更新运维问题博客">
-                                    <i class="fas fa-hashtag fa-fw"></i>b4729e8</a></span>
+                <span>更新于 2021-12-30&nbsp;<a class="git-hash" href="https://github.com/leviathanwz/hugoBlogFile.git/commit/ac945837a833967fe89cf834f0641e1139b086ca" target="_blank" title="commit by w.z(zhu.quntao@foxmail.com) ac945837a833967fe89cf834f0641e1139b086ca: 更新运维博客">
+                                    <i class="fas fa-hashtag fa-fw"></i>ac94583</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

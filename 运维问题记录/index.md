@@ -169,8 +169,14 @@
 ## ubuntu驱动内核更新导致nvidia驱动失效解决
 
 * `sudo apt-get autoremove --purge nvidia-*`删除nvidia相关包
-* `sudo apt-get install linux-headers-$(uname -r)`安装新内核的linux-headers
+* `sudo apt-get install linux-headers-$(uname -r)`安装新内核的linux-headers,用于编译各种内核模块
 * `sudo apt-get install nvidia-drivers-4**`安装新的nvidia驱动
+
+## ubuntu更新内核
+
+* `sudo apt-get install linux-image-version-generic`安装Linux镜像
+* `sudo apt-get install linux-image-extra-version-generic`安装新内核的额外驱动
+* `sudo apt-get install linux-headers-version-generic`安装linux-headers
 
 [^参考链接]:https://netplan.io/examples/
 
