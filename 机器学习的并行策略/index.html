@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://leviathanwz.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/" />
 <meta property="og:image" content="https://leviathanwz.github.io/logo.png"/>
 <meta property="article:published_time" content="2022-01-12T15:54:43+08:00" />
-<meta property="article:modified_time" content="2022-01-19T10:33:19+08:00" />
+<meta property="article:modified_time" content="2022-01-19T10:40:11+08:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://leviathanwz.github.io/logo.png"/>
 
@@ -29,8 +29,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanwz.github.io\/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5\/"
-        },"image": ["https:\/\/leviathanwz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "机器学习, 并行程序设计","wordcount":  8303 ,
-        "url": "https:\/\/leviathanwz.github.io\/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5\/","datePublished": "2022-01-12T15:54:43+08:00","dateModified": "2022-01-19T10:33:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/leviathanwz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "机器学习, 并行程序设计","wordcount":  8479 ,
+        "url": "https:\/\/leviathanwz.github.io\/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5\/","datePublished": "2022-01-12T15:54:43+08:00","dateModified": "2022-01-19T10:40:11+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "w.z","logo": "https:\/\/leviathanwz.github.io\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -106,7 +106,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">机器学习的并行策略</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>w.z</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw"></i>机器学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-12">2022-01-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8303 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-12">2022-01-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8479 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 17 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -185,7 +185,7 @@
 <p>采用纵向扩展的优化方法之外，还可以对单一问题进行拆解，使其可以在<strong>多处理器，多显卡，多机的环境下进行计算</strong>，主要解决单处理器，单显卡，单机性能提升较慢，难以跟上深度学习中计算资源的需求问题，通过数量来加速计算。在工程实践中采用横向扩展的案例也并不少见。</p>
 <ul>
 <li>采用横向扩展，<strong>单机设备的成本较低</strong>，同时易于增加算力。</li>
-<li>单机设备在计算过程中发生故障时往往难以恢复，对于<strong>多机环境</strong>而言，单个处理器发生故障时，系统仍然可以通过启动<strong>部分恢复</strong>（例如，基于通信驱动的检查点[^1]或部分重新计算[^2]）继续运行。</li>
+<li>单机设备在计算过程中发生故障时往往难以恢复，对于<strong>多机环境</strong>而言，单个处理器发生故障时，系统仍然可以通过启动<strong>部分恢复</strong>（例如，基于通信驱动的检查点<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>或部分重新计算<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>）继续运行。</li>
 <li><strong>单处理器</strong>环境下，对于大规模数据的读取可能有<strong>IO瓶颈</strong>。</li>
 <li>横向扩展的一个主要<strong>挑战</strong>是，并非所有ML算法都适用于分布式计算模型。</li>
 </ul>
@@ -232,7 +232,7 @@
 <h5 id="mapreduce和spark">MapReduce和Spark</h5>
 <p><strong>MapReduce</strong>是<strong>C/S架构</strong>，Server可以把信息广播到worker节点。Server先定义一个 <strong>Map</strong> 操作，这个 Map 操作是由worker节点完成，然后worker把结果传回client并处理，这个叫做<strong>reduce</strong>。梯度下降可以用 MapReduce 进行并行化。并行化的过程中，数据被分给 worker 进行计算。每一个梯度下降过程包含一个广播、map和一个 reduce 操作。</p>
 <p>MapReduce的主要问题有两个，一是<strong>原语的语义过于低级</strong>，直接使用其来写复杂算法，开发量比较大；另一个问题是<strong>依赖于磁盘进行数据传递</strong>，性能跟不上业务需求。</p>
-<p>为了解决MapReduce的两个问题，Matei在[^3]中提出了一种<strong>新的数据结构RDD</strong>，并构建了Spark框架。Spark框架在MR语义之上封装了<strong>DAG调度器</strong>，极大降低了算法使用的门槛。</p>
+<p>为了解决MapReduce的两个问题，Matei在<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>中提出了一种<strong>新的数据结构RDD</strong>，并构建了Spark框架。Spark框架在MR语义之上封装了<strong>DAG调度器</strong>，极大降低了算法使用的门槛。</p>
 <ul>
 <li><strong>Spark</strong>是基于<strong>内存</strong>进行数据处理的，MapReduce是基于<strong>磁盘</strong>进行数据处理的。</li>
 <li><strong>DAG计算模型</strong>在迭代计算上还是比MapReduce的效率更高。</li>
@@ -241,7 +241,7 @@
 <p><strong>较长时间内spark几乎可以说是大规模机器学习的代表</strong>，直至后来李沐完善了参数服务器，开拓了大规模机器学习的领域以后，spark才暴露出一点点不足。</p>
 <h5 id="参数服务器">参数服务器</h5>
 <p>参数服务器的概念最早大概可以追溯到Alex Smola于2010年提出的并行LDA的框架，其采用一个分布式的Memcached作为存放参数的存储，用于在分布式系统不同的Worker节点之间同步模型参数，而每个Worker只需要保存它计算时所依赖的一小部分参数。</p>
-<p>在此之后，PS又有了很多改进，其中又以李沐2014年提出的<strong>ps-lite</strong>(所谓第三代PS架构)为主要代表，也进一步加快了业界广泛使用参数服务器的步伐，在广告，推荐等各领域内大放异彩，时至今日，依然在各大公司内发挥着重要作用。</p>
+<p>在此之后，PS又有了很多改进，其中又以李沐2014年提出的<strong>ps-lite</strong><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>(所谓第三代PS架构)为主要代表，也进一步加快了业界广泛使用参数服务器的步伐，在广告，推荐等各领域内大放异彩，时至今日，依然在各大公司内发挥着重要作用。</p>
 <p>ps-lite的主要架构示意图如下图所示。
 <figure><a class="lightgallery" href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite.png" title="ps-lite" data-thumbnail="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite.png" data-sub-html="<h2>ps-lite架构</h2><p>ps-lite</p>">
         <img
@@ -320,12 +320,29 @@
 <li>采用了<strong>Warmup Rule</strong>的技术，其主要的出发点是在经过上述的学习率放大后，在初始训练时，非常容易出现不稳定的现象，导致最后很难收敛。因此，他们在刚开始训练时，仍然<strong>从比较小的η开始，再逐渐增大，训练了一定的Epochs以后，再按照上述的kη的方式进行训练</strong>。在此之后，也有一些工作在训练的后期逐渐降低学习率，被称之为<strong>learning rate decay</strong></li>
 <li>除了常用的<strong>SGD,BGD,AdaGrad,RMSProp,Adadelta,Adam</strong>之外，层数多时也有<strong>LARS，LAMB</strong>等优化器可以选择。</li>
 </ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Elmootazbellah Nabil Elnozahy, Lorenzo Alvisi, Yi-Min Wang, and David B. Johnson. 2002. A survey of rollback-recovery protocols in message-passing systems. ACM Comput. Surv. 34, 3 (2002), 375–408 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>Matei Zaharia, Mosharaf Chowdhury, Michael J. Franklin, Scott Shenker, and Ion Stoica. 2010. Spark: Cluster computing with working sets. In Proceedings of the 2nd USENIX Conference on Hot Topics in Cloud Computing (HotCloud’10) 10, 10–10 (2010), 95. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>Matei Zaharia, Mosharaf Chowdhury, Tathagata Das, Ankur Dave, Justin Ma, Murphy McCauley, Michael J. Franklin,Scott Shenker, and Ion Stoica. 2012. Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing. In Proceedings of the 9th USENIX Conference on Networked Systems Design and Implementation. USENIX Association, 2–2 <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>Li Mu, David G. Andersen, Jun Woo Park, Alexander J. Smola, Amr Ahmed, Vanja Josifovski, James Long, Eugene J. Shekita, and Bor-Yiing Su. &ldquo;Scaling distributed machine learning with the parameter server.&rdquo; In 11th {USENIX} Symposium on Operating Systems Design and Implementation ({OSDI} 14), pp. 583-598. 2014. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-01-19&nbsp;<a class="git-hash" href="https://github.com/leviathanwz/hugoBlogFile.git/commit/9d6aba630a6959d57ff12b003c9765154443251b" target="_blank" title="commit by w.z(zhu.quntao@foxmail.com) 9d6aba630a6959d57ff12b003c9765154443251b: 1.git使用中添加了git status不支持中文文件名的解决方法，同时可以解决Hugo的lastmod显示不正常 2.添加机器学习中的并行优化博客">
-                                    <i class="fas fa-hashtag fa-fw"></i>9d6aba6</a></span>
+                <span>更新于 2022-01-19&nbsp;<a class="git-hash" href="https://github.com/leviathanwz/hugoBlogFile.git/commit/07fa5a29583488b691fbeae67d20ef82b16c6b75" target="_blank" title="commit by w.z(zhu.quntao@foxmail.com) 07fa5a29583488b691fbeae67d20ef82b16c6b75: 机器学习的并行策略添加参考文献">
+                                    <i class="fas fa-hashtag fa-fw"></i>07fa5a2</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

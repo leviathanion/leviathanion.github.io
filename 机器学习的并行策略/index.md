@@ -67,7 +67,7 @@ MapReduce的主要问题有两个，一是**原语的语义过于低级**，直�
 ##### 参数服务器
 参数服务器的概念最早大概可以追溯到Alex Smola于2010年提出的并行LDA的框架，其采用一个分布式的Memcached作为存放参数的存储，用于在分布式系统不同的Worker节点之间同步模型参数，而每个Worker只需要保存它计算时所依赖的一小部分参数。
 
-在此之后，PS又有了很多改进，其中又以李沐2014年提出的**ps-lite**(所谓第三代PS架构)为主要代表，也进一步加快了业界广泛使用参数服务器的步伐，在广告，推荐等各领域内大放异彩，时至今日，依然在各大公司内发挥着重要作用。
+在此之后，PS又有了很多改进，其中又以李沐2014年提出的**ps-lite**[^4](所谓第三代PS架构)为主要代表，也进一步加快了业界广泛使用参数服务器的步伐，在广告，推荐等各领域内大放异彩，时至今日，依然在各大公司内发挥着重要作用。
 
 ps-lite的主要架构示意图如下图所示。
 ![ps-lite](/机器学习的并行策略/ps-lite.png "ps-lite架构")
@@ -139,5 +139,10 @@ IO上，通过代码优化，减少IO的阻塞，尽量使得IO与计算可以ov
 * **Learning Rate Linear Scaling**的技术，其出发点是当batch size从B增加到kB时，在总的Epochs不变时，其总的迭代次数则会减少k倍，那么，在learning rate η不变的情况下，模型参数变化的幅度显然是要比之前少了很多的，因此提出了也将**η乘以k来进行线性扩大**，以提升训练速度。当然，在后续的一些工作中，也有在其他的优化器中采用例如**平方根来进行放缩**的方式。
 * 采用了**Warmup Rule**的技术，其主要的出发点是在经过上述的学习率放大后，在初始训练时，非常容易出现不稳定的现象，导致最后很难收敛。因此，他们在刚开始训练时，仍然**从比较小的η开始，再逐渐增大，训练了一定的Epochs以后，再按照上述的kη的方式进行训练**。在此之后，也有一些工作在训练的后期逐渐降低学习率，被称之为**learning rate decay**
 * 除了常用的**SGD,BGD,AdaGrad,RMSProp,Adadelta,Adam**之外，层数多时也有**LARS，LAMB**等优化器可以选择。
+
+[^1]:Elmootazbellah Nabil Elnozahy, Lorenzo Alvisi, Yi-Min Wang, and David B. Johnson. 2002. A survey of rollback-recovery protocols in message-passing systems. ACM Comput. Surv. 34, 3 (2002), 375–408
+[^2]:Matei Zaharia, Mosharaf Chowdhury, Michael J. Franklin, Scott Shenker, and Ion Stoica. 2010. Spark: Cluster computing with working sets. In Proceedings of the 2nd USENIX Conference on Hot Topics in Cloud Computing (HotCloud’10) 10, 10–10 (2010), 95.
+[^3]:Matei Zaharia, Mosharaf Chowdhury, Tathagata Das, Ankur Dave, Justin Ma, Murphy McCauley, Michael J. Franklin,Scott Shenker, and Ion Stoica. 2012. Resilient distributed datasets: A fault-tolerant abstraction for in-memory cluster computing. In Proceedings of the 9th USENIX Conference on Networked Systems Design and Implementation. USENIX Association, 2–2
+[^4]:Li Mu, David G. Andersen, Jun Woo Park, Alexander J. Smola, Amr Ahmed, Vanja Josifovski, James Long, Eugene J. Shekita, and Bor-Yiing Su. "Scaling distributed machine learning with the parameter server." In 11th {USENIX} Symposium on Operating Systems Design and Implementation ({OSDI} 14), pp. 583-598. 2014.
 
 
