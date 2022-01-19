@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>机器学习的并行策略 - w.z的个人博客</title><meta name="Description" content="w.z的个人博客"><meta property="og:title" content="机器学习的并行策略" />
+<meta property="og:description" content="机器学习中的分布式的并行优化 简介 机器学习的并行计算指的是对机器学习过程中遇到的计算问题采用并行计算的方式进行合适的加速，缩短训练所需的时间。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanwz.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/" />
+<meta property="og:image" content="https://leviathanwz.github.io/logo.png"/>
+<meta property="article:published_time" content="2022-01-12T15:54:43+08:00" />
+<meta property="article:modified_time" content="2022-01-19T10:33:19+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanwz.github.io/logo.png"/>
+
+<meta name="twitter:title" content="机器学习的并行策略"/>
+<meta name="twitter:description" content="机器学习中的分布式的并行优化 简介 机器学习的并行计算指的是对机器学习过程中遇到的计算问题采用并行计算的方式进行合适的加速，缩短训练所需的时间。"/>
+<meta name="application-name" content="w.z的个人博客">
+<meta name="apple-mobile-web-app-title" content="w.z的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanwz.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/" /><link rel="prev" href="https://leviathanwz.github.io/rnn%E5%92%8Clstm/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "机器学习的并行策略",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanwz.github.io\/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5\/"
+        },"image": ["https:\/\/leviathanwz.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "机器学习, 并行程序设计","wordcount":  8303 ,
+        "url": "https:\/\/leviathanwz.github.io\/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5\/","datePublished": "2022-01-12T15:54:43+08:00","dateModified": "2022-01-19T10:33:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "w.z","logo": "https:\/\/leviathanwz.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "w.z"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="w.z的个人博客"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>w.z的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanwz" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="w.z的个人博客"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>w.z的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanwz" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">机器学习的并行策略</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>w.z</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw"></i>机器学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-12">2022-01-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8303 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 17 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#纵向扩展">纵向扩展</a>
+      <ul>
+        <li><a href="#主要策略">主要策略</a></li>
+      </ul>
+    </li>
+    <li><a href="#横向扩展">横向扩展</a>
+      <ul>
+        <li><a href="#数据并行和模型并行">数据并行和模型并行</a></li>
+        <li><a href="#主要策略-1">主要策略</a>
+          <ul>
+            <li><a href="#通信优化">通信优化</a>
+              <ul>
+                <li><a href="#通信方式">通信方式</a></li>
+                <li><a href="#通信步调">通信步调</a></li>
+                <li><a href="#mapreduce和spark">MapReduce和Spark</a></li>
+                <li><a href="#参数服务器">参数服务器</a></li>
+                <li><a href="#ring-all-reduce">Ring All-Reduce</a></li>
+                <li><a href="#减少通信内容--梯度压缩">减少通信内容&ndash;梯度压缩</a>
+                  <ul>
+                    <li><a href="#梯度量化">梯度量化</a></li>
+                    <li><a href="#梯度稀疏化">梯度稀疏化</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#io优化">IO优化</a>
+              <ul>
+                <li>
+                  <ul>
+                    <li><a href="#监督学习的io优化">监督学习的IO优化</a></li>
+                    <li><a href="#强化学习平台avatar上的部分io优化">强化学习平台Avatar上的部分IO优化</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#计算优化">计算优化</a>
+              <ul>
+                <li><a href="#训练参数的调整优化器的改进">训练参数的调整（优化器的改进）</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="机器学习中的分布式的并行优化">机器学习中的分布式的并行优化</h1>
+<h2 id="简介">简介</h2>
+<p>机器学习的并行计算指的是对机器学习过程中遇到的计算问题采用并行计算的方式进行合适的加速，<strong>缩短训练所需的时间</strong>。此处所指的时间既指<strong>物理时间</strong>，也指<strong>CPU时间或者GPU时间</strong>。</p>
+<p>和其他大数据计算问题类似，有两种途径来实现对计算的并行加速，一种是<strong>向单一机器添加更多计算资源</strong>，可以称之为<strong>纵向扩展</strong>，另外一种是类似分布式系统一样，在系统中<strong>添加更多的节点</strong>，节点可能是CPU，GPU甚至是单机环境等等，可以称之为<strong>横向扩展</strong>。</p>
+<h2 id="纵向扩展">纵向扩展</h2>
+<p>CPU或者GPU时间的缩短主要应用纵向扩展，通过对特定问题设计特定的CPU或者GPU模块及指令集等，通过<strong>硬件加速</strong>机器学习算法中的特定问题。虽然机器学习近年来涌现出各种各样互不相同的算法，但是对于底层的计算而言，这些算法所使用的<strong>数据操作的本质基本相似</strong>，都是<strong>线性代数中的基本操作</strong>，是对向量，矩阵，张量的基本计算，因此涌现出了很多种加速方法和实现方案。</p>
+<h3 id="主要策略">主要策略</h3>
+<p>纵向扩展中的常用方法是，添加可编程GPU。最初，GPU用于机器学习的应用受到限制，因为GPU使用纯SIMD（单指令多数据）模型，不允许内核执行不同的代码分支；所有线程都必须执行完全相同的程序。</p>
+<ul>
+<li>
+<p>后来出现的<strong>通用GPU</strong>，即可以执行任意代码的GPU。这些产品可以作为加速器添加到传统机器上，加快了机器学习的训练效率。例如Nvidia的Titan V和Tesla V100显卡就可以显著加速机器学习的学习和训练。</p>
+</li>
+<li>
+<p>除了使用通用GPU加速之外，还可以使用<strong>专用集成电路（ASIC）来加速机器学习</strong>，专用集成电路主要通过高度优化的设计实现特定功能。</p>
+</li>
+<li>
+<p>在最近几代产品中，即使是通用<strong>CPU也增加了向量指令的可用性和宽度</strong>，以加速计算密集型问题（如机器学习算法）的处理。这些指令是矢量指令，是AVX-512系列的一部分，具有增强的字变量精度并支持单精度浮点运算。</p>
+</li>
+</ul>
+<h2 id="横向扩展">横向扩展</h2>
+<p>采用纵向扩展的优化方法之外，还可以对单一问题进行拆解，使其可以在<strong>多处理器，多显卡，多机的环境下进行计算</strong>，主要解决单处理器，单显卡，单机性能提升较慢，难以跟上深度学习中计算资源的需求问题，通过数量来加速计算。在工程实践中采用横向扩展的案例也并不少见。</p>
+<ul>
+<li>采用横向扩展，<strong>单机设备的成本较低</strong>，同时易于增加算力。</li>
+<li>单机设备在计算过程中发生故障时往往难以恢复，对于<strong>多机环境</strong>而言，单个处理器发生故障时，系统仍然可以通过启动<strong>部分恢复</strong>（例如，基于通信驱动的检查点[^1]或部分重新计算[^2]）继续运行。</li>
+<li><strong>单处理器</strong>环境下，对于大规模数据的读取可能有<strong>IO瓶颈</strong>。</li>
+<li>横向扩展的一个主要<strong>挑战</strong>是，并非所有ML算法都适用于分布式计算模型。</li>
+</ul>
+<h3 id="数据并行和模型并行">数据并行和模型并行</h3>
+<ul>
+<li><strong>数据并行</strong>将原始数据分配到不同的工作节点上并行训练。其中，每一个工作节点使用<strong>不同的部分数据</strong>，但是都拥有<strong>完整的模型</strong>，工作节点之间一般会同步自己的局部梯度信息，再进行汇总，得到整体的更新结果。数据并行依赖于优<strong>化算法</strong>的选择。</li>
+<li><strong>模型并行</strong>一般是由于模型太大，单机无法储存，将模型的不同部分放在不同的节点上进行训练，常用的方式是每一个节点均<strong>使用相同的数据</strong>，但是只使用<strong>模型的一部分</strong>来进行。因此模型并行依赖于<strong>模型的设计</strong>。</li>
+</ul>
+<p>在实际应用过程中，<strong>数据并行更为常见</strong>。</p>
+<p><figure><a class="lightgallery" href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/%E6%A8%A1%E5%9E%8B%E5%B9%B6%E8%A1%8C%E5%92%8C%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C.png" title="模型并行和数据并行" data-thumbnail="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/%E6%A8%A1%E5%9E%8B%E5%B9%B6%E8%A1%8C%E5%92%8C%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C.png" data-sub-html="<h2>模型并行和数据并行</h2><p>模型并行和数据并行</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%b9%b6%e8%a1%8c%e7%ad%96%e7%95%a5/%e6%a8%a1%e5%9e%8b%e5%b9%b6%e8%a1%8c%e5%92%8c%e6%95%b0%e6%8d%ae%e5%b9%b6%e8%a1%8c.png"
+            data-srcset="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/%E6%A8%A1%E5%9E%8B%E5%B9%B6%E8%A1%8C%E5%92%8C%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C.png, /%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%b9%b6%e8%a1%8c%e7%ad%96%e7%95%a5/%e6%a8%a1%e5%9e%8b%e5%b9%b6%e8%a1%8c%e5%92%8c%e6%95%b0%e6%8d%ae%e5%b9%b6%e8%a1%8c.png 1.5x, /%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/%E6%A8%A1%E5%9E%8B%E5%B9%B6%E8%A1%8C%E5%92%8C%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C.png 2x"
+            data-sizes="auto"
+            alt="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/%E6%A8%A1%E5%9E%8B%E5%B9%B6%E8%A1%8C%E5%92%8C%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A1%8C.png" />
+    </a><figcaption class="image-caption">模型并行和数据并行</figcaption>
+    </figure></p>
+<h3 id="主要策略-1">主要策略</h3>
+<p>横向扩展组成的分布式机器学习系统中，性能主要取决于三部分，<strong>计算瓶颈，IO瓶颈和通信瓶颈</strong>。</p>
+<p>由于IO和通信的限制，虽然机器数量在不断增加，但加速效果并不是线性提升，在增加数量过程中，会产生性能损耗，比如，增加了十倍的机器，理想训练速度能够增加十倍，实际上往往却只增加了一两倍，性价比很低。这实际上是因为IO和通信瓶颈所导致的。</p>
+<p>期望能够提高加速比，使得分布式机器学习可以更快，就需要<strong>降低通信和IO时间开销</strong>的同时，<strong>加快计算性能</strong>，才能<strong>提升计算的时间占比</strong>，使得性能损耗更小。</p>
+<p>下面从这三个点来展开横向扩展的优化策略。</p>
+<h4 id="通信优化">通信优化</h4>
+<p>通信上，一方面提升通信速度，比如<strong>通信拓扑</strong>的改进，<strong>通信步调和频率</strong>的优化，另一方面也可以<strong>减少通信内容和次数</strong>，比如<strong>梯度压缩</strong>和<strong>梯度融合</strong>技术等。</p>
+<h5 id="通信方式">通信方式</h5>
+<ul>
+<li><strong>Share memory</strong>：同的处理器<strong>共享一块内存</strong>，没办法同时用很多处理器进行工作</li>
+<li><strong>Message passing</strong>：有<strong>多个节点</strong>，节点的处理器之间是可以采用共享内存，节点之间不能共享内存。节点之间可以<strong>网线相连接也可以使用 TCP/IP 进行消息传递</strong>。需要注意的是，采用Message passing方法时通常使用MPI的标准库来进行并行通信。根据节点的协调方式可以分为两类
+<ul>
+<li><strong>点对点</strong>(point-to-point)通信，这是高性能计算(HPC)中最常使用的模式，通常是与其最近的邻居进行通信，<strong>每个实例都是单发送方，单接收方</strong></li>
+<li><strong>集合(collective)通信</strong>，也可以叫做<strong>C/S架</strong>构，<strong>存在多个发送方和接收方</strong>。</li>
+</ul>
+</li>
+</ul>
+<h5 id="通信步调">通信步调</h5>
+<ul>
+<li><strong>Bulk Synchronous Parallel</strong>（BSP） 是最简单的模型，其中程序通过<strong>同步每个计算和通信阶段</strong>来确保一致性。遵循BSP模型的程序示例是<strong>MapReduce</strong>。优点是ML程序可以保证输出正确的解决方案。缺点是，完成的节点必须在每个同步障碍处等待，直到所有节点完成，这会导致在某些节点进度比其他工作人员慢的情况下产生开销。</li>
+<li><strong>Stale Synchronous Parallel</strong>（SSP）通过允许速度更快的节点向前移动一定数量的迭代来缓解同步开销。如果超过此数字，则暂停所有工作进程。节点<strong>在缓存的数据版本</strong>上操作，并且仅在任务周期结束时提交更改，这可能会导致其他节点在过时的数据版本上操作。数据SSP的主要优点是它仍然享有强大的模型收敛保证。然而，缺点是，当陈旧性变得太高时（例如，当大量机器减速时），收敛速度会迅速恶化。</li>
+<li><strong>Approximate Synchronous Parallel</strong>（ASP）限制了参数的不准确程度。这与SSP形成对比，SSP限制了参数的过时程度。一个优点是，每当聚合的更新无关紧要时，服务器都可以延迟同步。一个缺点是，很难选择定义哪些更新重要，哪些更新不重要的参数。</li>
+<li><strong>Barrierless Asynchronous Parallel /Total Asynchronous Parallel</strong> (BAP/TAP) 让节点并行通信，而无需彼此等待。其优点是通常可以获得尽可能高的加速比。一个缺点是，模型可能收敛缓慢，甚至发展不正确，因为与BSP和SSP不同，误差随延迟而增长。</li>
+</ul>
+<h5 id="mapreduce和spark">MapReduce和Spark</h5>
+<p><strong>MapReduce</strong>是<strong>C/S架构</strong>，Server可以把信息广播到worker节点。Server先定义一个 <strong>Map</strong> 操作，这个 Map 操作是由worker节点完成，然后worker把结果传回client并处理，这个叫做<strong>reduce</strong>。梯度下降可以用 MapReduce 进行并行化。并行化的过程中，数据被分给 worker 进行计算。每一个梯度下降过程包含一个广播、map和一个 reduce 操作。</p>
+<p>MapReduce的主要问题有两个，一是<strong>原语的语义过于低级</strong>，直接使用其来写复杂算法，开发量比较大；另一个问题是<strong>依赖于磁盘进行数据传递</strong>，性能跟不上业务需求。</p>
+<p>为了解决MapReduce的两个问题，Matei在[^3]中提出了一种<strong>新的数据结构RDD</strong>，并构建了Spark框架。Spark框架在MR语义之上封装了<strong>DAG调度器</strong>，极大降低了算法使用的门槛。</p>
+<ul>
+<li><strong>Spark</strong>是基于<strong>内存</strong>进行数据处理的，MapReduce是基于<strong>磁盘</strong>进行数据处理的。</li>
+<li><strong>DAG计算模型</strong>在迭代计算上还是比MapReduce的效率更高。</li>
+<li>MapReduce中，reduce任务需要等待所有map任务完成后才可以开始；在Spark中，分区相同的转换构成<strong>流水线</strong>放到同一个任务中运行。</li>
+</ul>
+<p><strong>较长时间内spark几乎可以说是大规模机器学习的代表</strong>，直至后来李沐完善了参数服务器，开拓了大规模机器学习的领域以后，spark才暴露出一点点不足。</p>
+<h5 id="参数服务器">参数服务器</h5>
+<p>参数服务器的概念最早大概可以追溯到Alex Smola于2010年提出的并行LDA的框架，其采用一个分布式的Memcached作为存放参数的存储，用于在分布式系统不同的Worker节点之间同步模型参数，而每个Worker只需要保存它计算时所依赖的一小部分参数。</p>
+<p>在此之后，PS又有了很多改进，其中又以李沐2014年提出的<strong>ps-lite</strong>(所谓第三代PS架构)为主要代表，也进一步加快了业界广泛使用参数服务器的步伐，在广告，推荐等各领域内大放异彩，时至今日，依然在各大公司内发挥着重要作用。</p>
+<p>ps-lite的主要架构示意图如下图所示。
+<figure><a class="lightgallery" href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite.png" title="ps-lite" data-thumbnail="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite.png" data-sub-html="<h2>ps-lite架构</h2><p>ps-lite</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%b9%b6%e8%a1%8c%e7%ad%96%e7%95%a5/ps-lite.png"
+            data-srcset="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite.png, /%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%b9%b6%e8%a1%8c%e7%ad%96%e7%95%a5/ps-lite.png 1.5x, /%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite.png 2x"
+            data-sizes="auto"
+            alt="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite.png" />
+    </a><figcaption class="image-caption">ps-lite架构</figcaption>
+    </figure>
+其中，<strong>resource manager</strong>用来对当前的各个计算资源进行管理，可以直接利用资源管理组件如yarn、mesos或者k8s来实现，而底下的training data就是用来采集训练数据，在大规模场景下，一般需要类似GFS的分布式文件系统的支持，剩下的<strong>server group和worker group</strong>部分就是参数服务器的核心组件了。</p>
+<p>Paraeter Server框架中，每<strong>个server都只负责分到的部分参数</strong>（server共同维持一个全局共享参数）。server节点可以和其他server节点通信，每个server负责自己分到的参数，<strong>server group 共同维持所有参数的更新</strong>。<strong>server manage node负责维护一些元数据的一致性</strong>，例如各个节点的状态，参数的分配情况。<strong>worker节点之间没有通信，只和对应的server有通信。</strong></p>
+<p>每个worker group有一个<strong>task scheduler</strong>，负责向worker<strong>分配任务</strong>。一个具体任务运行的时候，task schedule负责<strong>通知每个worker加载自己对应的数据</strong>，然后去server node上<strong>拉取一个要更新的参数分片</strong>，用本地数据样本计算参数分片对应的变化量，然后<strong>同步给server node</strong>；server node在收到本机负责的参数分片对应的<strong>所有worker的更新后，对参数分片做一次update。</strong></p>
+<p>从通信视角上看，其是一种比较朴素直观的算法过程，可以看成是<strong>reduce+broadcast</strong>的过程，先是将<strong>worker上的信息reduce到server节点</strong>上，之后<strong>server节点汇总了信息</strong>后，再<strong>broadcast到worker节点</strong>上去，完成了一次信息的处理过程，如下图所示。在这个结构中也能看到，worker之间不通信，而全部依赖于server节点，worker之间的通信能力未得到充分利用， 并且是单工通信，没有同时利用上行带宽和下行带宽，当参数非常稠密，需要通信的信息比较多时，<strong>server节点有可能成为瓶颈</strong>。</p>
+<p>但是如果参数是<strong>高维稀疏</strong>，单机无法保存全部参数，且每个worker无需访问全部的参数的情况，如推荐中的百亿级feature的LR，LDA，小数据量的通信延迟较低，加上PS架构支持异步更新，可以减少阻塞，加快训练速度。粗略地说，原始的PS架构<strong>更适合稀疏超大模型</strong>，且<strong>更容易容灾</strong>，也因此在推荐领域内广泛应用。</p>
+<p><figure><a class="lightgallery" href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png" title="ps-lite运行过程" data-thumbnail="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png" data-sub-html="<h2>ps-lite运行过程</h2><p>ps-lite运行过程</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%b9%b6%e8%a1%8c%e7%ad%96%e7%95%a5/ps-lite%e8%bf%90%e8%a1%8c%e8%bf%87%e7%a8%8b.png"
+            data-srcset="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png, /%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e7%9a%84%e5%b9%b6%e8%a1%8c%e7%ad%96%e7%95%a5/ps-lite%e8%bf%90%e8%a1%8c%e8%bf%87%e7%a8%8b.png 1.5x, /%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png 2x"
+            data-sizes="auto"
+            alt="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/ps-lite%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png" />
+    </a><figcaption class="image-caption">ps-lite运行过程</figcaption>
+    </figure></p>
+<h5 id="ring-all-reduce">Ring All-Reduce</h5>
+<p>PS架构虽然在很多领域内大放异彩，应用广泛，但是当模型稠密，<strong>需要大量交换信息的情况下，Server节点很容易成为瓶颈</strong>，限制了其作用，也因此有了将Ring AllReduce这一类通信方法应用到机器学习领域的尝试。</p>
+<p>实际上，Ring AllReduce算法在高性能计算领域中已经有了比较长的历史，OpenMPI中至少在2007年就有了关于其的开源实现。然而机器学习领域内的对此知之甚少，更加不知道怎么利用其来加速分布式机器学习的速度。直到2016年，百度的研究人员首次尝试将Ring AllReduce算法应用到深度学习领域内，并在很多问题上取得了明显比PS架构更显著的加速效果，在深度学习领域取得了广泛的关注。</p>
+<p>正如名字中所表达，**Ring AllReduce算法首先需要将集群内各个节点按照环状的形式排列，在这个环中，每一个节点都只接收其左邻居节点的信息，且都只发送信息给自己的右邻居节点。**在具体的通信内容和方式的组织上，大概可以分为两部分，第一部分，对于N个节点的集群，将每个节点上数据切分为N份，然后经过N-1轮的Reduce-Scatter过程。具体地，<strong>每一轮中，每个GPU将自己的一个chunk发给右邻居，并接收左邻居发来的chunk，并累加</strong>，经过这样的步骤，每一个节点都拥有一部分数据的最终结果。第二部分，与上部分相类似，<strong>进行N-1轮的AllGather过程，将每一个节点上的一部分的完整信息传递到所有节点上，经过此步骤，每一个节点上就拥有了所有数据的完整信息。</strong></p>
+<h5 id="减少通信内容--梯度压缩">减少通信内容&ndash;梯度压缩</h5>
+<p>梯度压缩里有两大类主要的方案，一是<strong>梯度量化</strong>的方法，二是<strong>梯度稀疏化</strong>的方法。</p>
+<h6 id="梯度量化">梯度量化</h6>
+<p>模型量化等技术在模型推理上发展的相对成熟，也已经有很多成功的应用，可以有效的减少模型尺寸，降低模型推理成本。然而，在训练中，目前还不能做到直接用很小的或是量化的模型进行训练，其往往会导致训练的效果变差，达不到预期的效果。因此一些研究人员从梯度着手，期望能够在不改变模型本身大小和性能的情况下，降低梯度通信的时间。<strong>默认情况下，梯度是用32比特的浮点数来表示，梯度量化就是用更低的精度来表示梯度的方式降低梯度通信的开销。</strong></p>
+<ul>
+<li>基于误差补偿机制的<strong>1-bit SGD</strong>是梯度量化领域内比较有代表性的工作，其是由微软亚研院的研究人员们在2014年发表的。
+<ul>
+<li>1-bit SGD的思路也比较简单，就是直接用1-bit来表示传统的梯度，且直接用0来作为量化的阈值</li>
+<li><strong>可以认为其只保留了梯度中的方向信息，而减少了梯度的具体数值信息，再使用一般的SGD方法来进行优化。</strong></li>
+<li>当然，为了减少梯度损失的影响，他们也引入了两个技巧，一是使用<strong>误差补偿机制</strong>，以减少梯度误差逐渐放大，二是在<strong>训练初期，仍然使用完整的浮点精度的SGD来进行预训练，再之后才转用1-bit SGD进行训练，以使得训练更加稳定。</strong></li>
+</ul>
+</li>
+<li>在1-bit SGD后，又有了<strong>Terngrad量化</strong>的方法。
+<ul>
+<li>相对于1-bit SGD，其主要区别是<strong>会将梯度量化为-1，0，+1三个值</strong>，并且通过<strong>加入随机的二元向量</strong>的方式引入更多的随机性。</li>
+<li>除此之外，其<strong>会对每一层layer的梯度做三元化处理和梯度裁剪方法</strong>。实际过程中，对每一层采用不同的缩放因子，同时区分权重和偏置。经过上述处理后，Terngrad量化在一些问题上的精度下降已经很少，甚至没有损失，但是其通信开销得到了16+倍的提升。</li>
+</ul>
+</li>
+</ul>
+<h6 id="梯度稀疏化">梯度稀疏化</h6>
+<p>除了梯度量化外，另一类梯度压缩的方法就是<strong>梯度稀疏化</strong>，其主要思想就是在通信时<strong>只通信少部分重要的(大的)梯度，而其他的则不通信，累加到下一个迭代中去</strong>。</p>
+<ul>
+<li><strong>Gradient Dropping</strong>是梯度稀疏化领域中的一个代表性工作，其主要做法是**通过设定梯度丢弃的比例Drop ratio，再通过计算找到满足需要丢弃的梯度的阈值Threshold，来对梯度进行稀疏化，未通信的梯度会累加到下一次迭代。**Drop ratio的选择方面，他们比较了90%， 99%， 99.9%的区别，99.9%的情况下，loss曲线还是呈现下降趋势，但是会收敛到一个比较差的结果，而99%的drop比重不会带来太大的影响，通信数据降低了50倍。另外，<strong>通过layer normalize(层归一化)的方法，把每层的参数归一化到一个范围，然后选取drop比重，从而确定阈值，这样对每层网络都可以保留原始的泛化能力，从而有利于收敛性。</strong></li>
+<li><strong>Deep Gradient Compression</strong>则进一步地通过各项技巧来降低了梯度稀疏化后的精度损失。相对于Gradient Dropping而言，其<strong>增加了Momentum Correction， Local Gradient Clipping， Momentum actor Masking，以及Warm-up Training等技术</strong>。通过这些技术，进一步地降低了精度损失，在不少数据集上都达到甚至超过了原始baseline的表现。</li>
+</ul>
+<h4 id="io优化">IO优化</h4>
+<p>IO上，通过代码优化，减少IO的阻塞，尽量使得IO与计算可以overlap。计算上，一方面，可以进一步地优化单机的计算性能，比如图/OP优化，编译器优化等，另一方面，分布式带来了大batch size上的优化问题，又需要解决。</p>
+<p>机器学习系统中，通常需要<strong>先加载处理样本</strong>，<strong>再利用样本进行训练</strong>，当样本不够时，会阻塞等待，<strong>batch size变大时，其阻塞时间也会变长</strong>，更进一步地，多leaner分布式训练时，同步训练的整体进度会由最慢的learner决定（木桶效应）。这就使得，如果IO上优化的不好，就会导致大量的昂贵<strong>GPU资源空载，算力没有被充分利用</strong>，其利用率可能会偶尔到很高，而很多时候在很低的水平。</p>
+<h6 id="监督学习的io优化">监督学习的IO优化</h6>
+<p>针对IO方面的优化，对于<strong>监督学习</strong>而言，目前已有一系列的处理方案，比如<strong>通过数据预取和缓存prefetch</strong>，比如通过并行处理的方式(num_parallel_calls)，以及尽量使tf.record，tf.data减少sess.run， placeholders的方式来优化IO，使得计算与IO可以尽量多地overlap，以提升算力的应用。</p>
+<h6 id="强化学习平台avatar上的部分io优化">强化学习平台Avatar上的部分IO优化</h6>
+<p>与监督学习不同的是，<strong>强化学习</strong>中的样本需要主动地通过交互而来，这也就带来了更多更复杂的IO问题。Avatar就是一个公司内开源的大规模分布式强化学习平台，其已经可以支持包括MOBA，FPS，动作格斗，竞速等各种品类的游戏AI的研发，其在IO优化上也做了很多的工作，这里简单阐述其中的部分内容。</p>
+<ul>
+<li>一是<strong>通过大量的处理来优化内存</strong>，包括通过snapp快速压缩解压样本，通过bytesarray预先分配buff池，通过memoryview避免内存拷贝，利用tcmalloc优化python内存管理等。</li>
+<li>二是<strong>对于大量的计算逻辑进行优化</strong>，以降低样本处理的时间，对样本处理相关模块进行重构，向量化处理并且从trainer中解耦，利用Connectors多进程多cpu优势并行处理。</li>
+<li>三是<strong>自定义ZMQ Op</strong>，包括C++实现ZmqConnectionHandleOp和ZmqPullOp，注册&amp;编译成.so，Python实现ZmqPullSocket包装类加载so并暴露pull接口（返回op）供python侧构建tf graph。</li>
+<li>四是<strong>TF多线程、多核调度ZMQ Op</strong>，包括TF QueueRunner和TF Coordinator用多线程来衔接zmq_op和后续其他依赖op，并发拉取数据，以及Trainer预处理剩余逻辑全部使用tf op来并行处理。</li>
+<li>五是<strong>自定义实现Replay Buffer</strong>，进一步地满足数据预取功能和算法上的其他需求。通过上述处理后，Avatar上的IO和计算可以实现更多的重叠，训练速度变得更快。同时，Leaner(GPU)的资源利用率得到了极大的上升，能够达到90%以上。</li>
+</ul>
+<h4 id="计算优化">计算优化</h4>
+<p>利用分布式机器学习训练模型，算法层面上的一个主要区别是，多个节点并行会使得<strong>实际的batch size变大</strong>，比如单机的batch size是B，则N卡同时计算的batch size就变成了N∗B，随着batch size变大，其<strong>训练速度会逐渐变快</strong>，其中的一个原因是，<strong>大batch size减少了通信和IO的时间和次数，计算的时间占比会增加，且减少了迭代次数。</strong></p>
+<p>然而，当我们真的直接去利用分布式来加速训练时，不幸的发现，随着batch size的增大，训练出现了明显的精度降低，其中一个可能的原因是，<strong>大的batch size会带来泛化性变差的问题</strong>，这可能主要是由<strong>Sharp Minimum</strong>导致的（<strong>局部最优点</strong>）。<strong>小batch size</strong>训练时，其对应的曲线更接近于<strong>Flat Minimum</strong>的结构，而<strong>大batch size</strong>训练时，则更接近于<strong>Sharp Minimum</strong>的结构。假设我们训练时都得到了很好的结果，在Flat Minimum的结构下，训练集与测试集上的结果差异较小，而在Sharp Minimum下，则会有非常大差异。</p>
+<h5 id="训练参数的调整优化器的改进">训练参数的调整（优化器的改进）</h5>
+<ul>
+<li><strong>Learning Rate Linear Scaling</strong>的技术，其出发点是当batch size从B增加到kB时，在总的Epochs不变时，其总的迭代次数则会减少k倍，那么，在learning rate η不变的情况下，模型参数变化的幅度显然是要比之前少了很多的，因此提出了也将<strong>η乘以k来进行线性扩大</strong>，以提升训练速度。当然，在后续的一些工作中，也有在其他的优化器中采用例如<strong>平方根来进行放缩</strong>的方式。</li>
+<li>采用了<strong>Warmup Rule</strong>的技术，其主要的出发点是在经过上述的学习率放大后，在初始训练时，非常容易出现不稳定的现象，导致最后很难收敛。因此，他们在刚开始训练时，仍然<strong>从比较小的η开始，再逐渐增大，训练了一定的Epochs以后，再按照上述的kη的方式进行训练</strong>。在此之后，也有一些工作在训练的后期逐渐降低学习率，被称之为<strong>learning rate decay</strong></li>
+<li>除了常用的<strong>SGD,BGD,AdaGrad,RMSProp,Adadelta,Adam</strong>之外，层数多时也有<strong>LARS，LAMB</strong>等优化器可以选择。</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-01-19&nbsp;<a class="git-hash" href="https://github.com/leviathanwz/hugoBlogFile.git/commit/9d6aba630a6959d57ff12b003c9765154443251b" target="_blank" title="commit by w.z(zhu.quntao@foxmail.com) 9d6aba630a6959d57ff12b003c9765154443251b: 1.git使用中添加了git status不支持中文文件名的解决方法，同时可以解决Hugo的lastmod显示不正常 2.添加机器学习中的并行优化博客">
+                                    <i class="fas fa-hashtag fa-fw"></i>9d6aba6</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://leviathanwz.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/" data-title="机器学习的并行策略" data-hashtags="机器学习,并行程序设计"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://leviathanwz.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/" data-hashtag="机器学习"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://leviathanwz.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/" data-title="机器学习的并行策略" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://leviathanwz.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://leviathanwz.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/" data-title="机器学习的并行策略"><i class="fab fa-weibo fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>,&nbsp;<a href="/tags/%E5%B9%B6%E8%A1%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">并行程序设计</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/rnn%E5%92%8Clstm/" class="prev" rel="prev" title="RNN和LSTM"><i class="fas fa-angle-left fa-fw"></i>RNN和LSTM</a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.80.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">w.z</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
