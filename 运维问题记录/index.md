@@ -177,6 +177,17 @@
 * `sudo apt-get install linux-image-version-generic`安装Linux镜像
 * `sudo apt-get install linux-image-extra-version-generic`安装新内核的额外驱动
 * `sudo apt-get install linux-headers-version-generic`安装linux-headers
+* `sudo apt-mark hold linux-image-version-generic`固定内核镜像
+* `sudo apt-mark hold linux-image-extra-version-generic`固定内核的额外驱动
+* `sudo apt-mark hold linux-headers-version-generic`固定linux-headers
 
+## ubuntu图形界面失效
+* `ctrl+alt+F2~F6`可进入tty命令行界面
+
+## grub相关
+* 开机时按`shift`可进入grub界面
+* `sudo vim /etc/default/grub`修改`grub`文件可修改默认启动项
+* 修改完之后要用`sudo update-grub`来更新grub
+* ` /boot/grub/grub.cfg `包含了各个启动项的详细信息
 [^参考链接]:https://netplan.io/examples/
 
