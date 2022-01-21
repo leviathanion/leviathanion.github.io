@@ -167,13 +167,13 @@
     ```
   * 启用服务`systemctl enable rc.local.service` 
 ## ubuntu驱动内核更新导致nvidia驱动失效解决
-
+* `sudo dpkg --list | grep nvidia-*`或者`cat /proc/driver/nvidia/version`查看gpu驱动版本
 * `sudo apt-get autoremove --purge nvidia-*`删除nvidia相关包
-* `sudo apt-get install linux-headers-$(uname -r)`安装新内核的linux-headers,用于编译各种内核模块
+* `sudo apt-get install linux-headers-$(uname -r)`安装新内核的linux-headers，用于编译各种内核模块
 * `sudo apt-get install nvidia-drivers-4**`安装新的nvidia驱动
 
 ## ubuntu更新内核
-
+* `dpkg --get-selections | grep linux`或者` dpkg --list |grep linux`查看已安装的内核版本
 * `sudo apt-get install linux-image-version-generic`安装Linux镜像
 * `sudo apt-get install linux-image-extra-version-generic`安装新内核的额外驱动
 * `sudo apt-get install linux-headers-version-generic`安装linux-headers
