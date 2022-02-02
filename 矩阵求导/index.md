@@ -71,3 +71,38 @@
 |**$m \times n$维矩阵$X$** | $\frac{\partial y}{X}$<br>分子布局：$n \times m$维矩阵<br>分母布局：$m \times n$维矩阵 | / | / |
 
 ## 求导方法--微分法
+> 本节讨论的内容基于分母布局
+### 标量和向量的微分和导数
+在微积分中对于标量的导数和微分有如下公式
+$$ df=f^\prime dx $$
+多变量的情况下，则有如下公式（其中$\mathbf{x}$为列向量）:
+$$df=\sum\limits_{i=1}^n\frac{\partial f}{\partial x_i}dx_i = (\frac{\partial f}{\partial \mathbf{x}})^Td\mathbf{x}$$
+多变量的情况其实也是标量对向量的微分
+### 矩阵的微分和导数
+上述标量的微分和导数同样可以扩展到矩阵上，对于矩阵微分，有如下定义（其中$X$为矩阵，$X_{i,j}$为矩阵中位置为$i,j$的值）:
+$$df = \sum\limits_{i=1}^m \sum\limits_{j=1}^n\frac{\partial f}{\partial X_{i,j}}dX_{i,j} = tr((\frac{\partial f}{\partial X})^TdX)$$
+> 因为矩阵的乘法是前一个矩阵的行和后一个矩阵的列逐项相乘，对偏导加转置，便于我们在最后矩阵的基础上找到一组较为方便的元素来得到最后的全微分。
+>
+> 同时我们只需要对应的偏导数和对应的元素的微分的乘积，所以最后取最后结果的对角线元素的和。
+
+有了上述的规则，我们仍然很难将实际问题中的导数求解出来，因此需要引入一些额外的性质来方便计算。
+#### 迹的性质
+* 标量的迹等于自己：$tr(x) = x$
+* 转置不变：$tr(A^T)=tr(A)$ 
+* 交换律：$tr(AB)=tr(BA)$，需要A,B同维度
+* 加减法：$tr(A \pm B) = tr(A) \pm tr(B)$ 
+* 矩阵的乘法和转置：$tr((A\odot B)^TC) = tr(A^T(B\odot C ))$，需要A,B,C同维度
+
+#### 矩阵微分的性质
+* 加减法：$d(X\pm Y) = d(X) \pm d(Y)$
+* 乘法：$d(XY)=d(X)Y + Xd(Y)$
+* 对元素重新排列：$d(X^\ast) = d(X)^\ast$例如转置等
+* 迹：$dtr(X)=tr(dX)$
+* 哈德曼积：$d(X \odot Y) = X \odot dY + dX \odot Y$
+* 逐元素求导：$d\sigma(X) = \sigma^\prime(X) \odot dX$
+* 逆：$dX^{-1}=-X^{-1}(dX)X^{-1}$
+* 行列式：$d |X|= |X|tr(X^{-1}dX),d (ln|X|)= tr(X^{-1}dX)$
+
+计算的原则是给标量的微分套上迹进行计算，具体计算实例可参考知乎专栏矩阵求导术[^1]
+
+[^1]:https://zhuanlan.zhihu.com/p/24709748
