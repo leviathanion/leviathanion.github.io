@@ -48,7 +48,7 @@ $$
 实现中将$\alpha$固定为0.95，BPTT的步数为50，普通SRN步数为10。每向前进行5步就进行一次梯度下降，batchsize设为32，初始学习率为0.05，当验证误差不再减少时，每次训练完成后，将学习率除以1.5。
 ### Penn Treebank Corpus数据集
 #### 固定$\alpha$参数
-在参数较少的小数据集上，SCRN和LSTM具有相当的性能，当LSTM具有更多的模型参数，大约是4倍。与"leaky neurons"相比，SCRN也有较大改善。结果如下图所示
+**在参数较少的小数据集上，SCRN和LSTM具有相当的性能**，当LSTM具有更多的模型参数，大约是4倍。与"leaky neurons"相比，SCRN也有较大改善。结果如下图所示
 
 ![Penn Treebank Corpus数据集](/SCRN/PennTreebankCorpus固定参数.png "固定参数")
 
@@ -64,7 +64,7 @@ SCRN随着隐藏层和context参数的增加，性能会逐步提升。如下图
 ![Text8数据集](/SCRN/Text8自我比较.png)
 
 
-当参数规模较小时，SCRN优于LSTM，但参数规模变大之后还是LSTM的性能更好，如下图所示
+**当参数规模较小时，SCRN优于LSTM，但参数规模变大之后还是LSTM的性能更好**，如下图所示
 
 ![Text8数据集](/SCRN/Text8与LSTM对比.png "SRN，LSTM与SCRN的对比")
 
