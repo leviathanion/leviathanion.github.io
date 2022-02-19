@@ -71,6 +71,10 @@ SCRN随着隐藏层和context参数的增加，性能会逐步提升。如下图
 ## 结论
 **当参数规模受到限制时，SCRN会大大优于LSTM**。但当参数规模变大时，有相似的性能。但所有那些模型都不能真正学习到长时记忆。本文还在github上开源了**代码**[^3]
 
+## 思考中的问题
+- [ ] 单位矩阵在模型中起到的作用(推导反向传播)
+
+
 
 [^1]:Learning lo
 nger memory in recurrent neural networks.
