@@ -4,7 +4,14 @@
         <link>https://leviathanwz.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
         <description>深度学习 - 标签 - w.z的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>Chu.quntao@gmail.com (w.z)</managingEditor>
-            <webMaster>Chu.quntao@gmail.com (w.z)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Feb 2022 15:42:05 &#43;0800</lastBuildDate><atom:link href="https://leviathanwz.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>Chu.quntao@gmail.com (w.z)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</lastBuildDate><atom:link href="https://leviathanwz.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>QRNN</title>
+    <link>https://leviathanwz.github.io/qrnn/</link>
+    <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://leviathanwz.github.io/qrnn/</guid>
+    <description><![CDATA[QRNN1 问题和动机 标准的RNN包括门变种LSTM等因为无法并行计算，因此在长序列的任务中性能受到了限制。 将CNN用于序列模型时 并行性更好 可以更好地]]></description>
+</item><item>
     <title>SCRN</title>
     <link>https://leviathanwz.github.io/scrn/</link>
     <pubDate>Thu, 17 Feb 2022 15:42:05 &#43;0800</pubDate>

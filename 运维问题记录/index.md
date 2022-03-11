@@ -1,6 +1,12 @@
 # 运维问题记录
 
 # 运维问题记录
+## 缺少ifconfig等工具时
+* 下载net-tools包
+## 简单路由配置
+* 显示当前路由 `route -n`
+* 添加一条路由`route add -net *.*.*.* gw *.*.*.* netmask *.*.*.* dev eth0`
+* 删除一条路由`route del -net *.*.*.* gw *.*.*.* netmask *.*.*.* dev eth0`
 
 ## 多网卡路由配置
 > 可查询此链接[linux网络命令](http://linux-ip.net/html/index.html)查看linux网络命令的使用

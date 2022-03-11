@@ -26,19 +26,28 @@ $$s_t = s_{t-1}+Bx_t$$
 
 <div>
 $$
-s_t = (1-\alpha)Bx_t + \alpha s_{t-1} \\
-h_t = \sigma(Ps_t+Ax_t+Rh_{t-1}) \\
-y_t = f(Uh_t+Vs_t) \\
+\begin{aligned}
+s_t &= (1-\alpha)Bx_t + \alpha s_{t-1}
+\\
+h_t &= \sigma(Ps_t+Ax_t+Rh_{t-1}) 
+\\
+y_t &= f(Uh_t+Vs_t) 
+\end{aligned}
 $$</div>
 
 * 上述公式固定了$\alpha$，因此只能学习固定的时间尺度。如果将其设为可训练的话，那么就能从不同的时间延迟上学习。如下所示
 
 <div>
 $$
-s_t = (I-Q)Bx_t + Q s_{t-1} \\
-h_t = \sigma(Ps_t+Ax_t+Rh_{t-1}) \\
-y_t = f(Uh_t+Vs_t) \\
-diag(Q) = \sigma(\beta)
+\begin{aligned}
+s_t &= (I-Q)Bx_t + Q s_{t-1} 
+\\
+h_t &= \sigma(Ps_t+Ax_t+Rh_{t-1}) 
+\\
+y_t &= f(Uh_t+Vs_t) 
+\\
+diag(Q) &= \sigma(\beta)
+\end{aligned}
 $$
 </div>
 
@@ -81,3 +90,4 @@ nger memory in recurrent neural networks.
 [^2]:Rumelhart, David E, Hinton, Geoffrey E, and Williams, Ronald J. Learning internal representations
 by error propagation. Technical report, DTIC Document, 1985.
 [^3]: http://github.com/facebook/SCRNNs
+

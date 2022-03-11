@@ -4,9 +4,16 @@
         <link>https://leviathanwz.github.io/</link>
         <description>w.z的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>Chu.quntao@gmail.com (w.z)</managingEditor>
-            <webMaster>Chu.quntao@gmail.com (w.z)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Feb 2022 15:42:05 &#43;0800</lastBuildDate>
+            <webMaster>Chu.quntao@gmail.com (w.z)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</lastBuildDate>
             <atom:link href="https://leviathanwz.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>QRNN</title>
+    <link>https://leviathanwz.github.io/qrnn/</link>
+    <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://leviathanwz.github.io/qrnn/</guid>
+    <description><![CDATA[QRNN1 问题和动机 标准的RNN包括门变种LSTM等因为无法并行计算，因此在长序列的任务中性能受到了限制。 将CNN用于序列模型时 并行性更好 可以更好地]]></description>
+</item><item>
     <title>SCRN</title>
     <link>https://leviathanwz.github.io/scrn/</link>
     <pubDate>Thu, 17 Feb 2022 15:42:05 &#43;0800</pubDate>
@@ -47,7 +54,7 @@
     <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://leviathanwz.github.io/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
-    <description><![CDATA[运维问题记录 多网卡路由配置 可查询此链接linux网络命令查看linux网络命令的使用 使用策略路由 通过配置双路由表来配置不同网域使用不同路由表]]></description>
+    <description><![CDATA[运维问题记录 缺少ifconfig等工具时 下载net-tools包 简单路由配置 显示当前路由 route -n 添加一条路由route add -net *.*.*.* gw *.*.*.* netmask *.*.*.* dev eth0 删除一条]]></description>
 </item><item>
     <title>Git使用</title>
     <link>https://leviathanwz.github.io/git%E4%BD%BF%E7%94%A8/</link>
