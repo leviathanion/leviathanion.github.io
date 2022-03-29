@@ -3,6 +3,7 @@
 # 运维问题记录
 ## 缺少ifconfig等工具时
 * 下载net-tools包
+> 目前iproute2已逐渐取代net-tools工具包，成为系统自带的网络工具，iproute2命令包主要是以ip作为前缀的一些命令
 ## 简单路由配置
 * 显示当前路由 `route -n`
 * 添加一条路由`route add -net *.*.*.* gw *.*.*.* netmask *.*.*.* dev eth0`
@@ -154,7 +155,7 @@
 > 当render设置为NetWorkManager时,可能会提示不能设置没有默认路由的路由表,将render一行删除即可
   
 ## 设置开机启动自动运行的脚本
-旧的版本中可以直接编辑 rc.local 添加开机启动脚本，而新版本这个功能默认是禁用的
+旧的版本中可以直接编辑`/etc/rc.local`添加开机启动脚本，而新版本这个功能默认是禁用的
 * Ubuntu20.04按下操作开启rc-local.service
   * 给`rc.local`文件执行权限`chmod +x`或者`chmod 755`
   * `vi /lib/systemd/system/rc-local.service`添加如下代码
@@ -163,7 +164,7 @@
     WantedBy=multi-user.target
     ```
   * 启动服务`systemctl enable rc-local`
-* Ubuntu18.04使用`rc.local`来对文件和服务命名,因此基本只需将20.04命令中的`rc-loca`改为`rc.local`即可
+* Ubuntu18.04使用`rc.local`来对文件和服务命名,因此基本只需将20.04命令中的`rc-local`改为`rc.local`即可
   * 给`rc.local`文件执行权限`chmod +x`或者`chmod 755`
   * `vi /lib/systemd/system/rc.local.service`,添加如下代码
     ```shell
@@ -187,13 +188,19 @@
 * `sudo apt-mark hold linux-image-extra-version-generic`固定内核的额外驱动
 * `sudo apt-mark hold linux-headers-version-generic`固定linux-headers
 
-## ubuntu图形界面失效
-* `ctrl+alt+F2~F6`可进入tty命令行界面
-
 ## grub相关
 * 开机时按`shift`可进入grub界面
 * `sudo vim /etc/default/grub`修改`grub`文件可修改默认启动项
 * 修改完之后要用`sudo update-grub`来更新grub
 * ` /boot/grub/grub.cfg `包含了各个启动项的详细信息
+* 若重装系统时，开机出现引导失败，进入grub rescue模式，可尝试写入启动盘时使用dd模式
+
+## ubuntu图形界面失效
+* `ctrl+alt+F2~F6`可进入tty命令行界面
+* 如果出现图形界面黑屏，但可以进入tty模式，考虑如下方法解决
+    * 修改`/boot/grub/grub.cfg`，在`quiet splash`后面添加`nomodeset`
+    * 修改`/etc/default/grub`,在`quiet splash`后面添加`nomodeset`
+
+
 [^参考链接]:https://netplan.io/examples/
 
