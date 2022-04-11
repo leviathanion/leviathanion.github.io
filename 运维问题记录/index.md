@@ -153,11 +153,13 @@
 > 当设置了gateway4之后将在默认的default表自动设置对应的默认路由
 > 
 > 当render设置为NetWorkManager时,可能会提示不能设置没有默认路由的路由表,将render一行删除即可
+>
+> 缺省render的情况下，默认使用networkd
   
 ## 设置开机启动自动运行的脚本
 旧的版本中可以直接编辑`/etc/rc.local`添加开机启动脚本，而新版本这个功能默认是禁用的
 * Ubuntu20.04按下操作开启rc-local.service
-  * 给`rc.local`文件执行权限`chmod +x`或者`chmod 755`
+  * 给`/etc/rc.local`文件执行权限`chmod +x`或者`chmod 755`
   * `vi /lib/systemd/system/rc-local.service`添加如下代码
     ```shell
     [Install]
@@ -201,6 +203,19 @@
     * 修改`/boot/grub/grub.cfg`，在`quiet splash`后面添加`nomodeset`
     * 修改`/etc/default/grub`,在`quiet splash`后面添加`nomodeset`
 
+## 安全相关
+### SSH安全
+* 具体参阅archwiki
+
+### ufw防火墙设置
+* `sudo ufw status`查看防火墙状态
+* `sudo ufw default deny`默认拒绝
+* `sudo ufw allow from 192.168.0.0/24`允许某个ip段访问
+* `sudo ufw all 22/tcp/udp`允许22端口的tcp或者udp访问，若不加tcp或者udp则都允许访问
+* `sudo ufw all ssh`允许ssh的端口访问
+* `sudo ufw limit ssh`限制ssh的访问，禁用过去30秒尝试启动6个或以上的IP连接
+* `\etc\ufw\user.rules`存储了规则，`\etc\ufw\before.rules`可以设置黑名单
+> 详细可参阅官方文档
 
 [^参考链接]:https://netplan.io/examples/
 
