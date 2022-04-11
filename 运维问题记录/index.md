@@ -182,6 +182,8 @@
 * `sudo apt-get install nvidia-drivers-4**`安装新的nvidia驱动
 
 ## ubuntu更新内核
+* `uname`或`hostnamectl`查看内核版本
+> 可使用`uname --help`查看具体用法
 * `dpkg --get-selections | grep linux`或者` dpkg --list |grep linux`查看已安装的内核版本
 * `sudo apt-get install linux-image-version-generic`安装Linux镜像
 * `sudo apt-get install linux-image-extra-version-generic`安装新内核的额外驱动
