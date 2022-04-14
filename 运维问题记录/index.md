@@ -204,6 +204,42 @@
 * 如果出现图形界面黑屏，但可以进入tty模式，考虑如下方法解决
     * 修改`/boot/grub/grub.cfg`，在`quiet splash`后面添加`nomodeset`
     * 修改`/etc/default/grub`,在`quiet splash`后面添加`nomodeset`
+## 用户管理
+* 涉及四个文件，主要需要修改passwd文件
+| 文件| 含义 |
+|  :--:  |  :--:  |
+|/etc/shadow |加密的用户账户信息 |
+|/etc/passwd |用户账户信息 |
+|/etc/gshadow |隐藏的组账户信息 |
+|/etc/group |定义了用户属于哪个组 |
+* `useradd`命令，可通过`man useradd`查看用法
+| 参数 | 含义 |
+|  :--:  |  :--:  |
+| -d 目录 | 指定一个用户目录，若目录不存在，需要-m参数创建主目录 |
+| -g 用户组| 指定用户所属的用户组|
+| -G 用户组，用户组| 指定用户所属的附加组|
+| -s shell | 指定用户登录的shell|
+| -u 用户号| 指定用户的用户号|
+| -m | 自动建立用户的登录目录|
+| -M | 不自动建立用户的登录目录|
+| -n | 不自动建立以用户名为名的用户组|
+> * 新建一个普通用户
+> ```shell
+>  useradd -d  /home/username -m username -s /bin/bash
+>  passwd username
+>  ```
+> * 新建一个管理员用户
+> ```shell
+>  useradd -d  /home/username -m username -s /bin/bash -g sudo
+>  passwd username
+>  ```
+
+* `userdel`命令，删除用户，加`-r`参数也删除用户主目录
+* `usermod`命令，参数与`useradd`一致，含义变为修改
+> 修改`/etc/sudoers`文件，为用户添加`sudo`权限，添加如下
+> ```shell
+> username ALL = (ALL) ALL
+> ```
 
 ## 安全相关
 ### SSH安全
