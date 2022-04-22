@@ -255,5 +255,21 @@
 * `\etc\ufw\user.rules`存储了规则，`\etc\ufw\before.rules`可以设置黑名单
 > 详细可参阅官方文档
 
+## nvim配置
+### linux
+* 从github拉取配置文件并放在.config目录下，命名为nvim
+```shell
+git clone https://github.com/leviathanion/nvim-config.git  .config/nvim
+```
+* 下载packer插件管理工具[^packer]，然后进入nvim运行`:PackerSync`
+* 可通过`:checkhealth`查看各插件情况
+* 在.bashrc或者.zshrc中添加以下代码，使得root权限也可用
+```shell
+alias sudonvim = "sudo -E nvim"
+```
+### windows
+* 与linux类似，将配置文件放到`c:user/appdata/local/nvim`中
+
 [^参考链接]:https://netplan.io/examples/
+[^packer]:https://github.com/wbthomason/packer.nvim
 
