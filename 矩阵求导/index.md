@@ -106,3 +106,4 @@ $$df = \sum\limits_{i=1}^m \sum\limits_{j=1}^n\frac{\partial f}{\partial X_{i,j}
 计算的原则是给标量的微分套上迹进行计算，具体计算实例可参考知乎专栏矩阵求导术[^1]
 
 [^1]:https://zhuanlan.zhihu.com/p/24709748
+

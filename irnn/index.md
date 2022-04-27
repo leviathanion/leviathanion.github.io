@@ -92,3 +92,4 @@ Learning, 2013.
 [^8]:Exact solutions to the nonlinear dynamics of learning in deep linear neural networks
 
 [^9]:Random Walk Initialization for Training Very Deep Feedforward Networks
+
