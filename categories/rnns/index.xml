@@ -8,36 +8,41 @@
     <title>SRU</title>
     <link>https://leviathanion.github.io/sru/</link>
     <pubDate>Mon, 28 Mar 2022 09:59:38 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/sru/</guid>
     <description><![CDATA[SRU]]></description>
-</item><item>
+</item>
+<item>
     <title>QRNN</title>
     <link>https://leviathanion.github.io/qrnn/</link>
     <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/qrnn/</guid>
-    <description><![CDATA[QRNN1 问题和动机 标准的RNN包括门变种LSTM等因为无法并行计算，因此在长序列的任务中性能受到了限制。 将CNN用于序列模型时 并行性更好 可以更好地]]></description>
-</item><item>
+    <description><![CDATA[QRNN1(待完成) 问题和动机 标准的RNN包括门变种LSTM等因为无法并行计算，因此在长序列的任务中性能受到了限制。 将CNN用于序列模型时 并]]></description>
+</item>
+<item>
     <title>SCRN</title>
     <link>https://leviathanion.github.io/scrn/</link>
     <pubDate>Thu, 17 Feb 2022 15:42:05 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/scrn/</guid>
     <description><![CDATA[SCRN模型1 问题和动机 前馈神经网络中的时滞神经网络2，通过一个固定长度的最近历史窗口的结构，达到了能够建模序列数据的目的。但也有以下缺点 固]]></description>
-</item><item>
+</item>
+<item>
     <title>RNN和LSTM</title>
     <link>https://leviathanion.github.io/rnn%E5%92%8Clstm/</link>
     <pubDate>Fri, 24 Dec 2021 15:39:14 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/rnn%E5%92%8Clstm/</guid>
     <description><![CDATA[RNN和LSTM RNN 问题和动机 自然界中很多事物都是序列相关的，想要理解某一时刻，必须要获取过去时刻的信息 过去的模型难以捕获序列信息 idea 通过一个状]]></description>
-</item><item>
+</item>
+<item>
     <title>IRNN</title>
     <link>https://leviathanion.github.io/irnn/</link>
     <pubDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/irnn/</guid>
     <description><![CDATA[IRNN模型1 问题和动机 梯度消失和梯度爆炸的问题导致RNN模型难以学习到远距离依赖 过去的解决方法依赖于复杂的优化技术和网络架构 提出一种较为简]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

@@ -8,15 +8,17 @@
     <title>Python学习笔记</title>
     <link>https://leviathanion.github.io/python/</link>
     <pubDate>Sat, 02 Apr 2022 14:10:51 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>lovelZZ</author>
     <guid>https://leviathanion.github.io/python/</guid>
     <description><![CDATA[Python学习笔记 1.python基础 1.1python语法常识 python语法采用缩进格式而不是括号来进行代码块分割的 缩进没有空格个数或]]></description>
-</item><item>
+</item>
+<item>
     <title>C&#43;&#43;学习笔记</title>
     <link>https://leviathanion.github.io/c-/</link>
     <pubDate>Tue, 22 Mar 2022 20:53:07 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/c-/</guid>
     <description><![CDATA[C++学习笔记 C++简单特性 编译型语言，不是解释性 源代码的可移植性，但可执行程序不跨平台 由C++核心语言特征以及标准库两个组件构成 核心语言特]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

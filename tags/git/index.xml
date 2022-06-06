@@ -8,8 +8,9 @@
     <title>Git使用</title>
     <link>https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/</link>
     <pubDate>Mon, 25 Jan 2021 20:53:07 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/</guid>
     <description><![CDATA[git使用1 基本命令 创建仓库git init 把文件添加到仓库git add 全部添加 git add . 把文件提交到仓库git commit 可以多次git add后git commit 命令之后必须]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

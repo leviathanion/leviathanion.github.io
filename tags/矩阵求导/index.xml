@@ -8,8 +8,9 @@
     <title>矩阵求导</title>
     <link>https://leviathanion.github.io/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</link>
     <pubDate>Wed, 19 Jan 2022 11:11:45 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</guid>
     <description><![CDATA[矩阵求导 分子布局和分母布局 标量，向量，矩阵之间的求导，相对于标量对标量的求导，需要考虑一个额外的因素，就是求导之后的布局，例如标量对列向量求]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

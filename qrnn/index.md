@@ -1,6 +1,6 @@
 # QRNN
 
-# QRNN[^1]
+# QRNN[^1](待完成)
 ## 问题和动机
 * **标准的RNN包括门变种LSTM**等因为**无法并行计算**，因此在**长序列**的任务中性能受到了限制。
 * 将**CNN**用于序列模型时
@@ -8,6 +8,18 @@
   * 可以**更好地扩展到长序列**
   * 但因为**最大和平均池化时假设了时间不变性**，（在一次卷积池化过程中，时间步的顺序会被忽略，移动卷积核的过程中，进行相同的池化操作，不同时间步的重要性不同同样也会被忽略）因此无法充分利用**大规模序列的顺序信息**。
 * 因此作者提出了一种将**CNN和RNN混合**的模型QRNN，既能**跨时间步和小批量维度进行并行计算**，又使得**输出取决于总体顺序**。**性能更优秀且更节省时间**
+
+## 过去的解决方法
+* 将CNN应用到序列模型[^6]character-level CNN(NIPS2015)假设了时间不变性，无法利用顺序信息
+![character-levelCNN模型](/QRNN/character-levelCNN.png "该模型主要通过多个卷积层和池化层堆叠，沿时间步对序列进行卷积和池化来实现序列信息的捕获")
+
+* 音频生成领域的waveNet模型[^7]，通过五层类似于CNN的结构取得了很好效果。但这一模型在音频生成这种上一个时刻依赖很强烈的领域可能有效，但是对于NLP的其他领域并没有取得很好的效果。
+    * 使用了因果卷积的假设，假设了当前时间仅仅依赖上一个时刻，但因果卷积的感受野较小，通常需要多层或者大型过滤器来增加感受野
+    ![因果卷积](/QRNN/causalCNN.png "因果卷积的模型图如上所示，因果卷积的感受野较小")
+    * 通过扩展卷积将感受野增大几个数量级，同时没有增加计算成本
+    ![扩展卷积](/QRNN/dilatedCNN.png "扩展卷积的模型图如上所示，通过简单的方式增大了CNN的感受野")
+
+* 将CNN与RNN结合[^8](待补充)
 
 ## 模型
 QRNN模型由**两个组件**构成，类似于CNN模型中的**卷积层和池化层**。**卷积层**允许在**Minibatch和空间维度**（顺序序列）两个层面并行化训练。**池化层**允许在**Minibatch和特征维度**两个层面并行化训练，并且池化层**没有可训练的参数**。
@@ -125,4 +137,7 @@ $$
 [^3]:David Krueger, Tegan Maharaj, János Kramár, Mohammad Pezeshki, Nicolas Ballas, Nan Rosemary Ke, Anirudh Goyal, Yoshua Bengio, Hugo Larochelle, Aaron Courville, et al. Zoneout: Regularizing RNNs by Randomly Preserving Hidden Activations. 
 [^4]:Densely connected convolution networks.(CVPR2017)
 [^5]:Neural machine translation by jointly learning to align and translate(ICLR 2015)
+[^6]:Character-level Convolutional Networks for Text Classification(NIPS2015)
+[^7]:WaveNet: A Generative Model for Raw Audio
+[^8]:Fully Character-Level Neural Machine Translation without Explicit Segmentation
 

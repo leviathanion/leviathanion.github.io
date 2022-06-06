@@ -8,8 +8,9 @@
     <title>运维问题记录</title>
     <link>https://leviathanion.github.io/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</link>
     <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
-    <author>作者</author>
+    <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</guid>
     <description><![CDATA[运维问题记录 缺少ifconfig等工具时 下载net-tools包 目前iproute2已逐渐取代net-tools工具包，成为系统自带的网络工]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>
