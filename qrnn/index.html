@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>QRNN(未完成) - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="QRNN(未完成)" />
+<meta property="og:description" content="QRNN1 Novelty 将RNN与CNN结合 用一种不使用未来数据的masked卷积来代替LSTM中与上一时刻隐藏层相乘的操作 简化了LSTM的操作，在计算过程中删" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/qrnn/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-19T10:09:43+08:00" />
+<meta property="article:modified_time" content="2022-06-10T12:02:54+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="QRNN(未完成)"/>
+<meta name="twitter:description" content="QRNN1 Novelty 将RNN与CNN结合 用一种不使用未来数据的masked卷积来代替LSTM中与上一时刻隐藏层相乘的操作 简化了LSTM的操作，在计算过程中删"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/qrnn/" /><link rel="prev" href="https://leviathanion.github.io/scrn/" /><link rel="next" href="https://leviathanion.github.io/c-/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "QRNN(未完成)",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/qrnn\/"
+        },"image": ["https:\/\/leviathanion.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "RNNs, 深度学习, 机器学习, RNN优化","wordcount":  2360 ,
+        "url": "https:\/\/leviathanion.github.io\/qrnn\/","datePublished": "2022-02-19T10:09:43+08:00","dateModified": "2022-06-10T12:02:54+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "loveLZZ","logo": "https:\/\/leviathanion.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "loveLZZ"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">QRNN(未完成)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/rnns/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>RNNs</a>&nbsp;<a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>深度学习</a>&nbsp;<a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>机器学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-02-19">2022-02-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2360 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#novelty">Novelty</a></li>
+    <li><a href="#问题和动机">问题和动机</a></li>
+    <li><a href="#过去的解决方法">过去的解决方法</a></li>
+    <li><a href="#模型">模型</a>
+      <ul>
+        <li><a href="#卷积组件">卷积组件</a></li>
+        <li><a href="#池化组件">池化组件</a></li>
+        <li><a href="#变种">变种</a>
+          <ul>
+            <li><a href="#正则化对于rnn的改进">正则化(对于RNN的改进)</a></li>
+            <li><a href="#densenet4对于cnn的改进">DenseNet(对于CNN的改进)</a></li>
+            <li><a href="#编码解码模型">编码解码模型</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#实验">实验</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="qrnn1">QRNN<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h1>
+<h2 id="novelty">Novelty</h2>
+<ul>
+<li>将RNN与CNN结合
+<ul>
+<li>用一种不使用未来数据的masked卷积来代替LSTM中与上一时刻隐藏层相乘的操作</li>
+<li>简化了LSTM的操作，在计算过程中删除了隐藏层，仅仅使用输入数据来捕获依赖</li>
+</ul>
+</li>
+<li>通过上述操作简化了LSTM的计算，使其可以并行</li>
+</ul>
+<h2 id="问题和动机">问题和动机</h2>
+<ul>
+<li><strong>标准的RNN包括门变种LSTM</strong>等因为<strong>无法并行计算</strong>，因此在<strong>长序列</strong>的任务中性能受到了限制。</li>
+<li>将<strong>CNN</strong>用于序列模型时
+<ul>
+<li><strong>并行性更好</strong></li>
+<li>可以<strong>更好地扩展到长序列</strong></li>
+<li>但因为<strong>最大和平均池化时假设了时间不变性</strong>，（在一次卷积池化过程中，时间步的顺序会被忽略，移动卷积核的过程中，进行相同的池化操作，不同时间步的重要性不同同样也会被忽略）因此无法充分利用<strong>大规模序列的顺序信息</strong>。</li>
+</ul>
+</li>
+<li>因此作者提出了一种将<strong>CNN和RNN混合</strong>的模型QRNN，既能<strong>跨时间步和小批量维度进行并行计算</strong>，又使得<strong>输出取决于总体顺序</strong>。<strong>性能更优秀且更节省时间</strong></li>
+</ul>
+<h2 id="过去的解决方法">过去的解决方法</h2>
+<ul>
+<li>
+<p>将CNN应用到序列模型<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>character-level CNN(NIPS2015)假设了时间不变性，无法利用顺序信息
+<figure><a class="lightgallery" href="/QRNN/character-levelCNN.png" title="character-levelCNN模型" data-thumbnail="/QRNN/character-levelCNN.png" data-sub-html="<h2>该模型主要通过多个卷积层和池化层堆叠，沿时间步对序列进行卷积和池化来实现序列信息的捕获</h2><p>character-levelCNN模型</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/QRNN/character-levelCNN.png"
+            data-srcset="/QRNN/character-levelCNN.png, /QRNN/character-levelCNN.png 1.5x, /QRNN/character-levelCNN.png 2x"
+            data-sizes="auto"
+            alt="/QRNN/character-levelCNN.png" width="830" height="247" />
+    </a><figcaption class="image-caption">该模型主要通过多个卷积层和池化层堆叠，沿时间步对序列进行卷积和池化来实现序列信息的捕获</figcaption>
+    </figure></p>
+</li>
+<li>
+<p>音频生成领域的waveNet模型<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>，通过五层类似于CNN的结构取得了很好效果。但这一模型在音频生成这种上一个时刻依赖很强烈的领域可能有效，但是对于NLP的其他领域并没有取得很好的效果。</p>
+<ul>
+<li>使用了因果卷积的假设，假设了当前时间仅仅依赖上一个时刻，但因果卷积的感受野较小，通常需要多层或者大型过滤器来增加感受野
+<figure><a class="lightgallery" href="/QRNN/causalCNN.png" title="因果卷积" data-thumbnail="/QRNN/causalCNN.png" data-sub-html="<h2>因果卷积的模型图如上所示，因果卷积的感受野较小</h2><p>因果卷积</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/QRNN/causalCNN.png"
+            data-srcset="/QRNN/causalCNN.png, /QRNN/causalCNN.png 1.5x, /QRNN/causalCNN.png 2x"
+            data-sizes="auto"
+            alt="/QRNN/causalCNN.png" width="878" height="323" />
+    </a><figcaption class="image-caption">因果卷积的模型图如上所示，因果卷积的感受野较小</figcaption>
+    </figure></li>
+<li>通过扩展卷积将感受野增大几个数量级，同时没有增加计算成本
+<figure><a class="lightgallery" href="/QRNN/dilatedCNN.png" title="扩展卷积" data-thumbnail="/QRNN/dilatedCNN.png" data-sub-html="<h2>扩展卷积的模型图如上所示，通过简单的方式增大了CNN的感受野</h2><p>扩展卷积</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/QRNN/dilatedCNN.png"
+            data-srcset="/QRNN/dilatedCNN.png, /QRNN/dilatedCNN.png 1.5x, /QRNN/dilatedCNN.png 2x"
+            data-sizes="auto"
+            alt="/QRNN/dilatedCNN.png" width="871" height="303" />
+    </a><figcaption class="image-caption">扩展卷积的模型图如上所示，通过简单的方式增大了CNN的感受野</figcaption>
+    </figure></li>
+</ul>
+</li>
+<li>
+<p>将CNN与RNN结合<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>(待补充)</p>
+</li>
+</ul>
+<h2 id="模型">模型</h2>
+<p>QRNN模型由<strong>两个组件</strong>构成，类似于CNN模型中的<strong>卷积层和池化层</strong>。<strong>卷积层</strong>允许在<strong>Minibatch和空间维度</strong>（顺序序列）两个层面并行化训练。<strong>池化层</strong>允许在<strong>Minibatch和特征维度</strong>两个层面并行化训练，并且池化层<strong>没有可训练的参数</strong>。</p>
+<h3 id="卷积组件">卷积组件</h3>
+<ul>
+<li>为了确保对于下一个任务的预测能力，卷积操作时<strong>不能使用未来的数据</strong>，因此使用一种masked convolution。</li>
+</ul>
+<blockquote>
+<p>假设输入序列为$X \in \mathbb{R}^{T \times n}$，T为时间序列的长度，n为每个输入向量$x$的维度。$Z \in \mathbb{R}^{T \times m}$为卷积操作之后隐藏层序列，其中m为每个输入对应隐藏层的维度。卷积操作如下所示
+\begin{align*}
+Z &amp;= tanh(W_z * X)
+\\
+F &amp;= \sigma(W_f * X)
+\\
+O &amp;= \sigma(W_o * X)
+\end{align*}</p>
+</blockquote>
+<p>其中$W_z,W_f,W_o \in \mathbb{R}^{k \times n \times m}$，k为卷积过滤器的长度，$ * $ 代表卷积操作，例如k取2时，对于每个元素而言，上述公式可写为</p>
+<p>\begin{align*}
+z_t &amp;= tanh(W^1_z x_{t-1} + W^2_z x_{t})
+\\
+f_t &amp;= \sigma(W^1_f x_{t-1} + W^2_f x_{t})
+\\
+o_t &amp;= \sigma(W^1_o x_{t-1} + W^2_o x_{t})
+\end{align*}</p>
+<ul>
+<li>对比LSTM中的运算
+<ul>
+<li>可以看出去掉了隐藏层$H_t$，$z_t$代替了$\tilde{C}$，$f_t$代替了$F_t$，$o_t$代替了$O_t$</li>
+</ul>
+</li>
+</ul>
+<div>
+\begin{align*}
+    I_t &= \sigma(X_tW_{xi}+H_{t-1}W_{hi}+b_i) 
+    \\
+    F_t &= \sigma(X_tW_{xf}+H_{t-1}W_{hf}+b_f) 
+    \\
+    O_t &= \sigma(X_tW_{xo}+H_{t-1}W_{ho}+b_o)
+    \\
+    \tilde{C}_t &= tanh(X_tW_{xc}+H_{t-1}W_{hc}+b_c)
+\end{align*} 
+</div>
+<h3 id="池化组件">池化组件</h3>
+<ul>
+<li>对于池化组件而言，有多种选择，第一种选择<strong>仅仅使用遗忘门</strong>，第二种选择<strong>使用遗忘门和输出门</strong>，第三种选择<strong>使用遗忘门，输入们和输出门</strong>。如下所示</li>
+</ul>
+<p>仅使用遗忘门
+$$
+h_t = f_t \odot h_{t-1} + (1 - f_t) \odot z_t
+$$</p>
+<p>使用遗忘门和输出门
+\begin{align*}
+c_t &amp;= f_t \odot c_{t-1} + (1 - f_t) \odot z_t
+\\
+h_t &amp;= o_t \odot c_t
+\end{align*}</p>
+<p>使用遗忘门，输入门和输出门
+\begin{align*}
+c_t &amp;= f_t \odot c_{t-1} + i_t \odot z_t
+\\
+h_t &amp;= o_t \odot c_t
+\end{align*}</p>
+<ul>
+<li>与之相比，LSTM中的最后一步计算如下所示
+\begin{align*}
+C_t &amp;= F_t \odot C_{t-1} + I_t \odot \tilde{C}_t
+\\
+H_t &amp;= O_t \odot tanh(C_t)
+\end{align*}</li>
+</ul>
+<h3 id="变种">变种</h3>
+<p>对于不同的任务而言可以对原始的QRNN模型进行各种改进。由于QRNN结合了CNN和RNN模型。因此<strong>对CNN和RNN模型的改进也可以应用到QRNN上</strong>。</p>
+<h4 id="正则化对于rnn的改进">正则化(对于RNN的改进)</h4>
+<ul>
+<li>传统的dropout方法难以在循环连接结构上产生高效的结果</li>
+<li>基于变分推理的正则化(variational inference–based dropout)<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>，这种方式不适合于QRNN</li>
+<li>zoneout<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></li>
+</ul>
+<h4 id="densenet4对于cnn的改进">DenseNet<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>(对于CNN的改进)</h4>
+<ul>
+<li>denseNet是一种在CNN模型中较为有效的连接结构,通过将层与层之间的连接二次方化，改善了梯度流和收敛性，论文的作者发现，将此连接方式用于QRNN的序列分类任务时，可以取得一定的效果提升</li>
+</ul>
+<h4 id="编码解码模型">编码解码模型</h4>
+<ul>
+<li>由于传统的编码解码器结构，只是将编码器的最后一层作为解码器的第一个池化层的输入，并没有影响到解码器的卷积层，限制了模型的表现能力。</li>
+<li>作者想到将编码器的最后一层状态合并到解码器的每一个时间步的卷积操作中，可以取得较好的效果。模型被修改为以下结构,其中H为编码器的最后一层隐藏层状态</li>
+</ul>
+<blockquote>
+<p>我个人觉得这是实验效果不错，所以写上去的理由，引入的CNN结构或者门结构都可以捕获时序信息，只要第一个被输入到卷积层或者池化层了，后面的时间步也能获取到对应的信息。这样的改进结构类似于只有编码器对后面的层使用DenseNet连接，其实是改进了卷积层的CNN操作
+\begin{align*}
+Z&amp;=tanh(W_z * X + V_z * H)
+\\
+F&amp;=\sigma(W_f * X + V_f * H)
+\\
+O&amp;=\sigma(W_o * X + V_o * H)
+\end{align*}</p>
+</blockquote>
+<ul>
+<li>除此之外，根据论文<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>的结果，将一个softmax卷积层放到输出前可以提升模型效果，因为不加卷积层时，仅仅是通过固定长度的向量来对所有输入进行表示。</li>
+<li>在解码时引入注意力机制，具体如下</li>
+<li>通过将编码器的最后一层的每一个时间步的隐藏层状态与时间步t的门操作之前的解码器状态进行内积，然后用softmax操作，得到蕴含所有时间步的编码器隐藏状态的变量$\alpha_{at}$，然后通过此变量得到注意力总和$k_t$，最后通过门操作得到$h_t^L$，卷积操作如下所示</li>
+</ul>
+<div>
+$$
+\begin{aligned}
+    \alpha_{st}&=\mathop{softmax}\limits_{all\,s}(c_t^L \cdot \tilde{h}_s^L) 
+    \\
+    k_t&=\sum_s\alpha_{st}\tilde{h}_s^L 
+    \\
+    h_t^L &= o_t \odot(W_kk_t+W_cc_t^L)
+\end{aligned}
+$$
+</div>
+<p><figure><a class="lightgallery" href="/QRNN/QRNN%E7%BC%96%E7%A0%81%E5%99%A8%E8%A7%A3%E7%A0%81%E5%99%A8%E7%BB%93%E6%9E%84.png" title="QRNN编码器解码器结构" data-thumbnail="/QRNN/QRNN%E7%BC%96%E7%A0%81%E5%99%A8%E8%A7%A3%E7%A0%81%E5%99%A8%E7%BB%93%E6%9E%84.png" data-sub-html="<h2>QRNN使用编码器解码器结构来改进模型</h2><p>QRNN编码器解码器结构</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/QRNN/QRNN%E7%BC%96%E7%A0%81%E5%99%A8%E8%A7%A3%E7%A0%81%E5%99%A8%E7%BB%93%E6%9E%84.png"
+            data-srcset="/QRNN/QRNN%E7%BC%96%E7%A0%81%E5%99%A8%E8%A7%A3%E7%A0%81%E5%99%A8%E7%BB%93%E6%9E%84.png, /QRNN/QRNN%E7%BC%96%E7%A0%81%E5%99%A8%E8%A7%A3%E7%A0%81%E5%99%A8%E7%BB%93%E6%9E%84.png 1.5x, /QRNN/QRNN%E7%BC%96%E7%A0%81%E5%99%A8%E8%A7%A3%E7%A0%81%E5%99%A8%E7%BB%93%E6%9E%84.png 2x"
+            data-sizes="auto"
+            alt="/QRNN/QRNN%E7%BC%96%E7%A0%81%E5%99%A8%E8%A7%A3%E7%A0%81%E5%99%A8%E7%BB%93%E6%9E%84.png" width="895" height="485" />
+    </a><figcaption class="image-caption">QRNN使用编码器解码器结构来改进模型</figcaption>
+    </figure></p>
+<h2 id="实验">实验</h2>
+<p>本论文在三种任务上评判了模型的性能。分别是：文档级别的情绪分类，语言模型和基于字符的神经机器翻译。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>QUASI-RECURRENT NEURAL NETWORKS&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Character-level Convolutional Networks for Text Classification(NIPS2015)&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>WaveNet: A Generative Model for Raw Audio&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Fully Character-Level Neural Machine Translation without Explicit Segmentation&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Yarin Gal and Zoubin Ghahramani. A theoretically grounded application of dropout in recurrent neural networks. In NIPS, 2016.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>David Krueger, Tegan Maharaj, János Kramár, Mohammad Pezeshki, Nicolas Ballas, Nan Rosemary Ke, Anirudh Goyal, Yoshua Bengio, Hugo Larochelle, Aaron Courville, et al. Zoneout: Regularizing RNNs by Randomly Preserving Hidden Activations.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Densely connected convolution networks.(CVPR2017)&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Neural machine translation by jointly learning to align and translate(ICLR 2015)&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-06-10&nbsp;<a class="git-hash" href="https://github.com/leviathanion/hugoBlogFile/commit/589eff437acd81dbd9ae970b0b8312f916d5887c" target="_blank" title="commit by leviathan(zhu.quntao@foxmail.com) 589eff437acd81dbd9ae970b0b8312f916d5887c: 为未完成的博客添加未完成标记，完善SCRN和QRNN博客，添加novelty部分">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>589eff4</a></span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/qrnn/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/qrnn/" data-title="QRNN(未完成)" data-hashtags="RNNs,深度学习,机器学习,RNN优化"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/qrnn/" data-hashtag="RNNs"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://leviathanion.github.io/qrnn/" data-title="QRNN(未完成)" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://leviathanion.github.io/qrnn/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/qrnn/" data-title="QRNN(未完成)"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/rnns/">RNNs</a>,&nbsp;<a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>,&nbsp;<a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>,&nbsp;<a href="/tags/rnn%E4%BC%98%E5%8C%96/">RNN优化</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/scrn/" class="prev" rel="prev" title="SCRN"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>SCRN</a>
+            <a href="/c-/" class="next" rel="next" title="C&#43;&#43;学习笔记">C&#43;&#43;学习笔记<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLZZ</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

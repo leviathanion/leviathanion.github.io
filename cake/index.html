@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>CAKE(未完成) - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="CAKE(未完成)" />
+<meta property="og:description" content="CAKE模型1(待完成) Novelty 问题和动机 本论文主要关注KGE中存在的问题 KGE训练时需要对训练数据进行负采样，简单的根据概率来生成负样本，会有如" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/cake/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-25T15:27:53+08:00" />
+<meta property="article:modified_time" content="2022-06-10T12:16:41+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="CAKE(未完成)"/>
+<meta name="twitter:description" content="CAKE模型1(待完成) Novelty 问题和动机 本论文主要关注KGE中存在的问题 KGE训练时需要对训练数据进行负采样，简单的根据概率来生成负样本，会有如"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/cake/" /><link rel="prev" href="https://leviathanion.github.io/python/" /><link rel="next" href="https://leviathanion.github.io/kbgan/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "CAKE(未完成)",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/cake\/"
+        },"image": ["https:\/\/leviathanion.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "机器学习, 深度学习, KG","wordcount":  2572 ,
+        "url": "https:\/\/leviathanion.github.io\/cake\/","datePublished": "2022-05-25T15:27:53+08:00","dateModified": "2022-06-10T12:16:41+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "loveLZZ","logo": "https:\/\/leviathanion.github.io\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "w.z"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">CAKE(未完成)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>w.z</a>
+</span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>机器学习</a>&nbsp;<a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>深度学习</a>&nbsp;<a href="/categories/kg/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>KG</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-05-25">2022-05-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2572 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#novelty">Novelty</a></li>
+    <li><a href="#问题和动机">问题和动机</a></li>
+    <li><a href="#过去的解决方法">过去的解决方法</a>
+      <ul>
+        <li><a href="#负采样">负采样</a></li>
+        <li><a href="#常识图谱">常识图谱</a></li>
+      </ul>
+    </li>
+    <li><a href="#idea">idea</a></li>
+    <li><a href="#模型">模型</a>
+      <ul>
+        <li><a href="#acg模块">ACG模块</a></li>
+        <li><a href="#cans模块">CANS模块</a></li>
+        <li><a href="#mvlp模块">MVLP模块</a></li>
+      </ul>
+    </li>
+    <li><a href="#实验">实验</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="cake模型1待完成">CAKE模型<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>(待完成)</h1>
+<h2 id="novelty">Novelty</h2>
+<h2 id="问题和动机">问题和动机</h2>
+<blockquote>
+<p>本论文主要关注KGE中存在的问题</p>
+</blockquote>
+<ul>
+<li>KGE训练时需要对训练数据进行负采样，简单的根据概率来生成负样本，会有如下两个问题
+<ul>
+<li>假负样本问题，有可能会有正确样本被当成负样本来采样</li>
+<li>低质量负样本问题，会产生一些质量很低的，对训练意义不大的样本(很容易与正样本区分开的样本，对训练贡献很小)</li>
+</ul>
+</li>
+<li>过去的知识图谱补全仅仅依赖于现有的知识图谱本身，是数据驱动的
+<ul>
+<li>进行链路预测的时候有可能根据现有的知识图谱数据预测出错误的结果</li>
+<li>如果根据常识来看，就能很明显的排除掉错误的预测结果</li>
+<li>现有的一些大规模常识KG，如ConceptNet只包含概念，没有与之对应的实体链接，因此无法用于KGC任务</li>
+</ul>
+</li>
+<li>本文解决上述两个问题的思路如下
+<ul>
+<li>首先从知识图谱中构建一个显示的常识</li>
+<li>基于常识来采样，克服负采样的问题，解决假负样本和低质量负样本问题</li>
+<li>构建多视图的链路预测
+<ul>
+<li>确定常识试图中属于正确概念的实体候选集</li>
+<li>再通过传统的KGE来预测正确的答案</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="过去的解决方法">过去的解决方法</h2>
+<h3 id="负采样">负采样</h3>
+<ul>
+<li>过去的负采样方法主要分为以下五类
+<ul>
+<li>随机均匀采样:从均匀分布中随机替换正确三元组中的实体或者关系来生成负样本，包括
+<ul>
+<li>最早的随机破坏来生成负样本</li>
+<li>TransH<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>引入一个伯努利概率$\frac{t_{ph}}{t_{ph}+h{pt}}$来处理一对多，多对一问题的概率采样，其中$t_{ph}$和${h_{pt}}$分别代表每个头实体对应的尾实体的平均数，每个尾实体对应的头实体的平均数</li>
+</ul>
+</li>
+<li>基于域的采样:基于域的采样假设负采样时，与关系关联的头尾实体只能属于特定的域，若有过多的负样本位于该域之外时，会在真实三元组和被破坏的三元组之间产生较大的能量差，当能量差过大时难以对训练产生有效的影响。
+<ul>
+<li>基于域的采样基于局部封闭世界假设LCWA，该假设在此的主要应用为对域进行定义，某个关系连接的实体属于同一个域</li>
+<li><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>采用域采样，对某个三元组从同域内生成负样本，也即替换h和r时从同域里查找替换</li>
+<li><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>对<sup id="fnref1:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>做了改进，使用一个概率$p_r = min ( \frac {\lambda |M_r^T||M_r^H|}{|N_r|},0.5)$从域内采样，使用$1-p_r$从域外采样，其中$N_r = \{(h,r,t) \in P \}$，$M_r^H = \{h | \exists h(h,r,t) \in P \}$，$M_r^T$与之对应。</li>
+</ul>
+<blockquote>
+<p>为何要采用上述的$p_r$是根据以下假设</p>
+<p>假设$O_r$是关系$r$域中所有正确的三元组，那破坏后产生的三元组是正确三元组的概率为$\frac{|O_r|}{|M_r^H||M_r^T|}$，</p>
+<p>$|N_r| = \lambda |O_r|$，因此概率为$p_r = \frac {|N_r|}{\lambda |M_r^T||M_r^H|}$</p>
+<p>生成负样本的概率应该与样本为真的概率成反比，因此得到上述等式</p>
+<p>$\lambda$通常设置的很小，0.001左右，其值越小MR越小，其值越大H值越大，但生成有效三元组作为负样本的概率更高了，所以总体秩有所上升</p>
+</blockquote>
+</li>
+<li>基于对抗的采样:该种采样方式基于生成对抗网络的思想。
+<ul>
+<li>KBGAN<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>在KGE模型中使用GAN，负采样作为生成器，KGE模型作为鉴别器，在对抗训练中缠上高质量的负三元组。</li>
+<li>RotatE<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>改进了KBGAN的方法，因为生成对抗网络难以训练，复杂度过高，因此RotatE将生成器的一部分作为概率来对负样本进行抽样，改进损失函数，使其更相似于KBGAN中的鉴别器，从而达到了自对抗的效果。(最常用的方法)</li>
+</ul>
+</li>
+<li>高效采样:<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>使用包含负三元组候选的缓存来提高采样效率</li>
+<li>无采样:<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>通过将KGE的损失函数转换为同一的平方损失，消除了负采样的过程</li>
+</ul>
+</li>
+<li>前四种模型的都是尝试以更高的概率对损坏的三元组来进行采样，这些三元组可能是正确的但在知识图谱中丢失掉的三元组</li>
+<li>基于域的负采样严重依赖于单一类型的约束，限制了负三元组的多样性</li>
+<li>基于对抗的采样引入了GAN，使得原始的模型更复杂且难以训练(RotatE中引入的自对抗可以解决复杂度问题)</li>
+<li>无采样必须将每个原始KGE模型转换为平方损失，会削弱KGE模型的性能</li>
+</ul>
+<h3 id="常识图谱">常识图谱</h3>
+<ul>
+<li>很多常识图谱，如ConceptNet,Microsoft Concept Graph,ATOMIC等都只包含概念，没有相应的实体链接，所以不适合KGC</li>
+<li>其他一些KGC模型，如JOIE采用了KG中内置的本体，即NELL和DBpedia，但本题中的关系都是层次关系，不是明确的常识，对于KGC来说用处不大，事实关系和本体关系没有重叠。</li>
+</ul>
+<h2 id="idea">idea</h2>
+<ul>
+<li>本文解决上述两个问题的思路如下
+<ul>
+<li>首先从知识图谱中构建一个显示的常识，自动尝试生成模块(ACG)，从事实三元组和实体概念中抽取尝试</li>
+<li>基于常识来采样，克服负采样的问题，解决假负样本和低质量负样本问题，常识感知负采样模块(CANS)，利用生成的常识生成高质量的负三元组。</li>
+<li>构建多视图的链路预测
+<ul>
+<li>确定常识试图中属于正确概念的实体候选集，MVLP模块从粗到细的方式进行链路预测，从常识的角度对候选对象进行过滤</li>
+<li>再通过传统的KGE来预测正确的答案</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="模型">模型</h2>
+<h3 id="acg模块">ACG模块</h3>
+<ul>
+<li>人工标注了实体对应的概念，开源代码里有新的数据集</li>
+<li>将常识分为两类，第一种C1是概念三元组，第二种是C2相同概念组成的三元组集合.</li>
+<li>直接使用概念来替换实体，从而生成常识
+<ul>
+<li>第一种常识是通过消除重叠的概念级别三元组来实现</li>
+<li>第二种常识是将包含相同关系的概念级三元组合并到一个集合里</li>
+</ul>
+</li>
+</ul>
+<h3 id="cans模块">CANS模块</h3>
+<ul>
+<li>该模块根据N-1的三元组有以下假设
+<ul>
+<li>对于1的那一端，损坏三元组肯定是实际的负三元组。同时，基于域采样的原理，与正确实体共享至少一个概念的损失三元组是高质量的负三元组。</li>
+<li>对于n的那一端，与正确实体位于同一概念的实体更可能是假的负三元组，因此在训练过程中同一概念中的这些三元组采样的权重应该尽可能低。同时应尽可能在C2中进行采样，因为根据域采样的假设，可以获得更高质量的负三元组。</li>
+<li>因此在最终采样过程中对于N的那一端，应该在C2中采样，同时1-采样概率来减少假阴性的可能，对于1的那一段直接用采样概率来采样。</li>
+<li>详细来讲</li>
+</ul>
+</li>
+</ul>
+<h3 id="mvlp模块">MVLP模块</h3>
+<ul>
+<li>在粗预测阶段，从尝试的角度挑选实体
+<ul>
+<li>具体来说，当查询$(h_i,r,?)$时，<strong>常识C1用来过滤尾部实体的合理概念</strong>，具体候选实体定义为如下
+$$C_{1t}=\{c_{ti}|(c_{hi},r,c_{ti})\in C_1\}$$</li>
+<li>属于上述概念集的实体因为满足常识，所以确定为候选实体</li>
+</ul>
+</li>
+<li>最后通过如下公式依次输入所有候选实体，最后选出得分最高的候选实体(因为该模型独立于得分函数，所有可以使用<strong>任意的得分函数</strong>来进行最后的计算)
+$$score(e_i) = E(h,r,e_i)$$</li>
+</ul>
+<h2 id="实验">实验</h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>CAKE: A Scalable Commonsense-Aware Framework For Multi-View Knowledge Graph Completion(ACL 2022)&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Knowledge graph embedding by translating on hyperplanes(AAAI 2014)&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Type-constrained representation learning in knowledge graphs(ISWC 2015)&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>An interpretable knowledge transfer model for knowledge base completion(ACL 2017)&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>KBGAN: Adversarial learning for knowledge graph embeddings(NAACL 2018)&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>RotatE: Knowledge graph embedding by relational rotation in complex space(ICLR 2019)&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>NSCaching:Simple and efficent negative sampling for knowledge graph embedding(ICDE 2019)&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Efficient non-sampling knowledge graph embedding(WWW 2021)&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-06-10&nbsp;<a class="git-hash" href="https://github.com/leviathanion/hugoBlogFile/commit/16ccbef9fe1c1dc78aa3ceb3f0f8de849c80e4d0" target="_blank" title="commit by leviathan(zhu.quntao@foxmail.com) 16ccbef9fe1c1dc78aa3ceb3f0f8de849c80e4d0: 给CAKE添加Novelty模块">
+                                    <i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>16ccbef</a></span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/cake/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/cake/" data-title="CAKE(未完成)" data-hashtags="机器学习,深度学习,KG"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/cake/" data-hashtag="机器学习"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://leviathanion.github.io/cake/" data-title="CAKE(未完成)" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://leviathanion.github.io/cake/"><i class="fab fa-reddit fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/cake/" data-title="CAKE(未完成)"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>,&nbsp;<a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>,&nbsp;<a href="/tags/kg/">KG</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/python/" class="prev" rel="prev" title="Python学习笔记"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Python学习笔记</a>
+            <a href="/kbgan/" class="next" rel="next" title="KBGAN(未完成)">KBGAN(未完成)<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLZZ</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/copy-tex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

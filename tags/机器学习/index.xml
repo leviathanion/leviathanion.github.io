@@ -1,0 +1,80 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>机器学习 - 标签 - loveLZZ的个人博客</title>
+        <link>https://leviathanion.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+        <description>机器学习 - 标签 - loveLZZ的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>Chu.quntao@gmail.com (loveLZZ)</managingEditor>
+            <webMaster>Chu.quntao@gmail.com (loveLZZ)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 09 Jun 2022 18:40:16 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>KBGAN(未完成)</title>
+    <link>https://leviathanion.github.io/kbgan/</link>
+    <pubDate>Thu, 09 Jun 2022 18:40:16 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/kbgan/</guid>
+    <description><![CDATA[KBGAN模型[^1] 问题和动机 过去知识图谱嵌入领域的负采样仅仅根据概率来采样有以下两个问题 假负样本问题，有可能会有正确样本被当成负样本来采]]></description>
+</item>
+<item>
+    <title>CAKE(未完成)</title>
+    <link>https://leviathanion.github.io/cake/</link>
+    <pubDate>Wed, 25 May 2022 15:27:53 &#43;0800</pubDate>
+    <author>w.z</author>
+    <guid>https://leviathanion.github.io/cake/</guid>
+    <description><![CDATA[CAKE模型1(待完成) Novelty 问题和动机 本论文主要关注KGE中存在的问题 KGE训练时需要对训练数据进行负采样，简单的根据概率来生成负样本，会有如]]></description>
+</item>
+<item>
+    <title>SRU(未完成)</title>
+    <link>https://leviathanion.github.io/sru/</link>
+    <pubDate>Mon, 28 Mar 2022 09:59:38 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/sru/</guid>
+    <description><![CDATA[SRU]]></description>
+</item>
+<item>
+    <title>QRNN(未完成)</title>
+    <link>https://leviathanion.github.io/qrnn/</link>
+    <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/qrnn/</guid>
+    <description><![CDATA[QRNN1 Novelty 将RNN与CNN结合 用一种不使用未来数据的masked卷积来代替LSTM中与上一时刻隐藏层相乘的操作 简化了LSTM的操作，在计算过程中删]]></description>
+</item>
+<item>
+    <title>SCRN</title>
+    <link>https://leviathanion.github.io/scrn/</link>
+    <pubDate>Thu, 17 Feb 2022 15:42:05 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/scrn/</guid>
+    <description><![CDATA[SCRN模型1 Novelty 通过为RNN添加一个参数缓慢变化的隐藏层来捕获长距离依赖，公式如下所示 \begin{align*} s_t &amp;= (1-\alpha)Bx_t + \alpha s_{t-1} \\ h_t &amp;= \sigma(Ps_t+Ax_t+Rh_{t-1}) \\ y_t &amp;= f(Uh_t+Vs_t) \end{align*} 约束该隐藏层中的B为对]]></description>
+</item>
+<item>
+    <title>矩阵求导</title>
+    <link>https://leviathanion.github.io/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</link>
+    <pubDate>Wed, 19 Jan 2022 11:11:45 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</guid>
+    <description><![CDATA[矩阵求导 分子布局和分母布局 标量，向量，矩阵之间的求导，相对于标量对标量的求导，需要考虑一个额外的因素，就是求导之后的布局，例如标量对列向量求]]></description>
+</item>
+<item>
+    <title>机器学习的并行策略</title>
+    <link>https://leviathanion.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/</link>
+    <pubDate>Wed, 12 Jan 2022 15:54:43 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/</guid>
+    <description><![CDATA[机器学习中的分布式的并行优化 简介 机器学习的并行计算指的是对机器学习过程中遇到的计算问题采用并行计算的方式进行合适的加速，缩短训练所需的时间。]]></description>
+</item>
+<item>
+    <title>RNN和LSTM(未完成)</title>
+    <link>https://leviathanion.github.io/rnn%E5%92%8Clstm/</link>
+    <pubDate>Fri, 24 Dec 2021 15:39:14 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/rnn%E5%92%8Clstm/</guid>
+    <description><![CDATA[RNN和LSTM(待完成) RNN 问题和动机 自然界中很多事物都是序列相关的，想要理解某一时刻，必须要获取过去时刻的信息 过去的模型难以捕获序列信息 idea]]></description>
+</item>
+<item>
+    <title>IRNN</title>
+    <link>https://leviathanion.github.io/irnn/</link>
+    <pubDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/irnn/</guid>
+    <description><![CDATA[IRNN模型1 Novelty 使用单位矩阵来初始化RNN 使用ReLU激活函数代替Sigmoid激活函数 问题和动机 梯度消失和梯度爆炸的问题导致RNN模型难以]]></description>
+</item>
+</channel>
+</rss>
