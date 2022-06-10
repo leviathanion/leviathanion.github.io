@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>IRNN - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="IRNN" />
+<meta property="og:description" content="IRNN模型1 Novelty 使用单位矩阵来初始化RNN 使用ReLU激活函数代替Sigmoid激活函数 问题和动机 梯度消失和梯度爆炸的问题导致RNN模型难以" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/irnn/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-23T10:27:32+08:00" />
+<meta property="article:modified_time" content="2021-12-23T10:27:32+08:00" /><meta property="og:site_name" content="loveLZZ的个人博客" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="IRNN"/>
+<meta name="twitter:description" content="IRNN模型1 Novelty 使用单位矩阵来初始化RNN 使用ReLU激活函数代替Sigmoid激活函数 问题和动机 梯度消失和梯度爆炸的问题导致RNN模型难以"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/irnn/" /><link rel="prev" href="https://leviathanion.github.io/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" /><link rel="next" href="https://leviathanion.github.io/rnn%E5%92%8Clstm/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "IRNN",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/irnn\/"
+        },"genre": "posts","keywords": "RNNs, 深度学习, 机器学习, RNN优化","wordcount":  1610 ,
+        "url": "https:\/\/leviathanion.github.io\/irnn\/","datePublished": "2021-12-23T10:27:32+08:00","dateModified": "2021-12-23T10:27:32+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "loveLZZ"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">IRNN</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/rnns/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>RNNs</a>&nbsp;<a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>深度学习</a>&nbsp;<a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>机器学习</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-23">2021-12-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1610 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#novelty">Novelty</a></li>
+    <li><a href="#问题和动机">问题和动机</a></li>
+    <li><a href="#过去的解决方法">过去的解决方法</a></li>
+    <li><a href="#idea">Idea</a></li>
+    <li><a href="#实验">实验</a>
+      <ul>
+        <li><a href="#the-adding-problem实验">The Adding Problem实验</a></li>
+        <li><a href="#mnist-classification-from-a-sequence-of-pixels实验">MNIST Classification from a Sequence of Pixels实验</a></li>
+        <li><a href="#language-modeling实验">Language Modeling实验</a></li>
+        <li><a href="#speech-recognition实验">Speech Recognition实验</a></li>
+      </ul>
+    </li>
+    <li><a href="#论文insight">论文Insight</a></li>
+    <li><a href="#思考中的问题">思考中的问题</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="irnn模型1">IRNN模型<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h1>
+<h2 id="novelty">Novelty</h2>
+<ul>
+<li>使用单位矩阵来初始化RNN</li>
+<li>使用ReLU激活函数代替Sigmoid激活函数</li>
+</ul>
+<h2 id="问题和动机">问题和动机</h2>
+<ul>
+<li><strong>梯度消失</strong>和<strong>梯度爆炸</strong>的问题导致RNN模型难以学习到<strong>远距离依赖</strong></li>
+<li>过去的解决方法依赖于复杂的<strong>优化技术</strong>和<strong>网络架构</strong></li>
+<li>提出一种较为<strong>简单</strong>的方式进行优化</li>
+</ul>
+<h2 id="过去的解决方法">过去的解决方法</h2>
+<ul>
+<li>用<strong>Hessian-Free</strong>来代替<strong>SGD</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>（Hessian-Free可以关注到曲率）</li>
+</ul>
+<blockquote>
+<p>虽然效果上有改进，但并不常用，原因可能如下</p>
+<ul>
+<li>比SGD基础上的方法<strong>更难实现</strong></li>
+<li>拟牛顿法需要<strong>更复杂的计算和内存开销</strong></li>
+<li>目标函数可能<strong>非凸</strong></li>
+<li>求得了更高精度的解可能<strong>不利于泛化</strong></li>
+<li>二阶法求得更高精度的解，但也<strong>需要更高精度的数据</strong>，深度学习数据本身存在很多<strong>随机误差</strong>，可能导致优化不稳定甚至失败</li>
+<li>当使用了<strong>梯度裁剪</strong><sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>并关注了<strong>参数初始化</strong><sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>时，<strong>带动量的SGD</strong>与<strong>HF方法</strong>可以相当</li>
+</ul>
+</blockquote>
+<ul>
+<li>
+<p>最成功的改进<strong>LSTM</strong></p>
+<p>虽然能解决长距离依赖，但本文作者认为此结构并不是最优的结构</p>
+</li>
+</ul>
+<h2 id="idea">Idea</h2>
+<ul>
+<li>使用<strong>ReLU</strong>(Rectified Linear Units)激活函数</li>
+<li>(trick)通过<strong>单位矩阵</strong>或者<strong>它的缩放版本</strong>来初始化RNN中的权重矩阵</li>
+</ul>
+<blockquote>
+<p>作者认为以下工作与本文工作类似</p>
+<ul>
+<li>
+<p>本文作者认为其参数初始化方法与文献<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>中的方法相同，主要区别在于本文仅仅将单位矩阵用在初始化上，而且使用了ReLU激活函数。</p>
+</li>
+<li>
+<p>scaled identity initialization同样在文献<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>中被提出，但没使用ReLU激活函数。</p>
+</li>
+<li>
+<p>本文工作与文献<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>研究<strong>正交矩阵初始化</strong>同样类似。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="实验">实验</h2>
+<blockquote>
+<p>实验中发现了下述炼丹技巧</p>
+<ul>
+<li>
+<p>为LSTM设置更<strong>高的forget gate bias</strong>能更好的解决长距离依赖关系</p>
+</li>
+<li>
+<p>参数应用高斯随机初始化时使用<strong>文献<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>的值</strong>时效果更好。</p>
+</li>
+</ul>
+</blockquote>
+<p>实验中IRNN中非递归权重使用均值为0，标准差为0.001的高斯分布来初始化。分别展示了IRNN，标准LSTM，使用tanh激活的RNN和使用ReLU激活的RNN在4个实验上的结果。</p>
+<h3 id="the-adding-problem实验">The Adding Problem实验</h3>
+<p><figure><a class="lightgallery" href="/IRNN/addingProblem.png" title="Adding Problem实验" data-thumbnail="/IRNN/addingProblem.png" data-sub-html="<h2>输入由两部分组成，第一部分是0-1范围内均匀分布的值，第二部分是掩码，最后的结果是经掩码后的两值得和</h2><p>Adding Problem实验</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/IRNN/addingProblem.png"
+            data-srcset="/IRNN/addingProblem.png, /IRNN/addingProblem.png 1.5x, /IRNN/addingProblem.png 2x"
+            data-sizes="auto"
+            alt="/IRNN/addingProblem.png" width="638" height="182" />
+    </a><figcaption class="image-caption">输入由两部分组成，第一部分是0-1范围内均匀分布的值，第二部分是掩码，最后的结果是经掩码后的两值得和</figcaption>
+    </figure>
+通过在固定序列中随机抽取两个值，将其值求和作为输出，对此问题进行回归。使用MSE来评价效果，当一直预测值为1时，MSE为0.1767。实验结果如下所示
+<figure><a class="lightgallery" href="/IRNN/addingProblemResult.png" title="Adding Problem实验结果" data-thumbnail="/IRNN/addingProblemResult.png" data-sub-html="<h2>可以发现IRNN呈现出与LSTM相当的效果，但带有ReLU激活的RNN效果为何一直这么差?</h2><p>Adding Problem实验结果</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/IRNN/addingProblemResult.png"
+            data-srcset="/IRNN/addingProblemResult.png, /IRNN/addingProblemResult.png 1.5x, /IRNN/addingProblemResult.png 2x"
+            data-sizes="auto"
+            alt="/IRNN/addingProblemResult.png" width="900" height="710" />
+    </a><figcaption class="image-caption">可以发现IRNN呈现出与LSTM相当的效果，但带有ReLU激活的RNN效果为何一直这么差?</figcaption>
+    </figure></p>
+<h3 id="mnist-classification-from-a-sequence-of-pixels实验">MNIST Classification from a Sequence of Pixels实验</h3>
+<p>实验通过将图片的784个像素顺序输入网络中，在完全学习完784个像素后，再进行图片的分类。一次每个网络的循环步长为784。除了对原始图片进行预测的实验之外，还对图片的像素进行固定的随机重新排列后进行了第二次实验。
+<figure><a class="lightgallery" href="/IRNN/MNISTResult.png" title="MNIST实验结果" data-thumbnail="/IRNN/MNISTResult.png" data-sub-html="<h2>可以发现，IRNN性能最好，超过LSTM，但带有ReLU激活的RNN效果为何一直这么差?</h2><p>MNIST实验结果</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/IRNN/MNISTResult.png"
+            data-srcset="/IRNN/MNISTResult.png, /IRNN/MNISTResult.png 1.5x, /IRNN/MNISTResult.png 2x"
+            data-sizes="auto"
+            alt="/IRNN/MNISTResult.png" width="947" height="412" />
+    </a><figcaption class="image-caption">可以发现，IRNN性能最好，超过LSTM，但带有ReLU激活的RNN效果为何一直这么差?</figcaption>
+    </figure></p>
+<h3 id="language-modeling实验">Language Modeling实验</h3>
+<p><figure><a class="lightgallery" href="/IRNN/LanguageModel.png" title="LanguageModel实验结果" data-thumbnail="/IRNN/LanguageModel.png" data-sub-html="<h2>4层IRNN与LSTM表现相当(同时LSTM的参数是单层IRNN的四倍)</h2><p>LanguageModel实验结果</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/IRNN/LanguageModel.png"
+            data-srcset="/IRNN/LanguageModel.png, /IRNN/LanguageModel.png 1.5x, /IRNN/LanguageModel.png 2x"
+            data-sizes="auto"
+            alt="/IRNN/LanguageModel.png" width="1043" height="263" />
+    </a><figcaption class="image-caption">4层IRNN与LSTM表现相当(同时LSTM的参数是单层IRNN的四倍)</figcaption>
+    </figure></p>
+<h3 id="speech-recognition实验">Speech Recognition实验</h3>
+<p>在该实验中作者发现使用单位矩阵初始化效果较差，本文猜测的原因如下</p>
+<ul>
+<li>正常IRNN很难忘记过去的信息</li>
+<li>难以专注当前的输入</li>
+</ul>
+<blockquote>
+<p>我觉得等于没说，根据模型和结果猜原因</p>
+</blockquote>
+<p>因此本文提出了补救办法，并认为其可以作为<strong>不需要长距离依赖时</strong>模型的补救办法</p>
+<ul>
+<li>用一个<strong>小标量和单位矩阵的乘积来初始化</strong>(本文中使用的是0.01I)</li>
+</ul>
+<p><figure><a class="lightgallery" href="/IRNN/SpeechRecognitionResult.png" title="Speech Recognition实验结果" data-thumbnail="/IRNN/SpeechRecognitionResult.png" data-sub-html="<h2>iRNN模型与LSTM相当，比标准RNN效果好</h2><p>Speech Recognition实验结果</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/IRNN/SpeechRecognitionResult.png"
+            data-srcset="/IRNN/SpeechRecognitionResult.png, /IRNN/SpeechRecognitionResult.png 1.5x, /IRNN/SpeechRecognitionResult.png 2x"
+            data-sizes="auto"
+            alt="/IRNN/SpeechRecognitionResult.png" width="836" height="400" />
+    </a><figcaption class="image-caption">iRNN模型与LSTM相当，比标准RNN效果好</figcaption>
+    </figure></p>
+<h2 id="论文insight">论文Insight</h2>
+<ul>
+<li>使用<strong>单位矩阵初始化循环参数</strong>(可能缓解梯度爆炸的问题)</li>
+<li>使用<strong>ReLU激活</strong>(可以缓解梯度消失的问题)</li>
+<li>二者<strong>共同作用</strong>可使得RNN模型性能得到改善</li>
+<li>在<strong>不需要长期依赖</strong>时，可以使用<strong>小标量与I的乘积</strong>来进行初始化，类似于LSTM中的<strong>遗忘门</strong>机制</li>
+</ul>
+<h2 id="思考中的问题">思考中的问题</h2>
+<ul>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> 超参初始化问题，xariv，He，和本文中<sup id="fnref1:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup>提到的初始化的关系和效果</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> 单位矩阵在模型中起到的作用(推导反向传播)</li>
+<li><i class="far fa-square fa-fw" aria-hidden="true"></i> 使用ReLU激活的RNN效果比tanh还差的原因</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://arxiv.org/abs/1504.00941" target="_blank" rel="noopener noreffer">https://arxiv.org/abs/1504.00941</a>
+ (A Simple Way to Initialize Recurrent Networks of Rectified Linear Units)&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Learning recurrent neural networks with Hessian-Free optimization. In ICML, 2011.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Deep learning via Hessian-free optimization. In Proceedings of the 27th International Conference on Machine Learning, 2010.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>On the difficulty of training recurrent neural networks.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>On the importance of initialization and momentum in deep learning. In Proceedings of the 30th International Conference on Machine
+Learning, 2013.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Learning longer memory in recurrent neural networks&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>Parsing with compositional vector grammars&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Exact solutions to the nonlinear dynamics of learning in deep linear neural networks&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>Random Walk Initialization for Training Very Deep Feedforward Networks&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-12-23</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/irnn/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/irnn/" data-title="IRNN" data-hashtags="RNNs,深度学习,机器学习,RNN优化"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/irnn/" data-hashtag="RNNs"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://leviathanion.github.io/irnn/" data-title="IRNN"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://leviathanion.github.io/irnn/" data-title="IRNN"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/irnn/" data-title="IRNN"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/rnns/">RNNs</a>,&nbsp;<a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>,&nbsp;<a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>,&nbsp;<a href="/tags/rnn%E4%BC%98%E5%8C%96/">RNN优化</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="prev" rel="prev" title="运维问题记录"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>运维问题记录</a>
+            <a href="/rnn%E5%92%8Clstm/" class="next" rel="next" title="RNN和LSTM">RNN和LSTM<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

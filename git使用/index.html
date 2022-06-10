@@ -1,20 +1,386 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Git使用 - loveLZZ的个人博客</title><meta name=Description content="关于git命令的介绍"><meta property="og:title" content="Git使用"><meta property="og:description" content="关于git命令的介绍"><meta property="og:type" content="article"><meta property="og:url" content="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/"><meta property="og:image" content="https://leviathanion.github.io/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-01-25T20:53:07+08:00"><meta property="article:modified_time" content="2021-01-25T20:53:07+08:00"><meta property="og:site_name" content="loveLZZ的个人博客"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://leviathanion.github.io/"><meta name=twitter:title content="Git使用"><meta name=twitter:description content="关于git命令的介绍"><meta name=application-name content="loveLZZ的个人博客"><meta name=apple-mobile-web-app-title content="loveLZZ的个人博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=icon href=/images/avatar.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/><link rel=prev href=https://leviathanion.github.io/linux%E5%91%BD%E4%BB%A4/><link rel=next href=https://leviathanion.github.io/c-/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Git使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8\/"},"genre":"posts","keywords":"git, 命令","wordcount":1973,"url":"https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8\/","datePublished":"2021-01-25T20:53:07+08:00","dateModified":"2021-01-25T20:53:07+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"loveLZZ"},"description":"关于git命令的介绍"}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=loveLZZ的个人博客><img class="lazyload logo" src=/svg/loading.min.svg data-src=/images/avatar.png data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x" data-sizes=auto alt=/images/avatar.png title=/images/avatar.png><span class=header-title-pre><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/about/>关于 </a><a class=menu-item href=https://github.com/leviathanion title=GitHub rel="noopener noreffer" target=_blank><i class='fab fa-github fa-fw' aria-hidden=true></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
-<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
-<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span>
-</span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=loveLZZ的个人博客><img class="lazyload logo" src=/svg/loading.min.svg data-src=/images/avatar.png data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x" data-sizes=auto alt=/images/avatar.png title=/images/avatar.png><span class=header-title-pre><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
-<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/leviathanion title=GitHub rel="noopener noreffer" target=_blank><i class='fab fa-github fa-fw' aria-hidden=true></i></a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
-<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git使用</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>loveLZZ</a>
-</span>&nbsp;<span class=post-category>included in <a href=/categories/%E5%91%BD%E4%BB%A4/><i class="far fa-folder fa-fw" aria-hidden=true></i>命令</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2021-01-25>2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;1973 words&nbsp;
-<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;4 minutes&nbsp;</div></div><div class="details toc" id=toc-static data-kept=true><div class="details-summary toc-title"><span>Contents</span>
-<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#基本命令>基本命令</a><ul><li><a href=#小结>小结</a></li></ul></li><li><a href=#暂存区和master分支>暂存区和<code>master</code>分支</a></li><li><a href=#删除文件>删除文件</a></li><li><a href=#链接远程库>链接远程库</a></li><li><a href=#分支创建和基本使用>分支创建和基本使用</a></li><li><a href=#git进阶>Git进阶</a><ul><li><a href=#分支管理>分支管理</a></li><li><a href=#git-status-中文文件名编码问题>git status 中文文件名编码问题</a></li></ul></li></ul></nav></div></div><div class=content id=content><h1 id=git使用1>git使用<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></h1><h2 id=基本命令>基本命令</h2><ul><li><p><strong>创建仓库</strong><code>git init</code></p></li><li><p><strong>把文件添加到仓库</strong><code>git add</code></p></li><li><p><strong>全部添加</strong> <code>git add .</code></p></li><li><p><strong>把文件提交到仓库<code>git commit</code></strong></p></li></ul><blockquote><p>可以多次<code>git add</code>后<code>git commit</code></p><p>命令之后必须加参数 <code>-m "注释"</code>来提交</p></blockquote><ul><li><p><strong>查看目前仓库情况</strong><code>git status</code></p></li><li><p><strong><code>git diff</code>将本地文件与<em>暂存区</em>的文件进行比较</strong></p></li><li><p><code>git log</code></p></li></ul><blockquote><ul><li><p><strong>查看文件历次commit提交的情况</strong></p></li><li><p><img class=lazyload src=/svg/loading.min.svg data-src=/gitlog.PNG data-srcset="/gitlog.PNG, /gitlog.PNG 1.5x, /gitlog.PNG 2x" data-sizes=auto alt=/gitlog.PNG title=/gitlog.PNG width=892 height=469></p><p>commit后面的<strong>数字</strong>是<strong>提交的编号</strong></p><p><code>HEAD</code>表示<strong>当前版本</strong>,<code>HEAD^</code>表示<strong>上个版本</strong>，<code>HEAD^^</code>表示<strong>上上个版本</strong></p><p><code>HEAD~100</code>表示<strong>往上的100个版本</strong></p></li></ul></blockquote><ul><li><code>git reset</code></li></ul><blockquote><p>用法：<code>git reset --hard HEAD^</code>表示<strong>回退</strong>到<strong>前一个版本</strong></p><p><img class=lazyload src=/svg/loading.min.svg data-src=/gitreset.PNG data-srcset="/gitreset.PNG, /gitreset.PNG 1.5x, /gitreset.PNG 2x" data-sizes=auto alt=/gitreset.PNG title=/gitreset.PNG width=873 height=535></p><p>发现最早的版本记录没了</p><p>此时可以通过<code>git reset --hard 之前的版本号</code>来恢复操作</p></blockquote><ul><li><code>git reflog</code></li></ul><blockquote><ul><li>可以查看<strong>所有分支</strong>的<strong>所有操作</strong>记录（包括已经被删除的 commit 记录和 reset 的操作）</li></ul><blockquote><p>例如执行 <code>git reset --hard HEAD~1</code>，退回到上一个版本，用<code>git log</code>则是看不出来被删除的<code>commitid</code>，用<code>git reflog</code>则可以看到被删除的<code>commitid</code>，恢复到被删除的那个版本。</p></blockquote></blockquote><h3 id=小结>小结</h3><ul><li>创建git仓库使用<code>git init</code>命令</li><li>提交文件，对多个文件<code>git add</code>之后<code>git commit -m ""</code></li><li>查看仓库情况，使用<code>git status</code>可以查看<strong>文件被修改</strong>，<strong>add了修改文件的情况</strong>，<strong>仓库没有发生变化</strong>三种状态</li><li>如果<code>git status</code>显示<strong>文件被修改，但还没被<code>add</code></strong>，可以用<code>git diff</code>查看修改情况</li><li>查看版本提交历史情况使用<code>git log</code></li><li><code>HEAD</code>表示当前版本,<code>HEAD^</code>表示上个版本，<code>HEAD^^</code>表示上上个版本<code>HEAD~100</code>表示往上的100个版本</li><li>版本回退使用<code>git reset --hard commit_id/HEAD^^/HEAD~100</code></li><li>重返未来，使用<code>git reflog</code>查看提交历史命令</li></ul><h2 id=暂存区和master分支>暂存区和<code>master</code>分支</h2><ul><li>git<strong>暂存区</strong>和<strong>master分支</strong>的概念</li><li>git是<strong>管理修改</strong>的，<code>git add</code>之后将文件添加到<strong>暂存区</strong>,如果没有将修改提交到暂存区，对文件的更改也<strong>不会上传到master分支上</strong></li><li>如果对文件修改错误，但还没add<code>git checkout --readme.txt</code>让文件恢复到最后一次<code>git add</code>或<code>git commit</code>的状态</li><li>如果错误的文件已经<code>git add</code>，使用<code>git reset HEAD readme.txt</code>可将<strong>暂存区的文件</strong>恢复至<strong>版本库文件的版本</strong></li></ul><blockquote><ol><li><p>当改乱了某文件内容，想直接丢弃工作区修改时，使用<code>git checkout -- file</code></p></li><li><p>如果已经add了，文件在暂存区中，使用<code>git reset HEAD &lt;file></code> 回到第一步，然后再按第一步操作</p></li><li><p>如果已经commit了，使用<code>git log</code> 然后使用<code>git reset</code>命令</p></li></ol></blockquote><h2 id=删除文件>删除文件</h2><ul><li>如果想要删除版本库里的文件，先<strong>删除本地文件</strong>,然后<code>git rm</code>删除文件，然后<code>git commit</code></li><li><code>git rm &lt;file></code>将文件<strong>从暂存区和工作区中删除</strong></li><li><code>git rm --cached &lt;file></code><strong>从暂存区移除</strong>，但仍然保留在当前工作目录中，仅是<strong>从跟踪清单中删除</strong></li></ul><h2 id=链接远程库>链接远程库</h2><ul><li><code>git remote add origin ***</code><strong>关联远程库，<code>***</code>代表远程库的地址，可以为git或者https,git地址速度块</strong></li><li>首次<code>s</code></li><li><code>git remote -v</code><strong>查看远程仓库</strong></li><li><code>git push --force origin master</code>或者<code>git push -f origin master</code><strong>强制覆盖远程分支</strong></li><li><code>git checkout -b a origin/a</code>从远程a分支拉取分支信息到本地a分支</li></ul><h2 id=分支创建和基本使用>分支创建和基本使用</h2><ul><li><p><strong>创建分支</strong><code>git branch dev</code></p></li><li><p><strong>切换到分支</strong><code>git checkout dev</code></p></li><li><p><strong>查看分支情况</strong><code>git branch</code></p></li><li><p><strong>将别的分支合并到当前分支</strong><code>git merge 分支名</code></p><ul><li>如果存在冲突，需要解决冲突</li><li>修改完冲突文件后使用<code>git add .</code>命令</li><li>再使用<code>git commit</code>命令，可以不带<code>-m </code>参数添加注释</li></ul></li><li><p><strong>删除分支</strong><code>git branch -d 分支名</code></p></li><li><p>在操作中添加<code>-r</code>参数，代表对<strong>远程仓库</strong>进行分支操作
-对一个分支的本地文件操作不会影响到另一分支的本地文件情况</p></li></ul><h2 id=git进阶>Git进阶</h2><h3 id=分支管理>分支管理</h3><ul><li><p><code>git rebase branch</code><strong>变基操作</strong></p><ul><li><strong>将branch分支中的commit放到当前的commit之前</strong>，合并为同一分支</li></ul></li><li><p><code>git commit --amend</code>可以<strong>编辑当前的commit信息</strong></p></li><li><p><code>git rebase -i HEAD~3</code></p><ul><li><strong>编辑前三个commit</strong></li><li>通过<strong>squash</strong>可用于多个commit信息的<strong>合并</strong></li><li>通过<strong>edit</strong>可用于历史commit信息的<strong>编辑</strong></li></ul><blockquote><p>编辑完文件后仍需要多次运行<code>git commit --amend</code>来编辑多次历史提交信息</p><p>每次运行上述命令之后，<strong>需要<code>git rebase --continue</code>代表保存并进行下一条</strong></p><p><strong><code>--abort</code>参数可放弃当前操作</strong>，例如<code>git rebase --abort</code></p></blockquote></li><li><p><code>git push --set-upstream origin newbranch</code><strong>将本地分支newbranch与远程分支newbranch关联</strong></p></li><li><p><code>origin/main</code>和是远程分支在本地分支更新的<strong>克隆</strong></p><ul><li><code>git pull</code>操作是<code>git fetch</code>和<code>git merge origin/***</code>两个命令的集合</li><li><code>git fetch</code>命令使用远程分支<strong>更新本地<code>origin/***</code>分支</strong></li><li><code>git merge origin/***</code>将<code>origin/***</code>分支<strong>合并到当前<code>***</code>分支</strong></li></ul></li></ul><h3 id=git-status-中文文件名编码问题>git status 中文文件名编码问题</h3><p>在默认设置下，中文文件名在工作区状态输出，查看历史更改概要，以及在补丁文件中，文件名的中文不能正确地显示，而是显示为八进制的字符编码，示例如下：
-<code>"assets/\346\234\272\345\231\250\345\255\246\344\271\240\347\232\204\345\271\266\350\241\214\347\255\226\347\225\245/" "content/posts/\346\234\272\345\231\250\345\255\246\344\271\240/"</code>
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Git使用 - loveLZZ的个人博客</title><meta name="Description" content="关于git命令的介绍"><meta property="og:title" content="Git使用" />
+<meta property="og:description" content="关于git命令的介绍" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-01-25T20:53:07+08:00" />
+<meta property="article:modified_time" content="2021-01-25T20:53:07+08:00" /><meta property="og:site_name" content="loveLZZ的个人博客" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="Git使用"/>
+<meta name="twitter:description" content="关于git命令的介绍"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/" /><link rel="prev" href="https://leviathanion.github.io/linux%E5%91%BD%E4%BB%A4/" /><link rel="next" href="https://leviathanion.github.io/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Git使用",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8\/"
+        },"genre": "posts","keywords": "git, 命令","wordcount":  1973 ,
+        "url": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8\/","datePublished": "2021-01-25T20:53:07+08:00","dateModified": "2021-01-25T20:53:07+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "loveLZZ"
+            },"description": "关于git命令的介绍"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git使用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%91%BD%E4%BB%A4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>命令</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1973 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本命令">基本命令</a>
+      <ul>
+        <li><a href="#小结">小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#暂存区和master分支">暂存区和<code>master</code>分支</a></li>
+    <li><a href="#删除文件">删除文件</a></li>
+    <li><a href="#链接远程库">链接远程库</a></li>
+    <li><a href="#分支创建和基本使用">分支创建和基本使用</a></li>
+    <li><a href="#git进阶">Git进阶</a>
+      <ul>
+        <li><a href="#分支管理">分支管理</a></li>
+        <li><a href="#git-status-中文文件名编码问题">git status 中文文件名编码问题</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="git使用1">git使用<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h1>
+<h2 id="基本命令">基本命令</h2>
+<ul>
+<li>
+<p><strong>创建仓库</strong><code>git init</code></p>
+</li>
+<li>
+<p><strong>把文件添加到仓库</strong><code>git add</code></p>
+</li>
+<li>
+<p><strong>全部添加</strong> <code>git add .</code></p>
+</li>
+<li>
+<p><strong>把文件提交到仓库<code>git commit</code></strong></p>
+</li>
+</ul>
+<blockquote>
+<p>可以多次<code>git add</code>后<code>git commit</code></p>
+<p>命令之后必须加参数 <code>-m &quot;注释&quot;</code>来提交</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>查看目前仓库情况</strong><code>git status</code></p>
+</li>
+<li>
+<p><strong><code>git diff</code>将本地文件与<em>暂存区</em>的文件进行比较</strong></p>
+</li>
+<li>
+<p><code>git log</code></p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p><strong>查看文件历次commit提交的情况</strong></p>
+</li>
+<li>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/gitlog.PNG"
+        data-srcset="/gitlog.PNG, /gitlog.PNG 1.5x, /gitlog.PNG 2x"
+        data-sizes="auto"
+        alt="/gitlog.PNG"
+        title="/gitlog.PNG" width="892" height="469" /></p>
+<p>commit后面的<strong>数字</strong>是<strong>提交的编号</strong></p>
+<p><code>HEAD</code>表示<strong>当前版本</strong>,<code>HEAD^</code>表示<strong>上个版本</strong>，<code>HEAD^^</code>表示<strong>上上个版本</strong></p>
+<p><code>HEAD~100</code>表示<strong>往上的100个版本</strong></p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>git reset</code></li>
+</ul>
+<blockquote>
+<p>用法：<code>git reset --hard HEAD^</code>表示<strong>回退</strong>到<strong>前一个版本</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/gitreset.PNG"
+        data-srcset="/gitreset.PNG, /gitreset.PNG 1.5x, /gitreset.PNG 2x"
+        data-sizes="auto"
+        alt="/gitreset.PNG"
+        title="/gitreset.PNG" width="873" height="535" /></p>
+<p>发现最早的版本记录没了</p>
+<p>此时可以通过<code>git reset --hard 之前的版本号</code>来恢复操作</p>
+</blockquote>
+<ul>
+<li><code>git reflog</code></li>
+</ul>
+<blockquote>
+<ul>
+<li>可以查看<strong>所有分支</strong>的<strong>所有操作</strong>记录（包括已经被删除的 commit 记录和 reset 的操作）</li>
+</ul>
+<blockquote>
+<p>例如执行 <code>git reset --hard HEAD~1</code>，退回到上一个版本，用<code>git log</code>则是看不出来被删除的<code>commitid</code>，用<code>git reflog</code>则可以看到被删除的<code>commitid</code>，恢复到被删除的那个版本。</p>
+</blockquote>
+</blockquote>
+<h3 id="小结">小结</h3>
+<ul>
+<li>创建git仓库使用<code>git init</code>命令</li>
+<li>提交文件，对多个文件<code>git add</code>之后<code>git commit -m &quot;&quot;</code></li>
+<li>查看仓库情况，使用<code>git status</code>可以查看<strong>文件被修改</strong>，<strong>add了修改文件的情况</strong>，<strong>仓库没有发生变化</strong>三种状态</li>
+<li>如果<code>git status</code>显示<strong>文件被修改，但还没被<code>add</code></strong>，可以用<code>git diff</code>查看修改情况</li>
+<li>查看版本提交历史情况使用<code>git log</code></li>
+<li><code>HEAD</code>表示当前版本,<code>HEAD^</code>表示上个版本，<code>HEAD^^</code>表示上上个版本<code>HEAD~100</code>表示往上的100个版本</li>
+<li>版本回退使用<code>git reset --hard commit_id/HEAD^^/HEAD~100</code></li>
+<li>重返未来，使用<code>git reflog</code>查看提交历史命令</li>
+</ul>
+<h2 id="暂存区和master分支">暂存区和<code>master</code>分支</h2>
+<ul>
+<li>git<strong>暂存区</strong>和<strong>master分支</strong>的概念</li>
+<li>git是<strong>管理修改</strong>的，<code>git add</code>之后将文件添加到<strong>暂存区</strong>,如果没有将修改提交到暂存区，对文件的更改也<strong>不会上传到master分支上</strong></li>
+<li>如果对文件修改错误，但还没add<code>git checkout --readme.txt</code>让文件恢复到最后一次<code>git add</code>或<code>git commit</code>的状态</li>
+<li>如果错误的文件已经<code>git add</code>，使用<code>git reset HEAD readme.txt</code>可将<strong>暂存区的文件</strong>恢复至<strong>版本库文件的版本</strong></li>
+</ul>
+<blockquote>
+<ol>
+<li>
+<p>当改乱了某文件内容，想直接丢弃工作区修改时，使用<code>git checkout -- file</code></p>
+</li>
+<li>
+<p>如果已经add了，文件在暂存区中，使用<code>git reset HEAD &lt;file&gt;</code> 回到第一步，然后再按第一步操作</p>
+</li>
+<li>
+<p>如果已经commit了，使用<code>git log</code> 然后使用<code>git reset</code>命令</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="删除文件">删除文件</h2>
+<ul>
+<li>如果想要删除版本库里的文件，先<strong>删除本地文件</strong>,然后<code>git rm</code>删除文件，然后<code>git commit</code></li>
+<li><code>git rm &lt;file&gt;</code>将文件<strong>从暂存区和工作区中删除</strong></li>
+<li><code>git rm --cached &lt;file&gt;</code><strong>从暂存区移除</strong>，但仍然保留在当前工作目录中，仅是<strong>从跟踪清单中删除</strong></li>
+</ul>
+<h2 id="链接远程库">链接远程库</h2>
+<ul>
+<li><code>git remote add origin ***</code><strong>关联远程库，<code>***</code>代表远程库的地址，可以为git或者https,git地址速度块</strong></li>
+<li>首次<code>s</code></li>
+<li><code>git remote -v</code><strong>查看远程仓库</strong></li>
+<li><code>git push --force origin master</code>或者<code>git push -f origin master</code><strong>强制覆盖远程分支</strong></li>
+<li><code>git checkout -b a origin/a</code>从远程a分支拉取分支信息到本地a分支</li>
+</ul>
+<h2 id="分支创建和基本使用">分支创建和基本使用</h2>
+<ul>
+<li>
+<p><strong>创建分支</strong><code>git branch dev</code></p>
+</li>
+<li>
+<p><strong>切换到分支</strong><code>git checkout dev</code></p>
+</li>
+<li>
+<p><strong>查看分支情况</strong><code>git branch</code></p>
+</li>
+<li>
+<p><strong>将别的分支合并到当前分支</strong><code>git merge 分支名</code></p>
+<ul>
+<li>如果存在冲突，需要解决冲突</li>
+<li>修改完冲突文件后使用<code>git add .</code>命令</li>
+<li>再使用<code>git commit</code>命令，可以不带<code>-m </code>参数添加注释</li>
+</ul>
+</li>
+<li>
+<p><strong>删除分支</strong><code>git branch -d 分支名</code></p>
+</li>
+<li>
+<p>在操作中添加<code>-r</code>参数，代表对<strong>远程仓库</strong>进行分支操作
+对一个分支的本地文件操作不会影响到另一分支的本地文件情况</p>
+</li>
+</ul>
+<h2 id="git进阶">Git进阶</h2>
+<h3 id="分支管理">分支管理</h3>
+<ul>
+<li>
+<p><code>git rebase branch</code><strong>变基操作</strong></p>
+<ul>
+<li><strong>将branch分支中的commit放到当前的commit之前</strong>，合并为同一分支</li>
+</ul>
+</li>
+<li>
+<p><code>git commit --amend</code>可以<strong>编辑当前的commit信息</strong></p>
+</li>
+<li>
+<p><code>git rebase -i HEAD~3</code></p>
+<ul>
+<li><strong>编辑前三个commit</strong></li>
+<li>通过<strong>squash</strong>可用于多个commit信息的<strong>合并</strong></li>
+<li>通过<strong>edit</strong>可用于历史commit信息的<strong>编辑</strong></li>
+</ul>
+<blockquote>
+<p>编辑完文件后仍需要多次运行<code>git commit --amend</code>来编辑多次历史提交信息</p>
+<p>每次运行上述命令之后，<strong>需要<code>git rebase --continue</code>代表保存并进行下一条</strong></p>
+<p><strong><code>--abort</code>参数可放弃当前操作</strong>，例如<code>git rebase --abort</code></p>
+</blockquote>
+</li>
+<li>
+<p><code>git push --set-upstream origin newbranch</code><strong>将本地分支newbranch与远程分支newbranch关联</strong></p>
+</li>
+<li>
+<p><code>origin/main</code>和是远程分支在本地分支更新的<strong>克隆</strong></p>
+<ul>
+<li><code>git pull</code>操作是<code>git fetch</code>和<code>git merge origin/***</code>两个命令的集合</li>
+<li><code>git fetch</code>命令使用远程分支<strong>更新本地<code>origin/***</code>分支</strong></li>
+<li><code>git merge origin/***</code>将<code>origin/***</code>分支<strong>合并到当前<code>***</code>分支</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="git-status-中文文件名编码问题">git status 中文文件名编码问题</h3>
+<p>在默认设置下，中文文件名在工作区状态输出，查看历史更改概要，以及在补丁文件中，文件名的中文不能正确地显示，而是显示为八进制的字符编码，示例如下：
+<code>&quot;assets/\346\234\272\345\231\250\345\255\246\344\271\240\347\232\204\345\271\266\350\241\214\347\255\226\347\225\245/&quot; &quot;content/posts/\346\234\272\345\231\250\345\255\246\344\271\240/&quot;</code>
 通过将Git配置变量 core.quotepath 设置为false，就可以解决中文文件名称在这些Git命令输出中的显示问题
-<code>git config --global core.quotepath false</code></p><p>将此改到github action文件中，同样可以解决hugo模板lastmod显示不正常的问题</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://www.liaoxuefeng.com/wiki/896043488029600 target=_blank rel="noopener noreffer">https://www.liaoxuefeng.com/wiki/896043488029600</a>
-&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2021-01-25</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/git%E4%BD%BF%E7%94%A8/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/ data-title=Git使用 data-hashtags=git,命令><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/ data-hashtag=git><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/ data-title=Git使用><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/ data-title=Git使用><i data-svg-src=/lib/simple-icons/icons/line.min.svg aria-hidden=true></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/ data-title=Git使用><i class="fab fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/git/>git</a>,&nbsp;<a href=/tags/%E5%91%BD%E4%BB%A4/>命令</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/linux%E5%91%BD%E4%BB%A4/ class=prev rel=prev title=Linux命令><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Linux命令</a>
-<a href=/c-/ class=next rel=next title=C++学习笔记>C++学习笔记<i class="fas fa-angle-right fa-fw" aria-hidden=true></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2021 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>loveLzz</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
-</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/lightgallery/lightgallery.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/katex/copy-tex.min.css><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/plugins/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/auto-render.min.js></script><script type=text/javascript src=/lib/katex/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/mhchem.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:50},comment:{},cookieconsent:{content:{dismiss:"Got it!",link:"Learn more",message:"This website uses Cookies to improve your experience."},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},lightgallery:!0,math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/index.json",maxResultLength:10,noResultsFound:"No results found",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
+<code>git config --global core.quotepath false</code></p>
+<p>将此改到github action文件中，同样可以解决hugo模板lastmod显示不正常的问题</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener noreffer">https://www.liaoxuefeng.com/wiki/896043488029600</a>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-01-25</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/git%E4%BD%BF%E7%94%A8/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/" data-title="Git使用" data-hashtags="git,命令"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/" data-hashtag="git"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/" data-title="Git使用"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/" data-title="Git使用"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8/" data-title="Git使用"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/git/">git</a>,&nbsp;<a href="/tags/%E5%91%BD%E4%BB%A4/">命令</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/linux%E5%91%BD%E4%BB%A4/" class="prev" rel="prev" title="Linux命令"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Linux命令</a>
+            <a href="/%E8%BF%90%E7%BB%B4%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="next" rel="next" title="运维问题记录">运维问题记录<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.100.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/lightgallery.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
