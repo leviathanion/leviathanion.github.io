@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
         <description>深度学习 - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 09 Jun 2022 18:40:16 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 09 Jun 2022 18:40:24 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>PairRE</title>
+    <link>https://leviathanion.github.io/pairre/</link>
+    <pubDate>Thu, 09 Jun 2022 18:40:24 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/pairre/</guid>
+    <description><![CDATA[PairRE Novelty 通过修改RotatE的公式，将关系参数改为头尾两个，从而可以对复杂关系进行建模 根据本文分析，RotatE本身可以对N-1关系建模，但是不]]></description>
+</item>
+<item>
     <title>KBGAN</title>
     <link>https://leviathanion.github.io/kbgan/</link>
     <pubDate>Thu, 09 Jun 2022 18:40:16 &#43;0800</pubDate>
