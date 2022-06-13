@@ -18,7 +18,7 @@
     <pubDate>Wed, 25 May 2022 15:27:53 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/cake/</guid>
-    <description><![CDATA[CAKE模型1(待完成) Novelty 问题和动机 本论文主要关注KGE中存在的问题 KGE训练时需要对训练数据进行负采样，简单的根据概率来生成负样本，会有如]]></description>
+    <description><![CDATA[CAKE模型1 Novelty 将数据集做一定的处理，进行标注，为每个实体赋予一到多个概念 基于概念生成常识，也即（概念，关系，概念）的三元组为常识1和（概念]]></description>
 </item>
 <item>
     <title>SRU</title>
