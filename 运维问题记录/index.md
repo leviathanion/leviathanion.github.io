@@ -270,6 +270,10 @@ alias sudonvim = "sudo -E nvim"
 ### windows
 * 与linux类似，将配置文件放到`c:user/appdata/local/nvim`中
 
+## zsh配置conda
+* cd anaconda的安装目录下的bin目录
+* 执行conda init zsh `conda init zsh`
+
 [^参考链接]:https://netplan.io/examples/
 [^packer]:https://github.com/wbthomason/packer.nvim
 

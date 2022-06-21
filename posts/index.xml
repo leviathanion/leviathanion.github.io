@@ -26,7 +26,7 @@
     <pubDate>Thu, 09 Jun 2022 18:40:24 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/pairre/</guid>
-    <description><![CDATA[PairRE Novelty 通过修改RotatE的公式，将关系参数改为头尾两个，从而可以对复杂关系进行建模 根据本文分析，RotatE本身可以对N-1关系建模，但是不]]></description>
+    <description><![CDATA[PairRE Novelty 既考虑了复杂关系建模的问题，又考虑了多种模式的关系 通过修改RotatE的公式，将关系参数改为头尾两个，从而可以对复杂关系进行建模(Rot]]></description>
 </item>
 <item>
     <title>KBGAN</title>
@@ -34,7 +34,7 @@
     <pubDate>Thu, 09 Jun 2022 18:40:16 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/kbgan/</guid>
-    <description><![CDATA[KBGAN模型[^1] 问题和动机 过去知识图谱嵌入领域的负采样仅仅根据概率来采样有以下两个问题 假负样本问题，有可能会有正确样本被当成负样本来采]]></description>
+    <description><![CDATA[KBGAN模型[^1] Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴]]></description>
 </item>
 <item>
     <title>CAKE</title>
@@ -42,7 +42,7 @@
     <pubDate>Wed, 25 May 2022 15:27:53 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/cake/</guid>
-    <description><![CDATA[CAKE模型1 Novelty 将数据集做一定的处理，进行标注，为每个实体赋予一到多个概念 基于概念生成常识，也即（概念，关系，概念）的三元组为常识1和（概念]]></description>
+    <description><![CDATA[CAKE模型1 Novelty 首次既考虑了假阴性问题，又考虑了低质量的问题，特别是假阴性问题几乎无人考虑 将数据集做一定的处理，进行标注，为每个实体赋予一到]]></description>
 </item>
 <item>
     <title>Python学习笔记</title>

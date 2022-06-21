@@ -42,7 +42,7 @@
     <pubDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/irnn/</guid>
-    <description><![CDATA[IRNN模型1 Novelty 使用单位矩阵来初始化RNN 使用ReLU激活函数代替Sigmoid激活函数 问题和动机 梯度消失和梯度爆炸的问题导致RNN模型难以]]></description>
+    <description><![CDATA[IRNN模型1 Novelty 专注于解决RNN模型中的梯度消失问题 使用单位矩阵来初始化RNN从而部分解决梯度消失问题 使用ReLU激活函数代替Sigmoid]]></description>
 </item>
 </channel>
 </rss>
