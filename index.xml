@@ -36,7 +36,7 @@
     <pubDate>Thu, 09 Jun 2022 18:40:16 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/kbgan/</guid>
-    <description><![CDATA[KBGAN模型[^1] Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴]]></description>
+    <description><![CDATA[KBGAN模型1 Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴别器，]]></description>
 </item>
 <item>
     <title>CAKE</title>

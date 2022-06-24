@@ -26,6 +26,7 @@
 ## 过去的解决方法
 * 过去采用随机替换来生成负样本，但这样容易产生低质量的样本
 * 对于log-softmax损失函数而言，通常会为一个正样本产生很多个负样本，因此总有高质量的负样本可以使用
+> 论文[^2](ComplEx)研究表明，当采用100：1的负/正比例会使得效果更佳
 * 但对于margin-loss而言，正负样本通常为1:1，因此低质量负样本会影响训练
 ## idea
 * 采用一个softmax概率的生成器，来生成高质量的负样本
@@ -82,4 +83,6 @@
 ![实验结果](/KBGAN/实验结果.png)
 生成器的选择不会显著影响实验结果，KGGAN框架可以提升Trans系列模型的性能
 
+[^1]:KBGAN: Adversarial Learning for Knowledge Graph Embeddings
+[^2]:Complex Embeddings for Simple Link Prediction
 

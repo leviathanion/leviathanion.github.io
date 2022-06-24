@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>KBGAN - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="KBGAN" />
-<meta property="og:description" content="KBGAN模型[^1] Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴" />
+<meta property="og:description" content="KBGAN模型1 Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴别器，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://leviathanion.github.io/kbgan/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-09T18:40:16+08:00" />
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://leviathanion.github.io/"/>
 
 <meta name="twitter:title" content="KBGAN"/>
-<meta name="twitter:description" content="KBGAN模型[^1] Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴"/>
+<meta name="twitter:description" content="KBGAN模型1 Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴别器，"/>
 <meta name="application-name" content="loveLZZ的个人博客">
 <meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/kbgan/" /><link rel="prev" href="https://leviathanion.github.io/cake/" /><link rel="next" href="https://leviathanion.github.io/pairre/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/kbgan\/"
-        },"genre": "posts","keywords": "机器学习, 深度学习, KG","wordcount":  2239 ,
+        },"genre": "posts","keywords": "机器学习, 深度学习, KG","wordcount":  2287 ,
         "url": "https:\/\/leviathanion.github.io\/kbgan\/","datePublished": "2022-06-09T18:40:16+08:00","dateModified": "2022-06-09T18:40:16+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">KBGAN</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>机器学习</a>&nbsp;<a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>深度学习</a>&nbsp;<a href="/categories/kg/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>KG</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2239 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2287 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -141,7 +141,7 @@
     <li><a href="#实验">实验</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="kbgan模型1">KBGAN模型[^1]</h1>
+            </div><div class="content" id="content"><h1 id="kbgan模型1">KBGAN模型<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h1>
 <h2 id="novelty">Novelty</h2>
 <ul>
 <li>首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题</li>
@@ -186,6 +186,11 @@
 <ul>
 <li>过去采用随机替换来生成负样本，但这样容易产生低质量的样本</li>
 <li>对于log-softmax损失函数而言，通常会为一个正样本产生很多个负样本，因此总有高质量的负样本可以使用</li>
+</ul>
+<blockquote>
+<p>论文<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>(ComplEx)研究表明，当采用100：1的负/正比例会使得效果更佳</p>
+</blockquote>
+<ul>
 <li>但对于margin-loss而言，正负样本通常为1:1，因此低质量负样本会影响训练</li>
 </ul>
 <h2 id="idea">idea</h2>
@@ -286,6 +291,17 @@ L_D&amp;=\sum_{(h,r,t)\in\mathcal{T}}[f_D(h,r,t)-f_D(h^\prime,r,t^\prime)+\gamma
         title="实验结果" width="842" height="367" />
 生成器的选择不会显著影响实验结果，KGGAN框架可以提升Trans系列模型的性能</li>
 </ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>KBGAN: Adversarial Learning for Knowledge Graph Embeddings&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Complex Embeddings for Simple Link Prediction&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
