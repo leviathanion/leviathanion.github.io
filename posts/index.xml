@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/posts/</link>
         <description>All Posts | loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 10 Jun 2022 11:04:52 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>SimKGC</title>
+    <link>https://leviathanion.github.io/simkgc/</link>
+    <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/simkgc/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>SEEK</title>
     <link>https://leviathanion.github.io/seek/</link>
     <pubDate>Fri, 10 Jun 2022 11:04:52 &#43;0800</pubDate>
@@ -74,15 +82,7 @@
     <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/qrnn/</guid>
-    <description><![CDATA[QRNN1 Novelty 将RNN与CNN结合 用一种不使用未来数据的masked卷积来代替LSTM中与上一时刻隐藏层相乘的操作 简化了LSTM的操作，在计算过程中删]]></description>
-</item>
-<item>
-    <title>SCRN</title>
-    <link>https://leviathanion.github.io/scrn/</link>
-    <pubDate>Thu, 17 Feb 2022 15:42:05 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/scrn/</guid>
-    <description><![CDATA[SCRN模型1 Novelty 通过为RNN添加一个参数缓慢变化的隐藏层来捕获长距离依赖，公式如下所示 \begin{align*} s_t &amp;= (1-\alpha)Bx_t + \alpha s_{t-1} \\ h_t &amp;= \sigma(Ps_t+Ax_t+Rh_{t-1}) \\ y_t &amp;= f(Uh_t+Vs_t) \end{align*} 约束该隐藏层中的B为对]]></description>
+    <description><![CDATA[QRNN1 Novelty 将RNN与CNN结合 卷积层用一种不使用未来数据的masked卷积来代替LSTM中参数矩阵与上一时刻隐藏层相乘的操作。捕获过去时刻信息的同]]></description>
 </item>
 </channel>
 </rss>

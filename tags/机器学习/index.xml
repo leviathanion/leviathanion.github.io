@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
         <description>机器学习 - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 09 Jun 2022 18:40:24 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>SimKGC</title>
+    <link>https://leviathanion.github.io/simkgc/</link>
+    <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/simkgc/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>PairRE</title>
     <link>https://leviathanion.github.io/pairre/</link>
     <pubDate>Thu, 09 Jun 2022 18:40:24 &#43;0800</pubDate>
@@ -42,7 +50,7 @@
     <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/qrnn/</guid>
-    <description><![CDATA[QRNN1 Novelty 将RNN与CNN结合 用一种不使用未来数据的masked卷积来代替LSTM中与上一时刻隐藏层相乘的操作 简化了LSTM的操作，在计算过程中删]]></description>
+    <description><![CDATA[QRNN1 Novelty 将RNN与CNN结合 卷积层用一种不使用未来数据的masked卷积来代替LSTM中参数矩阵与上一时刻隐藏层相乘的操作。捕获过去时刻信息的同]]></description>
 </item>
 <item>
     <title>SCRN</title>
@@ -75,14 +83,6 @@
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/rnn%E5%92%8Clstm/</guid>
     <description><![CDATA[RNN和LSTM(待完成) RNN 问题和动机 自然界中很多事物都是序列相关的，想要理解某一时刻，必须要获取过去时刻的信息 过去的模型难以捕获序列信息 idea]]></description>
-</item>
-<item>
-    <title>IRNN</title>
-    <link>https://leviathanion.github.io/irnn/</link>
-    <pubDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/irnn/</guid>
-    <description><![CDATA[IRNN模型1 Novelty 专注于解决RNN模型中的梯度消失问题 使用单位矩阵来初始化RNN从而部分解决梯度消失问题 使用ReLU激活函数代替Sigmoid]]></description>
 </item>
 </channel>
 </rss>
