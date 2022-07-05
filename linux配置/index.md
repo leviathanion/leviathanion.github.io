@@ -1,6 +1,6 @@
-# 运维问题记录
+# linux配置
 
-# 运维问题记录
+# 网络配置
 ## 缺少ifconfig等工具时
 * 下载net-tools包
 > 目前iproute2已逐渐取代net-tools工具包，成为系统自带的网络工具，iproute2命令包主要是以ip作为前缀的一些命令
@@ -156,7 +156,7 @@
 >
 > 缺省render的情况下，默认使用networkd
   
-## 设置开机启动自动运行的脚本
+# 设置开机启动自动运行的脚本
 旧的版本中可以直接编辑`/etc/rc.local`添加开机启动脚本，而新版本这个功能默认是禁用的
 * Ubuntu20.04按下操作开启rc-local.service
   * 给`/etc/rc.local`文件执行权限`chmod +x`或者`chmod 755`
@@ -175,13 +175,14 @@
     Alias=rc-local.service
     ```
   * 启用服务`systemctl enable rc.local.service` 
+# 驱动
 ## ubuntu驱动内核更新导致nvidia驱动失效解决
 * `sudo dpkg --list | grep nvidia-*`或者`cat /proc/driver/nvidia/version`查看gpu驱动版本
 * `sudo apt-get autoremove --purge nvidia-*`删除nvidia相关包
 * `sudo apt-get install linux-headers-$(uname -r)`安装新内核的linux-headers，用于编译各种内核模块
 * `sudo apt-get install nvidia-drivers-4**`安装新的nvidia驱动
 
-## ubuntu更新内核
+# ubuntu更新内核
 * `uname`或`hostnamectl`查看内核版本
 > 可使用`uname --help`查看具体用法
 * `dpkg --get-selections | grep linux`或者` dpkg --list |grep linux`查看已安装的内核版本
@@ -192,19 +193,19 @@
 * `sudo apt-mark hold linux-image-extra-version-generic`固定内核的额外驱动
 * `sudo apt-mark hold linux-headers-version-generic`固定linux-headers
 
-## grub相关
+# grub相关
 * 开机时按`shift`可进入grub界面
 * `sudo vim /etc/default/grub`修改`grub`文件可修改默认启动项
 * 修改完之后要用`sudo update-grub`来更新grub
 * ` /boot/grub/grub.cfg `包含了各个启动项的详细信息
 * 若重装系统时，开机出现引导失败，进入grub rescue模式，可尝试写入启动盘时使用dd模式
 
-## ubuntu图形界面失效
+# ubuntu图形界面失效
 * `ctrl+alt+F2~F6`可进入tty命令行界面
 * 如果出现图形界面黑屏，但可以进入tty模式，考虑如下方法解决
     * 修改`/boot/grub/grub.cfg`，在`quiet splash`后面添加`nomodeset`
     * 修改`/etc/default/grub`,在`quiet splash`后面添加`nomodeset`
-## 用户管理
+# 用户管理
 * 涉及四个文件，主要需要修改passwd文件
 | 文件| 含义 |
 |  :--:  |  :--:  |
@@ -241,7 +242,7 @@
 > username ALL = (ALL) ALL
 > ```
 
-## 安全相关
+# 安全相关
 ### SSH安全
 * 具体参阅archwiki
 
@@ -255,7 +256,7 @@
 * `\etc\ufw\user.rules`存储了规则，`\etc\ufw\before.rules`可以设置黑名单
 > 详细可参阅官方文档
 
-## nvim配置
+# nvim配置
 ### linux
 * 从github拉取配置文件并放在.config目录下，命名为nvim
 ```shell
@@ -270,7 +271,7 @@ alias sudonvim = "sudo -E nvim"
 ### windows
 * 与linux类似，将配置文件放到`c:user/appdata/local/nvim`中
 
-## zsh配置conda
+# zsh配置conda
 * cd anaconda的安装目录下的bin目录
 * 执行conda init zsh `conda init zsh`
 

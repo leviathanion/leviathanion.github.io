@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>SRU - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="SRU" />
-<meta property="og:description" content="SRU" />
+<meta property="og:description" content="SRU 问题和动机 模型的性能依赖于模型的参数和计算量，但RNNs的并行计算能力严重拖累了模型的训练 RNNs的可扩展能力主要受限于RNNs模型的计算" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://leviathanion.github.io/sru/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-28T09:59:38+08:00" />
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://leviathanion.github.io/"/>
 
 <meta name="twitter:title" content="SRU"/>
-<meta name="twitter:description" content="SRU"/>
+<meta name="twitter:description" content="SRU 问题和动机 模型的性能依赖于模型的参数和计算量，但RNNs的并行计算能力严重拖累了模型的训练 RNNs的可扩展能力主要受限于RNNs模型的计算"/>
 <meta name="application-name" content="loveLZZ的个人博客">
 <meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/sru/" /><link rel="prev" href="https://leviathanion.github.io/c-/" /><link rel="next" href="https://leviathanion.github.io/python/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/sru\/"
-        },"genre": "posts","keywords": "RNNs, 深度学习, 机器学习, RNN优化","wordcount":  1 ,
+        },"genre": "posts","keywords": "RNNs, 深度学习, 机器学习, RNN优化","wordcount":  289 ,
         "url": "https:\/\/leviathanion.github.io\/sru\/","datePublished": "2022-03-28T09:59:38+08:00","dateModified": "2022-03-28T09:59:38+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,15 +116,37 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SRU</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/rnns/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>RNNs</a>&nbsp;<a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>深度学习</a>&nbsp;<a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>机器学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-28">2022-03-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;One word&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-28">2022-03-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;289 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题和动机">问题和动机</a></li>
+    <li><a href="#过去的解决方法">过去的解决方法</a></li>
+  </ul>
+</nav></div>
             </div><div class="content" id="content"><h1 id="sru">SRU</h1>
+<h2 id="问题和动机">问题和动机</h2>
+<ul>
+<li>模型的性能依赖于模型的参数和计算量，但RNNs的并行计算能力严重拖累了模型的训练</li>
+<li>RNNs的可扩展能力主要受限于RNNs模型的计算序列依赖性，最近的模型为了可扩展性广泛使用的是CNN和注意力机制</li>
+<li>因此作者提出了一种平衡了循环依赖和独立性的新模型SRU
+<ul>
+<li>SRU的状态计算与时间相关，但每个状态都是独立的，可以实现CUDA级优化。</li>
+<li>摒弃了卷积的使用，具有更多的循环，保留了建模能力，减少了计算复杂度和超参数。</li>
+<li>使用highway连接和精细的参数初始化方案，改进了模型的训练</li>
+</ul>
+</li>
+</ul>
+<h2 id="过去的解决方法">过去的解决方法</h2>
+<ul>
+<li>QRNN将字符级卷积合并到RNN模型中，加速模型计算</li>
+<li>IRNN使用单位对角矩阵初始化隐藏层的参数</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

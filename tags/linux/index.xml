@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/tags/linux/</link>
         <description>linux - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 22 Jan 2021 23:17:52 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Tmux使用</title>
+    <link>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[会话管理 新建会话tmux new -s &lt;session-name&gt; 列出所有会话tmux ls或者Ctrl+b s 退出会话tmux detach或者Ctrl+b d 接入会话tmux attach -t &]]></description>
+</item>
+<item>
     <title>Linux命令</title>
     <link>https://leviathanion.github.io/linux%E5%91%BD%E4%BB%A4/</link>
     <pubDate>Fri, 22 Jan 2021 23:17:52 &#43;0800</pubDate>

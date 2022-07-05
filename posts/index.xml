@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/posts/</link>
         <description>All Posts | loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Tmux使用</title>
+    <link>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[会话管理 新建会话tmux new -s &lt;session-name&gt; 列出所有会话tmux ls或者Ctrl+b s 退出会话tmux detach或者Ctrl+b d 接入会话tmux attach -t &]]></description>
+</item>
+<item>
     <title>SimKGC</title>
     <link>https://leviathanion.github.io/simkgc/</link>
     <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
@@ -66,7 +74,7 @@
     <pubDate>Mon, 28 Mar 2022 09:59:38 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/sru/</guid>
-    <description><![CDATA[SRU]]></description>
+    <description><![CDATA[SRU 问题和动机 模型的性能依赖于模型的参数和计算量，但RNNs的并行计算能力严重拖累了模型的训练 RNNs的可扩展能力主要受限于RNNs模型的计算]]></description>
 </item>
 <item>
     <title>C&#43;&#43;学习笔记</title>
@@ -75,14 +83,6 @@
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/c-/</guid>
     <description><![CDATA[C++学习笔记 C++简单特性 编译型语言，不是解释性 源代码的可移植性，但可执行程序不跨平台 由C++核心语言特征以及标准库两个组件构成 核心语言特]]></description>
-</item>
-<item>
-    <title>QRNN</title>
-    <link>https://leviathanion.github.io/qrnn/</link>
-    <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/qrnn/</guid>
-    <description><![CDATA[QRNN1 Novelty 将RNN与CNN结合 卷积层用一种不使用未来数据的masked卷积来代替LSTM中参数矩阵与上一时刻隐藏层相乘的操作。捕获过去时刻信息的同]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>linux - Category - loveLZZ的个人博客</title>
+        <link>https://leviathanion.github.io/categories/linux/</link>
+        <description>linux - Category - loveLZZ的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Tmux使用</title>
+    <link>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[会话管理 新建会话tmux new -s &lt;session-name&gt; 列出所有会话tmux ls或者Ctrl+b s 退出会话tmux detach或者Ctrl+b d 接入会话tmux attach -t &]]></description>
+</item>
+</channel>
+</rss>
