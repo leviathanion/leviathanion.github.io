@@ -10,7 +10,7 @@
     <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/linux%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[网络配置 缺少ifconfig等工具时 下载net-tools包 目前iproute2已逐渐取代net-tools工具包，成为系统自带的网络工具，]]></description>
+    <description><![CDATA[linux配置 网络配置 缺少ifconfig等工具时 下载net-tools包 目前iproute2已逐渐取代net-tools工具包，成为系统自]]></description>
 </item>
 </channel>
 </rss>
