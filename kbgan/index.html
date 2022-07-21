@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/kbgan\/"
-        },"genre": "posts","keywords": "机器学习, 深度学习, KG","wordcount":  2287 ,
+        },"genre": "posts","keywords": "机器学习, 深度学习, KG","wordcount":  2470 ,
         "url": "https:\/\/leviathanion.github.io\/kbgan\/","datePublished": "2022-06-09T18:40:16+08:00","dateModified": "2022-06-09T18:40:16+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">KBGAN</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>机器学习</a>&nbsp;<a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>深度学习</a>&nbsp;<a href="/categories/kg/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>KG</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2287 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-09">2022-06-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2470 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -185,7 +185,7 @@
 <h2 id="过去的解决方法">过去的解决方法</h2>
 <ul>
 <li>过去采用随机替换来生成负样本，但这样容易产生低质量的样本</li>
-<li>对于log-softmax损失函数而言，通常会为一个正样本产生很多个负样本，因此总有高质量的负样本可以使用</li>
+<li>对于log-softmax损失函数而言，通常会为一个正样本产生很多个负样本，因此总有高质量的负样本可以使用，因此低质量样本的影响不大</li>
 </ul>
 <blockquote>
 <p>论文<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>(ComplEx)研究表明，当采用100：1的负/正比例会使得效果更佳</p>
@@ -195,8 +195,8 @@
 </ul>
 <h2 id="idea">idea</h2>
 <ul>
-<li>采用一个softmax概率的生成器，来生成高质量的负样本</li>
-<li>采用一个marginal损失函数来构造鉴别器</li>
+<li>采用一个softmax概率的生成器(这是因为softmax给出的是一组三元组的概率分布，这是生成器从中采样所必须的东西)，来生成高质量的负样本。</li>
+<li>采用一个marginal损失函数来构造鉴别器，这类损失可以从高质量的负样本中受益更多。</li>
 <li>本模型的最终目标是生成一个好的鉴别器，而GAN的目标是训练一个好的生成器
 <ul>
 <li>鉴别器应该为高质量的负样本分配较小的距离</li>
@@ -231,6 +231,7 @@ p_G(h^\prime,r,t^\prime|h,r,t)=\frac{\exp f_G(h^\prime,r,t^\prime)}{\sum\exp f_G
 </ul>
 <blockquote>
 <p>理想情况下，$Neg(h,r,t)$应该包含所有的负样本，然而，知识图通常是高度不完整的，因此“最难”的负三元组很可能是假阴性（真实事实）。为了解决这个问题，通过从E中均匀采样Ns实体（与所有可能的负样本相比，这是一个很小的数字）来代替h或t来生成Neg（h，r，t）。因为在现实知识图中，真否定通常远远大于假否定，这样的集合不太可能包含任何假否定，生成器选择的负片很可能是真负样本。使用较小的$Neg(h,r,t)$也可以显著降低计算复杂性。</p>
+<p>同时采用伯努利负采样的策略，以更大的概率来替换1对N和N对1中1的那端。</p>
 </blockquote>
 <ul>
 <li>生成器的目标可表述为，最大化以下负距离的期望值
@@ -289,7 +290,17 @@ L_D&amp;=\sum_{(h,r,t)\in\mathcal{T}}[f_D(h,r,t)-f_D(h^\prime,r,t^\prime)+\gamma
         data-sizes="auto"
         alt="/KBGAN/%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C.png"
         title="实验结果" width="842" height="367" />
-生成器的选择不会显著影响实验结果，KGGAN框架可以提升Trans系列模型的性能</li>
+生成器的选择(DISTMULT或者CompLEx)不会显著影响实验结果，KGGAN框架可以提升Trans系列模型的性能</li>
+<li>未来可以使用更先进的生成器或者鉴别器来优化模型性能</li>
+<li>该模型在训练过程中性能始终处于上升状况，如下图所示
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/KBGAN/%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E6%80%A7%E8%83%BD.png"
+        data-srcset="/KBGAN/%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E6%80%A7%E8%83%BD.png, /KBGAN/%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E6%80%A7%E8%83%BD.png 1.5x, /KBGAN/%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E6%80%A7%E8%83%BD.png 2x"
+        data-sizes="auto"
+        alt="/KBGAN/%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E6%80%A7%E8%83%BD.png"
+        title="训练过程的性能图" width="966" height="568" /></li>
 </ul>
 <div class="footnotes" role="doc-endnotes">
 <hr>
