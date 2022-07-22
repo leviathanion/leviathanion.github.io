@@ -69,3 +69,8 @@ $$\arg\max_{t_i} cos(e_{hr},e_{t_i}) + \alpha \mathbb{1}(t_i \in \mathcal{E}_k (
 
 ![图结构重排序](/SimKGC/图结构重排序.png)
 
+##改进方向
+* 探索更有效的损失
+* 对多种模式和复杂关系的建模
+* 采用更高效的方式来捕获图结构
+
