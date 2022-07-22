@@ -10,7 +10,7 @@
     <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/simkgc/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[SimKGC模型 Novelty 使用InfoNCE损失改进原有损失 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图结构重排序来感知图结构 问题和动机]]></description>
 </item>
 <item>
     <title>PairRE</title>
