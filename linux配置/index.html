@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E9%85%8D%E7%BD%AE\/"
-        },"genre": "posts","keywords": "运维","wordcount":  3190 ,
+        },"genre": "posts","keywords": "运维","wordcount":  3282 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E9%85%8D%E7%BD%AE\/","datePublished": "2021-12-21T21:38:39+08:00","dateModified": "2021-12-21T21:38:39+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">linux配置</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BF%90%E7%BB%B4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>运维</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3190 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3282 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -136,7 +136,12 @@
     <li><a href="#设置开机启动自动运行的脚本">设置开机启动自动运行的脚本</a></li>
     <li><a href="#驱动">驱动</a>
       <ul>
-        <li><a href="#内核更新后重新安装ubuntu驱动">内核更新后重新安装ubuntu驱动</a></li>
+        <li><a href="#内核更新后重新安装nvidia驱动">内核更新后重新安装nvidia驱动</a>
+          <ul>
+            <li><a href="#方法1通过apt安装">方法1:通过apt安装</a></li>
+            <li><a href="#方法2通过dkms安装">方法2:通过dkms安装</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#ubuntu更新内核">ubuntu更新内核</a></li>
@@ -499,12 +504,20 @@
 </li>
 </ul>
 <h2 id="驱动">驱动</h2>
-<h3 id="内核更新后重新安装ubuntu驱动">内核更新后重新安装ubuntu驱动</h3>
+<h3 id="内核更新后重新安装nvidia驱动">内核更新后重新安装nvidia驱动</h3>
+<h4 id="方法1通过apt安装">方法1:通过apt安装</h4>
 <ul>
 <li><code>sudo dpkg --list | grep nvidia-*</code>或者<code>cat /proc/driver/nvidia/version</code>查看gpu驱动版本</li>
 <li><code>sudo apt-get autoremove --purge nvidia-*</code>删除nvidia相关包</li>
 <li><code>sudo apt-get install linux-headers-$(uname -r)</code>安装新内核的linux-headers，用于编译各种内核模块</li>
 <li><code>sudo apt-get install nvidia-drivers-4**</code>安装新的nvidia驱动</li>
+</ul>
+<h4 id="方法2通过dkms安装">方法2:通过dkms安装</h4>
+<ul>
+<li><code>nvcc -V</code>查看有cuda驱动</li>
+<li><code>ls /usr/src | grep nvidia</code>查看之前nvidia驱动版本</li>
+<li><code>sudo apt install dkms</code>安装dkms</li>
+<li><code>sudo dkms install -m nvidia -v 驱动版本</code>安装nvidia驱动</li>
 </ul>
 <h2 id="ubuntu更新内核">ubuntu更新内核</h2>
 <ul>

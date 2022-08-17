@@ -182,11 +182,17 @@
     ```
   * 启用服务`systemctl enable rc.local.service` 
 ## 驱动
-### 内核更新后重新安装ubuntu驱动
+### 内核更新后重新安装nvidia驱动
+#### 方法1:通过apt安装
 * `sudo dpkg --list | grep nvidia-*`或者`cat /proc/driver/nvidia/version`查看gpu驱动版本
 * `sudo apt-get autoremove --purge nvidia-*`删除nvidia相关包
 * `sudo apt-get install linux-headers-$(uname -r)`安装新内核的linux-headers，用于编译各种内核模块
 * `sudo apt-get install nvidia-drivers-4**`安装新的nvidia驱动
+#### 方法2:通过dkms安装
+* `nvcc -V`查看有cuda驱动
+* `ls /usr/src | grep nvidia`查看之前nvidia驱动版本
+* `sudo apt install dkms`安装dkms
+* `sudo dkms install -m nvidia -v 驱动版本`安装nvidia驱动
 
 ## ubuntu更新内核
 * `uname`或`hostnamectl`查看内核版本
