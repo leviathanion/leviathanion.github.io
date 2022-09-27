@@ -170,15 +170,15 @@
 <p><strong><code>git diff</code>将本地文件与<em>暂存区</em>的文件进行比较</strong></p>
 </li>
 <li>
-<p><code>git log</code></p>
+<p><strong><code>git log</code>查看文件历次commit的情况</strong></p>
 </li>
 </ul>
 <blockquote>
-<ul>
-<li>
-<p><strong>查看文件历次commit提交的情况</strong></p>
-</li>
-<li>
+<p>查看不了reset和删除的信息</p>
+<p>commit后面的<strong>数字</strong>是<strong>提交的编号commitid</strong></p>
+<p><code>HEAD</code>表示<strong>当前版本</strong>,<code>HEAD^</code>表示<strong>上个版本</strong>，<code>HEAD^^</code>表示<strong>上上个版本</strong></p>
+<p><code>HEAD~100</code>表示<strong>往上的100个版本</strong></p>
+</blockquote>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -187,38 +187,12 @@
         data-sizes="auto"
         alt="/gitlog.PNG"
         title="/gitlog.PNG" width="892" height="469" /></p>
-<p>commit后面的<strong>数字</strong>是<strong>提交的编号</strong></p>
-<p><code>HEAD</code>表示<strong>当前版本</strong>,<code>HEAD^</code>表示<strong>上个版本</strong>，<code>HEAD^^</code>表示<strong>上上个版本</strong></p>
-<p><code>HEAD~100</code>表示<strong>往上的100个版本</strong></p>
-</li>
-</ul>
-</blockquote>
 <ul>
-<li><code>git reset</code></li>
-</ul>
-<blockquote>
-<p>用法：<code>git reset --hard HEAD^</code>表示<strong>回退</strong>到<strong>前一个版本</strong></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/gitreset.PNG"
-        data-srcset="/gitreset.PNG, /gitreset.PNG 1.5x, /gitreset.PNG 2x"
-        data-sizes="auto"
-        alt="/gitreset.PNG"
-        title="/gitreset.PNG" width="873" height="535" /></p>
-<p>发现最早的版本记录没了</p>
-<p>此时可以通过<code>git reset --hard 之前的版本号</code>来恢复操作</p>
-</blockquote>
-<ul>
-<li><code>git reflog</code></li>
-</ul>
-<blockquote>
-<ul>
-<li>可以查看<strong>所有分支</strong>的<strong>所有操作</strong>记录（包括已经被删除的 commit 记录和 reset 的操作）</li>
+<li><code>git reset --hard HEAD^/~n/commitid</code>回退到对应版本</li>
+<li><code>git reflog</code>可以查看<strong>所有分支</strong>的<strong>所有操作</strong>记录（包括已经被删除的 commit 记录和 reset 的操作）</li>
 </ul>
 <blockquote>
 <p>例如执行 <code>git reset --hard HEAD~1</code>，退回到上一个版本，用<code>git log</code>则是看不出来被删除的<code>commitid</code>，用<code>git reflog</code>则可以看到被删除的<code>commitid</code>，恢复到被删除的那个版本。</p>
-</blockquote>
 </blockquote>
 <h3 id="小结">小结</h3>
 <ul>
@@ -260,7 +234,6 @@
 <h2 id="链接远程库">链接远程库</h2>
 <ul>
 <li><code>git remote add origin ***</code><strong>关联远程库，<code>***</code>代表远程库的地址，可以为git或者https,git地址速度块</strong></li>
-<li>首次<code>s</code></li>
 <li><code>git remote -v</code><strong>查看远程仓库</strong></li>
 <li><code>git push --force origin master</code>或者<code>git push -f origin master</code><strong>强制覆盖远程分支</strong></li>
 <li><code>git checkout -b a origin/a</code>从远程a分支拉取分支信息到本地a分支</li>
@@ -277,7 +250,7 @@
 <p><strong>查看分支情况</strong><code>git branch</code></p>
 </li>
 <li>
-<p><strong>创建并切换到分支</strong> git checkout -b dev</p>
+<p><strong>创建并切换到分支</strong> <code>git checkout -b dev</code></p>
 </li>
 <li>
 <p><strong>将别的分支合并到当前分支</strong><code>git merge 分支名</code></p>
@@ -291,19 +264,24 @@
 <p><strong>删除分支</strong><code>git branch -d 分支名</code></p>
 </li>
 <li>
-<p>在操作中添加<code>-r</code>参数，代表对<strong>远程仓库</strong>进行分支操作
-对一个分支的本地文件操作不会影响到另一分支的本地文件情况</p>
+<p>在操作中添加<code>-r</code>参数，代表对<strong>远程仓库</strong>进行分支操作</p>
 </li>
 </ul>
+<blockquote>
+<p>对一个分支的本地文件操作不会影响到另一分支的本地文件情况</p>
+</blockquote>
 <h2 id="git进阶">Git进阶</h2>
 <h3 id="分支管理">分支管理</h3>
 <ul>
-<li>
-<p><code>git rebase branch</code><strong>变基操作</strong></p>
-<ul>
-<li><strong>将branch分支中的commit放到当前的commit之前</strong>，合并为同一分支</li>
+<li><code>git rebase branch</code><strong>变基操作</strong></li>
 </ul>
-</li>
+<blockquote>
+<p><strong>将branch分支中的commit放到当前的commit之前</strong>，合并为同一分支</p>
+<p>如果有冲突，编辑完文件后仍需要多次运行<code>git commit --amend</code>来编辑多次历史提交信息</p>
+<p>每次运行上述命令之后，<strong>需要<code>git rebase --continue</code>代表保存并进行下一条</strong></p>
+<p><strong><code>--abort</code>参数可放弃当前操作</strong>，例如<code>git rebase --abort</code></p>
+</blockquote>
+<ul>
 <li>
 <p><code>git commit --amend</code>可以<strong>编辑当前的commit信息</strong></p>
 </li>
@@ -314,11 +292,6 @@
 <li>通过<strong>squash</strong>可用于多个commit信息的<strong>合并</strong></li>
 <li>通过<strong>edit</strong>可用于历史commit信息的<strong>编辑</strong></li>
 </ul>
-<blockquote>
-<p>编辑完文件后仍需要多次运行<code>git commit --amend</code>来编辑多次历史提交信息</p>
-<p>每次运行上述命令之后，<strong>需要<code>git rebase --continue</code>代表保存并进行下一条</strong></p>
-<p><strong><code>--abort</code>参数可放弃当前操作</strong>，例如<code>git rebase --abort</code></p>
-</blockquote>
 </li>
 <li>
 <p><code>git push --set-upstream origin newbranch</code><strong>将本地分支newbranch与远程分支newbranch关联</strong></p>
@@ -375,7 +348,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.102.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

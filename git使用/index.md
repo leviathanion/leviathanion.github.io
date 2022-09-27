@@ -20,34 +20,22 @@
 
 * **`git diff`将本地文件与*暂存区*的文件进行比较**
 
-* `git log`
+* **`git log`查看文件历次commit的情况**
+> 查看不了reset和删除的信息
+>
+> commit后面的**数字**是**提交的编号commitid**
+>
+> `HEAD`表示**当前版本**,`HEAD^`表示**上个版本**，`HEAD^^`表示**上上个版本**
+>
+> `HEAD~100`表示**往上的100个版本**
 
-> * **查看文件历次commit提交的情况**
->
-> * ![](/gitlog.PNG)
->
->   commit后面的**数字**是**提交的编号**
->
->   `HEAD`表示**当前版本**,`HEAD^`表示**上个版本**，`HEAD^^`表示**上上个版本**
->
->   `HEAD~100`表示**往上的100个版本**
+![](/gitlog.PNG)
 
 
-* `git reset`
 
-> 用法：`git reset --hard HEAD^`表示**回退**到**前一个版本**
->
-> ![](/gitreset.PNG)
->
-> 发现最早的版本记录没了
->
-> 此时可以通过`git reset --hard 之前的版本号`来恢复操作
-
-* `git reflog`
-
-> * 可以查看**所有分支**的**所有操作**记录（包括已经被删除的 commit 记录和 reset 的操作）
->
-> > 例如执行 `git reset --hard HEAD~1`，退回到上一个版本，用`git log`则是看不出来被删除的`commitid`，用`git reflog`则可以看到被删除的`commitid`，恢复到被删除的那个版本。
+* `git reset --hard HEAD^/~n/commitid`回退到对应版本
+* `git reflog`可以查看**所有分支**的**所有操作**记录（包括已经被删除的 commit 记录和 reset 的操作）
+>  例如执行 `git reset --hard HEAD~1`，退回到上一个版本，用`git log`则是看不出来被删除的`commitid`，用`git reflog`则可以看到被删除的`commitid`，恢复到被删除的那个版本。
 
 
 ### 小结
@@ -82,7 +70,6 @@
 ## 链接远程库
 
 * `git remote add origin ***`**关联远程库，`***`代表远程库的地址，可以为git或者https,git地址速度块**
-* 首次`s`
 * `git remote -v`**查看远程仓库**
 * `git push --force origin master`或者`git push -f origin master`**强制覆盖远程分支**
 * `git checkout -b a origin/a`从远程a分支拉取分支信息到本地a分支
@@ -92,7 +79,7 @@
 * **创建分支**`git branch dev`
 * **切换到分支**`git checkout dev`
 * **查看分支情况**`git branch`
-* **创建并切换到分支** git checkout -b dev
+* **创建并切换到分支** `git checkout -b dev`
 
 * **将别的分支合并到当前分支**`git merge 分支名`
   * 如果存在冲突，需要解决冲突
@@ -100,7 +87,7 @@
   * 再使用`git commit`命令，可以不带`-m `参数添加注释
 * **删除分支**`git branch -d 分支名`
 * 在操作中添加`-r`参数，代表对**远程仓库**进行分支操作
-对一个分支的本地文件操作不会影响到另一分支的本地文件情况
+> 对一个分支的本地文件操作不会影响到另一分支的本地文件情况
 
 ## Git进阶
 
@@ -108,18 +95,19 @@
 
 * `git rebase branch`**变基操作**
 
-  * **将branch分支中的commit放到当前的commit之前**，合并为同一分支
+> **将branch分支中的commit放到当前的commit之前**，合并为同一分支
+>
+> 如果有冲突，编辑完文件后仍需要多次运行`git commit --amend`来编辑多次历史提交信息
+>
+> 每次运行上述命令之后，**需要`git rebase --continue`代表保存并进行下一条**
+>
+> **`--abort`参数可放弃当前操作**，例如`git rebase --abort`
 * `git commit --amend`可以**编辑当前的commit信息**
 * `git rebase -i HEAD~3`
 
   * **编辑前三个commit**
   * 通过**squash**可用于多个commit信息的**合并**
   * 通过**edit**可用于历史commit信息的**编辑**
-  > 编辑完文件后仍需要多次运行`git commit --amend`来编辑多次历史提交信息
-  >
-  > 每次运行上述命令之后，**需要`git rebase --continue`代表保存并进行下一条**
-  >
-  > **`--abort`参数可放弃当前操作**，例如`git rebase --abort`
 
 * `git push --set-upstream origin newbranch`**将本地分支newbranch与远程分支newbranch关联**
 
