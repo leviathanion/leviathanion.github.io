@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E5%91%BD%E4%BB%A4\/"
-        },"genre": "posts","keywords": "linux, 命令","wordcount":  3013 ,
+        },"genre": "posts","keywords": "linux, 命令","wordcount":  3688 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E5%91%BD%E4%BB%A4\/","datePublished": "2021-01-22T23:17:52+08:00","dateModified": "2021-01-22T23:17:52+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,8 +116,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux命令</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%91%BD%E4%BB%A4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>命令</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-22">2021-01-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3013 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-22">2021-01-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3688 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -125,56 +125,56 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#1linux基本命令">1.linux基本命令</a></li>
-    <li><a href="#2linux终端命令格式">2.Linux终端命令格式</a>
+    <li><a href="#1linux命令概述">1.Linux命令概述</a>
       <ul>
-        <li><a href="#21-终端命令格式">2.1 终端命令格式</a></li>
-        <li><a href="#22-查询命令帮助信息">2.2 查询命令帮助信息</a>
+        <li><a href="#11-终端命令格式">1.1 终端命令格式</a></li>
+        <li><a href="#12-查询命令帮助信息">1.2 查询命令帮助信息</a>
           <ul>
-            <li><a href="#221---help">2.2.1 &ndash;help</a></li>
-            <li><a href="#222-man">2.2.2 man</a></li>
+            <li><a href="#121---help">1.2.1 &ndash;help</a></li>
+            <li><a href="#122-man">1.2.2 man</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#3linux文件和目录命令">3.linux文件和目录命令</a>
+    <li><a href="#2linux文件和目录命令">2.linux文件和目录命令</a>
       <ul>
-        <li><a href="#31命令总结">3.1命令总结</a></li>
-        <li><a href="#32-ls命令详细用法">3.2 ls命令详细用法</a>
+        <li><a href="#21命令总结">2.1命令总结</a></li>
+        <li><a href="#22-ls命令详细用法">2.2 ls命令详细用法</a>
           <ul>
             <li><a href="#1-linux文件特点">1. Linux文件特点</a></li>
             <li><a href="#2-ls命令常用选项">2. ls命令常用选项</a></li>
             <li><a href="#3ls通配符使用">3.ls通配符使用</a></li>
           </ul>
         </li>
-        <li><a href="#33-cd命令详细用法">3.3 cd命令详细用法</a>
+        <li><a href="#23-cd命令详细用法">2.3 cd命令详细用法</a>
           <ul>
             <li><a href="#1-cd命令常用用法">1. cd命令常用用法</a></li>
             <li><a href="#2-绝对路径和相对路径">2. 绝对路径和相对路径</a></li>
           </ul>
         </li>
-        <li><a href="#34-创建和删除命令详细用法">3.4 创建和删除命令详细用法</a>
+        <li><a href="#24-创建和删除命令详细用法">2.4 创建和删除命令详细用法</a>
           <ul>
             <li><a href="#1touch命令">1.touch命令</a></li>
             <li><a href="#2mkdir命令">2.mkdir命令</a></li>
             <li><a href="#3rm命令">3.rm命令</a></li>
           </ul>
         </li>
-        <li><a href="#35-拷贝和移动命令">3.5 拷贝和移动命令</a>
+        <li><a href="#25-拷贝和移动命令">2.5 拷贝和移动命令</a>
           <ul>
             <li><a href="#1-tree命令">1. tree命令</a></li>
             <li><a href="#2cp命令">2.cp命令</a></li>
             <li><a href="#3-mv命令">3. mv命令</a></li>
           </ul>
         </li>
-        <li><a href="#36-查看和查找文件内容">3.6 查看和查找文件内容</a>
+        <li><a href="#26-查看和查找文件内容">2.6 查看和查找文件内容</a>
           <ul>
-            <li><a href="#1-cat-命令">1. <code>cat</code> 命令</a></li>
+            <li><a href="#1cat-命令">1.<code>cat</code> 命令</a></li>
             <li><a href="#2more命令">2.<code>more</code>命令</a></li>
-            <li><a href="#3grep命令">3.<code>grep</code>命令</a></li>
+            <li><a href="#3less命令">3.<code>less</code>命令</a></li>
+            <li><a href="#4grep命令">4.<code>grep</code>命令</a></li>
           </ul>
         </li>
-        <li><a href="#37-重定向和管道">3.7 重定向和管道</a>
+        <li><a href="#27-重定向和管道">2.7 重定向和管道</a>
           <ul>
             <li><a href="#1重定向-和">1.重定向 &gt;和&raquo;</a></li>
             <li><a href="#2-管道">2. 管道<code>|</code></a></li>
@@ -182,20 +182,20 @@
         </li>
       </ul>
     </li>
-    <li><a href="#4远程管理命令">4.远程管理命令</a>
+    <li><a href="#3远程管理命令">3.远程管理命令</a>
       <ul>
-        <li><a href="#41命令总结">4.1命令总结</a></li>
-        <li><a href="#42-关机和重启命令">4.2 关机和重启命令</a></li>
-        <li><a href="#43-查看和配置网卡信息">4.3 查看和配置网卡信息</a>
+        <li><a href="#31命令总结">3.1命令总结</a></li>
+        <li><a href="#32-关机和重启命令">3.2 关机和重启命令</a></li>
+        <li><a href="#33-查看和配置网卡信息">3.3 查看和配置网卡信息</a>
           <ul>
-            <li><a href="#431-网卡和ip地址">4.3.1 网卡和IP地址</a></li>
-            <li><a href="#432-ifconfig命令">4.3.2 <code>ifconfig</code>命令</a></li>
-            <li><a href="#433-ping命令">4.3.3 <code>ping</code>命令</a></li>
+            <li><a href="#331-网卡和ip地址">3.3.1 网卡和IP地址</a></li>
+            <li><a href="#332-ifconfig命令">3.3.2 <code>ifconfig</code>命令</a></li>
+            <li><a href="#333-ping命令">3.3.3 <code>ping</code>命令</a></li>
           </ul>
         </li>
-        <li><a href="#44-远程登录和复制文件">4.4 远程登录和复制文件</a>
+        <li><a href="#34-远程登录和复制文件">3.4 远程登录和复制文件</a>
           <ul>
-            <li><a href="#441-ssh基础">4.4.1 ssh基础</a>
+            <li><a href="#341-ssh基础">3.4.1 ssh基础</a>
               <ul>
                 <li><a href="#1域名和端口号">1）域名和端口号</a>
                   <ul>
@@ -206,9 +206,17 @@
                 <li><a href="#2ssh客户端的简单使用">2）ssh客户端的简单使用</a></li>
               </ul>
             </li>
-            <li><a href="#442-scp命令">4.4.2 <code>scp</code>命令</a></li>
+            <li><a href="#342-scp命令">3.4.2 <code>scp</code>命令</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#4搜索命令">4.搜索命令</a>
+      <ul>
+        <li><a href="#41locate">4.1<code>locate</code></a></li>
+        <li><a href="#42find">4.2<code>find</code></a></li>
+        <li><a href="#43which">4.3<code>which</code></a></li>
+        <li><a href="#44whereis">4.4<code>whereis</code></a></li>
       </ul>
     </li>
   </ul>
@@ -229,7 +237,96 @@
 <li><code>ctrl + a</code>快速回到行首，<code>ctrl + e</code>快速回到行尾</li>
 </ul>
 </blockquote>
-<h2 id="1linux基本命令">1.linux基本命令</h2>
+<h2 id="1linux命令概述">1.Linux命令概述</h2>
+<h3 id="11-终端命令格式">1.1 终端命令格式</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">command [-options]	[parameter]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>说明</strong>：</p>
+<ul>
+<li><code>command</code>:命令名</li>
+<li><code>[-options]</code>:选项
+<ul>
+<li>多选项时可单独列出 <code>-a -b -c</code>等，也可合在一起-<code>abc</code></li>
+</ul>
+</li>
+<li><code>[parameter]</code>:传递的参数</li>
+</ul>
+<blockquote>
+<p><strong><code>[]</code>代表可选</strong></p>
+</blockquote>
+<h3 id="12-查询命令帮助信息">1.2 查询命令帮助信息</h3>
+<hr>
+<h4 id="121---help">1.2.1 &ndash;help</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">command --help
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>说明：</strong></p>
+<ul>
+<li>显示<code>command</code>命令的帮助信息</li>
+</ul>
+<h4 id="122-man">1.2.2 man</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mam command
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>说明：</strong></p>
+<ul>
+<li>查询<code>command</code>命令的使用手册</li>
+</ul>
+<blockquote>
+<p>man是manual的缩写，是linux提供的一个手册，包含了绝大多数命令的详细使用说明</p>
+</blockquote>
+<p><strong>使用man的快捷键</strong></p>
+<table>
+<thead>
+<tr>
+<th>操作键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空格</td>
+<td>显示手册的下一屏</td>
+</tr>
+<tr>
+<td>回车键</td>
+<td>一次滚动手册页的一行</td>
+</tr>
+<tr>
+<td>b</td>
+<td>回滚一屏</td>
+</tr>
+<tr>
+<td>f</td>
+<td>前滚一屏</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>/word</td>
+<td>搜索word字符串</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2linux文件和目录命令">2.linux文件和目录命令</h2>
 <table>
 <thead>
 <tr>
@@ -297,7 +394,7 @@
 <tr>
 <td style="text-align:center">10</td>
 <td style="text-align:left">cat [文件名]</td>
-<td></td>
+<td>concatenate</td>
 <td style="text-align:left">查看文件所有内容</td>
 </tr>
 <tr>
@@ -308,112 +405,32 @@
 </tr>
 <tr>
 <td style="text-align:center">12</td>
-<td style="text-align:left">grep  [文本]  [文件]</td>
+<td style="text-align:left">less  [文件名]</td>
+<td></td>
+<td style="text-align:left">按页查看文件内容</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:left">grep  [文本]  [文件名]</td>
 <td></td>
 <td style="text-align:left">在文件中查找匹配的文本</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:left">file  [文件名]</td>
+<td></td>
+<td style="text-align:left">查看文件类型</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
 <p>注意事项</p>
-<blockquote>
 <ul>
-<li><strong>Linux下区分大小写</strong></li>
+<li>Linux下<strong>区分大小写</strong></li>
 <li><strong>不加参数的rm只能删除文件，不能删除文件夹</strong></li>
 </ul>
 </blockquote>
-</blockquote>
-<h2 id="2linux终端命令格式">2.Linux终端命令格式</h2>
-<h3 id="21-终端命令格式">2.1 终端命令格式</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">command [-options]	[parameter]
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>说明</strong>：</p>
-<ul>
-<li><code>command</code>:命令名</li>
-<li><code>[-options]</code>:选项
-<ul>
-<li>多选项时可单独列出 <code>-a -b -c</code>等，也可合在一起-<code>abc</code></li>
-</ul>
-</li>
-<li><code>[parameter]</code>:传递的参数</li>
-</ul>
-<blockquote>
-<p><strong><code>[]</code>代表可选</strong></p>
-</blockquote>
-<h3 id="22-查询命令帮助信息">2.2 查询命令帮助信息</h3>
-<hr>
-<h4 id="221---help">2.2.1 &ndash;help</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">command --help
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>说明：</strong></p>
-<ul>
-<li>显示<code>command</code>命令的帮助信息</li>
-</ul>
-<h4 id="222-man">2.2.2 man</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mam command
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>说明：</strong></p>
-<ul>
-<li>查询<code>command</code>命令的使用手册</li>
-</ul>
-<blockquote>
-<p>man是manual的缩写，是linux提供的一个手册，包含了绝大多数命令的详细使用说明</p>
-</blockquote>
-<p><strong>使用man的快捷键</strong></p>
-<table>
-<thead>
-<tr>
-<th>操作键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>空格</td>
-<td>显示手册的下一屏</td>
-</tr>
-<tr>
-<td>回车键</td>
-<td>一次滚动手册页的一行</td>
-</tr>
-<tr>
-<td>b</td>
-<td>回滚一屏</td>
-</tr>
-<tr>
-<td>f</td>
-<td>前滚一屏</td>
-</tr>
-<tr>
-<td>q</td>
-<td>退出</td>
-</tr>
-<tr>
-<td>/word</td>
-<td>搜索word字符串</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3linux文件和目录命令">3.linux文件和目录命令</h2>
-<h3 id="31命令总结">3.1命令总结</h3>
+<h3 id="21命令总结">2.1命令总结</h3>
 <hr>
 <ul>
 <li><strong>查看目录内容</strong>
@@ -448,7 +465,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="32-ls命令详细用法">3.2 ls命令详细用法</h3>
+<h3 id="22-ls命令详细用法">2.2 ls命令详细用法</h3>
 <hr>
 <h4 id="1-linux文件特点">1. Linux文件特点</h4>
 <ul>
@@ -511,7 +528,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="33-cd命令详细用法">3.3 cd命令详细用法</h3>
+<h3 id="23-cd命令详细用法">2.3 cd命令详细用法</h3>
 <hr>
 <h4 id="1-cd命令常用用法">1. cd命令常用用法</h4>
 <table>
@@ -545,7 +562,7 @@
 <li><strong>绝对路径：<strong>输入路径开头是<code>/</code>或者<code>~</code>，表示从</strong>根目录或家目录</strong>开始的具体目录位置</li>
 <li><strong>相对路径</strong>：输入路径开头不是<code>/</code>或者<code>~</code>，表示相对<strong>当前目录</strong>的目录所在位置</li>
 </ul>
-<h3 id="34-创建和删除命令详细用法">3.4 创建和删除命令详细用法</h3>
+<h3 id="24-创建和删除命令详细用法">2.4 创建和删除命令详细用法</h3>
 <hr>
 <h4 id="1touch命令">1.touch命令</h4>
 <ul>
@@ -596,7 +613,7 @@
 <ul>
 <li><code>rm</code>命令也可以使用通配符</li>
 </ul>
-<h3 id="35-拷贝和移动命令">3.5 拷贝和移动命令</h3>
+<h3 id="25-拷贝和移动命令">2.5 拷贝和移动命令</h3>
 <hr>
 <h4 id="1-tree命令">1. tree命令</h4>
 <ul>
@@ -672,10 +689,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="36-查看和查找文件内容">3.6 查看和查找文件内容</h3>
-<h4 id="1-cat-命令">1. <code>cat</code> 命令</h4>
+<h3 id="26-查看和查找文件内容">2.6 查看和查找文件内容</h3>
+<h4 id="1cat-命令">1.<code>cat</code> 命令</h4>
 <ul>
 <li><code>cat 123.txt</code>可以显示<code>123.txt</code>的所有内容</li>
+<li><code>cat file1 file2 &gt; file3</code>可以将file1和file2合并到file3中</li>
+<li><code>cat file1 &gt;&gt; file2</code>可以将file1的内容追加到file2后面</li>
 </ul>
 <table>
 <thead>
@@ -697,6 +716,7 @@
 </table>
 <h4 id="2more命令">2.<code>more</code>命令</h4>
 <ul>
+<li><code>more</code>比<code>cat</code>强大，可以按页查看文件内容</li>
 <li><code>more 1.txt</code>可以实现一屏的内容</li>
 </ul>
 <table>
@@ -729,7 +749,61 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3grep命令">3.<code>grep</code>命令</h4>
+<h4 id="3less命令">3.<code>less</code>命令</h4>
+<ul>
+<li><code>less</code>命令比more更为强大，可以通过上下键来卷动文件，支持vi的搜索和首末行跳转</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>操作键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空格</td>
+<td>显示手册的下一屏</td>
+</tr>
+<tr>
+<td>回车键</td>
+<td>一次滚动手册页的一行</td>
+</tr>
+<tr>
+<td>方向键</td>
+<td>上或下移</td>
+</tr>
+<tr>
+<td>b</td>
+<td>回滚一屏</td>
+</tr>
+<tr>
+<td>f</td>
+<td>前滚一屏</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>G</td>
+<td>跳到末尾</td>
+</tr>
+<tr>
+<td>1G/g</td>
+<td>跳到行首</td>
+</tr>
+<tr>
+<td>/char</td>
+<td>搜索</td>
+</tr>
+<tr>
+<td>h</td>
+<td>显示帮助</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4grep命令">4.<code>grep</code>命令</h4>
 <ul>
 <li><code>grep  文本内容  文件</code></li>
 </ul>
@@ -758,7 +832,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="37-重定向和管道">3.7 重定向和管道</h3>
+<h3 id="27-重定向和管道">2.7 重定向和管道</h3>
 <ul>
 <li><code>echo</code>命令会在终端中显示参数指定的文字，通常和<strong>重定向</strong>联合使用</li>
 </ul>
@@ -782,8 +856,8 @@
 <li><code>ls -lh | more</code>类似这样的用法</li>
 <li>将第一个命令的输出作为第二个命令的输入</li>
 </ul>
-<h2 id="4远程管理命令">4.远程管理命令</h2>
-<h3 id="41命令总结">4.1命令总结</h3>
+<h2 id="3远程管理命令">3.远程管理命令</h2>
+<h3 id="31命令总结">3.1命令总结</h3>
 <table>
 <thead>
 <tr>
@@ -820,7 +894,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="42-关机和重启命令">4.2 关机和重启命令</h3>
+<h3 id="32-关机和重启命令">3.2 关机和重启命令</h3>
 <ul>
 <li><code>shutdown</code>可以<strong>安全关闭</strong>或者<strong>重新启动系统</strong></li>
 </ul>
@@ -862,8 +936,8 @@
 </span></span><span class="line"><span class="cl">shutdown -c//取消关机动作
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="43-查看和配置网卡信息">4.3 查看和配置网卡信息</h3>
-<h4 id="431-网卡和ip地址">4.3.1 网卡和IP地址</h4>
+</div><h3 id="33-查看和配置网卡信息">3.3 查看和配置网卡信息</h3>
+<h4 id="331-网卡和ip地址">3.3.1 网卡和IP地址</h4>
 <ul>
 <li>
 <p>网卡是一个专门负责<strong>网络通讯</strong>的<strong>硬件</strong>设备</p>
@@ -875,7 +949,11 @@
 <blockquote>
 <p>电脑是电话，<strong>网卡</strong>是<strong>SIM卡</strong>，<strong>IP地址</strong>是<strong>电话号</strong></p>
 </blockquote>
-<h4 id="432-ifconfig命令">4.3.2 <code>ifconfig</code>命令</h4>
+<h4 id="332-ifconfig命令">3.3.2 <code>ifconfig</code>命令</h4>
+<blockquote>
+<p>ifconfig位于net-tools工具中</p>
+<p>目前iproute2已逐渐取代net-tools工具包，成为系统自带的网络工具，iproute2命令包主要是以ip作为前缀的一些命令</p>
+</blockquote>
 <ul>
 <li><code>ifconfig</code>可以<strong>查看/配置</strong>计算机当前的网卡配置信息</li>
 </ul>
@@ -904,7 +982,7 @@
 </div><ul>
 <li><code>127.0.0.1</code>被称为<strong>本地回环/环回地址</strong>，一般用来测试本机网卡是否正常</li>
 </ul>
-<h4 id="433-ping命令">4.3.3 <code>ping</code>命令</h4>
+<h4 id="333-ping命令">3.3.3 <code>ping</code>命令</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -919,8 +997,8 @@
 </span></span><span class="line"><span class="cl">$ ping 127.0.0.1
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="44-远程登录和复制文件">4.4 远程登录和复制文件</h3>
-<h4 id="441-ssh基础">4.4.1 ssh基础</h4>
+</div><h3 id="34-远程登录和复制文件">3.4 远程登录和复制文件</h3>
+<h4 id="341-ssh基础">3.4.1 ssh基础</h4>
 <ul>
 <li>
 <p>通过<strong>ssh客户端</strong> 登录管理 <strong>ssh服务器</strong></p>
@@ -1001,7 +1079,7 @@
 <li>使用<code>exit</code>退出当前用户的登录</li>
 </ul>
 </blockquote>
-<h4 id="442-scp命令">4.4.2 <code>scp</code>命令</h4>
+<h4 id="342-scp命令">3.4.2 <code>scp</code>命令</h4>
 <ul>
 <li><code>scp</code>命令，是一个在linux下进行<strong>远程拷贝文件</strong>的命令</li>
 <li><code>scp</code>地址格式与<strong>ssh</strong>基本相同，但在<strong>指定端口</strong>时，使用<code>-P</code>而不是<code>-p</code></li>
@@ -1044,6 +1122,97 @@
 </tr>
 </tbody>
 </table>
+<h2 id="4搜索命令">4.搜索命令</h2>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>英文</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td><code>locate</code>  name</td>
+<td></td>
+<td>搜索以name开头的文件</td>
+</tr>
+<tr>
+<td>02</td>
+<td><code>find</code>  [目录] [选项] [参数]</td>
+<td></td>
+<td>搜索文件</td>
+</tr>
+<tr>
+<td>03</td>
+<td><code>which</code> [命令]</td>
+<td></td>
+<td>在PATH指定的路径中，查找系统命令的位置</td>
+</tr>
+<tr>
+<td>04</td>
+<td><code>whereis</code> [命令]</td>
+<td></td>
+<td>搜索程序</td>
+</tr>
+</tbody>
+</table>
+<h3 id="41locate">4.1<code>locate</code></h3>
+<ul>
+<li><code>locate</code>命令依赖于<code>updatadb</code>命令创建的数据</li>
+<li>大多数linux发行版都会定期执行<code>updatadb</code>命令</li>
+<li>新文件搜索不到需要使用<code>updatadb</code>更新数据库</li>
+<li>速度比find快，因为使用的是数据库</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">locate /bin/name
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>在bin目录下数据库中查找name开头的文件</p>
+<p>可以配合grep使用，不拘泥于name开头</p>
+</blockquote>
+<h3 id="42find">4.2<code>find</code></h3>
+<ul>
+<li>如果什么参数也不加，find默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。</li>
+<li>此命令参数较多，使用<code>man</code>来查看用法</li>
+</ul>
+<h3 id="43which">4.3<code>which</code></h3>
+<ul>
+<li>搜索PATH里的系统命令位置</li>
+</ul>
+<h3 id="44whereis">4.4<code>whereis</code></h3>
+<ul>
+<li>搜索程序，默认二进制文件，man文件，源代码都显示</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-b</code></td>
+<td>搜索二进制文件</td>
+</tr>
+<tr>
+<td><code>-m</code></td>
+<td>搜索man文件</td>
+</tr>
+<tr>
+<td><code>-s</code></td>
+<td>搜索源代码</td>
+</tr>
+</tbody>
+</table>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -1072,7 +1241,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.104.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
