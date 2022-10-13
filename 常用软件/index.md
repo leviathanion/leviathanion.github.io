@@ -7,6 +7,7 @@
 * QQ
 * wechat
 * dingding
+* 飞书
 
 ## 办公
 * office全家桶
@@ -51,6 +52,7 @@
 * clash(科学上网)
 * foxmail(邮件管理)
 * zotero(文献管理)
+* 7Zip(压缩与解压)
 
 ## 开发软件
 * Postman(接口测试)
