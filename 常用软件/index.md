@@ -8,9 +8,13 @@
 * wechat
 * dingding
 * 飞书
+* telegram
 
 ## 办公
 * office全家桶
+* office tool plus(office下载与激活)
+* 小恐龙公文排版助手
+* iSlide(PPT插件)
 * 坚果云
 * 百度云
 * 有道云笔记
@@ -18,6 +22,7 @@
 ## 音视频
 * PotPlayer
 * 完美解码
+* ffmpeg(视频处理开源项目)
 * foobar2000(播放器)
 
 ## 文件类
@@ -25,6 +30,7 @@
 * WizTree64(磁盘文件占用)
 * SpaceSniffer(磁盘文件占用)
 * GoodSync(文件同步软件)
+* pandoc(文件类型转换)
 
 ## 下载
 * IDM(多线程下载工具)
@@ -48,11 +54,28 @@
 
 > deepl+grammarly/ginger+Quillbot+改写/参考Academic Phrasebank
 
+## 科研
+* texlive
+* excel2tex插件
+* zotero(文献管理)
+> 插件
+>
+> * betterbibtex参考文献管理
+>
+> * Jasminum中文文献管理
+>
+> * ZotFile文献重命名和移动插件
+>
+> * zotero-doi-manager自动获取doi
+
+* Axmath、mathtype、mathpix(公式相关)
+* xtranslator，copytranslate，QTranslate(翻译论文)
+
 ## 日用软件
 * clash(科学上网)
 * foxmail(邮件管理)
-* zotero(文献管理)
 * 7Zip(压缩与解压)
+* copy++(删除复制时的换行)
 
 ## 开发软件
 * Postman(接口测试)
