@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/"
-        },"genre": "posts","keywords": "git, 命令","wordcount":  1811 ,
+        },"genre": "posts","keywords": "git, 命令","wordcount":  2567 ,
         "url": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/","datePublished": "2021-01-25T20:53:07+08:00","dateModified": "2021-01-25T20:53:07+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,8 +116,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">git使用指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%91%BD%E4%BB%A4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>命令</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1811 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2567 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -143,8 +143,10 @@
       </ul>
     </li>
     <li><a href="#远程库管理">远程库管理</a></li>
+    <li><a href="#标签管理">标签管理</a></li>
     <li><a href="#差异比较">差异比较</a></li>
     <li><a href="#编码问题">编码问题</a></li>
+    <li><a href="#git提交规范">git提交规范</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="git使用指南">git使用指南</h1>
@@ -256,6 +258,9 @@
 <blockquote>
 <p>对一个分支的本地文件操作不会影响到另一分支的本地文件情况</p>
 </blockquote>
+<ul>
+<li><code>git branch -r -d origin/&lt;branch name&gt;</code>删除本地分支后，使用<code>git push origin :&lt;branch name&gt;</code>删除远程分支</li>
+</ul>
 <h3 id="高级操作">高级操作</h3>
 <ul>
 <li><code>git rebase branch</code><strong>变基操作</strong></li>
@@ -291,6 +296,18 @@
 </ul>
 </li>
 </ul>
+<h2 id="标签管理">标签管理</h2>
+<ul>
+<li><code>git tag</code>查看标签</li>
+<li><code>git show &lt;tag name&gt;</code>查看标签详细信息</li>
+<li><code>git tag &lt;tag name&gt;</code>为最新的commit打上标签</li>
+<li><code>git tag &lt;tag name&gt; &lt;commitid&gt;</code>为对应的commit打上标签</li>
+<li><code>git tag -a &lt;tag name&gt; -m &quot;&lt;注释文字&gt;&quot; &lt;commitid&gt;</code>创建带标签的tag</li>
+<li><code>git tag -d &lt;tag name&gt;</code>删除标签</li>
+<li><code>git push origin &lt;tag name&gt;</code>推送Tag到远程仓库</li>
+<li><code>git push (origin) --tags</code>推送所有本地tag，origin可省略</li>
+<li><code>git push origin :refs/tags/&lt;tag name&gt;</code>先在本地删除tag后，运行此命令删除远程tag</li>
+</ul>
 <h2 id="差异比较">差异比较</h2>
 <ul>
 <li><code>git diff file</code>比较<strong>工作区和暂存区</strong>的差异</li>
@@ -304,6 +321,70 @@
 <li>通过将Git配置变量 core.quotepath 设置为false，就可以解决中文文件名称在这些Git命令输出中的显示问题
 <code>git config --global core.quotepath false</code></li>
 <li>将此改到github action文件中，同样可以解决hugo模板lastmod显示不正常的问题</li>
+</ul>
+<h2 id="git提交规范">git提交规范</h2>
+<ul>
+<li>commit message格式</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;body&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;footer&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Header(必须)
+<ul>
+<li>包含三组字符<code>type</code>（必选），<code>scope</code>(可选)，<code>subject</code>(必选)</li>
+<li><code>type</code>用于说明commit的类别，主要包含七类</li>
+</ul>
+<blockquote>
+<ul>
+<li>feat：新功能（feature）</li>
+<li>fix：修补bug</li>
+<li>docs：文档（documentation）</li>
+<li>style： 格式（不影响代码运行的变动）</li>
+<li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li>
+<li>test：增加测试</li>
+<li>chore：构建过程或辅助工具的变动
+如果type为feat和fix，则该 commit 将肯定出现在 Change log 之中。其他视情况而定</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>scope</code> 说明commit的影响范围，比如数据层，控制层，文件或者目录等</li>
+<li><code>subject</code>是commit目的的简短描述</li>
+</ul>
+<blockquote>
+<ul>
+<li>以动词为开头，使用第一人称现在时</li>
+<li>第一个字母小写</li>
+<li>结尾不加句号</li>
+</ul>
+</blockquote>
+</li>
+<li>Body(可选)
+<ul>
+<li>是对本次commit的详细描述</li>
+<li>使用第一人称现在时</li>
+<li>说明代码变动的动机，以及与以前行为的对比</li>
+</ul>
+</li>
+<li>Footer(可选)
+<ul>
+<li>不兼容变动下使用，以<code>BREAKING CHANGE</code>开头，后面是对变动的描述，包括理由和迁移方法等</li>
+<li>关闭<code>Issue</code>，<code>Close #123</code></li>
+</ul>
+</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

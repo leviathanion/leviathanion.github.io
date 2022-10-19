@@ -69,6 +69,7 @@
 * **删除分支**`git branch -d 分支名`
 * 在操作中添加`-r`参数，代表对**远程仓库**进行分支操作
 > 对一个分支的本地文件操作不会影响到另一分支的本地文件情况
+* `git branch -r -d origin/<branch name>`删除本地分支后，使用`git push origin :<branch name>`删除远程分支
 ### 高级操作
 * `git rebase branch`**变基操作**
 > **将branch分支中的commit放到当前的commit之前**，合并为同一分支
@@ -95,6 +96,17 @@
   * `git fetch`命令使用远程分支**更新本地`origin/'branch'`分支**
   * `git merge origin/'branch'`将`origin/'branch'`分支**合并到当前`'branch'`分支**
 
+## 标签管理
+* `git tag`查看标签
+* `git show <tag name>`查看标签详细信息
+* `git tag <tag name>`为最新的commit打上标签
+* `git tag <tag name> <commitid>`为对应的commit打上标签
+* `git tag -a <tag name> -m "<注释文字>" <commitid>`创建带标签的tag
+* `git tag -d <tag name>`删除标签
+* `git push origin <tag name>`推送Tag到远程仓库
+* `git push (origin) --tags`推送所有本地tag，origin可省略
+* `git push origin :refs/tags/<tag name>`先在本地删除tag后，运行此命令删除远程tag
+
 ## 差异比较
 * `git diff file`比较**工作区和暂存区**的差异
 * `git diff --cached file`比较**暂存区和仓库区**的区别
@@ -107,5 +119,39 @@
 * 通过将Git配置变量 core.quotepath 设置为false，就可以解决中文文件名称在这些Git命令输出中的显示问题
 `git config --global core.quotepath false`
 * 将此改到github action文件中，同样可以解决hugo模板lastmod显示不正常的问题
+
+## git提交规范
+* commit message格式
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+* Header(必须)
+    * 包含三组字符`type`（必选），`scope`(可选)，`subject`(必选)
+    * `type`用于说明commit的类别，主要包含七类
+    > * feat：新功能（feature）
+    > * fix：修补bug
+    > * docs：文档（documentation）
+    > * style： 格式（不影响代码运行的变动）
+    > * refactor：重构（即不是新增功能，也不是修改bug的代码变动）
+    > * test：增加测试
+    > * chore：构建过程或辅助工具的变动
+    > 如果type为feat和fix，则该 commit 将肯定出现在 Change log 之中。其他视情况而定
+    * `scope` 说明commit的影响范围，比如数据层，控制层，文件或者目录等
+    * `subject`是commit目的的简短描述
+    > * 以动词为开头，使用第一人称现在时
+    > * 第一个字母小写
+    > * 结尾不加句号
+* Body(可选)
+    * 是对本次commit的详细描述
+    * 使用第一人称现在时
+    * 说明代码变动的动机，以及与以前行为的对比
+* Footer(可选)
+    * 不兼容变动下使用，以`BREAKING CHANGE`开头，后面是对变动的描述，包括理由和迁移方法等
+    * 关闭`Issue`，`Close #123`
+    
 
 
