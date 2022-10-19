@@ -78,24 +78,30 @@
 * copy++(删除复制时的换行)
 
 ## 开发软件
-* Postman(接口测试)
-* JetBrains全家桶(IDE)
-* Navicat(数据库可视化)
-* RDM(Redis可视化)
-* Zeal(文档管理)
-* FileZilla Client(ftp,sftp工具)
-* vmware(虚拟机管理)
-* vscode(编辑器)
-* copilot(人工智能代码补全)
+### 环境管理
+* docker(容器)
 * wsl(windows下linux虚拟机)
 * conda(python环境管理)
-* docker(容器)
-* git(代码版本管理)
-* Node.js
 * MSYS2(windows下linux环境)
+* Vmware/VirtualBox/EXSI(虚拟机管理)
+### 后端
+* Navicat(数据库可视化)
+* RDM(Redis可视化)
+* Postman(接口测试)
+* JetBrains全家桶(IDE)
+### 通用
+* Zeal(文档管理)
+* FileZilla Client(ftp,sftp工具)
+* vscode(编辑器)
+* Node.js
 * curl/wget(命令行下载工具)
-* windows terminal
-* neovide(一款由Rust开发的neovim的前端软件)
+* Windows terminal
+* Neovide(一款由Rust开发的neovim的前端软件)
+* Copilot(人工智能代码补全)
+### 代码管理
+* git(代码版本管理)
+* Sphinx(Python文档管理工具)
+* reStructuredText(Python文档格式)
 
 ## 系统相关
 * rufus(启动盘制作)
