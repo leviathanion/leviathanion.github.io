@@ -55,6 +55,7 @@
 
 ## 仓库区管理
 * `git commit -m ""`从暂存区提交到仓库区版本库
+* `git commit --amend`可以**编辑当前的commit信息**
 
 ## 分支管理
 ### 基本管理
@@ -79,7 +80,6 @@
 > 每次运行上述命令之后，**需要`git rebase --continue`代表保存并进行下一条**
 >
 > **`--abort`参数可放弃当前操作**，例如`git rebase --abort`
-* `git commit --amend`可以**编辑当前的commit信息**
 * `git rebase -i HEAD~3`
   * **编辑前三个commit**
   * 通过**squash**可用于多个commit信息的**合并**
