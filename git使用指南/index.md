@@ -16,6 +16,11 @@
 ### 仓库区
 * 代表了小阶段的完成，由各个版本
 * 各版本可以查看和回退
+### 基础知识
+* 常见的origin其实是对某个远程仓库的别名
+    * 为了方便push时指定对应的远程仓库，所以使用别名，也可以改为别的别名
+    * 别名`git fetch`时会在本地创建<远程仓库别名>/<分支名>的分支，和本地分支不同
+    * 多个远程分支管理参考.git/config文件
 
 ## 仓库整体管理
 * `git init`创建仓库
@@ -70,7 +75,7 @@
 * **删除分支**`git branch -d 分支名`
 * 在操作中添加`-r`参数，代表对**远程仓库**进行分支操作
 > 对一个分支的本地文件操作不会影响到另一分支的本地文件情况
-* `git branch -r -d origin/<branch name>`删除本地分支后，使用`git push origin :<branch name>`删除远程分支
+* `git branch -r -d <远程仓库别名>/<分支名>`删除本地分支后，使用`git push <远程仓库别名> :<分支名>`删除远程分支
 ### 高级操作
 * `git rebase branch`**变基操作**
 > **将branch分支中的commit放到当前的commit之前**，合并为同一分支
@@ -86,15 +91,27 @@
   * 通过**edit**可用于历史commit信息的**编辑**
 
 ## 远程库管理
-* `git remote add origin remote`**关联远程库，`remote`代表远程库的地址，可以为git或者https,git地址速度更快**
+* `git remote add <远程仓库别名> <远程库地址>`**关联远程库，远程库的地址，可以为git或者https,git地址速度更快**
 * `git remote -v`**查看远程仓库**
-* `git push --force origin master`或者`git push -f origin master`**强制覆盖远程分支**
-* `git checkout -b a origin/a`从远程a分支拉取分支信息到本地a分支
-* `git push --set-upstream origin newbranch`**将本地分支newbranch与远程分支newbranch关联**
-* `origin/main`是远程分支在本地分支的**克隆**
-  * `git pull`操作是`git fetch`和`git merge origin/'branch'`两个命令的集合
-  * `git fetch`命令使用远程分支**更新本地`origin/'branch'`分支**
-  * `git merge origin/'branch'`将`origin/'branch'`分支**合并到当前`'branch'`分支**
+* `git remove rename oldname newname` **重命名一个远程仓库**
+* `git push <远程仓库别名> <本地分支名>:<远程分支名>`或者`git push <远程仓库别名> <本地分支名>:<远程分支名>`
+    * **将本地分支推送至远程分支中**
+    * 省略远程仓库别名，查看当前分支对应的远程仓库和远程分支配置，如果没有，则默认origin
+    * 省略远程分支，删除冒号，使用配置中的东西来更新，否则查找相同名称的分支
+    * 省略本地分支，不删除冒号，用来删除远程分支
+    * 本地分支，远程分支均省略，则查看当前分支对应的远程仓库和远程分支配置
+> `-u`参数可以在`.git/config`文件中指定当前分支对应的远程仓库和远程分支，之后就可以省略远程分支名
+> `-f/--force`强制执行
+* `git pull <远程仓库别名> <远程分支名>:<本地分支名>`所有参数均可省略，如果省略分支名，则查找当前分支对应的远程分支自动拉取
+* `git checkout -b a <远程仓库别名>/<分支名>`从对应的远程仓库的对应分支拉取分支信息到本地分支
+* `git push --set-upstream <远程仓库别名> <分支名>`**将本地分支与对应远程仓库的对应分支关联**
+* `<远程仓库别名>/main`是远程分支在本地分支的**克隆**
+  * `git pull`操作是`git fetch`和`git merge <远程仓库别名>/<分支名>`两个命令的集合
+  * `git fetch`命令使用远程分支**更新本地`<远程仓库别名>/<分支名>`分支**
+  * `git merge <远程仓库别名>/'branch'`将`<远程仓库别名>/<分支名>`分支**合并到当前本地分支**
+> 首次提交至远程库按照以下步骤
+> * `git remote add <远程仓库别名> <远程地址>`
+> * `git push -u <远程仓库别名> <远程分支>`
 
 ## 标签管理
 * `git tag`查看标签
@@ -103,9 +120,9 @@
 * `git tag <tag name> <commitid>`为对应的commit打上标签
 * `git tag -a <tag name> -m "<注释文字>" <commitid>`创建带标签的tag
 * `git tag -d <tag name>`删除标签
-* `git push origin <tag name>`推送Tag到远程仓库
-* `git push (origin) --tags`推送所有本地tag，origin可省略
-* `git push origin :refs/tags/<tag name>`先在本地删除tag后，运行此命令删除远程tag
+* `git push <远程仓库别名> <tag name>`推送Tag到远程仓库
+* `git push (<远程仓库别名>) --tags`推送所有本地tag，<远程仓库别名>可省略
+* `git push <远程仓库别名> :refs/tags/<tag name>`先在本地删除tag后，运行此命令删除远程tag
 
 ## 差异比较
 * `git diff file`比较**工作区和暂存区**的差异
