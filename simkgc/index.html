@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>SimKGC - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="SimKGC" />
-<meta property="og:description" content="SimKGC模型 Novelty 使用InfoNCE损失改进原有损失 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图结构重排序来感知图结构 问题和动机" />
+<meta property="og:description" content="SimKGC模型 Novelty 使用InfoNCE损失改进原有边际排名损失，使其更专注于hard negative 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://leviathanion.github.io/simkgc/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-01T13:37:07+08:00" />
@@ -15,7 +15,7 @@
 <meta name="twitter:image" content="https://leviathanion.github.io/"/>
 
 <meta name="twitter:title" content="SimKGC"/>
-<meta name="twitter:description" content="SimKGC模型 Novelty 使用InfoNCE损失改进原有损失 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图结构重排序来感知图结构 问题和动机"/>
+<meta name="twitter:description" content="SimKGC模型 Novelty 使用InfoNCE损失改进原有边际排名损失，使其更专注于hard negative 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图"/>
 <meta name="application-name" content="loveLZZ的个人博客">
 <meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/simkgc/" /><link rel="prev" href="https://leviathanion.github.io/seek/" /><link rel="next" href="https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/simkgc\/"
-        },"genre": "posts","keywords": "机器学习, 深度学习, KG","wordcount":  1974 ,
+        },"genre": "posts","keywords": "机器学习, 深度学习, KG","wordcount":  2265 ,
         "url": "https:\/\/leviathanion.github.io\/simkgc\/","datePublished": "2022-07-01T13:37:07+08:00","dateModified": "2022-07-01T13:37:07+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,8 +116,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SimKGC</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>机器学习</a>&nbsp;<a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>深度学习</a>&nbsp;<a href="/categories/kg/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>KG</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-01">2022-07-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1974 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-01">2022-07-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2265 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -143,12 +143,13 @@
         <li><a href="#图结构重排序">图结构重排序</a></li>
       </ul>
     </li>
+    <li><a href="#改进方向">改进方向</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="simkgc模型">SimKGC模型</h1>
 <h2 id="novelty">Novelty</h2>
 <ul>
-<li>使用InfoNCE损失改进原有损失</li>
+<li>使用InfoNCE损失改进原有边际排名损失，使其更专注于hard negative</li>
 <li>使用IB,PB和SN三种负样本种类来增加负样本数量</li>
 <li>使用图结构重排序来感知图结构</li>
 </ul>
@@ -156,27 +157,41 @@
 <ul>
 <li>最新的基于文本（预训练模型）的方法可以访问到额外的输入信息
 <ul>
-<li>使用预训练模型，基于文本的方法性能仍然大幅弱于基于嵌入的方法</li>
-<li>可能的原因是基于文本的方法中对比学习的效率过低</li>
+<li>归纳学习到训练过中看不到的实体的表示</li>
+</ul>
+</li>
+<li>但性能仍然大幅弱于基于嵌入的方法
+<ul>
+<li>基于文本的方法中对比学习的效率过低，主要是负样本太少</li>
 <li>基于嵌入的方法不涉及昂贵的文本编码计算，因此可以使用大量负样本</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>默认配置下RotatE在Wikidata5M数据集上可以训练1000个epoch，负样本数量为64时，基于文本的方法KEPLER只能训练30个epoch，负样本数量为1</p>
+<p>同一时间
+默认配置下，RotatE在Wikidata5M数据集上可以训练<strong>1000</strong>个负样本为<strong>64</strong>的epoch
+基于文本的方法KEPLER只能训练<strong>30</strong>个epoch，负样本数量为<strong>1</strong></p>
 </blockquote>
 <ul>
 <li>因此改进现有基于文本的方法的对比学习损失，使其可以使用更多的负样本有概率提升模型的性能</li>
-<li>基于文本的方法可以归纳学习到训练过中看不到的实体的表示</li>
 </ul>
 <h2 id="idea">idea</h2>
 <ul>
 <li>使用的新的架构，引入新的负样本，从而增加负样本的个数
 <ul>
 <li>采用Bi-encoder的架构，可以增大Batch，从而增大in-batch negatives的数量</li>
-<li>缓存之前的batch，并作为pre-batch negatives，增加负样本数量</li>
-<li>(h,r,h)这种类型的三元组同一作为hard negatives可以提高对比学习的性能</li>
 </ul>
+<blockquote>
+<p>cross-encoder对于所有三元组的嵌入，需要做$e_num \times 2 \times test_num$次嵌入
+bi-encoder需要做$e_num \plus 2 \times test_num$次嵌入</p>
+</blockquote>
+<ul>
+<li>缓存之前的batch，并作为pre-batch negatives，增加负样本数量</li>
+<li>$(h,r,h)$这种类型的三元组统一作为hard negatives可以提高对比学习的性能</li>
+</ul>
+<blockquote>
+<p>因为bi-encoder，头实体关系编码$e_{hr}$与头实体编码$e_{h}$会更接近，因为相同文本更多</p>
+</blockquote>
 </li>
 <li>将损失从margin-based排序损失更改为InfoNCE损失，可以让模型专注于hard negatives</li>
 <li>基于文本的损失关注于语义匹配而忽略了图结构信息，因此根据距离的远近进行简单的重新排序来捕获图结构信息</li>
@@ -184,15 +199,20 @@
 <h2 id="模型">模型</h2>
 <h3 id="bi-encoder架构">Bi-encoder架构</h3>
 <ul>
-<li>两个编码器使用相同的预训练模型，但不共享参数</li>
+<li>两个编码器使用相同的预训练模型，但<strong>不共享参数</strong>(双塔模型)</li>
 <li>对每个关系构建一个逆关系，即$(h,r,t) \rightarrow (t,r^{-1},h)$，因此所有的补全可以转换为尾实体的预测</li>
 <li>头实体和关系的嵌入
 <ul>
-<li>将h和r的句子描述使用一个[SEP]符号链接起来，输入到$BERT_{hr}$中，将最后一层的隐藏状态使用均值池化，然后进行L2归一化，获得关系感知嵌入$e_{hr}$</li>
+<li>将h和r的句子描述使用一个[SEP]符号链接起来，输入到$BERT_{hr}$中，将最后一层的隐藏状态使用L2归一化的均值池化，获得关系感知嵌入$e_{hr}$</li>
 <li>即使头实体相同，但对于不同的关系可以得到不同的表示</li>
 </ul>
 </li>
-<li>尾实体的嵌入与头实体和关系类似，将尾实体的描述输入到$BERT_t$中，进行均值池化和L2归一化，获得尾实体嵌入$e_{t}$</li>
+</ul>
+<blockquote>
+<p>一些文献已经指出，将bert最后一层的输出进行<strong>均值池化</strong>，效果好于使用<strong>cls处的输出</strong></p>
+</blockquote>
+<ul>
+<li>尾实体的嵌入与头实体和关系类似，将尾实体的描述输入到$BERT_t$中，进行l2归一化的均值池化均值池化，获得尾实体嵌入$e_{t}$</li>
 <li>得分函数为余弦相似度，对于预测任务$(h,r?)$，预测结果为
 $$\arg\max_{t_i}cos(e_{hr},e_{t_i}),t_i \in \mathcal{E}$$</li>
 </ul>
@@ -207,7 +227,7 @@ $$\arg\max_{t_i}cos(e_{hr},e_{t_i}),t_i \in \mathcal{E}$$</li>
 <h3 id="图结构感知">图结构感知</h3>
 <ul>
 <li>距离当前节点更近的节点更有可能是正确答案，因此添加一个结构感知的值
-$$\arg\max_{t_i} cos(e_{hr},e_{t_i}) + \alpha \mathbb{1}(t_i \in \mathcal{E}_k (h)) $$</li>
+$$\arg\max_{t_i} cos(e_{hr},e_{t_i}) + \alpha \mathbb{1}(t_i \in \mathcal{E_k} (h)) $$</li>
 </ul>
 <h3 id="损失">损失</h3>
 <ul>
@@ -223,24 +243,28 @@ $$\arg\max_{t_i} cos(e_{hr},e_{t_i}) + \alpha \mathbb{1}(t_i \in \mathcal{E}_k (
 <ul>
 <li>使用WN18RR和FB15K-237，以及Wikidata5M作为数据集来训练</li>
 <li>Wikidata5M含有五百万个实体和2000万个三元组，提供了两种设置，transductive，测试集中的所有实体也出现在训练集中，inductive测试集和训练集没有重合</li>
-<li>实验效果，在Wikidata5M上全面优于别的模型，在WN18RR上全面优于别的模型,在FB15K-237上稍有落后
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png"
-        data-srcset="/SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png, /SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png 1.5x, /SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png 2x"
-        data-sizes="auto"
-        alt="/SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png"
-        title="Wikidata5M" width="1014" height="551" />
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png"
-        data-srcset="/SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png, /SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png 1.5x, /SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png 2x"
-        data-sizes="auto"
-        alt="/SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png"
-        title="WN18RR和FB15K-237" width="897" height="461" /></li>
+<li>实验效果，在Wikidata5M上全面优于别的模型，在WN18RR上全面优于别的模型,在FB15K-237上稍有落后</li>
 </ul>
+<p><figure><a class="lightgallery" href="/SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png" title="Wikidata5M的实验" data-thumbnail="/SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png" data-sub-html="<h2>Wikidata5M的实验</h2><p>Wikidata5M的实验</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png"
+            data-srcset="/SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png, /SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png 1.5x, /SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png 2x"
+            data-sizes="auto"
+            alt="/SimKGC/Wikidata5M%E5%AE%9E%E9%AA%8C.png" width="1014" height="551" />
+    </a><figcaption class="image-caption">Wikidata5M的实验</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png" title="WN18RR和FB15K-237" data-thumbnail="/SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png" data-sub-html="<h2>WN18RR和FB15K-237</h2><p>WN18RR和FB15K-237</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png"
+            data-srcset="/SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png, /SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png 1.5x, /SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png 2x"
+            data-sizes="auto"
+            alt="/SimKGC/WN18RR%E5%92%8CFB15K-237%E5%AE%9E%E9%AA%8C.png" width="897" height="461" />
+    </a><figcaption class="image-caption">WN18RR和FB15K-237</figcaption>
+    </figure></p>
 <h2 id="有效性分析">有效性分析</h2>
 <h3 id="损失函数与负样本">损失函数与负样本</h3>
 <ul>
@@ -251,22 +275,28 @@ $$\arg\max_{t_i} cos(e_{hr},e_{t_i}) + \alpha \mathbb{1}(t_i \in \mathcal{E}_k (
 </ul>
 </li>
 <li>改变负样本个数和损失函数，得到如下结果
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png"
-        data-srcset="/SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png, /SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png 1.5x, /SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png 2x"
-        data-sizes="auto"
-        alt="/SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png"
-        title="有效性分析" width="474" height="251" />
-<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/SimKGC/batchsize%E5%88%86%E6%9E%90.png"
-        data-srcset="/SimKGC/batchsize%E5%88%86%E6%9E%90.png, /SimKGC/batchsize%E5%88%86%E6%9E%90.png 1.5x, /SimKGC/batchsize%E5%88%86%E6%9E%90.png 2x"
-        data-sizes="auto"
-        alt="/SimKGC/batchsize%E5%88%86%E6%9E%90.png"
-        title="batchsize的影响" width="478" height="438" /></li>
+<figure><a class="lightgallery" href="/SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png" title="有效性分析" data-thumbnail="/SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png" data-sub-html="<h2>有效性分析</h2><p>有效性分析</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png"
+            data-srcset="/SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png, /SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png 1.5x, /SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png 2x"
+            data-sizes="auto"
+            alt="/SimKGC/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8E%E8%B4%9F%E6%A0%B7%E6%9C%AC%E6%9C%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90.png" width="474" height="251" />
+    </a><figcaption class="image-caption">有效性分析</figcaption>
+    </figure></li>
+</ul>
+<p><figure><a class="lightgallery" href="/SimKGC/batchsize%E5%88%86%E6%9E%90.png" title="batchsize的影响" data-thumbnail="/SimKGC/batchsize%E5%88%86%E6%9E%90.png" data-sub-html="<h2>batchsize的影响</h2><p>batchsize的影响</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/SimKGC/batchsize%E5%88%86%E6%9E%90.png"
+            data-srcset="/SimKGC/batchsize%E5%88%86%E6%9E%90.png, /SimKGC/batchsize%E5%88%86%E6%9E%90.png 1.5x, /SimKGC/batchsize%E5%88%86%E6%9E%90.png 2x"
+            data-sizes="auto"
+            alt="/SimKGC/batchsize%E5%88%86%E6%9E%90.png" width="478" height="438" />
+    </a><figcaption class="image-caption">batchsize的影响</figcaption>
+    </figure></p>
+<ul>
 <li>可以看出二者皆有一定的影响，但损失函数的影响似乎更大，InfoNCE中，硬负样本会产生更大的梯度，添加更多的负样本可以产生更稳健的表示。硬度感知特性对于对比损失的成功至关重要</li>
 <li>同时提出了一个变种$margin-\tau$损失，通过改变margin损失前面的1/N，将其转换为$\frac{\exp(s(t^\prime_i)/\tau)}{\sum_{j=1}^{|\mathcal{N}|}\exp(s(t^\prime_j)/\tau)}$，其中$s(t^\prime_i) = \max(0, \lambda + \phi(h,r,t^\prime_i) - \phi(h,r,t))$</li>
 <li>与InfoNCE相似,$margin-\tau$可以更多的关注硬负样本，从而得到更高的性能提升，这与RotatE中的自对抗负采样类似。</li>
@@ -275,19 +305,21 @@ $$\arg\max_{t_i} cos(e_{hr},e_{t_i}) + \alpha \mathbb{1}(t_i \in \mathcal{E}_k (
 <ul>
 <li>通过重排序，性能会有一定的提升，但重排序并不总是通用的，未来可以考虑使用图神经网络的方式来实现更高效的图结构感知</li>
 </ul>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png"
-        data-srcset="/SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png, /SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png 1.5x, /SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png 2x"
-        data-sizes="auto"
-        alt="/SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png"
-        title="图结构重排序" width="496" height="198" /></p>
-<p>##改进方向</p>
+<p><figure><a class="lightgallery" href="/SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png" title="图结构重排序" data-thumbnail="/SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png" data-sub-html="<h2>图结构重排序</h2><p>图结构重排序</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png"
+            data-srcset="/SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png, /SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png 1.5x, /SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png 2x"
+            data-sizes="auto"
+            alt="/SimKGC/%E5%9B%BE%E7%BB%93%E6%9E%84%E9%87%8D%E6%8E%92%E5%BA%8F.png" width="496" height="198" />
+    </a><figcaption class="image-caption">图结构重排序</figcaption>
+    </figure></p>
+<h2 id="改进方向">改进方向</h2>
 <ul>
 <li>探索更有效的损失</li>
-<li>对多种模式和复杂关系的建模</li>
-<li>采用更高效的方式来捕获图结构</li>
+<li>对多种模式和复杂关系的建模(预测一对N时，N的一端性能不佳，可能由于语义上很多答案都是对的，但知识图谱不完整)</li>
+<li>采用更高效的方式来捕获图结构(导致FB15k-237表现不佳)</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

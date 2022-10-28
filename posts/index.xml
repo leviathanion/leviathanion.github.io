@@ -4,7 +4,23 @@
         <link>https://leviathanion.github.io/posts/</link>
         <description>All Posts | loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Wed, 12 Oct 2022 16:15:21 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 28 Oct 2022 10:36:06 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>代码中可能用到的框架</title>
+    <link>https://leviathanion.github.io/%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%8F%AF%E8%83%BD%E7%94%A8%E5%88%B0%E7%9A%84%E6%A1%86%E6%9E%B6/</link>
+    <pubDate>Fri, 28 Oct 2022 10:36:06 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%8F%AF%E8%83%BD%E7%94%A8%E5%88%B0%E7%9A%84%E6%A1%86%E6%9E%B6/</guid>
+    <description><![CDATA[Faiss(相似特征搜索工具，可用于模型的测试)]]></description>
+</item>
+<item>
+    <title>Cross-Encoder和Bi-Encoder以及双塔模型和孪生网络</title>
+    <link>https://leviathanion.github.io/cross-encoder%E5%92%8Cbi-encoder%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%A1%94%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%AD%AA%E7%94%9F%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Fri, 28 Oct 2022 10:11:28 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/cross-encoder%E5%92%8Cbi-encoder%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%A1%94%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%AD%AA%E7%94%9F%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[cross-encoder 将query与document交叉输入到encoder中，得到一个得分 使用该得分作为相似度 bi-encoder 将query与document分别输入到两个e]]></description>
+</item>
+<item>
     <title>常用软件</title>
     <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</link>
     <pubDate>Wed, 12 Oct 2022 16:15:21 &#43;0800</pubDate>
@@ -34,7 +50,7 @@
     <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/simkgc/</guid>
-    <description><![CDATA[SimKGC模型 Novelty 使用InfoNCE损失改进原有损失 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图结构重排序来感知图结构 问题和动机]]></description>
+    <description><![CDATA[SimKGC模型 Novelty 使用InfoNCE损失改进原有边际排名损失，使其更专注于hard negative 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图]]></description>
 </item>
 <item>
     <title>SEEK</title>
@@ -67,22 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/kbgan/</guid>
     <description><![CDATA[KBGAN模型1 Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴别器，]]></description>
-</item>
-<item>
-    <title>CAKE</title>
-    <link>https://leviathanion.github.io/cake/</link>
-    <pubDate>Wed, 25 May 2022 15:27:53 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/cake/</guid>
-    <description><![CDATA[CAKE模型1 Novelty 首次既考虑了假阴性问题，又考虑了低质量的问题，特别是假阴性问题几乎无人考虑 将数据集做一定的处理，进行标注，为每个实体赋予一到]]></description>
-</item>
-<item>
-    <title>Python学习笔记</title>
-    <link>https://leviathanion.github.io/python/</link>
-    <pubDate>Sat, 02 Apr 2022 14:10:51 &#43;0800</pubDate>
-    <author>lovelZZ</author>
-    <guid>https://leviathanion.github.io/python/</guid>
-    <description><![CDATA[Python学习笔记 1.python基础 1.1python语法常识 python语法采用缩进格式而不是括号来进行代码块分割的 缩进没有空格个数或]]></description>
 </item>
 </channel>
 </rss>
