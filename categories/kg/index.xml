@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/categories/kg/</link>
         <description>KG - Category - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/kg/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 28 Oct 2022 13:04:15 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/kg/" rel="self" type="application/rss+xml" /><item>
+    <title>KGT5</title>
+    <link>https://leviathanion.github.io/kgt5/</link>
+    <pubDate>Fri, 28 Oct 2022 13:04:15 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/kgt5/</guid>
+    <description><![CDATA[KGT5模型1 Novelty 使用encoder-decoder架构来进行KGE 将KGC任务转换了seq2seq任务 使用三元组评分和自回归相交互的方式 模型]]></description>
+</item>
+<item>
     <title>SimKGC</title>
     <link>https://leviathanion.github.io/simkgc/</link>
     <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
