@@ -75,7 +75,7 @@
 ## 思考中的问题
 - [ ] 超参初始化问题，xariv，He，和本文中[^9]提到的初始化的关系和效果
 - [ ] 单位矩阵在模型中起到的作用(推导反向传播)
-- [x] 使用ReLU激活的RNN效果比tanh还差的原因(单纯使用ReLU会导致梯度爆炸)
+- [x] 使用ReLU激活的RNN效果比tanh还差的原因(单纯使用ReLU会导致梯度爆炸，同时会导致输出值过大)
 
 [^1]:https://arxiv.org/abs/1504.00941 (A Simple Way to Initialize Recurrent Networks of Rectified Linear Units)
 
