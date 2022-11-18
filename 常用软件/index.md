@@ -76,6 +76,8 @@
 * foxmail(邮件管理)
 * 7Zip(压缩与解压)
 * copy++(删除复制时的换行)
+* infekt nfo viewer(NFO文件阅读器)
+* rufus(启动盘制作工具)
 
 ## 开发软件
 ### 环境管理
