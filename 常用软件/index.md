@@ -134,4 +134,9 @@
 * AMD Ryzen Master(AMD cpu超频软件)
 * AMD Software:Adrenalin Edition(AMD GPU超频工具)
 
+## Linux游戏
+> 本质上是通过vulkan(一种多媒体图形接口)来运行DirectX游戏
+* proton
+* lutris
+* dxvk(将dx转换为vulkan的转换层，使得wine可以在linux下运行3D游戏)
 
