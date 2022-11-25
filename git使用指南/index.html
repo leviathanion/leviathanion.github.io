@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/"
-        },"genre": "posts","keywords": "git, 命令","wordcount":  3305 ,
+        },"genre": "posts","keywords": "git, 命令","wordcount":  3546 ,
         "url": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/","datePublished": "2021-01-25T20:53:07+08:00","dateModified": "2021-01-25T20:53:07+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,8 +116,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">git使用指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%91%BD%E4%BB%A4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>命令</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3305 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3546 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -137,6 +137,7 @@
     <li><a href="#工作区管理">工作区管理</a></li>
     <li><a href="#暂存区管理">暂存区管理</a></li>
     <li><a href="#仓库区管理">仓库区管理</a></li>
+    <li><a href="#栈管理">栈管理</a></li>
     <li><a href="#分支管理">分支管理</a>
       <ul>
         <li><a href="#基本管理">基本管理</a></li>
@@ -249,6 +250,21 @@
 <ul>
 <li><code>git commit -m &quot;&quot;</code>从暂存区提交到仓库区版本库</li>
 <li><code>git commit --amend</code>可以<strong>编辑当前的commit信息</strong></li>
+</ul>
+<h2 id="栈管理">栈管理</h2>
+<ul>
+<li><code>git stash</code>或<code>git stash save '注释'</code>保存工作区与暂存区的状态，把当前修改保存到git栈中
+<ul>
+<li>栈结构，遵循先进后出</li>
+<li>每次使用都会新加一个<code>stash@{num}</code></li>
+</ul>
+</li>
+<li><code>git stash list</code>查看当前git栈中的所有内容</li>
+<li><code>git stash show stash@{num}</code>显示stash与当前目录的差异，不指定默认显示栈顶</li>
+<li><code>git stash pop</code>回复git栈中最上面的stash，并删除该stash</li>
+<li><code>git stash apply stash@{num}</code>将栈中的内容恢复到当前分支，不删除stash</li>
+<li><code>git stash drop stash@{num}</code>移除指定stash</li>
+<li><code>git stash clear</code>移除所有stash</li>
 </ul>
 <h2 id="分支管理">分支管理</h2>
 <h3 id="基本管理">基本管理</h3>
@@ -448,7 +464,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.106.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.107.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

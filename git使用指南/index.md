@@ -62,6 +62,17 @@
 * `git commit -m ""`从暂存区提交到仓库区版本库
 * `git commit --amend`可以**编辑当前的commit信息**
 
+## 栈管理
+* `git stash`或`git stash save '注释'`保存工作区与暂存区的状态，把当前修改保存到git栈中
+    * 栈结构，遵循先进后出
+    * 每次使用都会新加一个`stash@{num}`
+* `git stash list`查看当前git栈中的所有内容
+* `git stash show stash@{num}`显示stash与当前目录的差异，不指定默认显示栈顶
+* `git stash pop`回复git栈中最上面的stash，并删除该stash
+* `git stash apply stash@{num}`将栈中的内容恢复到当前分支，不删除stash
+* `git stash drop stash@{num}`移除指定stash
+* `git stash clear`移除所有stash
+
 ## 分支管理
 ### 基本管理
 * **创建分支**`git branch dev`
