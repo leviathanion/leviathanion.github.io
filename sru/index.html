@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/sru\/"
-        },"genre": "posts","keywords": "RNNs, 深度学习, 机器学习, RNN优化","wordcount":  367 ,
+        },"genre": "posts","keywords": "RNNs, 深度学习, 机器学习, RNN优化","wordcount":  397 ,
         "url": "https:\/\/leviathanion.github.io\/sru\/","datePublished": "2022-03-28T09:59:38+08:00","dateModified": "2022-03-28T09:59:38+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SRU</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/rnns/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>RNNs</a>&nbsp;<a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>深度学习</a>&nbsp;<a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>机器学习</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-28">2022-03-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;367 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-03-28">2022-03-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;397 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -136,7 +136,7 @@
 <li>RNNs的可扩展能力主要受限于RNNs模型的计算序列依赖性，最近的模型为了可扩展性广泛使用的是CNN和注意力机制</li>
 <li>因此作者提出了一种平衡了循环依赖和独立性的新模型SRU
 <ul>
-<li>SRU的状态计算与时间相关，但每个状态都是独立的，可以实现CUDA级优化。</li>
+<li>SRU的状态计算与时间相关，但每个状态都是独立的(门的计算不需要$H_{t-1}$，只需要$x$)，可以实现CUDA级优化。</li>
 <li>摒弃了卷积的使用，具有更多的循环，保留了建模能力，减少了计算复杂度和超参数。</li>
 <li>使用highway连接和精细的参数初始化方案，改进了模型的训练</li>
 </ul>
@@ -146,7 +146,7 @@
 <ul>
 <li>QRNN将字符级卷积合并到RNN模型中，加速模型计算</li>
 <li>IRNN使用单位对角矩阵初始化RNN的隐藏层的参数，防止梯度消失</li>
-<li>[^2]通过将矩阵进行分解从而减少参数量(本质上就是将参数矩阵<code>(m*n)</code>直接写为<code>(m*r)和(r*n)</code>使得，<code>m*r+r*n小于m*n</code>)</li>
+<li>[^2]通过将矩阵进行分解从而减少参数量(本质上就是将参数矩阵$(m \times n)$直接写为$(m \times r)$和$(r \times n)$使得$m \times r + r \times n$ 小于 $m \times n$)</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
