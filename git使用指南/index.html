@@ -10,7 +10,6 @@
 <meta property="og:url" content="https://leviathanion.github.io/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-01-25T20:53:07+08:00" />
 <meta property="article:modified_time" content="2021-01-25T20:53:07+08:00" /><meta property="og:site_name" content="loveLZZ的个人博客" />
-
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://leviathanion.github.io/"/>
 
@@ -26,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/"
-        },"genre": "posts","keywords": "git, 命令","wordcount":  3546 ,
+        },"genre": "posts","keywords": "git, 命令","wordcount":  3611 ,
         "url": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/","datePublished": "2021-01-25T20:53:07+08:00","dateModified": "2021-01-25T20:53:07+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">git使用指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%91%BD%E4%BB%A4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>命令</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3546 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3611 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -364,6 +363,10 @@
 <li><code>git diff --cached file</code>比较<strong>暂存区和仓库区</strong>的区别</li>
 <li><code>git diff HEAD file</code>比较<strong>工作区和仓库区</strong>的区别</li>
 </ul>
+<blockquote>
+<p>此命令并不能查看未追踪的文件，因此新建的文件在未add之前，不能显示出新文件的差异。</p>
+<p>可通过<code>git status</code>查看哪些文件是未追踪的</p>
+</blockquote>
 <h2 id="编码问题">编码问题</h2>
 <ul>
 <li>在默认设置下，中文文件名在工作区状态输出，查看历史更改概要，以及在补丁文件中，文件名的中文不能正确地显示，而是显示为八进制的字符编码，示例如下：
@@ -464,7 +467,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.107.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.108.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
