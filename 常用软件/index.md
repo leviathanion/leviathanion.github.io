@@ -148,6 +148,7 @@
 * osd-lyrics(歌词查找和展示器)
 * kid3(歌曲tag编辑器)
 * spotify(在线音乐)
+* mpd + mpc + ncmpcpp(音乐播放器守护程序+接口+命令行GUI)
 
 ## 文件类
 * fzf(开源文件搜索工具)
