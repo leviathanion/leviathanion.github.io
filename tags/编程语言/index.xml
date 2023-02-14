@@ -4,15 +4,7 @@
         <link>https://leviathanion.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</link>
         <description>编程语言 - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 19 Jul 2022 11:16:29 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="self" type="application/rss+xml" /><item>
-    <title>Onjava8</title>
-    <link>https://leviathanion.github.io/onjava8/</link>
-    <pubDate>Tue, 19 Jul 2022 11:16:29 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/onjava8/</guid>
-    <description><![CDATA[on java 8学习笔记 前言 Java是一种派生语言，是对C++的改进，核心改变是引入了虚拟机和GC机制 Java中最有影响力的编程思想面向对象概念来源于]]></description>
-</item>
-<item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sat, 02 Apr 2022 14:10:51 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" rel="self" type="application/rss+xml" /><item>
     <title>Python学习笔记</title>
     <link>https://leviathanion.github.io/python/</link>
     <pubDate>Sat, 02 Apr 2022 14:10:51 &#43;0800</pubDate>

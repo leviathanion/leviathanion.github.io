@@ -4,15 +4,7 @@
         <link>https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
         <description>深度学习 - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 28 Oct 2022 13:04:15 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
-    <title>KGT5</title>
-    <link>https://leviathanion.github.io/kgt5/</link>
-    <pubDate>Fri, 28 Oct 2022 13:04:15 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/kgt5/</guid>
-    <description><![CDATA[KGT5模型1 Novelty 使用encoder-decoder架构来进行KGE 将KGC任务转换了seq2seq任务 使用三元组评分和自回归相交互的方式 模型]]></description>
-</item>
-<item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
     <title>SimKGC</title>
     <link>https://leviathanion.github.io/simkgc/</link>
     <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
@@ -45,14 +37,6 @@
     <description><![CDATA[CAKE模型1 Novelty 首次既考虑了假阴性问题，又考虑了低质量的问题，特别是假阴性问题几乎无人考虑 将数据集做一定的处理，进行标注，为每个实体赋予一到]]></description>
 </item>
 <item>
-    <title>SRU</title>
-    <link>https://leviathanion.github.io/sru/</link>
-    <pubDate>Mon, 28 Mar 2022 09:59:38 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/sru/</guid>
-    <description><![CDATA[SRU 问题和动机 模型的性能依赖于模型的参数和计算量，但RNNs的并行计算能力严重拖累了模型的训练 RNNs的可扩展能力主要受限于RNNs模型的计算]]></description>
-</item>
-<item>
     <title>QRNN</title>
     <link>https://leviathanion.github.io/qrnn/</link>
     <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
@@ -67,14 +51,6 @@
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/scrn/</guid>
     <description><![CDATA[SCRN模型1 Novelty 通过为RNN添加一个参数缓慢变化的隐藏层来捕获长距离依赖，公式如下所示 \begin{align*} s_t &amp;= (1-\alpha)Bx_t + \alpha s_{t-1} \\ h_t &amp;= \sigma(Ps_t+Ax_t+Rh_{t-1}) \\ y_t &amp;= f(Uh_t+Vs_t) \end{align*} 约束该隐藏层中的B为对]]></description>
-</item>
-<item>
-    <title>RNN和LSTM</title>
-    <link>https://leviathanion.github.io/rnn%E5%92%8Clstm/</link>
-    <pubDate>Fri, 24 Dec 2021 15:39:14 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/rnn%E5%92%8Clstm/</guid>
-    <description><![CDATA[RNN和LSTM(待完成) RNN 问题和动机 自然界中很多事物都是序列相关的，想要理解某一时刻，必须要获取过去时刻的信息 过去的模型难以捕获序列信息 idea]]></description>
 </item>
 <item>
     <title>IRNN</title>
