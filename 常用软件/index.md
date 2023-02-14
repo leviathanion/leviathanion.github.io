@@ -141,14 +141,11 @@
 > 对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低
 
 ## 音视频
-* vlc
-* mpv
+* vlc mpv(视频播放器)
 * ffmpeg(视频处理开源项目)
-* deadbeef(播放器)
+* deadbeef/spotify/mpd + (mpc/ncmpcpp) (音乐播放器/在线音乐/音乐播放器守护程序+接口/命令行GUI)
 * osd-lyrics(歌词查找和展示器)
 * kid3(歌曲tag编辑器)
-* spotify(在线音乐)
-* mpd + mpc + ncmpcpp(音乐播放器守护程序+接口+命令行GUI)
 
 ## 文件类
 * fzf(开源文件搜索工具)
@@ -170,8 +167,15 @@
 * iwd(无线网连接)
 * systemd-networkd(有线网连接)
 * systemd-resolved(dns服务器)
-* ntfs-3g(ntfs支持)
-* fcitx5/fcitx5-chinese-addons/fcitx5-pinyin-moegirl/fcitx5-material-color(输入法/中文输入/萌娘百科词库/输入法主题)
+* cups(打印服务)
+> wps打印不可用时要下载cups
+* ALSA/PulseAudio(声音管理)
+> * ALSA是驱动级应用，早期并不支持多音频播放，之后集成了alsamixer工具之后可进行多音频播放
+>
+> * alsamixer是音量控制的命令行GUI程序
+>
+> * PulseAudio是运行在ALSA之上的多音频管理器
+
 * mesa lib32-mesa vulkan-intel lib32-vulkan-intel(intel显卡驱动)
 * nvidia nvidia-settings lib32-nvidia-utils nvidia-prime(nvidia显卡驱动)
 > nvidia-prime负责双显卡管理
@@ -179,12 +183,9 @@
 > * prime-run %command% 使用nvida显卡运行命令
 >
 > * steam需要添加`__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME="nvidia" __VK_LAYER_NV_optimus="NVIDIA_only" %command%`
-* ALSA/PulseAudio(声音管理)
-> ALSA是驱动级应用，早期并不支持多音频播放，之后集成了alsamixer工具之后可进行多音频播放
->
-> PulseAudio是运行在ALSA之上的多音频管理器
-* cups(打印服务)
-> wps打印不可用时要下载cups
+
+* ntfs-3g(ntfs支持)
+* fcitx5/fcitx5-chinese-addons/fcitx5-pinyin-moegirl/fcitx5-material-color(输入法/中文输入/萌娘百科词库/输入法主题)
 * zsh/ohmyzsh/powerlevel10k(zsh/优化/主题)
 * p7zip/rar/unrar/zip/unzip/tar/Unarchiver(压缩和解压工具)
 * rsync(拷贝和同步命令)
@@ -210,6 +211,7 @@
 * mentohust(校园网连接)
 * feh(图片查看和壁纸配置)
 * flameshot(截图工具)
+* syncthing(备份同步工具)
 * kvm，qemu,libvirt,virt-manager,virtio(虚拟机)
 ![虚拟机](/常用软件/kvm-qemu-libvirt-virtmanager.png "虚拟机架构")
 
