@@ -12,7 +12,7 @@
     <pubDate>Wed, 15 Feb 2023 15:16:42 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</guid>
-    <description><![CDATA[Vim速查表 光标移动 单个字符移动 1 2 3 4 5 h: 向左移动 l: 向右移动 j: 向下移动 k: 向上移动 nh: 向左移动n个字符距离 单词移动 1 2 3 4 5 6 w: 将光标移动到下]]></description>
+    <description><![CDATA[Vim速查表 Vim键位图 光标移动 单个字符移动 1 2 3 4 5 h: 向左移动 l: 向右移动 j: 向下移动 k: 向上移动 nh: 向左移动n个字符距离 单词移动 1 2 3 4 5 6 w: 将]]></description>
 </item>
 <item>
     <title>Jupyter远程访问</title>
