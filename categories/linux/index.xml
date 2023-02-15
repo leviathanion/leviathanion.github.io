@@ -1,10 +1,18 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>linux - Category - loveLZZ的个人博客</title>
+        <title>Linux - Category - loveLZZ的个人博客</title>
         <link>https://leviathanion.github.io/categories/linux/</link>
-        <description>linux - Category - loveLZZ的个人博客</description>
+        <description>Linux - Category - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Wed, 15 Feb 2023 15:16:22 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux权限管理</title>
+    <link>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+    <pubDate>Wed, 15 Feb 2023 15:16:22 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+    <description><![CDATA[Linux权限管理 Linux系统下对于用户和文件的权限有着严格的规定，我们首先回顾Linux下的用户管理 用户管理 涉及四个文件，主要需要修改p]]></description>
+</item>
+<item>
     <title>Tmux使用</title>
     <link>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</link>
     <pubDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</pubDate>

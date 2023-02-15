@@ -13,6 +13,14 @@
     <description><![CDATA[Vim速查表 Vim键位图 光标移动 单个字符移动 1 2 3 4 5 h: 向左移动 l: 向右移动 j: 向下移动 k: 向上移动 nh: 向左移动n个字符距离 单词移动 1 2 3 4 5 6 w: 将]]></description>
 </item>
 <item>
+    <title>Linux权限管理</title>
+    <link>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
+    <pubDate>Wed, 15 Feb 2023 15:16:22 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
+    <description><![CDATA[Linux权限管理 Linux系统下对于用户和文件的权限有着严格的规定，我们首先回顾Linux下的用户管理 用户管理 涉及四个文件，主要需要修改p]]></description>
+</item>
+<item>
     <title>Jupyter远程访问</title>
     <link>https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</link>
     <pubDate>Fri, 28 Oct 2022 17:17:25 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/cake/</guid>
     <description><![CDATA[CAKE模型1 Novelty 首次既考虑了假阴性问题，又考虑了低质量的问题，特别是假阴性问题几乎无人考虑 将数据集做一定的处理，进行标注，为每个实体赋予一到]]></description>
-</item>
-<item>
-    <title>Python学习笔记</title>
-    <link>https://leviathanion.github.io/python/</link>
-    <pubDate>Sat, 02 Apr 2022 14:10:51 &#43;0800</pubDate>
-    <author>lovelZZ</author>
-    <guid>https://leviathanion.github.io/python/</guid>
-    <description><![CDATA[Python学习笔记 1.python基础 1.1python语法常识 python语法采用缩进格式而不是括号来进行代码块分割的 缩进没有空格个数或]]></description>
 </item>
 </channel>
 </rss>
