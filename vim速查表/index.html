@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Vim速查表 - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="Vim速查表" />
+<meta property="og:description" content="Vim速查表 光标移动 单个字符移动 1 2 3 4 5 h: 向左移动 l: 向右移动 j: 向下移动 k: 向上移动 nh: 向左移动n个字符距离 单词移动 1 2 3 4 5 6 w: 将光标移动到下" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-15T15:16:42+08:00" />
+<meta property="article:modified_time" content="2023-02-15T15:16:42+08:00" /><meta property="og:site_name" content="loveLZZ的个人博客" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="Vim速查表"/>
+<meta name="twitter:description" content="Vim速查表 光标移动 单个字符移动 1 2 3 4 5 h: 向左移动 l: 向右移动 j: 向下移动 k: 向上移动 nh: 向左移动n个字符距离 单词移动 1 2 3 4 5 6 w: 将光标移动到下"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" /><link rel="prev" href="https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Vim速查表",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/vim%E9%80%9F%E6%9F%A5%E8%A1%A8\/"
+        },"genre": "posts","keywords": "Vim","wordcount":  2186 ,
+        "url": "https:\/\/leviathanion.github.io\/vim%E9%80%9F%E6%9F%A5%E8%A1%A8\/","datePublished": "2023-02-15T15:16:42+08:00","dateModified": "2023-02-15T15:16:42+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "loveLzz"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Vim速查表</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/vim/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Vim</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-15">2023-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2186 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#光标移动">光标移动</a>
+      <ul>
+        <li><a href="#单个字符移动">单个字符移动</a></li>
+        <li><a href="#单词移动">单词移动</a></li>
+        <li><a href="#行内移动">行内移动</a></li>
+        <li><a href="#文本块移动">文本块移动</a></li>
+        <li><a href="#在屏幕中移动">在屏幕中移动</a></li>
+      </ul>
+    </li>
+    <li><a href="#滚屏与跳转">滚屏与跳转</a>
+      <ul>
+        <li><a href="#定位光标的位置">定位光标的位置</a></li>
+        <li><a href="#设置跳转标记">设置跳转标记</a></li>
+      </ul>
+    </li>
+    <li><a href="#块选择">块选择</a></li>
+    <li><a href="#文本删除操作">文本删除操作</a>
+      <ul>
+        <li><a href="#字符删除">字符删除</a></li>
+        <li><a href="#单词删除">单词删除</a></li>
+        <li><a href="#行删除">行删除</a></li>
+        <li><a href="#行合并">行合并</a></li>
+      </ul>
+    </li>
+    <li><a href="#复制与粘贴">复制与粘贴</a></li>
+    <li><a href="#文本修改与替换">文本修改与替换</a></li>
+    <li><a href="#查找与替换">查找与替换</a></li>
+    <li><a href="#代码折叠">代码折叠</a></li>
+    <li><a href="#撤销修改与重做">撤销修改与重做</a></li>
+    <li><a href="#宏录制与寄存器">宏录制与寄存器</a></li>
+    <li><a href="#缓冲区">缓冲区</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="vim速查表">Vim速查表</h1>
+<h2 id="光标移动">光标移动</h2>
+<h3 id="单个字符移动">单个字符移动</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">h</span><span class="p">:</span>  <span class="err">向左移动</span>
+</span></span><span class="line"><span class="cl"><span class="nl">l</span><span class="p">:</span>  <span class="err">向右移动</span>
+</span></span><span class="line"><span class="cl"><span class="nl">j</span><span class="p">:</span>  <span class="err">向下移动</span>
+</span></span><span class="line"><span class="cl"><span class="nl">k</span><span class="p">:</span>  <span class="err">向上移动</span>
+</span></span><span class="line"><span class="cl"><span class="nl">nh</span><span class="p">:</span>  <span class="err">向左移动</span><span class="n">n</span><span class="err">个字符距离</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="单词移动">单词移动</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">w</span><span class="p">:</span>  <span class="err">将光标移动到下一个单词的开头</span>
+</span></span><span class="line"><span class="cl"><span class="nl">b</span><span class="p">:</span>  <span class="err">将光标移动到前一个单词的开头</span>
+</span></span><span class="line"><span class="cl"><span class="nl">e</span><span class="p">:</span>  <span class="err">将光标移动到下一个单词的词末</span>
+</span></span><span class="line"><span class="cl"><span class="nl">E</span><span class="p">:</span>  <span class="err">移动到单词的结尾</span><span class="p">(</span><span class="err">忽略标点符号</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nl">ge</span><span class="p">:</span>  <span class="err">将光标移动到上一个单词的词末</span>
+</span></span><span class="line"><span class="cl"><span class="nl">nw</span><span class="p">:</span>  <span class="err">指定移动的次数</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="行内移动">行内移动</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">$</span><span class="o">:</span>  <span class="err">将光标移动到当前行的行尾</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span><span class="o">:</span>  <span class="err">将光标移动到当前行的行首</span>
+</span></span><span class="line"><span class="cl"><span class="o">^:</span>  <span class="err">将光标移动到当前行的第一个非空字符（行首和当前行非空字符不是一个位置）</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">|:</span>  <span class="err">移到当前行的第</span><span class="mi">2</span><span class="err">列</span>
+</span></span><span class="line"><span class="cl"><span class="nl">fx</span><span class="p">:</span>  <span class="err">将光标移动到当前行的第一个字符</span><span class="n">x</span><span class="err">上</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3f</span><span class="nl">x</span><span class="p">:</span> <span class="err">将光标移动到航前行的第</span><span class="mi">3</span><span class="err">个字符</span><span class="n">x</span><span class="err">上</span>
+</span></span><span class="line"><span class="cl"><span class="nl">tx</span><span class="p">:</span>   <span class="err">将光标移动到目标字符</span><span class="n">x</span><span class="err">的前一个字符上</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fx</span><span class="err">和</span><span class="n">tx</span><span class="err">可以通过</span><span class="p">;</span><span class="err">和</span><span class="p">,</span><span class="err">进行重复移动，一个是正向重复，一个是反向重复</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="文本块移动">文本块移动</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="p">(</span><span class="err">：</span>  <span class="err">移到当前句子的开头</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span><span class="o">:</span>  <span class="err">移到下一个句子的开头</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span><span class="o">:</span>  <span class="err">移到当前一段的开头</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="o">:</span>  <span class="err">移到下一段的开头</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="o">:</span>  <span class="err">移到当前这一节的开头</span>
+</span></span><span class="line"><span class="cl"><span class="p">]]</span><span class="o">:</span>  <span class="err">移到下一节的开头</span>
+</span></span><span class="line"><span class="cl"><span class="o">%:</span>  <span class="err">用于符号间的移动，它会在一对</span><span class="p">()</span><span class="err">、</span><span class="p">[]</span><span class="err">、</span><span class="p">{}</span><span class="err">之间跳跃</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="在屏幕中移动">在屏幕中移动</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">xG</span><span class="p">:</span>  <span class="err">跳转到指定的第</span><span class="n">x</span><span class="err">行，</span><span class="n">G</span><span class="err">移动到文件按末尾，``（</span><span class="mi">2</span><span class="err">次单引号</span><span class="p">)</span><span class="err">返回到跳转前的位置</span>
+</span></span><span class="line"><span class="cl"><span class="nl">gg</span><span class="p">:</span>  <span class="err">移动到文件开头</span>
+</span></span><span class="line"><span class="cl"><span class="n">CTRL</span><span class="o">-</span><span class="nl">U</span><span class="p">:</span>  <span class="err">上移半屏</span>
+</span></span><span class="line"><span class="cl"><span class="n">CTRL</span><span class="o">-</span><span class="nl">D</span><span class="p">:</span>  <span class="err">下移半屏</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="滚屏与跳转">滚屏与跳转</h2>
+<h3 id="定位光标的位置">定位光标的位置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">zz</span><span class="p">:</span>  <span class="err">将光标置于屏幕的中间</span>
+</span></span><span class="line"><span class="cl"><span class="nl">zt</span><span class="p">:</span>  <span class="err">将光标移动到屏幕的顶部</span>
+</span></span><span class="line"><span class="cl"><span class="nl">zb</span><span class="p">:</span>  <span class="err">将光标移动到屏幕的底部</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="设置跳转标记">设置跳转标记</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">mx</span><span class="p">,</span><span class="n">my</span><span class="p">,</span><span class="n">mz</span><span class="err">设置三个位置</span>
+</span></span><span class="line"><span class="cl"><span class="err">`</span><span class="n">x</span><span class="p">,</span><span class="err">`</span><span class="n">y</span><span class="p">,</span><span class="err">`</span><span class="n">z</span><span class="err">跳转到设置</span>
+</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="nl">marks</span><span class="p">:</span>  <span class="err">显示所有书签</span>
+</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="n">delm</span> <span class="nl">a</span><span class="p">:</span>  <span class="err">删除缓冲区标签</span><span class="nl">a</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="n">delm</span><span class="o">!:</span>  <span class="err">删除所有缓冲区标签</span><span class="p">(</span><span class="err">小写字母</span><span class="p">),</span> <span class="err">不能删除文件标签和数字标签</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="块选择">块选择</h2>
+<blockquote>
+<p>块选择前可跟d,c,v,y等删除，改写，选择和复制操作</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">$</span><span class="o">:</span>   <span class="err">到行末</span>
+</span></span><span class="line"><span class="cl"><span class="mi">0</span><span class="o">:</span>   <span class="err">到行首</span>
+</span></span><span class="line"><span class="cl"><span class="o">^:</span>   <span class="err">到行首非空字符</span>
+</span></span><span class="line"><span class="cl"><span class="nl">tx</span><span class="p">:</span>   <span class="err">光标位置到字符</span> <span class="n">x</span> <span class="err">之前</span>
+</span></span><span class="line"><span class="cl"><span class="nl">fx</span><span class="p">:</span>   <span class="err">光标位置到字符</span> <span class="n">x</span> <span class="err">之处</span>
+</span></span><span class="line"><span class="cl"><span class="nl">iw</span><span class="p">:</span>   <span class="err">整个单词（不包括分隔符）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">aw</span><span class="p">:</span>   <span class="err">整个单词（包括分隔符）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">iW</span><span class="p">:</span>   <span class="err">整个</span> <span class="n">WORD</span><span class="err">（不包括分隔符）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">aW</span><span class="p">:</span>   <span class="err">整个</span> <span class="n">WORD</span><span class="err">（包括分隔符）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">is</span><span class="p">:</span>   <span class="err">整个句子（不包括分隔符）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">as</span><span class="p">:</span>   <span class="err">整个句子（包括分隔符）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">ip</span><span class="p">:</span>   <span class="err">整个段落（不包括前后空白行）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">ap</span><span class="p">:</span>   <span class="err">整个段落（包括前后空白行）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">ib</span><span class="p">:</span>   <span class="err">小括号内</span>
+</span></span><span class="line"><span class="cl"><span class="nl">ab</span><span class="p">:</span>   <span class="err">小括号内（包含小括号本身）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">iB</span><span class="p">:</span>   <span class="err">大括号内</span>
+</span></span><span class="line"><span class="cl"><span class="nl">aB</span><span class="p">:</span>   <span class="err">大括号内（包含大括号本身）</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span><span class="p">)</span><span class="o">:</span>   <span class="err">小括号内</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="p">)</span><span class="o">:</span>   <span class="err">小括号内（包含小括号本身）</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span><span class="p">]</span><span class="o">:</span>   <span class="err">中括号内</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="p">]</span><span class="o">:</span>   <span class="err">中括号内（包含中括号本身）</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span><span class="p">}</span><span class="o">:</span>   <span class="err">大括号内</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="p">}</span><span class="o">:</span>   <span class="err">大括号内（包含大括号本身）</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span><span class="err">&#39;</span><span class="o">:</span>   <span class="err">单引号内</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="err">&#39;</span><span class="o">:</span>   <span class="err">单引号内（包含单引号本身）</span>
+</span></span><span class="line"><span class="cl"><span class="n">i</span><span class="s">&#34;:   双引号内</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span><span class="s">&#34;:   双引号内（包含双引号本身）</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="n">i</span><span class="p">)</span><span class="o">:</span>  <span class="err">往外两层小括号内</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>  <span class="err">往外两层小括号内（包含小括号本身）</span>
+</span></span><span class="line"><span class="cl"><span class="mf">2f</span><span class="p">)</span><span class="o">:</span>  <span class="err">到第二个小括号处</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="n">t</span><span class="p">)</span><span class="o">:</span>  <span class="err">到第二个小括号前</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="文本删除操作">文本删除操作</h2>
+<h3 id="字符删除">字符删除</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">x</span><span class="p">:</span>  <span class="err">删除当前光标所在处的字符</span>
+</span></span><span class="line"><span class="cl"><span class="nl">X</span><span class="p">:</span>  <span class="err">删除当前光标左边的字符</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="单词删除">单词删除</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">dw</span><span class="p">:</span>  <span class="err">删除一个单词</span><span class="p">(</span><span class="err">从光标处到空格</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nl">d2w</span><span class="p">:</span>  <span class="err">删除从当前光标开始处的</span><span class="mi">2</span><span class="err">个单词</span>
+</span></span><span class="line"><span class="cl"><span class="nl">dl</span><span class="p">:</span>  <span class="err">删除当前光标处的字符</span><span class="o">=</span><span class="n">x</span>
+</span></span><span class="line"><span class="cl"><span class="nl">dh</span><span class="p">:</span>  <span class="err">删除当前光标左边的字符</span><span class="o">=</span><span class="n">X</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="行删除">行删除</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">d</span><span class="err">$</span><span class="o">:</span>  <span class="err">删除从光标到一行末尾的整个文本</span>
+</span></span><span class="line"><span class="cl"><span class="nl">d0</span><span class="p">:</span>  <span class="err">删除从光标到一行开头的所有单词</span>
+</span></span><span class="line"><span class="cl"><span class="nl">dd</span><span class="p">:</span>  <span class="err">删除当前光标处的一整行</span><span class="o">=</span><span class="n">D</span>
+</span></span><span class="line"><span class="cl"><span class="mi">5</span><span class="nl">dd</span><span class="p">:</span>  <span class="err">删除从光标开始处的</span><span class="mi">5</span><span class="err">行代码</span>
+</span></span><span class="line"><span class="cl"><span class="nl">dgg</span><span class="p">:</span>  <span class="err">删除从光标到文本开头</span>
+</span></span><span class="line"><span class="cl"><span class="nl">dG</span><span class="p">:</span>  <span class="err">删除从光标到文本结尾</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="行合并">行合并</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">J</span><span class="p">:</span>  <span class="err">删除一个分行符，将当前行与下一行合并</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="复制与粘贴">复制与粘贴</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">p</span><span class="p">:</span>  <span class="err">粘贴到光标后</span>
+</span></span><span class="line"><span class="cl"><span class="nl">P</span><span class="p">:</span>  <span class="err">粘贴到光标前</span>
+</span></span><span class="line"><span class="cl"><span class="nl">y</span><span class="p">:</span>  <span class="err">复制</span>
+</span></span><span class="line"><span class="cl"><span class="nl">yw</span><span class="p">:</span>  <span class="err">复制一个单词</span>
+</span></span><span class="line"><span class="cl"><span class="nl">y2w</span><span class="p">:</span>  <span class="err">复制</span><span class="mi">2</span><span class="err">个单词</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="err">$</span><span class="o">:</span>  <span class="err">复制从当前光标到行结尾的所有单词</span>
+</span></span><span class="line"><span class="cl"><span class="nl">y0</span><span class="p">:</span>  <span class="err">复制从当前光标到行首的所有单词</span>
+</span></span><span class="line"><span class="cl"><span class="nl">yy</span><span class="p">:</span>  <span class="err">复制一整行</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="nl">yy</span><span class="p">:</span>  <span class="err">复制从当前光标所在行开始的</span><span class="mi">2</span><span class="err">行</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">复制文本块</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">1.</span><span class="err">首先进入</span><span class="n">visual</span><span class="err">模式：</span><span class="n">v</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">2.</span><span class="err">移动光标选择文本</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">3.</span><span class="err">复制与粘贴的操作</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="文本修改与替换">文本修改与替换</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">cw</span><span class="p">:</span>  <span class="err">删除从光标处到单词结尾的文本并进入到插入模式</span>
+</span></span><span class="line"><span class="cl"><span class="nl">cb</span><span class="p">:</span>  <span class="err">删除从光标处到单词开头的文本并进入到插入模式</span>
+</span></span><span class="line"><span class="cl"><span class="nl">cc</span><span class="p">:</span>  <span class="err">删除一整行并进入到插入模式</span>
+</span></span><span class="line"><span class="cl"><span class="nl">C</span><span class="p">:</span>  <span class="err">改写到行尾（同</span><span class="n">c</span><span class="err">$）</span>
+</span></span><span class="line"><span class="cl"><span class="nl">r</span><span class="p">:</span>  <span class="err">替换当前光标下的字符</span>
+</span></span><span class="line"><span class="cl"><span class="nl">R</span><span class="p">:</span>  <span class="err">进入到替换模式</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="查找与替换">查找与替换</h2>
+<blockquote>
+<p>查找和替换支持正则表达式</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="o">/</span><span class="n">pattern</span>            <span class="err">从光标处向文件尾搜索</span> <span class="n">pattern</span>
+</span></span><span class="line"><span class="cl"><span class="o">?</span><span class="n">pattern</span>            <span class="err">从光标处向文件头搜索</span> <span class="n">pattern</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span>                   <span class="err">向同一方向执行上一次搜索</span>
+</span></span><span class="line"><span class="cl"><span class="n">N</span>                   <span class="err">向相反方向执行上一次搜索</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span>                   <span class="err">向前搜索光标下的单词</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#                   向后搜索光标下的单词
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="o">:</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>          <span class="err">将当前行中全替换</span><span class="n">p1</span><span class="err">为</span><span class="nl">p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>         <span class="err">将当前文件中全替换</span><span class="n">p1</span><span class="err">为</span><span class="nl">p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">gc</span>        <span class="err">将当前文件中全替换</span><span class="n">p1</span><span class="err">为</span><span class="n">p2</span><span class="err">，并且每处询问你是否替换</span>
+</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>     <span class="err">将第</span><span class="mi">10</span><span class="err">到</span><span class="mi">20</span><span class="err">行中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="n">ns</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>      <span class="err">将当前行到</span><span class="n">n</span><span class="err">行中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="o">+</span><span class="mi">10</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>    <span class="err">将当前行到相对当前行加</span><span class="mi">10</span><span class="err">行的区间中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="err">$</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>      <span class="err">将当前行到最后一行中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="mi">0</span><span class="p">,.</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>       <span class="err">将第一行到当前行中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="mi">1</span><span class="err">\\</span><span class="mi">2</span><span class="err">\</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="n">g</span>   <span class="err">将“</span><span class="mi">1</span><span class="err">\</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="err">”</span> <span class="err">替换为</span> <span class="err">“</span><span class="mi">123</span><span class="err">”（特殊字符使用反斜杠标注）</span>
+</span></span><span class="line"><span class="cl"><span class="o">:%</span><span class="n">s</span><span class="o">/</span><span class="err">\</span><span class="n">r</span><span class="c1">//g           删除 DOS 换行符 ^M
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="代码折叠">代码折叠</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">zc</span>                  <span class="err">折叠光标下代码</span>
+</span></span><span class="line"><span class="cl"><span class="n">zf</span>                  <span class="err">创建代码折叠</span>
+</span></span><span class="line"><span class="cl"><span class="n">zF</span>                  <span class="err">指定行数创建折叠</span>
+</span></span><span class="line"><span class="cl"><span class="n">zm</span>                  <span class="err">所有代码折叠一层</span>
+</span></span><span class="line"><span class="cl"><span class="n">zr</span>                  <span class="err">所有代码打开一层</span>
+</span></span><span class="line"><span class="cl"><span class="n">zM</span>                  <span class="err">折叠所有代码，设置</span> <span class="n">foldlevel</span><span class="o">=</span><span class="mi">0</span><span class="err">，设置</span> <span class="n">foldenable</span>
+</span></span><span class="line"><span class="cl"><span class="n">zR</span>                  <span class="err">打开所有代码，设置</span> <span class="n">foldlevel</span> <span class="err">为最大值</span>
+</span></span><span class="line"><span class="cl"><span class="n">zo</span>                  <span class="err">打开一层代码</span>
+</span></span><span class="line"><span class="cl"><span class="n">zO</span>                  <span class="err">打开光标下所有代码折叠</span>
+</span></span><span class="line"><span class="cl"><span class="n">zd</span>                  <span class="err">删除光标下折叠</span>
+</span></span><span class="line"><span class="cl"><span class="n">zE</span>                  <span class="err">删除所有折叠</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="撤销修改与重做">撤销修改与重做</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">u</span><span class="p">:</span>  <span class="err">撤销上一步的操作。</span>
+</span></span><span class="line"><span class="cl"><span class="n">Ctrl</span><span class="o">+</span><span class="nl">r</span><span class="p">:</span>  <span class="err">将原来的插销重做一遍</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="宏录制与寄存器">宏录制与寄存器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">qa</span>                  <span class="err">开始录制名字为</span> <span class="n">a</span> <span class="err">的宏</span>
+</span></span><span class="line"><span class="cl"><span class="n">q</span>                   <span class="err">结束录制宏</span>
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="n">a</span>                  <span class="err">播放名字为</span> <span class="n">a</span> <span class="err">的宏</span>
+</span></span><span class="line"><span class="cl"><span class="err">@@</span>                  <span class="err">播放上一个宏</span>
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="o">:</span>                  <span class="err">重复上一个</span><span class="n">ex</span><span class="err">命令（即冒号命令）</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;?yy                复制当前行到寄存器 ? ，问号代表 0-9 的寄存器名称</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;?d3j               删除光标下三行内容，并放到寄存器 ? ，问号代表 0-9 的寄存器名称</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;?p                 将寄存器 ? 的内容粘贴到光标后</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;?P                 将寄存器 ? 的内容粘贴到光标前</span>
+</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="n">registers</span>          <span class="err">显示所有寄存器内容</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;ay                 在可视环境下，选择代码，复制到a寄存器</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="缓冲区">缓冲区</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="o">:</span><span class="n">buffers</span>   <span class="err">查看缓冲区列表</span><span class="o">==</span><span class="nl">ls</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="n">buffer</span> <span class="n">N</span>  <span class="err">根据缓冲区列表的编号跳转到指定缓冲区</span>
+</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="n">bnext</span><span class="o">/</span><span class="n">bprev</span>  <span class="err">遍历缓冲区列表</span>
+</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="n">bfirst</span><span class="o">/</span><span class="n">blast</span>  <span class="err">分别调到缓冲区列表的开头和结尾</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-02-15</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" data-title="Vim速查表" data-hashtags="Vim"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" data-hashtag="Vim"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" data-title="Vim速查表"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" data-title="Vim速查表"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" data-title="Vim速查表"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/vim/">Vim</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" class="prev" rel="prev" title="Jupyter远程访问"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Jupyter远程访问</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
