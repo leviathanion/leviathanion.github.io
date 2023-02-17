@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/posts/</link>
         <description>All Posts | loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 17 Feb 2023 10:35:37 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 17 Feb 2023 17:00:12 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>DKMS</title>
+    <link>https://leviathanion.github.io/dkms/</link>
+    <pubDate>Fri, 17 Feb 2023 17:00:12 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/dkms/</guid>
+    <description><![CDATA[DKMS DKMS动态内核模块支持（DKMS）是用来生成 Linux 的内核模块的一个框架 虽然可以通过Readme文件或者INSTALL文件来编译新的驱动或者某]]></description>
+</item>
+<item>
     <title>Ubuntu配置</title>
     <link>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</link>
     <pubDate>Fri, 17 Feb 2023 10:35:37 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/simkgc/</guid>
     <description><![CDATA[SimKGC模型 Novelty 使用InfoNCE损失改进原有边际排名损失，使其更专注于hard negative 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图]]></description>
-</item>
-<item>
-    <title>PairRE</title>
-    <link>https://leviathanion.github.io/pairre/</link>
-    <pubDate>Thu, 09 Jun 2022 18:40:24 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/pairre/</guid>
-    <description><![CDATA[PairRE Novelty 既考虑了复杂关系建模的问题，又考虑了多种模式的关系 通过修改RotatE的公式，将关系参数改为头尾两个，从而可以对复杂关系进行建模(Rot]]></description>
 </item>
 </channel>
 </rss>
