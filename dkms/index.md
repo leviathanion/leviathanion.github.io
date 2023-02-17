@@ -16,5 +16,7 @@
 * `dkms uninstall a/1.0`卸载该模块
 * `dkms remove a/1.0 --all`完全移除一个模块
 * `dkms autoinstall`重新构建所有模块
-
+> 有些dkms提前构建好的模块可以直接使用dkms安装
+> 
+> 例如由于内核更新导致nvidia驱动失败时，nvidia驱动模块已经安装，仅仅需要重新编译和使用，因此可以使用`dkms install`重新编译和安装nvidia驱动来使得驱动正常运行
 
