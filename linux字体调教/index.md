@@ -199,4 +199,9 @@
     </edit>
     </match>
     ```
+## 字体渲染
+* 虽然 fontconfig 本身不负责渲染字体，实际渲染是由程序交给 freetype 来完成的；但是 fontconfig 在处理 font pattern 的时候可以修改一些渲染参数，比如是否开启 hinting 和子像素渲染，是否开启连字特性。同时也可以根据实际情况来选择和过滤字体，比如根据像素尺寸分别指定字体，又或者控制何时使用点阵字体。
+* 具体可参考arch wiki中的配置[^1]
+
+[^1]:https://wiki.archlinux.org/title/Font_configuration
 

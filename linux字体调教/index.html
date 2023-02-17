@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  2855 ,
+        },"genre": "posts","keywords": "Linux","wordcount":  3002 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99\/","datePublished": "2023-02-15T22:01:23+08:00","dateModified": "2023-02-15T22:01:23+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux字体调教</h1><h2 class="single-subtitle">转载自双猫CC</h2><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-15">2023-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2855 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-15">2023-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3002 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -140,6 +140,7 @@
         <li><a href="#配置示例">配置示例</a></li>
       </ul>
     </li>
+    <li><a href="#字体渲染">字体渲染</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="linux字体调教">Linux字体调教</h1>
@@ -552,6 +553,20 @@
 </div>
 </div></li>
 </ul>
+<h2 id="字体渲染">字体渲染</h2>
+<ul>
+<li>虽然 fontconfig 本身不负责渲染字体，实际渲染是由程序交给 freetype 来完成的；但是 fontconfig 在处理 font pattern 的时候可以修改一些渲染参数，比如是否开启 hinting 和子像素渲染，是否开启连字特性。同时也可以根据实际情况来选择和过滤字体，比如根据像素尺寸分别指定字体，又或者控制何时使用点阵字体。</li>
+<li>具体可参考arch wiki中的配置<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://wiki.archlinux.org/title/Font_configuration" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/Font_configuration</a>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
