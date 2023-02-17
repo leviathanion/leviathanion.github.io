@@ -4,7 +4,23 @@
         <link>https://leviathanion.github.io/posts/</link>
         <description>All Posts | loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Wed, 15 Feb 2023 15:16:42 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 17 Feb 2023 10:35:37 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Ubuntu配置</title>
+    <link>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Fri, 17 Feb 2023 10:35:37 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[Ubuntu配置 网络配置 缺少ifconfig等工具时，下载net-tools包(不建议使用) 目前iproute2已逐渐取代net-tools]]></description>
+</item>
+<item>
+    <title>Linux字体调教</title>
+    <link>https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/</link>
+    <pubDate>Wed, 15 Feb 2023 22:01:23 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/</guid>
+    <description><![CDATA[Linux字体调教 前瞻知识 一个字体文件，可以提供多个字体族名 (family)。 比如 Arch Linux 用户在安装 wqy-microhei 后 系统端增加了 wqy-microhei.ttc 这个字体文件，分别提供「W]]></description>
+</item>
+<item>
     <title>Vim速查表</title>
     <link>https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
     <pubDate>Wed, 15 Feb 2023 15:16:42 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/pairre/</guid>
     <description><![CDATA[PairRE Novelty 既考虑了复杂关系建模的问题，又考虑了多种模式的关系 通过修改RotatE的公式，将关系参数改为头尾两个，从而可以对复杂关系进行建模(Rot]]></description>
-</item>
-<item>
-    <title>KBGAN</title>
-    <link>https://leviathanion.github.io/kbgan/</link>
-    <pubDate>Thu, 09 Jun 2022 18:40:16 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/kbgan/</guid>
-    <description><![CDATA[KBGAN模型1 Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴别器，]]></description>
-</item>
-<item>
-    <title>CAKE</title>
-    <link>https://leviathanion.github.io/cake/</link>
-    <pubDate>Wed, 25 May 2022 15:27:53 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/cake/</guid>
-    <description><![CDATA[CAKE模型1 Novelty 首次既考虑了假阴性问题，又考虑了低质量的问题，特别是假阴性问题几乎无人考虑 将数据集做一定的处理，进行标注，为每个实体赋予一到]]></description>
 </item>
 </channel>
 </rss>

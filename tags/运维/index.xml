@@ -4,21 +4,21 @@
         <link>https://leviathanion.github.io/tags/%E8%BF%90%E7%BB%B4/</link>
         <description>运维 - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 28 Oct 2022 17:17:25 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E8%BF%90%E7%BB%B4/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 17 Feb 2023 10:35:37 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E8%BF%90%E7%BB%B4/" rel="self" type="application/rss+xml" /><item>
+    <title>Ubuntu配置</title>
+    <link>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Fri, 17 Feb 2023 10:35:37 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[Ubuntu配置 网络配置 缺少ifconfig等工具时，下载net-tools包(不建议使用) 目前iproute2已逐渐取代net-tools]]></description>
+</item>
+<item>
     <title>Jupyter远程访问</title>
     <link>https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</link>
     <pubDate>Fri, 28 Oct 2022 17:17:25 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</guid>
     <description><![CDATA[使用ssh远程使用 在服务器上运行jupyter notebook -no-browser --port=8080 在本地终端运行ssh -NfL localhost:port:localhost:port -p sshport username@ip N代表没有命令要被远程执行，f代表后台执行，L是端口映射操]]></description>
-</item>
-<item>
-    <title>linux配置</title>
-    <link>https://leviathanion.github.io/linux%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/linux%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[linux配置 网络配置 缺少ifconfig等工具时 下载net-tools包 目前iproute2已逐渐取代net-tools工具包，成为系统自]]></description>
 </item>
 <item>
     <title>Linux命令</title>

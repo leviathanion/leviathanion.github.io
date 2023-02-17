@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Linux字体调教 - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="Linux字体调教" />
+<meta property="og:description" content="Linux字体调教 前瞻知识 一个字体文件，可以提供多个字体族名 (family)。 比如 Arch Linux 用户在安装 wqy-microhei 后 系统端增加了 wqy-microhei.ttc 这个字体文件，分别提供「W" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-15T22:01:23+08:00" />
+<meta property="article:modified_time" content="2023-02-15T22:01:23+08:00" /><meta property="og:site_name" content="loveLZZ的个人博客" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="Linux字体调教"/>
+<meta name="twitter:description" content="Linux字体调教 前瞻知识 一个字体文件，可以提供多个字体族名 (family)。 比如 Arch Linux 用户在安装 wqy-microhei 后 系统端增加了 wqy-microhei.ttc 这个字体文件，分别提供「W"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/" /><link rel="prev" href="https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" /><link rel="next" href="https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux字体调教",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99\/"
+        },"genre": "posts","keywords": "Linux","wordcount":  2855 ,
+        "url": "https:\/\/leviathanion.github.io\/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99\/","datePublished": "2023-02-15T22:01:23+08:00","dateModified": "2023-02-15T22:01:23+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "loveLzz"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux字体调教</h1><h2 class="single-subtitle">转载自双猫CC</h2><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-15">2023-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2855 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前瞻知识">前瞻知识</a></li>
+    <li><a href="#fontconfig配置文件的位置">fontconfig配置文件的位置</a></li>
+    <li><a href="#字体文件的位置">字体文件的位置</a></li>
+    <li><a href="#fontconfig配置文件语法">fontconfig配置文件语法</a>
+      <ul>
+        <li><a href="#示例一">示例一</a></li>
+        <li><a href="#示例二">示例二</a></li>
+        <li><a href="#示例三">示例三</a></li>
+      </ul>
+    </li>
+    <li><a href="#fontconfig配置来实现字体调教">fontconfig配置来实现字体调教</a>
+      <ul>
+        <li><a href="#中英文混搭问题">中英文混搭问题</a></li>
+        <li><a href="#配置示例">配置示例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="linux字体调教">Linux字体调教</h1>
+<h2 id="前瞻知识">前瞻知识</h2>
+<ul>
+<li>一个字体文件，可以提供多个字体族名 (family)。</li>
+</ul>
+<blockquote>
+<p>比如 Arch Linux 用户在安装 wqy-microhei 后</p>
+<ul>
+<li>系统端增加了 wqy-microhei.ttc 这个字体文件，分别提供「WenQuanYi Micro Hei」「文泉驛微米黑」,「文泉驿微米黑」三个字体族名。</li>
+<li>我们可以运行 fontconfig 提供的命令行工具 fc-list 去查看系统上已安装的字体以及它们对应的字体族名。</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>sans-serif，serif，monospace</strong>，则是三个通用字体族名 (generic family)</li>
+</ul>
+<blockquote>
+<ul>
+<li>它们不是真实存在的字体，而是分别指示程序去使用<strong>无衬线、衬线、等宽字体</strong>。</li>
+<li>桌面程序需要去查询<strong>fontconfig</strong>来选择字体。</li>
+<li>我们可以通过<strong>fontconfig的配置</strong>去精准控制程序使用的字体。</li>
+</ul>
+</blockquote>
+<ul>
+<li>桌面程序使用字体的流程
+<ul>
+<li>桌面程序根据自身的设置，传递font pattern使用fontconfig来查找字体</li>
+<li>fontconfig依据自身配置的规则来修改font pattern,返回结果给桌面程序</li>
+<li>桌面程序使用系统字体并通过FreeType等字体渲染引擎许绘制文字</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>在这里要明确一点，给 GTK 程序、Qt 程序、虚拟终端的配置文件中设置它们使用的字体，和设置 fontconfig 的配置文件是两码事。虽然在一些桌面环境的全局设置中，设置字体会同时修改 GTK、Qt、fontconfig 的配置。</p>
+<p>此外，桌面程序可以完全不遵守 fontconfig，或者说，程序可以不使用 fontconfig 来查找字体。当然，这种情况很少，现代桌面程序基本上都会遵守我们的 fontconfig 配置。</p>
+</blockquote>
+<h2 id="fontconfig配置文件的位置">fontconfig配置文件的位置</h2>
+<ul>
+<li>fontconfig配置文件主要包含以下位置
+<ul>
+<li>系统级 <code>/etc/fonts/fonts.conf</code>,<code>/etc/fonts/conf.d/*.conf</code></li>
+<li>用户级<code>$XDG_CONFIG_HOME$/fontconfig/fonts.conf</code>,<code>$XDG_CONFIG_HOME$/fontconfig/conf.d/*.conf</code></li>
+<li>Fontconfig会综合所有配置文件到一个配置文件中：<code>/etc/fonts/fonts.conf</code>,因此该文件不应被修改</li>
+</ul>
+</li>
+<li>Fontconfig首先读取<code>/etc/fonts/fonts.conf</code>
+<ul>
+<li>该文件有如下语句,将<code>/etc/fonts/conf.d</code>目录中的所有文件引入读取中</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&lt;include <span class="nv">ignore_missing</span><span class="o">=</span><span class="s2">&#34;yes&#34;</span>&gt;conf.d&lt;/include&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>上述目录的配置文件按照文件前的数字的顺序进行读取，而<code>50-usr.conf</code>包含如下语句,读取用户目录下的配置文件，<code>prefix=&quot;xdg&quot;</code>代表<code>XDG_CONFIG_HOME</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&lt;include <span class="nv">ignore_missing</span><span class="o">=</span><span class="s2">&#34;yes&#34;</span> <span class="nv">prefix</span><span class="o">=</span><span class="s2">&#34;xdg&#34;</span>&gt;fontconfig/conf.d&lt;/include&gt;
+</span></span><span class="line"><span class="cl">&lt;include <span class="nv">ignore_missing</span><span class="o">=</span><span class="s2">&#34;yes&#34;</span> <span class="nv">prefix</span><span class="o">=</span><span class="s2">&#34;xdg&#34;</span>&gt;fontconfig/fonts.conf&lt;/include&gt;
+</span></span><span class="line"><span class="cl">&lt;include <span class="nv">ignore_missing</span><span class="o">=</span><span class="s2">&#34;yes&#34;</span> <span class="nv">deprecated</span><span class="o">=</span><span class="s2">&#34;yes&#34;</span>&gt;~/.fonts.conf.d&lt;/include&gt;
+</span></span><span class="line"><span class="cl">&lt;include <span class="nv">ignore_missing</span><span class="o">=</span><span class="s2">&#34;yes&#34;</span> <span class="nv">deprecated</span><span class="o">=</span><span class="s2">&#34;yes&#34;</span>&gt;~/.fonts.conf&lt;/include&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Fontconfig在读取完用户配置文件后，接着读完<code>/etc/fonts/conf.d</code>中剩余的配置文件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>/etc/fonts/conf.avail/</code>中包含了很多没有默认启用的配置，很多是字体软件包安装后，往里面放入的</li>
+<li><code>pacman -Qqo /etc/fonts/conf.avail</code>可以查看哪些软件包修改了此目录</li>
+<li><code>/etc/fonts/conf.d</code>中启用的配置文件很多这个目录下文件的软连接，因此可以通过将此目录下的配置文件软连接到<code>/etc/fonts/conf.d</code>来启用配置</li>
+</ul>
+</blockquote>
+<h2 id="字体文件的位置">字体文件的位置</h2>
+<ul>
+<li>字体文件的位置同样在<code>/etc/fonts/fonts.conf</code>中定义,如下所示</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dir&gt;</span>/usr/share/fonts<span class="nt">&lt;/dir&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dir&gt;</span>/usr/local/share/fonts<span class="nt">&lt;/dir&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dir</span> <span class="na">prefix=</span><span class="s">&#34;xdg&#34;</span><span class="nt">&gt;</span>fonts<span class="nt">&lt;/dir&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- the following element will be removed in the future --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dir&gt;</span>~/.fonts<span class="nt">&lt;/dir&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>可以通过下述语句来查看已安装的字体<code>pacman -Qqo /usr/share/fonts</code></li>
+</ul>
+<h2 id="fontconfig配置文件语法">fontconfig配置文件语法</h2>
+<h3 id="示例一">示例一</h3>
+<ul>
+<li>配置文件是XML语句,内容被包含在<code>&lt;fontconfig&gt;</code>标签中</li>
+<li>大量出现的配置语句是<code>&lt;match&gt;...&lt;test&gt;...&lt;edit&gt;...</code></li>
+<li>下述是语法示例</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>monospace<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">mode=</span><span class="s">&#34;prepend&#34;</span> <span class="na">binding=</span><span class="s">&#34;strong&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Iosevka Custom<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Sans Mono CJK SC<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>emoji<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<ul>
+<li><code>taget=&quot;pattern&quot;</code>代表对font pattern进行操作,<code>target=&quot;font&quot;</code>则是对单个字体进行操作</li>
+<li><code>test</code>可选的测试条件，当满足条件是，执行<code>edit</code></li>
+<li><code>&lt;edit name=&quot;family&quot; mode=&quot;prepend&quot; binding=&quot;strong&quot;&gt;</code>，执行编辑操作，<code>name=&quot;family&quot;</code>表明被操作对象是是 font pattern 中的 family</li>
+<li><code>mode=&quot;prepend&quot;</code>表示在monospace前添加三种字体,<code>binding=&quot;strong&quot;</code>则是强绑定的意思,只需要知道强绑定默认优先级比弱绑定更高</li>
+<li>其实，<code>&lt;match&gt;...&lt;test&gt;...&lt;edit name=&quot;family&quot; mode=&quot;prepend&quot;&gt;...</code>等价于<code>&lt;alias&gt;...&lt;family&gt;...&lt;prefer&gt;...</code></li>
+</ul>
+</blockquote>
+<h3 id="示例二">示例二</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Cantarell<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">mode=</span><span class="s">&#34;assign&#34;</span> <span class="na">binding=</span><span class="s">&#34;strong&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Sans<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>mode=&quot;assign&quot;</code>表示将Cantarell修改成Noto Sans</li>
+</ul>
+<h3 id="示例三">示例三</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&#34;all&#34;</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">compare=</span><span class="s">&#34;not_eq&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>sans-serif<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&#34;all&#34;</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">compare=</span><span class="s">&#34;not_eq&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>serif<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&#34;all&#34;</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">compare=</span><span class="s">&#34;not_eq&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>monospace<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">mode=</span><span class="s">&#34;append_last&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>sans-serif<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>test 中的<code>qual=&quot;all&quot; name=&quot;family&quot;</code>表示对 font pattern 中的每一个字体都执行测试</li>
+<li><code>compare=&quot;not_eq&quot;</code>就是 family 不等于这个值的时候。</li>
+<li>当三条测试规则都满足的时候，也就是 font pattern 没有任何通用字体族名的时候，默认 fallback 到 sans-serif 无衬线字体</li>
+<li>edit 操作里面的<code>mode=&quot;append_last&quot;</code>表示 sans-serif 添加在 family 列表的最末尾。</li>
+<li>如果在 test 中包含多条<string>的时候，fontconfig 会报错。</li>
+</ul>
+<h2 id="fontconfig配置来实现字体调教">fontconfig配置来实现字体调教</h2>
+<h3 id="中英文混搭问题">中英文混搭问题</h3>
+<ul>
+<li>异体字问题
+<ul>
+<li>Noto Sans CJK 中的异体字，是在 相同的 Unicode 码位下，不同的语言会使用不同的字形。</li>
+<li>因此不正确的配置会导致中文变成繁体字，日文等</li>
+</ul>
+</li>
+<li>中文字体的西文部分
+<ul>
+<li>中文字体携带的英文字符有可能十分糟糕</li>
+<li>需要进行优先级设定或者替换</li>
+</ul>
+</li>
+<li>全角引号
+<ul>
+<li>英文中的单引号有两种，&rsquo;(U+0027) 和’(U+2019)。可能会觉得前一种出现在英文文本中，后一种出现在中文文本中，并且宽度和中文等宽。</li>
+<li>然而，英语世界中的一些人在英文文章中也是会使用后一种的。所以，字体在显示后一种引号的时候，究竟是和英文字母一样窄，还是该和中文字体等宽呢？如果在英文文章中显示成全宽字符则会显得突兀。</li>
+</ul>
+</li>
+</ul>
+<h3 id="配置示例">配置示例</h3>
+<ul>
+<li>基本思路为设置字体为通用字体族sans,serif,sans-serif,monospace</li>
+<li>在<code>~/.config/fontconfig/fonts.conf</code>编辑字体配置，示例如下</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!-- Default system-ui fonts --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>system-ui<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">mode=</span><span class="s">&#34;prepend&#34;</span> <span class="na">binding=</span><span class="s">&#34;strong&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>sans-serif<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Default sans-serif fonts--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>sans-serif<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">mode=</span><span class="s">&#34;prepend&#34;</span> <span class="na">binding=</span><span class="s">&#34;strong&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Sans<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Sans CJK SC<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Color Emoji<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Default serif fonts--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>serif<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">mode=</span><span class="s">&#34;prepend&#34;</span> <span class="na">binding=</span><span class="s">&#34;strong&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Serif<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Serif CJK SC<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Color Emoji<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Default monospace fonts--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>monospace<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">mode=</span><span class="s">&#34;prepend&#34;</span> <span class="na">binding=</span><span class="s">&#34;strong&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>JetBrainsMono Nerd Font<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Nerd Font<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Color Emoji<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>异体字修改示例</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;lang&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>zh-HK<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Sans CJK SC<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">binding=</span><span class="s">&#34;strong&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Sans CJK HK<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 另外请再重复 zh-TW、ja、ko --&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>上述配置文件中由于优先使用了英文字体，因此会导致全角符号问题，可以通过如下方式修改(因为影响不大，我并未修改)
+<ul>
+<li>调换中文和英文字体的顺序</li>
+<li>替换英文字体</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&#34;pattern&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;lang&#34;</span> <span class="na">compare=</span><span class="s">&#34;contains&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>en<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;test</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">compare=</span><span class="s">&#34;contains&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Sans CJK<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/test&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&#34;family&#34;</span> <span class="na">mode=</span><span class="s">&#34;prepend&#34;</span> <span class="na">binding=</span><span class="s">&#34;strong&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;string&gt;</span>Noto Sans<span class="nt">&lt;/string&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/edit&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/match&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-02-15</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/" data-title="Linux字体调教" data-hashtags="Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/" data-title="Linux字体调教"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/" data-title="Linux字体调教"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/" data-title="Linux字体调教"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/" class="prev" rel="prev" title="Vim速查表"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Vim速查表</a>
+            <a href="/ubuntu%E9%85%8D%E7%BD%AE/" class="next" rel="next" title="Ubuntu配置">Ubuntu配置<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
