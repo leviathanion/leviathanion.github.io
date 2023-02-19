@@ -26,7 +26,7 @@
     <pubDate>Wed, 15 Feb 2023 22:01:23 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/</guid>
-    <description><![CDATA[Linux字体调教 前瞻知识 一个字体文件，可以提供多个字体族名 (family)。 比如 Arch Linux 用户在安装 wqy-microhei 后 系统端增加了 wqy-microhei.ttc 这个字体文件，分别提供「W]]></description>
+    <description><![CDATA[Linux字体调教 本文参考自12 前瞻知识 一个字体文件，可以提供多个字体族名 (family)。 比如 Arch Linux 用户在安装 wqy-microhei 后 系统端增加了 wqy-microhei.ttc 这个字体文件]]></description>
 </item>
 <item>
     <title>Linux权限管理</title>

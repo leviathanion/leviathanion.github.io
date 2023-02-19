@@ -1,6 +1,7 @@
 # Linux字体调教
 
 # Linux字体调教
+> 本文参考自[^2][^3]
 ## 前瞻知识
 * 一个字体文件，可以提供多个字体族名 (family)。
 > 比如 Arch Linux 用户在安装 wqy-microhei 后
@@ -204,4 +205,6 @@
 * 具体可参考arch wiki中的配置[^1]
 
 [^1]:https://wiki.archlinux.org/title/Font_configuration
+[^2]:https://catcat.cc/post/2020-10-31/
+[^3]:https://catcat.cc/post/2021-03-07/
 
