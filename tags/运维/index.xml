@@ -21,6 +21,14 @@
     <description><![CDATA[使用ssh远程使用 在服务器上运行jupyter notebook -no-browser --port=8080 在本地终端运行ssh -NfL localhost:port:localhost:port -p sshport username@ip N代表没有命令要被远程执行，f代表后台执行，L是端口映射操]]></description>
 </item>
 <item>
+    <title>Linux配置</title>
+    <link>https://leviathanion.github.io/linux%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/linux%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[Linux配置 网络管理 可查询此链接linux网络命令 查看linux网络命令的使用 systemd-networkd配置 systemd-reso]]></description>
+</item>
+<item>
     <title>Linux命令</title>
     <link>https://leviathanion.github.io/linux%E5%91%BD%E4%BB%A4/</link>
     <pubDate>Fri, 22 Jan 2021 23:17:52 &#43;0800</pubDate>

@@ -4,7 +4,23 @@
         <link>https://leviathanion.github.io/posts/</link>
         <description>All Posts | loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 17 Feb 2023 17:00:12 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sun, 19 Feb 2023 22:24:10 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux发行版和软件包管理</title>
+    <link>https://leviathanion.github.io/linux%E5%8F%91%E8%A1%8C%E7%89%88%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</link>
+    <pubDate>Sun, 19 Feb 2023 22:24:10 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E5%8F%91%E8%A1%8C%E7%89%88%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
+    <description><![CDATA[Linux发行版和软件包管理 Linux发行版和常规包管理 Linux发行版虽然很多，但是可以根据软件安装包的格式进行大体上的分类，这样类似的系]]></description>
+</item>
+<item>
+    <title>Linux桌面环境和窗口管理器</title>
+    <link>https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/</link>
+    <pubDate>Sat, 18 Feb 2023 19:37:55 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/</guid>
+    <description><![CDATA[Linux桌面环境和窗口管理器 Desktop Environment(DE)1 一般情况下DE包含WM，比如Gnome3的默认WM是Mutter，KDE5的默认WM是KWin。主流的桌面]]></description>
+</item>
+<item>
     <title>DKMS</title>
     <link>https://leviathanion.github.io/dkms/</link>
     <pubDate>Fri, 17 Feb 2023 17:00:12 &#43;0800</pubDate>
@@ -67,22 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</guid>
     <description><![CDATA[常用软件总结(Windows篇) 社交 QQ wechat dingding 飞书 telegram 办公 office全家桶 office tool plus(office下载与激活) 小恐龙公文排版助手 iSlide(]]></description>
-</item>
-<item>
-    <title>Tmux使用</title>
-    <link>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</link>
-    <pubDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</guid>
-    <description><![CDATA[会话管理 新建会话tmux new -s &lt;session-name&gt; 列出所有会话tmux ls或者Ctrl+b s 退出会话tmux detach或者Ctrl+b d 接入会话tmux attach -t &]]></description>
-</item>
-<item>
-    <title>SimKGC</title>
-    <link>https://leviathanion.github.io/simkgc/</link>
-    <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/simkgc/</guid>
-    <description><![CDATA[SimKGC模型 Novelty 使用InfoNCE损失改进原有边际排名损失，使其更专注于hard negative 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图]]></description>
 </item>
 </channel>
 </rss>

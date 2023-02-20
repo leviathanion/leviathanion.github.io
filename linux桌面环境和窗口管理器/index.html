@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Linux桌面环境和窗口管理器 - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="Linux桌面环境和窗口管理器" />
+<meta property="og:description" content="Linux桌面环境和窗口管理器 Desktop Environment(DE)1 一般情况下DE包含WM，比如Gnome3的默认WM是Mutter，KDE5的默认WM是KWin。主流的桌面" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-18T19:37:55+08:00" />
+<meta property="article:modified_time" content="2023-02-18T19:37:55+08:00" /><meta property="og:site_name" content="loveLZZ的个人博客" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="Linux桌面环境和窗口管理器"/>
+<meta name="twitter:description" content="Linux桌面环境和窗口管理器 Desktop Environment(DE)1 一般情况下DE包含WM，比如Gnome3的默认WM是Mutter，KDE5的默认WM是KWin。主流的桌面"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/" /><link rel="prev" href="https://leviathanion.github.io/dkms/" /><link rel="next" href="https://leviathanion.github.io/linux%E5%8F%91%E8%A1%8C%E7%89%88%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linux桌面环境和窗口管理器",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8\/"
+        },"genre": "posts","keywords": "Linux","wordcount":  2316 ,
+        "url": "https:\/\/leviathanion.github.io\/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8\/","datePublished": "2023-02-18T19:37:55+08:00","dateModified": "2023-02-18T19:37:55+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "loveLzz"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux桌面环境和窗口管理器</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-18">2023-02-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2316 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#desktop-environmentde1">Desktop Environment(DE)</a>
+      <ul>
+        <li><a href="#追求华丽硬件配置较高">追求华丽，硬件配置较高</a></li>
+        <li><a href="#配置较低">配置较低</a></li>
+      </ul>
+    </li>
+    <li><a href="#windows-managerwm">Windows Manager(WM)</a>
+      <ul>
+        <li><a href="#xorg2">Xorg</a></li>
+        <li><a href="#wayland3">Wayland</a></li>
+        <li><a href="#之后的配置">之后的配置</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="linux桌面环境和窗口管理器">Linux桌面环境和窗口管理器</h1>
+<h2 id="desktop-environmentde1">Desktop Environment(DE)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></h2>
+<blockquote>
+<p>一般情况下DE包含WM，比如Gnome3的默认WM是Mutter，KDE5的默认WM是KWin。主流的桌面环境都提供了大量自带的桌面组件来构成其完整的桌面体验。</p>
+<p>桌面环境通常提供的组建包括</p>
+<ul>
+<li>桌面合成器(Xorg)</li>
+<li>窗口管理器</li>
+<li>通知守护进程</li>
+<li>显示管理器(开机之后要求输入密码的登陆界面SDDM等)</li>
+<li>屏幕锁定器</li>
+<li>注销管理</li>
+<li>应用启动器</li>
+<li>音频控制</li>
+<li>亮度控制</li>
+<li>电源管理器</li>
+<li>屏幕截图</li>
+<li>壁纸</li>
+<li>默认应用程序</li>
+<li>媒体控制器
+Wayland上桌面合成器和窗口管理器是同一个东西</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>环境</th>
+<th>介绍</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GNOME</td>
+<td>GNOME（/ɡˈnoʊm/）是一个完全由自由软件组成的桌面环境。它的目标操作系统是Linux，但是大部分的BSD系统亦支持GNOME。</td>
+<td>1.简单易用, 2.可通过扩展插件支持非常丰富的功能</td>
+<td>1.耗用内存、CPU资源较多; 2.插件安装与管理略显繁琐，需要通过网络浏览器下载。</td>
+</tr>
+<tr>
+<td>Unity</td>
+<td>一款与Ubuntu分分离离的桌面环境，最初是2011年支持Ubuntu的商业公司Canonical Ltd开发的，但在2017年的Ubuntu 17.10放弃Unity7而选择了GNOME，但在2020年的Ubuntu 20.04又重新启用了Unity7，并且起名为Ubuntu Unity，而且令人惊讶的是让Unity7能够起死回生的开发者是一位10岁的少年，他的名字叫Rudra Saraswat。</td>
+<td>与GNOME一样的易用，少量的定制选项，让我们可以开箱即用。</td>
+<td>并没有解决GNOME的缺点，插件管理依然需要一个稍微繁琐的步骤来实现安装</td>
+</tr>
+<tr>
+<td>Cinnamon</td>
+<td>与Unity一样，它也是GNOME的亲兄弟，Linux Mint团队因对GNOME3的改进无法接受，因而Fork出了一个分支，这就是Cinnamon，它的目标是让用户可以获得开箱即用用户界面。</td>
+<td>1.界面非常优美，简单易用; 2.内置配置管理器可以非常方便的管理插件、主题、小工具等； 2.丰富的选项让定制变得非常简单</td>
+<td>要说缺点就是BUG可能会稍多一些，而且2016年2月20日，未知黑客入侵Linux Mint网站也让用户对其安全性也比较担心(虽然此事与Cinnamon并无关系)。</td>
+</tr>
+<tr>
+<td>MATE</td>
+<td>MATE(/ˈmɑːteɪ/)桌面环境是 GNOME 2 的延续。</td>
+<td>1.轻量级的GNOME，资源占用少; 2.适合老电脑、配置低的电脑设备;</td>
+<td>正因为继承自GNOME 2，对于很多GNOME 3的新功能已经无法支持，但是主流系统还是会提供适配MATE桌面环境的系统，例如Ubuntu MATE</td>
+</tr>
+<tr>
+<td>KDE Plasma</td>
+<td>一款庞大而复杂的桌面环境，使用Qt开发，开发社区一直以来都是非常活跃，并且没有想GNOME有很多的分支，界面开发接口非常统一。</td>
+<td>功能非常强大、高度可定制，更加现代化的用户界面。</td>
+<td>1.正因为功能强大，带来的复杂性也使得普通用户使用起来有些不知所措; 2.漂亮的外观也带来了更多的内存和CPU资源的占用。</td>
+</tr>
+<tr>
+<td>Xfce</td>
+<td>一个轻量级的桌面环境，与GNOME一样，Xfce也基于GTK工具包开发，目标是快速轻巧，同时在视觉上仍然有吸引力并且易于使用。</td>
+<td>1. 轻量级; 2.Xfce遵守标准，尤其是在freedesktop.org上定义的标准; 3.内存和CPU资源占用非常少(非常适合老笔记本、嵌入式设备等)</td>
+<td>1.外观上有些简陋; 2.内置应用很少。</td>
+</tr>
+<tr>
+<td>LXDE</td>
+<td>使用GTK工具包编写，旨在提供一个快速且节能的桌面环境。所以与Xfce非常相似。主要活跃地区为台湾地区。</td>
+<td>1.轻量级。</td>
+<td>1.外观简陋。</td>
+</tr>
+<tr>
+<td>LXQt</td>
+<td>一款GTK和Qt融合的桌面环境，产生原因是LXDE团队不满于GTK+3的不向下兼容等诸多问题，因而转向了Qt框架。与LXDE一样，主要活跃地区为台湾地区。截至2020年4月24日的稳定版为0.15.0。</td>
+<td>1.轻量级。</td>
+<td>1.外观简陋。</td>
+</tr>
+<tr>
+<td>DeepinDE</td>
+<td>深度系统（Deepin）的桌面环境，由中国的武汉深之度科技有限公司(简称深度科技)为主要开发厂商。它使用Qt开发。</td>
+<td>1.非常漂亮的用户界面; 2.内置很多Windows平台应用软件，更适合中国用户的使用习惯。</td>
+<td>1.资源占用较多; 2.使用过程中的BUG较多，不过都在被逐步解决。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="追求华丽硬件配置较高">追求华丽，硬件配置较高</h3>
+<ul>
+<li>KDE</li>
+<li>GNOME</li>
+<li>DeepinDE</li>
+</ul>
+<h3 id="配置较低">配置较低</h3>
+<ul>
+<li>Xfce</li>
+<li>LXDE</li>
+<li>LXQt</li>
+</ul>
+<h2 id="windows-managerwm">Windows Manager(WM)</h2>
+<blockquote>
+<p>窗口管理器只是管理出现在你的桌面上的各种窗口的组件，具体的管理内容包含比如：窗口堆叠方式，窗口移动规则等。</p>
+</blockquote>
+<h3 id="xorg2">Xorg<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></h3>
+<ul>
+<li>堆叠式(大多数桌面发行版使用的都是堆叠式窗口管理器，窗口可以互相堆叠)</li>
+<li>平铺式(窗口没有重叠部分)
+<ul>
+<li>BspWM</li>
+<li>i3wm(c语言编写,perl配置)</li>
+</ul>
+</li>
+<li>动态(可以在堆叠式和平铺式之间进行切换)
+<ul>
+<li>DWM(C语言)</li>
+<li>AwesomeWM(DWM的扩展，使用lua语言配置)</li>
+<li>Xmonad(haskell编写)</li>
+<li>Qtile(Python编写)</li>
+</ul>
+</li>
+</ul>
+<h3 id="wayland3">Wayland<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></h3>
+<ul>
+<li>堆叠式
+<ul>
+<li>wayfire</li>
+<li>各大发行版自带</li>
+</ul>
+</li>
+<li>平铺式
+<ul>
+<li>Sway(i3)</li>
+<li>Qtile</li>
+<li>dwl(dwm)</li>
+</ul>
+</li>
+</ul>
+<h3 id="之后的配置">之后的配置</h3>
+<ul>
+<li>由于WM缺少很多桌面环境下需要的东西，因此需要手动安装，所有的这些组件都可以在<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>中找到对应的arch wiki目录
+<ul>
+<li>通知管理<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>：libnotify+dunst(libnotify提供通知,dunst作为通知服务器)</li>
+<li>音量调节<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup><sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>:安装alsa/pulseaudio后使用amixer/alsamixer进行管理(前者只能管理alsa,后者可以管理全部且提供命令行ui,tui)</li>
+<li>亮度调节<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>:xbacklight/light/acpilight(使用mesa驱动的intel核显无法使用xbacklight)或直接修改<code>/sys/class/backlight/intel_backlight/brightness</code>的值</li>
+<li>显示管理器:SDDM</li>
+<li>窗口特效:picom</li>
+<li>应用启动器:rofi</li>
+<li>媒体控制器<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>:MPRIS+控制组件(Playerctl/mpris-player-control/D-Bus)</li>
+<li>锁屏器:各大WM有对用的锁屏器</li>
+<li>截图工具:flameshot</li>
+<li>壁纸:feh</li>
+</ul>
+</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://wiki.archlinux.org/title/desktop_environment" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/desktop_environment</a>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://wiki.archlinux.org/title/window_manager" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/window_manager</a>
+&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://wiki.archlinux.org/title/Wayland" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/Wayland</a>
+&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://wiki.archlinux.org/title/Desktop_notifications" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/Desktop_notifications</a>
+&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://wiki.archlinux.org/title/List_of_applications#Volume_control" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/List_of_applications#Volume_control</a>
+&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://wiki.archlinux.org/title/PulseAudio#Front-ends" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/PulseAudio#Front-ends</a>
+&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p><a href="https://wiki.archlinux.org/title/Backlight" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/Backlight</a>
+&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p><a href="https://wiki.archlinux.org/title/MPRIS#Control_utilities" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/MPRIS#Control_utilities</a>
+&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-02-18</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/" data-title="Linux桌面环境和窗口管理器" data-hashtags="Linux"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/" data-hashtag="Linux"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/" data-title="Linux桌面环境和窗口管理器"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/" data-title="Linux桌面环境和窗口管理器"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/" data-title="Linux桌面环境和窗口管理器"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/linux/">Linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/dkms/" class="prev" rel="prev" title="DKMS"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>DKMS</a>
+            <a href="/linux%E5%8F%91%E8%A1%8C%E7%89%88%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/" class="next" rel="next" title="Linux发行版和软件包管理">Linux发行版和软件包管理<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
