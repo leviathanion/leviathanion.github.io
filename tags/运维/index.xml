@@ -26,7 +26,7 @@
     <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/linux%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[Linux配置 网络管理 可查询此链接linux网络命令 查看linux网络命令的使用 systemd-networkd配置 systemd-reso]]></description>
+    <description><![CDATA[Linux配置 文件系统层次概述 文件系统包含了很多不同的初始路径，本节对不同的路径名称进行概述，可以通过man file-hierarchy来查]]></description>
 </item>
 <item>
     <title>Linux命令</title>
