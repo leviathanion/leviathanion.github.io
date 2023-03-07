@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/posts/</link>
         <description>All Posts | loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sun, 19 Feb 2023 22:24:10 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 07 Mar 2023 09:06:22 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>代理工具订阅</title>
+    <link>https://leviathanion.github.io/%E4%BB%A3%E7%90%86%E5%B7%A5%E5%85%B7%E8%AE%A2%E9%98%85/</link>
+    <pubDate>Tue, 07 Mar 2023 09:06:22 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/%E4%BB%A3%E7%90%86%E5%B7%A5%E5%85%B7%E8%AE%A2%E9%98%85/</guid>
+    <description><![CDATA[代理工具订阅 订阅链接 早期很多机场会直接提供完整的配置文件供用户下载, 在浏览器中访问机场提供的订阅链接可以看到就是一份完整的 Clash 配置文件. 不过这]]></description>
+</item>
+<item>
     <title>Linux发行版和软件包管理</title>
     <link>https://leviathanion.github.io/linux%E5%8F%91%E8%A1%8C%E7%89%88%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</link>
     <pubDate>Sun, 19 Feb 2023 22:24:10 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/cross-encoder%E5%92%8Cbi-encoder%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%A1%94%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%AD%AA%E7%94%9F%E7%BD%91%E7%BB%9C/</guid>
     <description><![CDATA[cross-encoder 将query与document交叉输入到encoder中，得到一个得分 使用该得分作为相似度 bi-encoder 将query与document分别输入到两个e]]></description>
-</item>
-<item>
-    <title>常用软件</title>
-    <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</link>
-    <pubDate>Wed, 12 Oct 2022 16:15:21 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</guid>
-    <description><![CDATA[常用软件总结(Windows篇) 社交 QQ wechat dingding 飞书 telegram 办公 office全家桶 office tool plus(office下载与激活) 小恐龙公文排版助手 iSlide(]]></description>
 </item>
 </channel>
 </rss>
