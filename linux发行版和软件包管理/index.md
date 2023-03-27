@@ -2,11 +2,11 @@
 
 # Linux发行版和软件包管理
 ## Linux发行版和常规包管理
-Linux发行版虽然很多，但是可以根据软件安装包的格式进行大体上的分类，这样类似的系统使用方法都没有太大差异的。根据软件安装包的格式可以将Linux发行版分为以下四类，根据包管理器的不同又可以进一步细分(括号前为包管理器名称，括号里为常用指令):
-* `.deb`格式，使用此类安装包的系统通常派生自`Debian`系统，我们将这类系统划分为`Debian系列`。
-    * `DPKG(dpkg/apt)`:Debian,Ubuntu,LinuxMint,Kali
-* `.rpm`格式，使用此类安装包的系统通常派生自`Red Hat`系统，我们将这类系统划分为`Red Hat系列`。
-    * `RPM(rpm/yum)`:RedHat,Centos
+Linux发行版虽然很多，但是可以根据软件安装包的格式进行大体上的分类，这样类似的系统使用方法都没有太大差异的。根据软件安装包的格式可以将Linux发行版分为以下四类，根据包管理器的不同又可以进一步细分(括号前为包管理器前端工具名称，括号里为常用指令):
+* `.deb`格式，使用此类安装包的系统通常派生自`Debian`系统，我们将这类系统划分为`Debian系列`。后端命令为`dpkg`
+    * `Apt(apt)`:Debian,Ubuntu,LinuxMint,Kali
+* `.rpm`格式，使用此类安装包的系统通常派生自`Red Hat`系统，我们将这类系统划分为`Red Hat系列`。后端命令为`rpm`
+    * `Yum(yum)`:RedHat,Centos
     * `DNF(dnf)`:Fedora
     * `Zypper(zypper)`:openSUSE
 * `.pkg.tar.xz`格式，使用此类安装包的系统通常派生自`Arch`系统，我们将这类系统划分为`Arch系列`。
