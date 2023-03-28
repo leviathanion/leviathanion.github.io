@@ -232,3 +232,8 @@
 * dxvk(将dx转换为vulkan的转换层，使得wine可以在linux下运行3D游戏)
 * mongohub(帧数显示)
 
+# 手机
+## NFC工具
+* Mifare Classic Tool(读取标签)
+
+
