@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>技术科普 - Category - loveLZZ的个人博客</title>
+        <link>https://leviathanion.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/</link>
+        <description>技术科普 - Category - loveLZZ的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 28 Mar 2023 12:28:10 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/" rel="self" type="application/rss+xml" /><item>
+    <title>NFC,RFID,ID,IC卡科普</title>
+    <link>https://leviathanion.github.io/nfcrfididic%E5%8D%A1%E7%A7%91%E6%99%AE/</link>
+    <pubDate>Tue, 28 Mar 2023 12:28:10 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/nfcrfididic%E5%8D%A1%E7%A7%91%E6%99%AE/</guid>
+    <description><![CDATA[NFC,RFID,IC,ID科普 RFID RFID是(Radio Frequency Identification)射频识别技术的缩写，一般用来在读卡器和标签之间通信。]]></description>
+</item>
+</channel>
+</rss>
