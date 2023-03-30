@@ -171,10 +171,12 @@
 > wps打印不可用时要下载cups
 * ALSA/PulseAudio(声音管理)
 > * ALSA是驱动级应用，早期并不支持多音频播放，之后集成了alsamixer工具之后可进行多音频播放
+>   * alsamixer是音量控制的命令行GUI程序,amixer是其命令行程序
 >
-> * alsamixer是音量控制的命令行GUI程序
->
-> * PulseAudio是运行在ALSA之上的多音频管理器
+> * PulseAudio是运行在ALSA之上的多音频管理器,旨在作为应用程序和硬件设备(alsa)之间的中间件运行
+>   * pulsemixer是控制其的GUI和命令行程序
+
+
 
 * mesa lib32-mesa vulkan-intel lib32-vulkan-intel(intel显卡驱动)
 * nvidia nvidia-settings lib32-nvidia-utils nvidia-prime(nvidia显卡驱动)
