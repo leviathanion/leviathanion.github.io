@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6\/"
-        },"genre": "posts","keywords": "日常随想","wordcount":  2782 ,
+        },"genre": "posts","keywords": "日常随想","wordcount":  2938 ,
         "url": "https:\/\/leviathanion.github.io\/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6\/","datePublished": "2022-10-12T16:15:21+08:00","dateModified": "2022-10-12T16:15:21+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">常用软件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>日常随想</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-12">2022-10-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2782 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-10-12">2022-10-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2938 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -377,7 +377,7 @@
 <p>wps打印不可用时要下载cups</p>
 </blockquote>
 <ul>
-<li>ALSA/PulseAudio(声音管理)</li>
+<li>ALSA/PulseAudio/PipeWire(声音管理)</li>
 </ul>
 <blockquote>
 <ul>
@@ -390,7 +390,15 @@
 <li>
 <p>PulseAudio是运行在ALSA之上的多音频管理器,旨在作为应用程序和硬件设备(alsa)之间的中间件运行</p>
 <ul>
+<li>pactl是控制其的命令行程序</li>
 <li>pulsemixer是控制其的GUI和命令行程序</li>
+</ul>
+</li>
+<li>
+<p>PipeWire是旨在代替PulseAudio的新型音频管理器</p>
+<ul>
+<li>安装PipeWire-audio之后需要安装PipeWire-pulse和PipeWire-alsa来链接PulseAudio和alsa的功能</li>
+<li>仍然可以使用alsa和PulseAudio的工具进行音量调节</li>
 </ul>
 </li>
 </ul>

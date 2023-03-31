@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  3013 ,
+        },"genre": "posts","keywords": "Linux","wordcount":  3197 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99\/","datePublished": "2023-02-15T22:01:23+08:00","dateModified": "2023-02-15T22:01:23+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux字体调教</h1><h2 class="single-subtitle">转载自双猫CC</h2><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-15">2023-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3013 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-15">2023-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3197 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -141,6 +141,7 @@
       </ul>
     </li>
     <li><a href="#字体渲染">字体渲染</a></li>
+    <li><a href="#具体字体配置">具体字体配置</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="linux字体调教">Linux字体调教</h1>
@@ -560,6 +561,40 @@
 <ul>
 <li>虽然 fontconfig 本身不负责渲染字体，实际渲染是由程序交给 freetype 来完成的；但是 fontconfig 在处理 font pattern 的时候可以修改一些渲染参数，比如是否开启 hinting 和子像素渲染，是否开启连字特性。同时也可以根据实际情况来选择和过滤字体，比如根据像素尺寸分别指定字体，又或者控制何时使用点阵字体。</li>
 <li>具体可参考arch wiki中的配置<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+</ul>
+<h2 id="具体字体配置">具体字体配置</h2>
+<ul>
+<li>使用pacman安装字体</li>
+<li>执行fc-cache -fv更新字体缓存</li>
+<li>对于不支持fontconfig的旧程序
+<ul>
+<li>在字体目录创建索引<code>mkfontscale</code> <code>mkfontdir</code></li>
+<li>执行<code>xset +fp $dir</code>添加字体目录</li>
+<li><code>xset fp rehash</code>强制刷新</li>
+<li><code>xlsfonts | grep fontname</code>查看是否生效</li>
+<li>或者在<code>/etc/X11/xorg.conf</code>添加以下代码</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 让X.org知道自定义字体目录 </span>
+</span></span><span class="line"><span class="cl">Section <span class="s2">&#34;Files&#34;</span>
+</span></span><span class="line"><span class="cl"> FontPath    <span class="s2">&#34;/usr/share/fonts/100dpi&#34;</span>
+</span></span><span class="line"><span class="cl"> FontPath    <span class="s2">&#34;/usr/share/fonts/75dpi&#34;</span>
+</span></span><span class="line"><span class="cl"> FontPath    <span class="s2">&#34;/usr/share/fonts/TTF&#34;</span>
+</span></span><span class="line"><span class="cl"> FontPath    <span class="s2">&#34;/usr/share/fonts/util&#34;</span>
+</span></span><span class="line"><span class="cl">EndSection
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 </ul>
 <div class="footnotes" role="doc-endnotes">
 <hr>

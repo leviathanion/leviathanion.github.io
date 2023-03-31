@@ -169,12 +169,17 @@
 * systemd-resolved(dns服务器)
 * cups(打印服务)
 > wps打印不可用时要下载cups
-* ALSA/PulseAudio(声音管理)
+* ALSA/PulseAudio/PipeWire(声音管理)
 > * ALSA是驱动级应用，早期并不支持多音频播放，之后集成了alsamixer工具之后可进行多音频播放
 >   * alsamixer是音量控制的命令行GUI程序,amixer是其命令行程序
 >
 > * PulseAudio是运行在ALSA之上的多音频管理器,旨在作为应用程序和硬件设备(alsa)之间的中间件运行
+>   * pactl是控制其的命令行程序
 >   * pulsemixer是控制其的GUI和命令行程序
+> 
+> * PipeWire是旨在代替PulseAudio的新型音频管理器
+>   * 安装PipeWire-audio之后需要安装PipeWire-pulse和PipeWire-alsa来链接PulseAudio和alsa的功能
+>   * 仍然可以使用alsa和PulseAudio的工具进行音量调节
 
 
 
