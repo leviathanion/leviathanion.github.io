@@ -4,9 +4,25 @@
         <link>https://leviathanion.github.io/</link>
         <description>loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 28 Mar 2023 12:28:10 &#43;0800</lastBuildDate>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Mon, 03 Apr 2023 13:42:04 &#43;0800</lastBuildDate>
             <atom:link href="https://leviathanion.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>常用软件-Android篇</title>
+    <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-android%E7%AF%87/</link>
+    <pubDate>Mon, 03 Apr 2023 13:42:04 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-android%E7%AF%87/</guid>
+    <description><![CDATA[常用软件-Android篇 NFC工具 Mifare Classic Tool(读取标签)]]></description>
+</item>
+<item>
+    <title>常用软件-Linux篇</title>
+    <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/</link>
+    <pubDate>Mon, 03 Apr 2023 13:41:50 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/</guid>
+    <description><![CDATA[常用软件-Linux篇 办公 wps全家桶 对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低 音视频 vlc mpv(视频播放器)]]></description>
+</item>
+<item>
     <title>NFC,RFID,ID,IC卡科普</title>
     <link>https://leviathanion.github.io/nfcrfididic%E5%8D%A1%E7%A7%91%E6%99%AE/</link>
     <pubDate>Tue, 28 Mar 2023 12:28:10 &#43;0800</pubDate>
@@ -69,22 +85,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</guid>
     <description><![CDATA[Vim速查表 Vim键位图 光标移动 单个字符移动 1 2 3 4 5 h: 向左移动 l: 向右移动 j: 向下移动 k: 向上移动 nh: 向左移动n个字符距离 单词移动 1 2 3 4 5 6 w: 将]]></description>
-</item>
-<item>
-    <title>Linux权限管理</title>
-    <link>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</link>
-    <pubDate>Wed, 15 Feb 2023 15:16:22 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
-    <description><![CDATA[Linux权限管理 Linux系统下对于用户和文件的权限有着严格的规定，我们首先回顾Linux下的用户管理 用户管理 涉及四个文件，主要需要修改p]]></description>
-</item>
-<item>
-    <title>Jupyter远程访问</title>
-    <link>https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</link>
-    <pubDate>Fri, 28 Oct 2022 17:17:25 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</guid>
-    <description><![CDATA[使用ssh远程使用 在服务器上运行jupyter notebook -no-browser --port=8080 在本地终端运行ssh -NfL localhost:port:localhost:port -p sshport username@ip N代表没有命令要被远程执行，f代表后台执行，L是端口映射操]]></description>
 </item>
 </channel>
 </rss>

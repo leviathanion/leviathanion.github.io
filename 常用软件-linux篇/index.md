@@ -1,0 +1,111 @@
+# 常用软件-Linux篇
+
+# 常用软件-Linux篇
+## 办公
+* wps全家桶
+> 对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低
+
+## 音视频
+* vlc mpv(视频播放器)
+* ffmpeg(视频处理开源项目)
+* deadbeef/spotify/(mpd + mpc/ncmpcpp) (音乐播放器/在线音乐/音乐播放器守护程序+接口/命令行GUI)
+* osd-lyrics(歌词查找和展示器)
+* kid3(歌曲tag编辑器)
+
+## 文件类
+* fzf(开源文件搜索工具)
+* ripgrep(开源面向行的搜索器)
+* pandoc(文件类型转换)
+* dolphin(文件夹工具)
+* ranger(命令行文件夹查看器)
+
+## 下载
+* Motrix(多线程下载工具)
+* qBittorent(种子下载工具)
+
+## PDF
+* okular(pdf阅读软件)
+
+## 绘图软件
+* drawio
+
+## 系统工具
+### 网络
+* iwd(无线网连接)
+* systemd-networkd(有线网连接)
+* systemd-resolved(dns服务器)
+### 打印
+* cups(打印服务)
+> wps打印不可用时要下载cups
+### 音频
+* ALSA是驱动级应用，早期并不支持多音频播放，之后集成了alsamixer工具之后可进行多音频播放
+    * alsamixer是音量控制的命令行GUI程序,amixer是其命令行程序
+
+* PulseAudio是运行在ALSA之上的多音频管理器,旨在作为应用程序和硬件设备(alsa)之间的中间件运行
+    * pactl是控制其的命令行程序
+    * pulsemixer是控制其的GUI和命令行程序
+
+* PipeWire是旨在代替PulseAudio的新型音频管理器
+    * 安装PipeWire-audio之后需要安装PipeWire-pulse和PipeWire-alsa来链接PulseAudio和alsa的功能
+* 仍然可以使用alsa和PulseAudio的工具进行音量调节
+
+
+### 显卡
+* intel: mesa lib32-mesa vulkan-intel lib32-vulkan-intel(intel显卡驱动)
+* nvidia: nvidia nvidia-settings lib32-nvidia-utils nvidia-prime(nvidia显卡驱动)
+> nvidia-prime负责双显卡管理
+>
+> * prime-run %command% 使用nvida显卡运行命令
+>
+> * steam需要添加`__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME="nvidia" __VK_LAYER_NV_optimus="NVIDIA_only" %command%`
+### 磁盘
+* ntfs-3g(ntfs支持)
+
+## 输入法
+* fcitx5/fcitx5-chinese-addons/fcitx5-pinyin-moegirl/fcitx5-material-color(输入法/中文输入/萌娘百科词库/输入法主题)
+
+## 终端及终端工具
+* zsh/ohmyzsh/powerlevel10k(zsh/优化/主题)
+* p7zip/rar/unrar/zip/unzip/tar/Unarchiver(压缩和解压工具)
+* rsync(拷贝和同步命令)
+* wget/curl(下载/模拟http请求)
+* tldr(命令提示工具)
+
+## 图形显示
+* sddm(开机显示)
+* xorg-server,xorg-setxkbmap,xorg-xsetroot,xorg-xrandr,xorg-xinit
+* dunst/libnotify(通知服务器/通知显示)
+* picom(合成器)
+* Alacritty(支持GPU加速的终端)
+* rofi(启动器)
+
+## 日用软件
+* clash(科学上网)
+* lattle(docker栏)
+* ark(压缩与解压)
+* osd(录屏)
+* wine,winetricks(windows模拟层)
+* mentohust(校园网连接)
+* feh(图片查看和壁纸配置)
+* flameshot(截图工具)
+* syncthing(备份同步工具)
+* kvm，qemu,libvirt,virt-manager,virtio(虚拟机)
+![虚拟机](/常用软件/kvm-qemu-libvirt-virtmanager.png "虚拟机架构")
+
+## 硬件检测
+* CPU-X
+* GPU-Viewer
+* smartmontools(硬盘信息)
+* dmidecode(全面的硬件信息)
+
+## 性能优化
+* BIOS超频
+* cpupower(cpu性能调整)
+* intel-undervolt(cpu降压工具)
+## 游戏
+> 本质上是通过vulkan(一种多媒体图形接口)来运行DirectX游戏
+* proton
+* lutris
+* dxvk(将dx转换为vulkan的转换层，使得wine可以在linux下运行3D游戏)
+* mongohub(帧数显示)
+

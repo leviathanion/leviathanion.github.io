@@ -4,12 +4,28 @@
         <link>https://leviathanion.github.io/tags/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/</link>
         <description>日常随想 - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Wed, 12 Oct 2022 16:15:21 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/" rel="self" type="application/rss+xml" /><item>
-    <title>常用软件</title>
-    <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</link>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Mon, 03 Apr 2023 13:42:04 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/" rel="self" type="application/rss+xml" /><item>
+    <title>常用软件-Android篇</title>
+    <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-android%E7%AF%87/</link>
+    <pubDate>Mon, 03 Apr 2023 13:42:04 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-android%E7%AF%87/</guid>
+    <description><![CDATA[常用软件-Android篇 NFC工具 Mifare Classic Tool(读取标签)]]></description>
+</item>
+<item>
+    <title>常用软件-Linux篇</title>
+    <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/</link>
+    <pubDate>Mon, 03 Apr 2023 13:41:50 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/</guid>
+    <description><![CDATA[常用软件-Linux篇 办公 wps全家桶 对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低 音视频 vlc mpv(视频播放器)]]></description>
+</item>
+<item>
+    <title>常用软件-Windows篇</title>
+    <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-windows%E7%AF%87/</link>
     <pubDate>Wed, 12 Oct 2022 16:15:21 &#43;0800</pubDate>
     <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</guid>
+    <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-windows%E7%AF%87/</guid>
     <description><![CDATA[常用软件总结(Windows篇) 社交 QQ wechat dingding 飞书 telegram 办公 office全家桶 office tool plus(office下载与激活) 小恐龙公文排版助手 iSlide(]]></description>
 </item>
 </channel>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>常用软件-Linux篇 - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="常用软件-Linux篇" />
+<meta property="og:description" content="常用软件-Linux篇 办公 wps全家桶 对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低 音视频 vlc mpv(视频播放器)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-03T13:41:50+08:00" />
+<meta property="article:modified_time" content="2023-04-03T13:41:50+08:00" /><meta property="og:site_name" content="loveLZZ的个人博客" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="常用软件-Linux篇"/>
+<meta name="twitter:description" content="常用软件-Linux篇 办公 wps全家桶 对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低 音视频 vlc mpv(视频播放器)"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/" /><link rel="prev" href="https://leviathanion.github.io/nfcrfididic%E5%8D%A1%E7%A7%91%E6%99%AE/" /><link rel="next" href="https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-android%E7%AF%87/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><meta name="google-site-verification" content="SD6c9n666kMvMODF_Z2kC7C36DuHWBr3Q7FYNpXPYDM" /><meta name="baidu-site-verification" content="codeva-NCtxeKmI6G" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "常用软件-Linux篇",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87\/"
+        },"genre": "posts","keywords": "日常随想","wordcount":  1541 ,
+        "url": "https:\/\/leviathanion.github.io\/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87\/","datePublished": "2023-04-03T13:41:50+08:00","dateModified": "2023-04-03T13:41:50+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "loveLzz"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">常用软件-Linux篇</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>日常随想</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-03">2023-04-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1541 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#办公">办公</a></li>
+    <li><a href="#音视频">音视频</a></li>
+    <li><a href="#文件类">文件类</a></li>
+    <li><a href="#下载">下载</a></li>
+    <li><a href="#pdf">PDF</a></li>
+    <li><a href="#绘图软件">绘图软件</a></li>
+    <li><a href="#系统工具">系统工具</a>
+      <ul>
+        <li><a href="#网络">网络</a></li>
+        <li><a href="#打印">打印</a></li>
+        <li><a href="#音频">音频</a></li>
+        <li><a href="#显卡">显卡</a></li>
+        <li><a href="#磁盘">磁盘</a></li>
+      </ul>
+    </li>
+    <li><a href="#输入法">输入法</a></li>
+    <li><a href="#终端及终端工具">终端及终端工具</a></li>
+    <li><a href="#图形显示">图形显示</a></li>
+    <li><a href="#日用软件">日用软件</a></li>
+    <li><a href="#硬件检测">硬件检测</a></li>
+    <li><a href="#性能优化">性能优化</a></li>
+    <li><a href="#游戏">游戏</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="常用软件-linux篇">常用软件-Linux篇</h1>
+<h2 id="办公">办公</h2>
+<ul>
+<li>wps全家桶</li>
+</ul>
+<blockquote>
+<p>对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低</p>
+</blockquote>
+<h2 id="音视频">音视频</h2>
+<ul>
+<li>vlc mpv(视频播放器)</li>
+<li>ffmpeg(视频处理开源项目)</li>
+<li>deadbeef/spotify/(mpd + mpc/ncmpcpp) (音乐播放器/在线音乐/音乐播放器守护程序+接口/命令行GUI)</li>
+<li>osd-lyrics(歌词查找和展示器)</li>
+<li>kid3(歌曲tag编辑器)</li>
+</ul>
+<h2 id="文件类">文件类</h2>
+<ul>
+<li>fzf(开源文件搜索工具)</li>
+<li>ripgrep(开源面向行的搜索器)</li>
+<li>pandoc(文件类型转换)</li>
+<li>dolphin(文件夹工具)</li>
+<li>ranger(命令行文件夹查看器)</li>
+</ul>
+<h2 id="下载">下载</h2>
+<ul>
+<li>Motrix(多线程下载工具)</li>
+<li>qBittorent(种子下载工具)</li>
+</ul>
+<h2 id="pdf">PDF</h2>
+<ul>
+<li>okular(pdf阅读软件)</li>
+</ul>
+<h2 id="绘图软件">绘图软件</h2>
+<ul>
+<li>drawio</li>
+</ul>
+<h2 id="系统工具">系统工具</h2>
+<h3 id="网络">网络</h3>
+<ul>
+<li>iwd(无线网连接)</li>
+<li>systemd-networkd(有线网连接)</li>
+<li>systemd-resolved(dns服务器)</li>
+</ul>
+<h3 id="打印">打印</h3>
+<ul>
+<li>cups(打印服务)</li>
+</ul>
+<blockquote>
+<p>wps打印不可用时要下载cups</p>
+</blockquote>
+<h3 id="音频">音频</h3>
+<ul>
+<li>
+<p>ALSA是驱动级应用，早期并不支持多音频播放，之后集成了alsamixer工具之后可进行多音频播放</p>
+<ul>
+<li>alsamixer是音量控制的命令行GUI程序,amixer是其命令行程序</li>
+</ul>
+</li>
+<li>
+<p>PulseAudio是运行在ALSA之上的多音频管理器,旨在作为应用程序和硬件设备(alsa)之间的中间件运行</p>
+<ul>
+<li>pactl是控制其的命令行程序</li>
+<li>pulsemixer是控制其的GUI和命令行程序</li>
+</ul>
+</li>
+<li>
+<p>PipeWire是旨在代替PulseAudio的新型音频管理器</p>
+<ul>
+<li>安装PipeWire-audio之后需要安装PipeWire-pulse和PipeWire-alsa来链接PulseAudio和alsa的功能</li>
+</ul>
+</li>
+<li>
+<p>仍然可以使用alsa和PulseAudio的工具进行音量调节</p>
+</li>
+</ul>
+<h3 id="显卡">显卡</h3>
+<ul>
+<li>intel: mesa lib32-mesa vulkan-intel lib32-vulkan-intel(intel显卡驱动)</li>
+<li>nvidia: nvidia nvidia-settings lib32-nvidia-utils nvidia-prime(nvidia显卡驱动)</li>
+</ul>
+<blockquote>
+<p>nvidia-prime负责双显卡管理</p>
+<ul>
+<li>
+<p>prime-run %command% 使用nvida显卡运行命令</p>
+</li>
+<li>
+<p>steam需要添加<code>__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=&quot;nvidia&quot; __VK_LAYER_NV_optimus=&quot;NVIDIA_only&quot; %command%</code></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="磁盘">磁盘</h3>
+<ul>
+<li>ntfs-3g(ntfs支持)</li>
+</ul>
+<h2 id="输入法">输入法</h2>
+<ul>
+<li>fcitx5/fcitx5-chinese-addons/fcitx5-pinyin-moegirl/fcitx5-material-color(输入法/中文输入/萌娘百科词库/输入法主题)</li>
+</ul>
+<h2 id="终端及终端工具">终端及终端工具</h2>
+<ul>
+<li>zsh/ohmyzsh/powerlevel10k(zsh/优化/主题)</li>
+<li>p7zip/rar/unrar/zip/unzip/tar/Unarchiver(压缩和解压工具)</li>
+<li>rsync(拷贝和同步命令)</li>
+<li>wget/curl(下载/模拟http请求)</li>
+<li>tldr(命令提示工具)</li>
+</ul>
+<h2 id="图形显示">图形显示</h2>
+<ul>
+<li>sddm(开机显示)</li>
+<li>xorg-server,xorg-setxkbmap,xorg-xsetroot,xorg-xrandr,xorg-xinit</li>
+<li>dunst/libnotify(通知服务器/通知显示)</li>
+<li>picom(合成器)</li>
+<li>Alacritty(支持GPU加速的终端)</li>
+<li>rofi(启动器)</li>
+</ul>
+<h2 id="日用软件">日用软件</h2>
+<ul>
+<li>clash(科学上网)</li>
+<li>lattle(docker栏)</li>
+<li>ark(压缩与解压)</li>
+<li>osd(录屏)</li>
+<li>wine,winetricks(windows模拟层)</li>
+<li>mentohust(校园网连接)</li>
+<li>feh(图片查看和壁纸配置)</li>
+<li>flameshot(截图工具)</li>
+<li>syncthing(备份同步工具)</li>
+<li>kvm，qemu,libvirt,virt-manager,virtio(虚拟机)
+<figure><a class="lightgallery" href="/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/kvm-qemu-libvirt-virtmanager.png" title="虚拟机" data-thumbnail="/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/kvm-qemu-libvirt-virtmanager.png" data-sub-html="<h2>虚拟机架构</h2><p>虚拟机</p>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/kvm-qemu-libvirt-virtmanager.png"
+            data-srcset="/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/kvm-qemu-libvirt-virtmanager.png, /%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/kvm-qemu-libvirt-virtmanager.png 1.5x, /%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/kvm-qemu-libvirt-virtmanager.png 2x"
+            data-sizes="auto"
+            alt="/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/kvm-qemu-libvirt-virtmanager.png" width="259" height="194" />
+    </a><figcaption class="image-caption">虚拟机架构</figcaption>
+    </figure></li>
+</ul>
+<h2 id="硬件检测">硬件检测</h2>
+<ul>
+<li>CPU-X</li>
+<li>GPU-Viewer</li>
+<li>smartmontools(硬盘信息)</li>
+<li>dmidecode(全面的硬件信息)</li>
+</ul>
+<h2 id="性能优化">性能优化</h2>
+<ul>
+<li>BIOS超频</li>
+<li>cpupower(cpu性能调整)</li>
+<li>intel-undervolt(cpu降压工具)</li>
+</ul>
+<h2 id="游戏">游戏</h2>
+<blockquote>
+<p>本质上是通过vulkan(一种多媒体图形接口)来运行DirectX游戏</p>
+</blockquote>
+<ul>
+<li>proton</li>
+<li>lutris</li>
+<li>dxvk(将dx转换为vulkan的转换层，使得wine可以在linux下运行3D游戏)</li>
+<li>mongohub(帧数显示)</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-04-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/" data-title="常用软件-Linux篇" data-hashtags="日常随想"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/" data-hashtag="日常随想"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/" data-title="常用软件-Linux篇"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/" data-title="常用软件-Linux篇"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/" data-title="常用软件-Linux篇"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/">日常随想</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/nfcrfididic%E5%8D%A1%E7%A7%91%E6%99%AE/" class="prev" rel="prev" title="NFC,RFID,ID,IC卡科普"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>NFC,RFID,ID,IC卡科普</a>
+            <a href="/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-android%E7%AF%87/" class="next" rel="next" title="常用软件-Android篇">常用软件-Android篇<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-K1YDRX0E5S', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-K1YDRX0E5S" async></script></body>
+</html>
