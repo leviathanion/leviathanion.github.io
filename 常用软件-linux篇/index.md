@@ -29,11 +29,20 @@
 ## 绘图软件
 * drawio
 
-## 系统工具
+## 系统驱动
+> 网络和蓝牙类驱动需要通过systemctl进行设置
 ### 网络
 * iwd(无线网连接)
 * systemd-networkd(有线网连接)
 * systemd-resolved(dns服务器)
+* dhcpcd(dhcp客户端)
+### 蓝牙
+* bluez(蓝牙驱动)
+* bluez-utils(蓝牙工具)
+### 触摸板
+* libinput(wayland触摸板驱动)
+* libinput+xf86-input-libinput(xorg触摸板驱动)
+> libinput是一组接收和检测设备输入的函数库，xf86-input-libinput是其的一个包装，使其可以用于x
 ### 打印
 * cups(打印服务)
 > wps打印不可用时要下载cups
@@ -65,19 +74,25 @@
 * fcitx5/fcitx5-chinese-addons/fcitx5-pinyin-moegirl/fcitx5-material-color(输入法/中文输入/萌娘百科词库/输入法主题)
 
 ## 终端及终端工具
+* fontconfig(字体管理)
+* ranger(文件夹管理)
 * zsh/ohmyzsh/powerlevel10k(zsh/优化/主题)
 * p7zip/rar/unrar/zip/unzip/tar/Unarchiver(压缩和解压工具)
 * rsync(拷贝和同步命令)
 * wget/curl(下载/模拟http请求)
 * tldr(命令提示工具)
+* playerctl(MPRIS的音频管理)
+* 亮度调节:xbacklight/light/acpilight(使用mesa驱动的intel核显无法使用xbacklight)或直接修改`/sys/class/backlight/intel_backlight/brightness`的值
 
-## 图形显示
+## 图形显示(xorg)
 * sddm(开机显示)
-* xorg-server,xorg-setxkbmap,xorg-xsetroot,xorg-xrandr,xorg-xinit
+* xorg-server,xorg-setxkbmap,xorg-xsetroot,xorg-xrandr,xorg-xinit(x服务器)
 * dunst/libnotify(通知服务器/通知显示)
 * picom(合成器)
 * Alacritty(支持GPU加速的终端)
 * rofi(启动器)
+* dwm(动态窗口管理器)
+* i3(平铺窗口管理器)
 
 ## 日用软件
 * clash(科学上网)

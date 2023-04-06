@@ -22,11 +22,11 @@
 </item>
 <item>
     <title>Linux配置</title>
-    <link>https://leviathanion.github.io/linux%E9%85%8D%E7%BD%AE/</link>
+    <link>https://leviathanion.github.io/linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/</link>
     <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
     <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/linux%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[Linux配置 文件系统层次概述 文件系统包含了很多不同的初始路径，本节对不同的路径名称进行概述，可以通过man file-hierarchy来查]]></description>
+    <guid>https://leviathanion.github.io/linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/</guid>
+    <description><![CDATA[Linux文件目录 Linux文件系统层次概述 文件系统包含了很多不同的初始路径，本节对不同的路径名称进行概述，可以通过man file-hier]]></description>
 </item>
 <item>
     <title>Linux命令</title>

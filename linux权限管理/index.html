@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  1369 ,
+        },"genre": "posts","keywords": "Linux","wordcount":  1559 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86\/","datePublished": "2023-02-15T15:16:22+08:00","dateModified": "2023-02-15T15:16:22+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,8 +115,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux权限管理</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-15">2023-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1369 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-15">2023-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1559 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -126,11 +126,11 @@
   <ul>
     <li><a href="#用户管理">用户管理</a>
       <ul>
+        <li><a href="#用户组管理">用户组管理</a></li>
         <li><a href="#用户添加">用户添加</a></li>
         <li><a href="#用户删除">用户删除</a></li>
         <li><a href="#用户修改">用户修改</a></li>
         <li><a href="#用户密码管理">用户密码管理</a></li>
-        <li><a href="#用户组管理">用户组管理</a></li>
       </ul>
     </li>
     <li><a href="#权限管理">权限管理</a>
@@ -170,12 +170,41 @@
 <td style="text-align:center">/etc/group</td>
 <td style="text-align:center">定义了用户属于哪个组</td>
 </tr>
+<tr>
+<td style="text-align:center">/etc/sudoers</td>
+<td style="text-align:center">定义了可以运行sudo的用户和用户组</td>
+</tr>
 </tbody>
 </table>
 </li>
 </ul>
+<h3 id="用户组管理">用户组管理</h3>
+<ul>
+<li><code>groups username</code>查看用户所属的组，如果省略用户名，则显示当前</li>
+<li><code>id username</code>查看用户UID和相关组的UID</li>
+<li><code>groupadd 选项 组名</code> 添加一个用户组
+<ul>
+<li><code>-g</code>指定用户组编号GID</li>
+<li><code>-o</code>表示新用户组的GID可以和老用户组相同</li>
+</ul>
+</li>
+<li><code>groupdel 组名</code>删除一个用户组</li>
+<li><code>groupmod 选项 组名</code>
+<ul>
+<li>除了add之外的参数，多了一个<code>-n</code>表示重命名</li>
+</ul>
+</li>
+<li><code>gpasswd -a username gname</code>将用户添加到组</li>
+<li><code>newgrp 组名</code>如果一个用户同时属于多个用户组，使用此命令可切换组</li>
+</ul>
+<blockquote>
+<p>用户组的存在是为了方便用户管理对他人的权限，避免对除自己之外的其他所有用户赋予相同的权限
+可通过<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>查看默认用户组及权限</p>
+</blockquote>
 <h3 id="用户添加">用户添加</h3>
 <ul>
+<li><code>who</code>可查看已登陆的用户</li>
+<li><code>sudo passwd -Sa</code>查看系统上的用户</li>
 <li><code>useradd</code>命令，可通过<code>man useradd</code>查看用法
 <table>
 <thead>
@@ -231,7 +260,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> useradd -d  /home/username -m username -s /bin/bash
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> useradd -d  /home/username -s /bin/bash -m username 
 </span></span><span class="line"><span class="cl"> passwd username
 </span></span></code></pre></td></tr></table>
 </div>
@@ -242,10 +271,14 @@
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> useradd -d  /home/username -m username -s /bin/bash -g sudo
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> <span class="c1"># 在sudoers 中将sudo组设为sudo权限(参照取消注释之后的wheel组)</span>
+</span></span><span class="line"><span class="cl"> useradd -d  /home/username -s /bin/bash -g sudo -m username 
 </span></span><span class="line"><span class="cl"> passwd username
+</span></span><span class="line"><span class="cl"> <span class="c1"># 或者直接将该用户设为sudo权限</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div></blockquote>
@@ -279,25 +312,6 @@
 </ul>
 </li>
 </ul>
-<h3 id="用户组管理">用户组管理</h3>
-<ul>
-<li><code>groupadd 选项 组名</code> 添加一个用户组
-<ul>
-<li><code>-g</code>指定用户组编号GID</li>
-<li><code>-o</code>表示新用户组的GID可以和老用户组相同</li>
-</ul>
-</li>
-<li><code>groupdel 组名</code>删除一个用户组</li>
-<li><code>groupmod 选项 组名</code>
-<ul>
-<li>除了add之外的参数，多了一个<code>-n</code>表示重命名</li>
-</ul>
-</li>
-<li><code>newgrp 组名</code>如果一个用户同时属于多个用户组，使用此命令可切换组</li>
-</ul>
-<blockquote>
-<p>用户组的存在是为了方便用户管理对他人的权限，避免对除自己之外的其他所有用户赋予相同的权限</p>
-</blockquote>
 <h2 id="权限管理">权限管理</h2>
 <ul>
 <li>Linux系统上对文件的权限有着严格的控制，如果想对某个文件执行某种操作，必须具有对应的权限方可执行成功。</li>
@@ -366,6 +380,15 @@
 <blockquote>
 <p>如果我们需要修改权限，可以使用&rsquo;chmod xyz 文件/文件夹&rsquo;，<code>xyz</code>代表三个数字</p>
 </blockquote>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://wiki.archlinux.org/title/Users_and_groups" target="_blank" rel="noopener noreffer">https://wiki.archlinux.org/title/Users_and_groups</a>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

@@ -66,13 +66,13 @@
 ### 之后的配置
 * 由于WM缺少很多桌面环境下需要的东西，因此需要手动安装，所有的这些组件都可以在[^1]中找到对应的arch wiki目录
     * 通知管理[^4]：libnotify+dunst(libnotify提供通知,dunst作为通知服务器)
-    * 音量调节[^5][^6]:安装alsa/pulseaudio后使用amixer/alsamixer进行管理(前者只能管理alsa,后者可以管理全部且提供命令行ui,tui)
+    * 音量调节[^5][^6]:安装alsa(pulseaudio/pireware)后使用amixer/alsamixer(pactl/pulsemixer)(alsa和pulseaudio的工具)进行管理(前者命令行,后者提供命令行ui,tui)
     * 亮度调节[^7]:xbacklight/light/acpilight(使用mesa驱动的intel核显无法使用xbacklight)或直接修改`/sys/class/backlight/intel_backlight/brightness`的值
     * 显示管理器:SDDM
     * 窗口特效:picom
     * 应用启动器:rofi
     * 媒体控制器[^8]:MPRIS+控制组件(Playerctl/mpris-player-control/D-Bus)
-    * 锁屏器:各大WM有对用的锁屏器
+    * 锁屏器:各大WM有对应的锁屏器
     * 截图工具:flameshot
     * 壁纸:feh
 

@@ -1,7 +1,7 @@
 # Linux配置
 
-# Linux配置
-## 文件系统层次概述
+# Linux文件目录
+## Linux文件系统层次概述
 文件系统包含了很多不同的初始路径，本节对不同的路径名称进行概述，可以通过`man file-hierarchy`来查看详细信息
 ### 通用目录
 * `/`:根目录
@@ -192,62 +192,6 @@ XDG Base Directory Specification
 * NetWorkManager使用的cli工具是nmcli，服务是NetWorkManager.service
 * systemd-networkd使用的cli工具是networkctl，服务是systemd-networkd.service
   
-## 用户管理
-* 涉及四个文件，主要需要修改passwd文件
-| 文件| 含义 |
-|  :--:  |  :--:  |
-|/etc/shadow |加密的用户账户信息 |
-|/etc/passwd |用户账户信息 |
-|/etc/gshadow |隐藏的组账户信息 |
-|/etc/group |定义了用户属于哪个组 |
-### 用户添加
-* `useradd`命令，可通过`man useradd`查看用法
-| 参数 | 含义 |
-|  :--:  |  :--:  |
-| -d 目录 | 指定一个用户目录，若目录不存在，需要-m参数创建主目录 |
-| -g 用户组| 指定用户所属的用户组|
-| -G 用户组，用户组| 指定用户所属的附加组|
-| -s shell | 指定用户登录的shell|
-| -u 用户号| 指定用户的用户号|
-| -m | 自动建立用户的登录目录|
-| -M | 不自动建立用户的登录目录|
-| -n | 不自动建立以用户名为名的用户组|
-> * 新建一个普通用户
-> ```shell
->  useradd -d  /home/username -m username -s /bin/bash
->  passwd username
->  ```
-> * 新建一个管理员用户
-> ```shell
->  useradd -d  /home/username -m username -s /bin/bash -g sudo
->  passwd username
->  ```
-
-### 用户删除
-* `userdel`命令，删除用户，加`-r`参数也删除用户主目录
-### 用户修改
-* `usermod`命令，参数与`useradd`一致，含义变为修改
-> 修改`/etc/sudoers`文件，为用户添加`sudo`权限，添加如下
-> ```shell
-> username ALL = (ALL) ALL
-> ```
-### 用户密码管理
-* `passwd 选项 用户名`
-    * `-l` 锁定账号，禁止登陆
-    * `-u` 解锁账号
-    * `-d` 使账号无密码，同时不能登陆
-    * `-f` 强迫用户下次登陆时修改密码
-### 用户组管理
-* `groupadd 选项 组名` 添加一个用户组
-    * `-g`指定用户组编号GID
-    * `-o`表示新用户组的GID可以和老用户组相同
-* `groupdel 组名`删除一个用户组
-* `groupmod 选项 组名`
-    * 除了add之外的参数，多了一个`-n`表示重命名
-* `newgrp 组名`如果一个用户同时属于多个用户组，使用此命令可切换组
-## 安全相关
-### SSH安全
-* 具体参阅archwiki
 
 ## nvim配置
 ### linux

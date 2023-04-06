@@ -10,7 +10,23 @@ Linux系统下对于用户和文件的权限有着严格的规定，我们首先
 |/etc/passwd |用户账户信息 |
 |/etc/gshadow |隐藏的组账户信息 |
 |/etc/group |定义了用户属于哪个组 |
+|/etc/sudoers |定义了可以运行sudo的用户和用户组 |
+### 用户组管理
+* `groups username`查看用户所属的组，如果省略用户名，则显示当前
+* `id username`查看用户UID和相关组的UID
+* `groupadd 选项 组名` 添加一个用户组
+    * `-g`指定用户组编号GID
+    * `-o`表示新用户组的GID可以和老用户组相同
+* `groupdel 组名`删除一个用户组
+* `groupmod 选项 组名`
+    * 除了add之外的参数，多了一个`-n`表示重命名
+* `gpasswd -a username gname`将用户添加到组
+* `newgrp 组名`如果一个用户同时属于多个用户组，使用此命令可切换组
+> 用户组的存在是为了方便用户管理对他人的权限，避免对除自己之外的其他所有用户赋予相同的权限
+> 可通过[^1]查看默认用户组及权限
 ### 用户添加
+* `who`可查看已登陆的用户
+* `sudo passwd -Sa`查看系统上的用户
 * `useradd`命令，可通过`man useradd`查看用法
 | 参数 | 含义 |
 |  :--:  |  :--:  |
@@ -24,13 +40,15 @@ Linux系统下对于用户和文件的权限有着严格的规定，我们首先
 | -n | 不自动建立以用户名为名的用户组|
 > * 新建一个普通用户
 > ```shell
->  useradd -d  /home/username -m username -s /bin/bash
+>  useradd -d  /home/username -s /bin/bash -m username 
 >  passwd username
 >  ```
 > * 新建一个管理员用户
 > ```shell
->  useradd -d  /home/username -m username -s /bin/bash -g sudo
+>  # 在sudoers 中将sudo组设为sudo权限(参照取消注释之后的wheel组)
+>  useradd -d  /home/username -s /bin/bash -g sudo -m username 
 >  passwd username
+>  # 或者直接将该用户设为sudo权限
 >  ```
 
 ### 用户删除
@@ -47,15 +65,6 @@ Linux系统下对于用户和文件的权限有着严格的规定，我们首先
     * `-u` 解锁账号
     * `-d` 使账号无密码，同时不能登陆
     * `-f` 强迫用户下次登陆时修改密码
-### 用户组管理
-* `groupadd 选项 组名` 添加一个用户组
-    * `-g`指定用户组编号GID
-    * `-o`表示新用户组的GID可以和老用户组相同
-* `groupdel 组名`删除一个用户组
-* `groupmod 选项 组名`
-    * 除了add之外的参数，多了一个`-n`表示重命名
-* `newgrp 组名`如果一个用户同时属于多个用户组，使用此命令可切换组
-> 用户组的存在是为了方便用户管理对他人的权限，避免对除自己之外的其他所有用户赋予相同的权限
 ## 权限管理
 * Linux系统上对文件的权限有着严格的控制，如果想对某个文件执行某种操作，必须具有对应的权限方可执行成功。
 * Linux下文件的权限类型一般包括**读，写，执行**。对应字母为**r、w、x**。
@@ -84,6 +93,8 @@ Linux系统下对于用户和文件的权限有着严格的规定，我们首先
     * x:1
 * 每种身份(owner/group/others)各自的三个权限(r/w/x)分数是需要累加的，例如当权限为：`-rwxrwx---`时，分数为：770
 > 如果我们需要修改权限，可以使用'chmod xyz 文件/文件夹'，`xyz`代表三个数字
+
+[^1]:https://wiki.archlinux.org/title/Users_and_groups
 
 
 
