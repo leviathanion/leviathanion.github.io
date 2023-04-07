@@ -68,9 +68,10 @@
     * 通知管理[^4]：libnotify+dunst(libnotify提供通知,dunst作为通知服务器)
     * 音量调节[^5][^6]:安装alsa(pulseaudio/pireware)后使用amixer/alsamixer(pactl/pulsemixer)(alsa和pulseaudio的工具)进行管理(前者命令行,后者提供命令行ui,tui)
     * 亮度调节[^7]:xbacklight/light/acpilight(使用mesa驱动的intel核显无法使用xbacklight)或直接修改`/sys/class/backlight/intel_backlight/brightness`的值
-    * 显示管理器:SDDM
-    * 窗口特效:picom
-    * 应用启动器:rofi
+    * 顶部窗口:slstatus(xorg),waybar(wayland)
+    * 显示管理器:SDDM(xorg)
+    * 窗口特效:picom(xorg)
+    * 应用启动器:dmenu/rofi(xorg),bemune/wofi(wayland)
     * 媒体控制器[^8]:MPRIS+控制组件(Playerctl/mpris-player-control/D-Bus)
     * 锁屏器:各大WM有对应的锁屏器
     * 截图工具:flameshot

@@ -92,7 +92,17 @@
 * Alacritty(支持GPU加速的终端)
 * rofi(启动器)
 * dwm(动态窗口管理器)
+* slstatus(顶部bar显示)
+* slock(锁屏)
 * i3(平铺窗口管理器)
+
+## 图形显示(wayland)
+* dunst/libnotify(通知服务器/通知显示)
+* Alacritty(支持GPU加速的终端)
+* wofi(启动器)
+* dwl(动态窗口管理器)
+* sway(平铺窗口管理器)
+* waybar(顶部bar显示)
 
 ## 日用软件
 * clash(科学上网)
