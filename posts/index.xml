@@ -4,7 +4,31 @@
         <link>https://leviathanion.github.io/posts/</link>
         <description>All Posts | loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Mon, 03 Apr 2023 13:42:04 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Zsh配置</title>
+    <link>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[zsh配置 安装zsh 安装zsh-autosuggestions(自动建议插件) 安装zsh-syntax-highlighting(代码高亮插]]></description>
+</item>
+<item>
+    <title>Neovim配置</title>
+    <link>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Thu, 06 Apr 2023 09:39:52 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[nvim配置 linux 从github拉取配置文件并放在.config目录下，命名为nvim 1 git clone https://github.com/leviathanion/nvim-config.git ~/.config/nvim 可通过:checkhealth查看各插件情况 在.]]></description>
+</item>
+<item>
+    <title>Linux网络配置和管理</title>
+    <link>https://leviathanion.github.io/linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86/</link>
+    <pubDate>Thu, 06 Apr 2023 09:37:46 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86/</guid>
+    <description><![CDATA[网络管理 可查询此链接linux网络命令 查看linux网络命令的使用 systemd-networkd配置 systemd-resolved配置 i]]></description>
+</item>
+<item>
     <title>常用软件-Android篇</title>
     <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-android%E7%AF%87/</link>
     <pubDate>Mon, 03 Apr 2023 13:42:04 &#43;0800</pubDate>
@@ -59,30 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/dkms/</guid>
     <description><![CDATA[DKMS DKMS动态内核模块支持（DKMS）是用来生成 Linux 的内核模块的一个框架 虽然可以通过Readme文件或者INSTALL文件来编译新的驱动或者某]]></description>
-</item>
-<item>
-    <title>Ubuntu配置</title>
-    <link>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Fri, 17 Feb 2023 10:35:37 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[Ubuntu配置 网络配置 缺少ifconfig等工具时，下载net-tools包(不建议使用) 目前iproute2已逐渐取代net-tools]]></description>
-</item>
-<item>
-    <title>Linux字体调教</title>
-    <link>https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/</link>
-    <pubDate>Wed, 15 Feb 2023 22:01:23 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/</guid>
-    <description><![CDATA[Linux字体调教 本文参考自12 前瞻知识 一个字体文件，可以提供多个字体族名 (family)。 比如 Arch Linux 用户在安装 wqy-microhei 后 系统端增加了 wqy-microhei.ttc 这个字体文件]]></description>
-</item>
-<item>
-    <title>Vim速查表</title>
-    <link>https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
-    <pubDate>Wed, 15 Feb 2023 15:16:42 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</guid>
-    <description><![CDATA[Vim速查表 Vim键位图 光标移动 单个字符移动 1 2 3 4 5 h: 向左移动 l: 向右移动 j: 向下移动 k: 向上移动 nh: 向左移动n个字符距离 单词移动 1 2 3 4 5 6 w: 将]]></description>
 </item>
 </channel>
 </rss>

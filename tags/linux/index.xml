@@ -4,7 +4,31 @@
         <link>https://leviathanion.github.io/tags/linux/</link>
         <description>Linux - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sun, 19 Feb 2023 22:24:10 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Zsh配置</title>
+    <link>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[zsh配置 安装zsh 安装zsh-autosuggestions(自动建议插件) 安装zsh-syntax-highlighting(代码高亮插]]></description>
+</item>
+<item>
+    <title>Neovim配置</title>
+    <link>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Thu, 06 Apr 2023 09:39:52 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[nvim配置 linux 从github拉取配置文件并放在.config目录下，命名为nvim 1 git clone https://github.com/leviathanion/nvim-config.git ~/.config/nvim 可通过:checkhealth查看各插件情况 在.]]></description>
+</item>
+<item>
+    <title>Linux网络配置和管理</title>
+    <link>https://leviathanion.github.io/linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86/</link>
+    <pubDate>Thu, 06 Apr 2023 09:37:46 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86/</guid>
+    <description><![CDATA[网络管理 可查询此链接linux网络命令 查看linux网络命令的使用 systemd-networkd配置 systemd-resolved配置 i]]></description>
+</item>
+<item>
     <title>Linux发行版和软件包管理</title>
     <link>https://leviathanion.github.io/linux%E5%8F%91%E8%A1%8C%E7%89%88%E5%92%8C%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/</link>
     <pubDate>Sun, 19 Feb 2023 22:24:10 &#43;0800</pubDate>
@@ -59,14 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</guid>
     <description><![CDATA[会话管理 新建会话tmux new -s &lt;session-name&gt; 列出所有会话tmux ls或者Ctrl+b s 退出会话tmux detach或者Ctrl+b d 接入会话tmux attach -t &]]></description>
-</item>
-<item>
-    <title>Linux命令</title>
-    <link>https://leviathanion.github.io/linux%E5%91%BD%E4%BB%A4/</link>
-    <pubDate>Fri, 22 Jan 2021 23:17:52 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/linux%E5%91%BD%E4%BB%A4/</guid>
-    <description><![CDATA[linux命令 小技巧： ctrl + shift + =放大终端字体 ctrl + -缩小终端字体 tab 若不存在歧义，则自动补全 若tab目标太多不能自动补全时，按两次tab可显示符]]></description>
 </item>
 </channel>
 </rss>

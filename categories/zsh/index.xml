@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>zsh - Category - loveLZZ的个人博客</title>
+        <link>https://leviathanion.github.io/categories/zsh/</link>
+        <description>zsh - Category - loveLZZ的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/zsh/" rel="self" type="application/rss+xml" /><item>
+    <title>Zsh配置</title>
+    <link>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[zsh配置 安装zsh 安装zsh-autosuggestions(自动建议插件) 安装zsh-syntax-highlighting(代码高亮插]]></description>
+</item>
+</channel>
+</rss>
