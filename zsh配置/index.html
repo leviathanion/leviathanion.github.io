@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/zsh%E9%85%8D%E7%BD%AE\/"
-        },"genre": "posts","keywords": "Linux, zsh","wordcount":  191 ,
+        },"genre": "posts","keywords": "Linux, zsh","wordcount":  342 ,
         "url": "https:\/\/leviathanion.github.io\/zsh%E9%85%8D%E7%BD%AE\/","datePublished": "2023-04-06T09:40:51+08:00","dateModified": "2023-04-06T09:40:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Zsh配置</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a>&nbsp;<a href="/categories/zsh/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>zsh</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-06">2023-04-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;191 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-06">2023-04-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;342 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -134,6 +134,37 @@
 <li>安装zsh-syntax-highlighting(代码高亮插件)</li>
 <li>安装zsh-theme-powerlevel10k(主题)</li>
 <li>更改默认sh<code>chsh -s /bin/zsh</code></li>
+<li>当不存在.zshrc文件时，会自动启动<code>zsh-newuser-install</code>来进行初始化设置
+<ul>
+<li>如果未出现或者希望重新配置，可以按如下命令执行</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">autoload -Uz zsh-newuser-install
+</span></span><span class="line"><span class="cl">zsh-newuser-install -f
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>在<code>zsh-newuser-install</code>中配置的默认补全，等效于在.zshrc中添加如下</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">autoload -Uz compinit
+</span></span><span class="line"><span class="cl">compinit
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>若不想自己配置，可以安装<code>grml-zsh-config</code></li>
+</ul>
+</li>
 <li>在~/.zshrc中添加如下代码，启用插件和主题</li>
 </ul>
 <div class="highlight"><div class="chroma">
@@ -141,14 +172,10 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 </span></span></code></pre></td></tr></table>
 </div>
