@@ -110,8 +110,8 @@
 ## 图形界面失效
 * `ctrl+alt+F2~F6`可进入tty命令行界面
 * 如果出现图形界面黑屏，但可以进入tty模式，考虑如下方法解决
-    * 修改`/boot/grub/grub.cfg`，在`quiet splash`后面添加`nomodeset`
-    * 修改`/etc/default/grub`,在`quiet splash`后面添加`nomodeset`
+    * 修改`/boot/grub/grub.cfg`，在`quiet splash`后面添加`nomodeset`，此参数使得内核不加载显卡驱动，直到图形界面运行起来之后再加载
+    * 更新gurb
 ### SSH安全
 * 具体参阅archwiki
 
