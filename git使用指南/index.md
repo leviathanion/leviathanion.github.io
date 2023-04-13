@@ -175,9 +175,65 @@
 * `git diff file`比较**工作区和暂存区**的差异
 * `git diff --cached file`比较**暂存区和仓库区**的区别
 * `git diff HEAD file`比较**工作区和仓库区**的区别
+* `git diff <branch_a> <branch_b>`比较**两个分支**的区别
 > 此命令并不能查看未追踪的文件，因此新建的文件在未add之前，不能显示出新文件的差异。
 >
 > 可通过`git status`查看哪些文件是未追踪的
+
+## 补丁操作
+### 生成补丁
+* `git diff`命令后接`> ***.patch`
+* `git format-patch`
+    * `git format-patch HEAD^` 生成最近的1次commit的patch
+    * `git format-patch HEAD^^` 生成最近的2次commit的patch
+    * `git format-patch HEAD^^^` 生成最近的3次commit的patch
+    * `git format-patch HEAD^^^^` 生成最近的4次commit的patch
+    * `git format-patch <r1>..<r2>` 生成两个commit间的修改的patch（生成的patch不包含r1. <r1>和<r2>都是具体的commit号)
+    * `git format-patch -1 <r1>` 生成单个commit的patch
+    * `git format-patch <r1>` 生成某commit以来的修改patch（不包含该commit）
+    * `git format-patch --root <r1>` 生成从根到r1提交的所有patch
+### 打补丁
+* `git apply`此种方式不会应用`commit message`，需要自己重新`git add`和`git commit`
+    * 强制打补丁`git apply --reject xxx.patch`，如果有冲突，会生成.ref文件
+* `git am`会直接将patch的所有信息打上去，而且不用重新git add和git commit，author也是patch的author而不是打patch的人。
+
+
+## 合并仓库
+1. 创建新仓库
+```shell
+mkdir newProject
+cd newProject
+git init
+```
+2. 将要合并的仓库作为新仓库的远程仓库
+```shell
+git remote add project1 <project1_repo_url>
+git remote add project2 <project2_repo_url>
+git remote add project3 <project3_repo_url>
+```
+3. 拉取到`<远程仓库别名>/<分支名>`的本地分支下
+```shell
+git fetch project1
+git fetch project2
+git fetch project3
+```
+4. 创建三个本地分支，并合并远程仓库的本地备份分支
+```shell
+git switch -c project1
+git merge|rebase project1/<分支名> 
+git switch -c project2
+git merge|rebase project2/<分支名> 
+git switch -c project3
+git merge|rebase project3/<分支名> 
+```
+5. 将三个分支一起合并到主分支上
+```shell
+git switch master
+git merge/rebase project1
+git merge/rebase project2
+git merge/rebase project3
+
+```
 
 ## 编码问题
 * 在默认设置下，中文文件名在工作区状态输出，查看历史更改概要，以及在补丁文件中，文件名的中文不能正确地显示，而是显示为八进制的字符编码，示例如下：

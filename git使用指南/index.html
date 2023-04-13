@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/"
-        },"genre": "posts","keywords": "git, 命令","wordcount":  4071 ,
+        },"genre": "posts","keywords": "git, 命令","wordcount":  4734 ,
         "url": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/","datePublished": "2021-01-25T20:53:07+08:00","dateModified": "2021-01-25T20:53:07+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,8 +115,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git使用指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%91%BD%E4%BB%A4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>命令</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4071 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4734 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -180,6 +180,13 @@
     <li><a href="#变基操作">变基操作</a></li>
     <li><a href="#标签管理">标签管理</a></li>
     <li><a href="#差异比较">差异比较</a></li>
+    <li><a href="#补丁操作">补丁操作</a>
+      <ul>
+        <li><a href="#生成补丁">生成补丁</a></li>
+        <li><a href="#打补丁">打补丁</a></li>
+      </ul>
+    </li>
+    <li><a href="#合并仓库">合并仓库</a></li>
     <li><a href="#编码问题">编码问题</a></li>
     <li><a href="#git提交规范">git提交规范</a></li>
   </ul>
@@ -462,12 +469,123 @@
 <li><code>git diff file</code>比较<strong>工作区和暂存区</strong>的差异</li>
 <li><code>git diff --cached file</code>比较<strong>暂存区和仓库区</strong>的区别</li>
 <li><code>git diff HEAD file</code>比较<strong>工作区和仓库区</strong>的区别</li>
+<li><code>git diff &lt;branch_a&gt; &lt;branch_b&gt;</code>比较<strong>两个分支</strong>的区别</li>
 </ul>
 <blockquote>
 <p>此命令并不能查看未追踪的文件，因此新建的文件在未add之前，不能显示出新文件的差异。</p>
 <p>可通过<code>git status</code>查看哪些文件是未追踪的</p>
 </blockquote>
-<h2 id="编码问题">编码问题</h2>
+<h2 id="补丁操作">补丁操作</h2>
+<h3 id="生成补丁">生成补丁</h3>
+<ul>
+<li><code>git diff</code>命令后接<code>&gt; ***.patch</code></li>
+<li><code>git format-patch</code>
+<ul>
+<li><code>git format-patch HEAD^</code> 生成最近的1次commit的patch</li>
+<li><code>git format-patch HEAD^^</code> 生成最近的2次commit的patch</li>
+<li><code>git format-patch HEAD^^^</code> 生成最近的3次commit的patch</li>
+<li><code>git format-patch HEAD^^^^</code> 生成最近的4次commit的patch</li>
+<li><code>git format-patch &lt;r1&gt;..&lt;r2&gt;</code> 生成两个commit间的修改的patch（生成的patch不包含r1. <r1>和<r2>都是具体的commit号)</li>
+<li><code>git format-patch -1 &lt;r1&gt;</code> 生成单个commit的patch</li>
+<li><code>git format-patch &lt;r1&gt;</code> 生成某commit以来的修改patch（不包含该commit）</li>
+<li><code>git format-patch --root &lt;r1&gt;</code> 生成从根到r1提交的所有patch</li>
+</ul>
+</li>
+</ul>
+<h3 id="打补丁">打补丁</h3>
+<ul>
+<li><code>git apply</code>此种方式不会应用<code>commit message</code>，需要自己重新<code>git add</code>和<code>git commit</code>
+<ul>
+<li>强制打补丁<code>git apply --reject xxx.patch</code>，如果有冲突，会生成.ref文件</li>
+</ul>
+</li>
+<li><code>git am</code>会直接将patch的所有信息打上去，而且不用重新git add和git commit，author也是patch的author而不是打patch的人。</li>
+</ul>
+<h2 id="合并仓库">合并仓库</h2>
+<ol>
+<li>创建新仓库</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir newProject
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> newProject
+</span></span><span class="line"><span class="cl">git init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>将要合并的仓库作为新仓库的远程仓库</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git remote add project1 &lt;project1_repo_url&gt;
+</span></span><span class="line"><span class="cl">git remote add project2 &lt;project2_repo_url&gt;
+</span></span><span class="line"><span class="cl">git remote add project3 &lt;project3_repo_url&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>拉取到<code>&lt;远程仓库别名&gt;/&lt;分支名&gt;</code>的本地分支下</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git fetch project1
+</span></span><span class="line"><span class="cl">git fetch project2
+</span></span><span class="line"><span class="cl">git fetch project3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>创建三个本地分支，并合并远程仓库的本地备份分支</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git switch -c project1
+</span></span><span class="line"><span class="cl">git merge<span class="p">|</span>rebase project1/&lt;分支名&gt; 
+</span></span><span class="line"><span class="cl">git switch -c project2
+</span></span><span class="line"><span class="cl">git merge<span class="p">|</span>rebase project2/&lt;分支名&gt; 
+</span></span><span class="line"><span class="cl">git switch -c project3
+</span></span><span class="line"><span class="cl">git merge<span class="p">|</span>rebase project3/&lt;分支名&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>将三个分支一起合并到主分支上</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git switch master
+</span></span><span class="line"><span class="cl">git merge/rebase project1
+</span></span><span class="line"><span class="cl">git merge/rebase project2
+</span></span><span class="line"><span class="cl">git merge/rebase project3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="编码问题">编码问题</h2>
 <ul>
 <li>在默认设置下，中文文件名在工作区状态输出，查看历史更改概要，以及在补丁文件中，文件名的中文不能正确地显示，而是显示为八进制的字符编码，示例如下：
 <code>&quot;assets/\346\234\272\345\231\250\345\255\246\344\271\240\347\232\204\345\271\266\350\241\214\347\255\226\347\225\245/&quot; &quot;content/posts/\346\234\272\345\231\250\345\255\246\344\271\240/&quot;</code></li>
