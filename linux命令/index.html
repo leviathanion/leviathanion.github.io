@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E5%91%BD%E4%BB%A4\/"
-        },"genre": "posts","keywords": "linux, 命令, 运维","wordcount":  3718 ,
+        },"genre": "posts","keywords": "linux, 命令, 运维","wordcount":  3912 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E5%91%BD%E4%BB%A4\/","datePublished": "2021-01-22T23:17:52+08:00","dateModified": "2021-01-22T23:17:52+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux命令</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BF%90%E7%BB%B4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>运维</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-22">2021-01-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3718 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-22">2021-01-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3912 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -206,6 +206,7 @@
               </ul>
             </li>
             <li><a href="#342-scp命令">3.4.2 <code>scp</code>命令</a></li>
+            <li><a href="#343-sftp命令">3.4.3 <code>sftp</code>命令</a></li>
           </ul>
         </li>
       </ul>
@@ -1124,6 +1125,20 @@
 </tr>
 </tbody>
 </table>
+<h4 id="343-sftp命令">3.4.3 <code>sftp</code>命令</h4>
+<ul>
+<li>SFTP是一种安全文件传输协议，通过SSH协议进行加密传输，可以保证文件传输的安全性。SFTP命令可以在本地和远程服务器之间进行文件传输，并且支持各种文件操作，如上传、下载、删除等。</li>
+<li><code>sftp -P port user@remote</code>连接到服务器</li>
+<li>下载文件<code>get remote_file local_file</code></li>
+<li>上传文件<code>put local_file remote_file</code></li>
+<li>删除远程文件<code>rm remote_file</code></li>
+<li>列出远程目录<code>ls</code></li>
+<li>切换远程目录<code>cd</code></li>
+<li>退出<code>exit</code></li>
+</ul>
+<blockquote>
+<p>切换和列出本地目录，在命令前加<code>l</code>即可，即<code>lls和lcd</code></p>
+</blockquote>
 <h2 id="4搜索命令">4.搜索命令</h2>
 <table>
 <thead>

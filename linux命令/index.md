@@ -453,6 +453,17 @@ scp -p port user@remote:Desktop/01.py 01.py
 | `-P` | 加端口   |
 | `-r` | 拷贝目录 |
 
+#### 3.4.3 `sftp`命令
+* SFTP是一种安全文件传输协议，通过SSH协议进行加密传输，可以保证文件传输的安全性。SFTP命令可以在本地和远程服务器之间进行文件传输，并且支持各种文件操作，如上传、下载、删除等。
+* `sftp -P port user@remote`连接到服务器
+* 下载文件`get remote_file local_file`
+* 上传文件`put local_file remote_file`
+* 删除远程文件`rm remote_file`
+* 列出远程目录`ls`
+* 切换远程目录`cd`
+* 退出`exit`
+> 切换和列出本地目录，在命令前加`l`即可，即`lls和lcd`
+
 ## 4.搜索命令
 
 | 序号 | 命令                        | 英文                          | 作用                           |
