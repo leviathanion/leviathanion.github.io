@@ -4,9 +4,17 @@
         <link>https://leviathanion.github.io/</link>
         <description>loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</lastBuildDate>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sat, 29 Apr 2023 11:03:25 &#43;0800</lastBuildDate>
             <atom:link href="https://leviathanion.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Docker使用</title>
+    <link>https://leviathanion.github.io/docker%E4%BD%BF%E7%94%A8/</link>
+    <pubDate>Sat, 29 Apr 2023 11:03:25 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/docker%E4%BD%BF%E7%94%A8/</guid>
+    <description><![CDATA[Docker使用 Docker架构 image(镜像)：可以看作是一个root文件系统，是对环境和软件的包装 container(容器)：镜像类似]]></description>
+</item>
+<item>
     <title>Zsh配置</title>
     <link>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</link>
     <pubDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8/</guid>
     <description><![CDATA[Linux桌面环境和窗口管理器 Desktop Environment(DE)1 一般情况下DE包含WM，比如Gnome3的默认WM是Mutter，KDE5的默认WM是KWin。主流的桌面]]></description>
-</item>
-<item>
-    <title>DKMS</title>
-    <link>https://leviathanion.github.io/dkms/</link>
-    <pubDate>Fri, 17 Feb 2023 17:00:12 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/dkms/</guid>
-    <description><![CDATA[DKMS DKMS动态内核模块支持（DKMS）是用来生成 Linux 的内核模块的一个框架 虽然可以通过Readme文件或者INSTALL文件来编译新的驱动或者某]]></description>
 </item>
 </channel>
 </rss>
