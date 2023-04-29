@@ -83,6 +83,7 @@
 ## 开发软件
 ### 环境管理
 * docker(容器)
+* nvm(nodejs和npm环境管理)
 * wsl(windows下linux虚拟机)
 * conda(python环境管理)
 * MSYS2(windows下linux环境)

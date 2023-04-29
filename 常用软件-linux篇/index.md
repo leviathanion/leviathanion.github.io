@@ -104,6 +104,35 @@
 * sway(平铺窗口管理器)
 * waybar(顶部bar显示)
 
+## 开发软件
+### 环境管理
+* docker(容器)
+* nvm(nodejs和npm环境管理)
+* conda(python环境管理)
+* Vmware/VirtualBox/EXSI/kvm+kvm-qemu-libvirt-virtmanager(虚拟机管理)
+### 后端
+* Navicat(数据库可视化)
+* RDM(Redis可视化)
+* Postman(接口测试)
+* JetBrains全家桶(IDE)
+### 通用
+* Zeal(文档管理)
+* FileZilla Client(ftp,sftp工具)
+* vscode(编辑器)
+* Node.js(前端管理工具)
+* curl/wget(命令行下载工具)
+* Copilot(人工智能代码补全)
+### 代码管理
+* git(代码版本管理)
+* Sphinx(Python文档管理工具)
+* reStructuredText(Python文档格式)
+
+
+## 系统监控
+* prometheus+Grafana(适合分布式，能够监控容器和云环境，支持k8s)
+* zabbix(适合小规模部署，缺乏分布式扩展和可用性)
+* nagios(相对更加轻量的监控软件)
+
 ## 日用软件
 * clash(科学上网)
 * lattle(docker栏)
