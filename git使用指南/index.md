@@ -137,13 +137,16 @@
 
 ### 远程
 * 在操作中添加`-r`参数，代表对**本地的远程仓库**进行分支操作
-* 删除分支
-    * `git branch -r -d <远程仓库别名>/<分支名>`删除**本地的远程分支**，之后使用`git push <远程仓库别名>:<要删除的分支名>`删除远程分支。
-    * `git push <远程仓库别名> -d <分支名>`删除远程分支
+* 删除远程分支
+    1. 删除本地分支`git branch -d 分支名`
+    2. 删除远程分支`git push <远程分支别名> -d <分支名>`
+    2. 删除远程分支`git push <远程分支别名>  :<分支名>`
+    3. 删除远程分支在本地的副本`git branch -r -d <远程分支别名>/<分支名>`
 * 重命名远程分支
-    1. 重命名本地分支
-    2. 删除远程原分支
-    3. 关联本地新名分支和远程新名分支
+    1. 重命名本地分支`git branch -m oldname newname`
+    2. 关联本地新名分支和远程新名分支`git push --set-upstream <远程仓库别名> <新分支名>`
+    3. 删除远程原分支`git push <远程分支别名> -d <分支名>`
+    3. 删除远程原分支`git push <远程分支别名>  :<分支名>`
 
 ## 变基操作
 * `git rebase branch`**变基操作**
@@ -161,15 +164,22 @@
 
 
 ## 标签管理
-* `git tag`查看标签
-* `git show <tag name>`查看标签详细信息
-* `git tag <tag name>`为最新的commit打上标签
-* `git tag <tag name> <commitid>`为对应的commit打上标签
-* `git tag -a <tag name> -m "<注释文字>" <commitid>`创建带标签的tag
-* `git tag -d <tag name>`删除标签
-* `git push <远程仓库别名> <tag name>`推送Tag到远程仓库
-* `git push (<远程仓库别名>) --tags`推送所有本地tag，<远程仓库别名>可省略
-* `git push <远程仓库别名> :refs|tags|<tag name>`先在本地删除tag后，运行此命令删除远程tag
+### 查看标签
+* 查看标签：`git tag`
+* 查看标签详细信息：`git show <tag name>`
+### 打标签
+* 为最新的commit打上标签：`git tag <tag name>`
+* 为对应的commit打上标签：`git tag <tag name> <commitid>`
+* 创建带标签的tag：`git tag -a <tag name> -m "<注释文字>" <commitid>`
+### 删除标签
+* 删除标签：`git tag -d <tag name>`
+### 远程操作
+* 推送Tag到远程仓库：`git push <远程仓库别名> <tag name>`
+* 推送所有本地tag：`git push (<远程仓库别名>) --tags`(<远程仓库别名>可省略)
+* 删除远程标签：
+    1. 删除本地标签：`git tag -d <tag name>`
+    2. 删除远程分支：`git push <远程仓库别名> :refs|tags|<tag name>`
+    2. 删除远程分支`git push <远程分支别名> -d <tag name>`
 
 ## 差异比较
 * `git diff file`比较**工作区和暂存区**的差异

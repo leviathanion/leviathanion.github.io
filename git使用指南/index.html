@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/"
-        },"genre": "posts","keywords": "git, 命令","wordcount":  4734 ,
+        },"genre": "posts","keywords": "git, 命令","wordcount":  4859 ,
         "url": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/","datePublished": "2021-01-25T20:53:07+08:00","dateModified": "2021-01-25T20:53:07+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git使用指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%91%BD%E4%BB%A4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>命令</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4734 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4859 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -178,7 +178,14 @@
       </ul>
     </li>
     <li><a href="#变基操作">变基操作</a></li>
-    <li><a href="#标签管理">标签管理</a></li>
+    <li><a href="#标签管理">标签管理</a>
+      <ul>
+        <li><a href="#查看标签">查看标签</a></li>
+        <li><a href="#打标签">打标签</a></li>
+        <li><a href="#删除标签">删除标签</a></li>
+        <li><a href="#远程操作">远程操作</a></li>
+      </ul>
+    </li>
     <li><a href="#差异比较">差异比较</a></li>
     <li><a href="#补丁操作">补丁操作</a>
       <ul>
@@ -419,17 +426,20 @@
 <h3 id="远程">远程</h3>
 <ul>
 <li>在操作中添加<code>-r</code>参数，代表对<strong>本地的远程仓库</strong>进行分支操作</li>
-<li>删除分支
-<ul>
-<li><code>git branch -r -d &lt;远程仓库别名&gt;/&lt;分支名&gt;</code>删除<strong>本地的远程分支</strong>，之后使用<code>git push &lt;远程仓库别名&gt;:&lt;要删除的分支名&gt;</code>删除远程分支。</li>
-<li><code>git push &lt;远程仓库别名&gt; -d &lt;分支名&gt;</code>删除远程分支</li>
-</ul>
+<li>删除远程分支
+<ol>
+<li>删除本地分支<code>git branch -d 分支名</code></li>
+<li>删除远程分支<code>git push &lt;远程分支别名&gt; -d &lt;分支名&gt;</code></li>
+<li>删除远程分支<code>git push &lt;远程分支别名&gt;  :&lt;分支名&gt;</code></li>
+<li>删除远程分支在本地的副本<code>git branch -r -d &lt;远程分支别名&gt;/&lt;分支名&gt;</code></li>
+</ol>
 </li>
 <li>重命名远程分支
 <ol>
-<li>重命名本地分支</li>
-<li>删除远程原分支</li>
-<li>关联本地新名分支和远程新名分支</li>
+<li>重命名本地分支<code>git branch -m oldname newname</code></li>
+<li>关联本地新名分支和远程新名分支<code>git push --set-upstream &lt;远程仓库别名&gt; &lt;新分支名&gt;</code></li>
+<li>删除远程原分支<code>git push &lt;远程分支别名&gt; -d &lt;分支名&gt;</code></li>
+<li>删除远程原分支<code>git push &lt;远程分支别名&gt;  :&lt;分支名&gt;</code></li>
 </ol>
 </li>
 </ul>
@@ -453,16 +463,32 @@
 </li>
 </ul>
 <h2 id="标签管理">标签管理</h2>
+<h3 id="查看标签">查看标签</h3>
 <ul>
-<li><code>git tag</code>查看标签</li>
-<li><code>git show &lt;tag name&gt;</code>查看标签详细信息</li>
-<li><code>git tag &lt;tag name&gt;</code>为最新的commit打上标签</li>
-<li><code>git tag &lt;tag name&gt; &lt;commitid&gt;</code>为对应的commit打上标签</li>
-<li><code>git tag -a &lt;tag name&gt; -m &quot;&lt;注释文字&gt;&quot; &lt;commitid&gt;</code>创建带标签的tag</li>
-<li><code>git tag -d &lt;tag name&gt;</code>删除标签</li>
-<li><code>git push &lt;远程仓库别名&gt; &lt;tag name&gt;</code>推送Tag到远程仓库</li>
-<li><code>git push (&lt;远程仓库别名&gt;) --tags</code>推送所有本地tag，&lt;远程仓库别名&gt;可省略</li>
-<li><code>git push &lt;远程仓库别名&gt; :refs|tags|&lt;tag name&gt;</code>先在本地删除tag后，运行此命令删除远程tag</li>
+<li>查看标签：<code>git tag</code></li>
+<li>查看标签详细信息：<code>git show &lt;tag name&gt;</code></li>
+</ul>
+<h3 id="打标签">打标签</h3>
+<ul>
+<li>为最新的commit打上标签：<code>git tag &lt;tag name&gt;</code></li>
+<li>为对应的commit打上标签：<code>git tag &lt;tag name&gt; &lt;commitid&gt;</code></li>
+<li>创建带标签的tag：<code>git tag -a &lt;tag name&gt; -m &quot;&lt;注释文字&gt;&quot; &lt;commitid&gt;</code></li>
+</ul>
+<h3 id="删除标签">删除标签</h3>
+<ul>
+<li>删除标签：<code>git tag -d &lt;tag name&gt;</code></li>
+</ul>
+<h3 id="远程操作">远程操作</h3>
+<ul>
+<li>推送Tag到远程仓库：<code>git push &lt;远程仓库别名&gt; &lt;tag name&gt;</code></li>
+<li>推送所有本地tag：<code>git push (&lt;远程仓库别名&gt;) --tags</code>(&lt;远程仓库别名&gt;可省略)</li>
+<li>删除远程标签：
+<ol>
+<li>删除本地标签：<code>git tag -d &lt;tag name&gt;</code></li>
+<li>删除远程分支：<code>git push &lt;远程仓库别名&gt; :refs|tags|&lt;tag name&gt;</code></li>
+<li>删除远程分支<code>git push &lt;远程分支别名&gt; -d &lt;tag name&gt;</code></li>
+</ol>
+</li>
 </ul>
 <h2 id="差异比较">差异比较</h2>
 <ul>
