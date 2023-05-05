@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/"
-        },"genre": "posts","keywords": "git, 命令","wordcount":  4859 ,
+        },"genre": "posts","keywords": "git, 命令","wordcount":  5012 ,
         "url": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97\/","datePublished": "2021-01-25T20:53:07+08:00","dateModified": "2021-01-25T20:53:07+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,8 +115,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git使用指南</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%91%BD%E4%BB%A4/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>命令</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4859 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;10 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5012 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -165,8 +165,9 @@
       <ul>
         <li><a href="#添加远程库">添加远程库</a></li>
         <li><a href="#查看远程库">查看远程库</a></li>
+        <li><a href="#重命名远程仓库别名">重命名远程仓库别名</a></li>
+        <li><a href="#删除远程仓库">删除远程仓库</a></li>
         <li><a href="#关联远程库">关联远程库</a></li>
-        <li><a href="#重命名远程库">重命名远程库</a></li>
         <li><a href="#提交至远程库">提交至远程库</a></li>
         <li><a href="#从远程库拉取">从远程库拉取</a></li>
       </ul>
@@ -353,6 +354,14 @@
 <ul>
 <li><code>git remote -v</code><strong>查看远程仓库</strong></li>
 </ul>
+<h3 id="重命名远程仓库别名">重命名远程仓库别名</h3>
+<ul>
+<li><code>git remote rename oldname newname</code> <strong>重命名一个远程仓库</strong></li>
+</ul>
+<h3 id="删除远程仓库">删除远程仓库</h3>
+<ul>
+<li><code>git remote rm &lt;远程仓库别名&gt;</code></li>
+</ul>
 <h3 id="关联远程库">关联远程库</h3>
 <ul>
 <li><code>git push --set-upstream &lt;远程仓库别名&gt; &lt;分支名&gt;</code><strong>将本地分支与对应远程仓库的对应分支关联</strong></li>
@@ -364,21 +373,13 @@
 <li><code>git push -u &lt;远程仓库别名&gt; &lt;本地分支&gt;</code></li>
 </ul>
 </blockquote>
-<h3 id="重命名远程库">重命名远程库</h3>
-<ul>
-<li><code>git remove rename oldname newname</code> <strong>重命名一个远程仓库</strong></li>
-</ul>
 <h3 id="提交至远程库">提交至远程库</h3>
 <ul>
-<li><code>git push &lt;远程仓库别名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>或者<code>git push &lt;远程仓库地址&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>
-<ul>
-<li><strong>将本地分支推送至远程分支中</strong></li>
-<li>省略远程仓库别名，查看当前分支对应的远程仓库和远程分支配置，如果没有，则默认origin</li>
-<li>省略远程分支，删除冒号，使用配置中的东西来更新，否则查找相同名称的分支</li>
-<li>省略本地分支，不删除冒号，等同于推送一个空的本地分支到远程分支，用来删除远程分支,等同于<code>git push origin --delete master</code></li>
-<li>本地分支，远程分支均省略，则查看当前分支对应的远程仓库和远程分支配置</li>
-</ul>
-</li>
+<li><strong>将本地分支推送至远程分支中</strong>：<code>git push &lt;远程仓库别名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>或者<code>git push &lt;远程仓库地址&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></li>
+<li>省略远程仓库别名：<code>git push &lt;本地分支名&gt;:&lt;远程分支名&gt;</code>，查看当前分支对应的远程仓库和远程分支配置，如果没有，则默认origin</li>
+<li>省略远程分支：<code>git push &lt;远程仓库别名&gt; &lt;本地分支名&gt;</code>，删除冒号，使用配置中的东西来更新，否则查找相同名称的分支</li>
+<li>省略本地分支，不删除冒号：<code>git push &lt;远程仓库别名&gt;  :&lt;远程分支名&gt;</code>等同于推送一个空的本地分支到远程分支，用来删除远程分支,等同于<code>git push origin -d master</code></li>
+<li>本地分支，远程分支均省略：<code>git push &lt;远程仓库别名&gt;</code>，则查看当前分支对应的远程仓库和远程分支配置</li>
 </ul>
 <blockquote>
 <p><code>-u</code>参数可以在<code>.git/config</code>文件中指定当前分支对应的远程仓库和远程分支，之后就可以省略远程分支名
@@ -386,20 +387,14 @@
 </blockquote>
 <h3 id="从远程库拉取">从远程库拉取</h3>
 <ul>
-<li><code>git pull &lt;远程仓库别名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code>所有参数均可省略，如果省略分支名，则查找当前分支对应的远程分支自动拉取
-<ul>
+<li><code>git pull &lt;远程仓库别名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code>所有参数均可省略，如果省略分支名，则查找当前分支对应的远程分支自动拉取</li>
 <li><code>git pull</code>操作是<code>git fetch</code>和<code>git merge &lt;远程仓库别名&gt;/&lt;分支名&gt;</code>两个命令的集合</li>
-<li><code>git fetch</code>命令使用远程分支<strong>更新本地<code>&lt;远程仓库别名&gt;/&lt;分支名&gt;</code>分支</strong></li>
+<li><code>git fetch</code>命令使用远程分支<strong>更新本地<code>&lt;远程仓库别名&gt;/&lt;分支名&gt;</code>分支</strong>，其参数列表与<code>git pull相同</code>，<code>git fetch &lt;远程仓库别名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code>。</li>
 <li><code>git merge &lt;远程仓库别名&gt;/&lt;分支名&gt;</code>将<code>&lt;远程仓库别名&gt;/&lt;分支名&gt;</code>分支<strong>合并到当前本地分支</strong></li>
-</ul>
-</li>
 </ul>
 <blockquote>
 <p><code>git fetch</code>配合<code>git rebase</code>可以进行另一种形式的<code>git pull</code></p>
 </blockquote>
-<ul>
-<li><code>git checkout -b a &lt;远程仓库别名&gt;/&lt;分支名&gt;</code>从对应的远程仓库的对应分支拉取分支信息到本地分支</li>
-</ul>
 <h2 id="分支管理">分支管理</h2>
 <blockquote>
 <p>新版git提供了<code>git switch</code>命令来代替<code>git checkout</code></p>
