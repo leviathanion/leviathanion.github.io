@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/tags/linux/</link>
         <description>Linux - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 05 May 2023 17:13:39 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Fcitx5安装</title>
+    <link>https://leviathanion.github.io/fcitx5%E5%AE%89%E8%A3%85/</link>
+    <pubDate>Fri, 05 May 2023 17:13:39 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/fcitx5%E5%AE%89%E8%A3%85/</guid>
+    <description><![CDATA[Fcitx5安装 安装fcitx5 安装中文addon：fcitx5-chinese-addons 安装qt支持：fcitx5-qt 安装gtk支持]]></description>
+</item>
+<item>
     <title>Zsh配置</title>
     <link>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</link>
     <pubDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
     <description><![CDATA[Linux权限管理 Linux系统下对于用户和文件的权限有着严格的规定，我们首先回顾Linux下的用户管理 用户管理 涉及四个文件，主要需要修改p]]></description>
-</item>
-<item>
-    <title>Tmux使用</title>
-    <link>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</link>
-    <pubDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8/</guid>
-    <description><![CDATA[会话管理 新建会话tmux new -s &lt;session-name&gt; 列出所有会话tmux ls或者Ctrl+b s 退出会话tmux detach或者Ctrl+b d 接入会话tmux attach -t &]]></description>
 </item>
 </channel>
 </rss>
