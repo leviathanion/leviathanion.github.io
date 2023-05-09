@@ -15,8 +15,8 @@
 * Anaconda
     * 官网下载`pkg`文件，直接安装
 ## 创建Conda环境
-* 创建Python环境：`conda create -n/--name <env_name> -p /path/to/file python=<version> `
-* `-p`参数可以省略
+* 在默认位置创建Python环境：`conda create -n/--name <env_name> python=<version> `
+* 在指定位置创建Python环境：`conda create -p /path/to/file python=<version> `
 ## 查看环境
 * 查看所有环境：`conda env list `
 ## 切换环境
