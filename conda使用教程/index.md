@@ -84,6 +84,15 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 #设置搜索是显示通道地址
 conda config --set show_channel_urls yes
 ```
+## 默认不进入conda环境
+### 命令行
+* 运行命令：`conda config --set auto_activate_base false`
+### 更改配置文件
+* 修改`.bashrc`或者`.zshrc`
+```
+# export PATH="~/anaconda/bin:$PATH"
+export PATH="$PATH：~/anaconda/bin"
+```
 
 
 

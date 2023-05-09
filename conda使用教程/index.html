@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/"
-        },"genre": "posts","keywords": "软件使用教程","wordcount":  576 ,
+        },"genre": "posts","keywords": "软件使用教程","wordcount":  669 ,
         "url": "https:\/\/leviathanion.github.io\/conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/","datePublished": "2023-05-09T09:34:28+08:00","dateModified": "2023-05-09T09:34:28+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Conda使用教程</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件使用教程</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-09">2023-05-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;576 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-09">2023-05-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;669 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -143,6 +143,12 @@
       <ul>
         <li><a href="#编辑condarc文件">编辑<code>.condarc</code>文件</a></li>
         <li><a href="#命令行配置">命令行配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#默认不进入conda环境">默认不进入conda环境</a>
+      <ul>
+        <li><a href="#命令行">命令行</a></li>
+        <li><a href="#更改配置文件">更改配置文件</a></li>
       </ul>
     </li>
   </ul>
@@ -310,6 +316,25 @@
 </span></span><span class="line"><span class="cl"> 
 </span></span><span class="line"><span class="cl">#设置搜索是显示通道地址
 </span></span><span class="line"><span class="cl">conda config --set show_channel_urls yes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="默认不进入conda环境">默认不进入conda环境</h2>
+<h3 id="命令行">命令行</h3>
+<ul>
+<li>运行命令：<code>conda config --set auto_activate_base false</code></li>
+</ul>
+<h3 id="更改配置文件">更改配置文件</h3>
+<ul>
+<li>修改<code>.bashrc</code>或者<code>.zshrc</code></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># export PATH=&#34;~/anaconda/bin:$PATH&#34;
+</span></span><span class="line"><span class="cl">export PATH=&#34;$PATH：~/anaconda/bin&#34;
 </span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
