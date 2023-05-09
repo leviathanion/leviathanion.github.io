@@ -4,85 +4,13 @@
         <link>https://leviathanion.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
         <description>机器学习 - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 28 Oct 2022 10:11:28 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
-    <title>Cross-Encoder和Bi-Encoder以及双塔模型和孪生网络</title>
-    <link>https://leviathanion.github.io/cross-encoder%E5%92%8Cbi-encoder%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%A1%94%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%AD%AA%E7%94%9F%E7%BD%91%E7%BB%9C/</link>
-    <pubDate>Fri, 28 Oct 2022 10:11:28 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/cross-encoder%E5%92%8Cbi-encoder%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%A1%94%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%AD%AA%E7%94%9F%E7%BD%91%E7%BB%9C/</guid>
-    <description><![CDATA[cross-encoder 将query与document交叉输入到encoder中，得到一个得分 使用该得分作为相似度 bi-encoder 将query与document分别输入到两个e]]></description>
-</item>
-<item>
-    <title>SimKGC</title>
-    <link>https://leviathanion.github.io/simkgc/</link>
-    <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/simkgc/</guid>
-    <description><![CDATA[SimKGC模型 Novelty 使用InfoNCE损失改进原有边际排名损失，使其更专注于hard negative 使用IB,PB和SN三种负样本种类来增加负样本数量 使用图]]></description>
-</item>
-<item>
-    <title>PairRE</title>
-    <link>https://leviathanion.github.io/pairre/</link>
-    <pubDate>Thu, 09 Jun 2022 18:40:24 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/pairre/</guid>
-    <description><![CDATA[PairRE Novelty 既考虑了复杂关系建模的问题，又考虑了多种模式的关系 通过修改RotatE的公式，将关系参数改为头尾两个，从而可以对复杂关系进行建模(Rot]]></description>
-</item>
-<item>
-    <title>KBGAN</title>
-    <link>https://leviathanion.github.io/kbgan/</link>
-    <pubDate>Thu, 09 Jun 2022 18:40:16 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/kbgan/</guid>
-    <description><![CDATA[KBGAN模型1 Novelty 首次使用生成对抗网路的思想，全篇关注负样本的生成质量问题 采用生成对抗网络，采用概率模型作为生成器，采用距离模型作为鉴别器，]]></description>
-</item>
-<item>
-    <title>CAKE</title>
-    <link>https://leviathanion.github.io/cake/</link>
-    <pubDate>Wed, 25 May 2022 15:27:53 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/cake/</guid>
-    <description><![CDATA[CAKE模型1 Novelty 首次既考虑了假阴性问题，又考虑了低质量的问题，特别是假阴性问题几乎无人考虑 将数据集做一定的处理，进行标注，为每个实体赋予一到]]></description>
-</item>
-<item>
-    <title>QRNN</title>
-    <link>https://leviathanion.github.io/qrnn/</link>
-    <pubDate>Sat, 19 Feb 2022 10:09:43 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/qrnn/</guid>
-    <description><![CDATA[QRNN1 Novelty 将RNN与CNN结合 卷积层用一种不使用未来数据的masked卷积来代替LSTM中参数矩阵与上一时刻隐藏层相乘的操作。捕获过去时刻信息的同]]></description>
-</item>
-<item>
-    <title>SCRN</title>
-    <link>https://leviathanion.github.io/scrn/</link>
-    <pubDate>Thu, 17 Feb 2022 15:42:05 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/scrn/</guid>
-    <description><![CDATA[SCRN模型1 Novelty 通过为RNN添加一个参数缓慢变化的隐藏层来捕获长距离依赖，公式如下所示 \begin{align*} s_t &amp;= (1-\alpha)Bx_t + \alpha s_{t-1} \\ h_t &amp;= \sigma(Ps_t+Ax_t+Rh_{t-1}) \\ y_t &amp;= f(Uh_t+Vs_t) \end{align*} 约束该隐藏层中的B为对]]></description>
-</item>
-<item>
-    <title>矩阵求导</title>
-    <link>https://leviathanion.github.io/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</link>
-    <pubDate>Wed, 19 Jan 2022 11:11:45 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</guid>
-    <description><![CDATA[矩阵求导 分子布局和分母布局 标量，向量，矩阵之间的求导，相对于标量对标量的求导，需要考虑一个额外的因素，就是求导之后的布局，例如标量对列向量求]]></description>
-</item>
-<item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Wed, 12 Jan 2022 15:54:43 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
     <title>机器学习的并行策略</title>
     <link>https://leviathanion.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/</link>
     <pubDate>Wed, 12 Jan 2022 15:54:43 &#43;0800</pubDate>
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5/</guid>
     <description><![CDATA[机器学习中的分布式的并行优化 简介 机器学习的并行计算指的是对机器学习过程中遇到的计算问题采用并行计算的方式进行合适的加速，缩短训练所需的时间。]]></description>
-</item>
-<item>
-    <title>IRNN</title>
-    <link>https://leviathanion.github.io/irnn/</link>
-    <pubDate>Thu, 23 Dec 2021 10:27:32 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/irnn/</guid>
-    <description><![CDATA[IRNN模型1 Novelty 专注于解决RNN模型中的梯度消失问题 使用单位矩阵来初始化RNN从而部分解决梯度消失和梯度爆炸问题 使用ReLU激活函数代替Si]]></description>
 </item>
 </channel>
 </rss>

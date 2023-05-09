@@ -13,22 +13,6 @@
     <description><![CDATA[Fcitx5安装 安装fcitx5 安装中文addon：fcitx5-chinese-addons 安装qt支持：fcitx5-qt 安装gtk支持]]></description>
 </item>
 <item>
-    <title>Zsh配置</title>
-    <link>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[zsh配置 安装zsh 安装zsh-autosuggestions(自动建议插件) 安装zsh-syntax-highlighting(代码高亮插]]></description>
-</item>
-<item>
-    <title>Neovim配置</title>
-    <link>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Thu, 06 Apr 2023 09:39:52 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[nvim配置 linux 从github拉取配置文件并放在.config目录下，命名为nvim 1 git clone https://github.com/leviathanion/nvim-config.git ~/.config/nvim 可通过:checkhealth查看各插件情况 在.]]></description>
-</item>
-<item>
     <title>Linux网络配置和管理</title>
     <link>https://leviathanion.github.io/linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%A1%E7%90%86/</link>
     <pubDate>Thu, 06 Apr 2023 09:37:46 &#43;0800</pubDate>
@@ -83,6 +67,22 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
     <description><![CDATA[Linux权限管理 Linux系统下对于用户和文件的权限有着严格的规定，我们首先回顾Linux下的用户管理 用户管理 涉及四个文件，主要需要修改p]]></description>
+</item>
+<item>
+    <title>Tmux使用</title>
+    <link>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[Tmux使用教程 会话管理 新建会话tmux new -s &lt;session-name&gt; 列出所有会话tmux ls或者Ctrl+b s 退出会话tmux detach或者Ctrl+b d 接入会]]></description>
+</item>
+<item>
+    <title>Linux文件目录</title>
+    <link>https://leviathanion.github.io/linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/</link>
+    <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/</guid>
+    <description><![CDATA[Linux文件目录 Linux文件系统层次概述 文件系统包含了很多不同的初始路径，本节对不同的路径名称进行概述，可以通过man file-hier]]></description>
 </item>
 </channel>
 </rss>

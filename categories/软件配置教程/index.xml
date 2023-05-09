@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>软件配置教程 - Category - loveLZZ的个人博客</title>
+        <link>https://leviathanion.github.io/categories/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+        <description>软件配置教程 - Category - loveLZZ的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" rel="self" type="application/rss+xml" /><item>
+    <title>Zsh配置教程</title>
+    <link>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[Zsh配置教程 安装zsh 安装zsh-autosuggestions(自动建议插件) 安装zsh-syntax-highlighting(代码高]]></description>
+</item>
+<item>
+    <title>Neovim配置教程</title>
+    <link>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Thu, 06 Apr 2023 09:39:52 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[nvim配置教程 linux 从github拉取配置文件并放在.config目录下，命名为nvim 1 git clone https://github.com/leviathanion/nvim-config.git ~/.config/nvim 可通过:checkhealth查看各插件情况]]></description>
+</item>
+<item>
+    <title>Jupyter远程访问</title>
+    <link>https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</link>
+    <pubDate>Fri, 28 Oct 2022 17:17:25 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</guid>
+    <description><![CDATA[使用ssh远程使用 在服务器上运行jupyter notebook -no-browser --port=8080 在本地终端运行ssh -NfL localhost:port:localhost:port -p sshport username@ip N代表没有命令要被远程执行，f代表后台执行，L是端口映射操]]></description>
+</item>
+</channel>
+</rss>

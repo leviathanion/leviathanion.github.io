@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/tags/vim/</link>
         <description>Vim - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Wed, 15 Feb 2023 15:16:42 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/vim/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Thu, 06 Apr 2023 09:39:52 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/vim/" rel="self" type="application/rss+xml" /><item>
+    <title>Neovim配置教程</title>
+    <link>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Thu, 06 Apr 2023 09:39:52 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[nvim配置教程 linux 从github拉取配置文件并放在.config目录下，命名为nvim 1 git clone https://github.com/leviathanion/nvim-config.git ~/.config/nvim 可通过:checkhealth查看各插件情况]]></description>
+</item>
+<item>
     <title>Vim速查表</title>
     <link>https://leviathanion.github.io/vim%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
     <pubDate>Wed, 15 Feb 2023 15:16:42 &#43;0800</pubDate>

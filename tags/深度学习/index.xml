@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
         <description>深度学习 - Tag - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Fri, 28 Oct 2022 10:11:28 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="self" type="application/rss+xml" /><item>
+    <title>Cross-Encoder和Bi-Encoder以及双塔模型和孪生网络</title>
+    <link>https://leviathanion.github.io/cross-encoder%E5%92%8Cbi-encoder%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%A1%94%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%AD%AA%E7%94%9F%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Fri, 28 Oct 2022 10:11:28 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/cross-encoder%E5%92%8Cbi-encoder%E4%BB%A5%E5%8F%8A%E5%8F%8C%E5%A1%94%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%AD%AA%E7%94%9F%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[cross-encoder 将query与document交叉输入到encoder中，得到一个得分 使用该得分作为相似度 bi-encoder 将query与document分别输入到两个e]]></description>
+</item>
+<item>
     <title>SimKGC</title>
     <link>https://leviathanion.github.io/simkgc/</link>
     <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
@@ -51,6 +59,14 @@
     <author>loveLZZ</author>
     <guid>https://leviathanion.github.io/scrn/</guid>
     <description><![CDATA[SCRN模型1 Novelty 通过为RNN添加一个参数缓慢变化的隐藏层来捕获长距离依赖，公式如下所示 \begin{align*} s_t &amp;= (1-\alpha)Bx_t + \alpha s_{t-1} \\ h_t &amp;= \sigma(Ps_t+Ax_t+Rh_{t-1}) \\ y_t &amp;= f(Uh_t+Vs_t) \end{align*} 约束该隐藏层中的B为对]]></description>
+</item>
+<item>
+    <title>矩阵求导</title>
+    <link>https://leviathanion.github.io/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</link>
+    <pubDate>Wed, 19 Jan 2022 11:11:45 &#43;0800</pubDate>
+    <author>loveLZZ</author>
+    <guid>https://leviathanion.github.io/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</guid>
+    <description><![CDATA[矩阵求导 分子布局和分母布局 标量，向量，矩阵之间的求导，相对于标量对标量的求导，需要考虑一个额外的因素，就是求导之后的布局，例如标量对列向量求]]></description>
 </item>
 <item>
     <title>IRNN</title>
