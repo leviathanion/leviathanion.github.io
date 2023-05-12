@@ -28,4 +28,21 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 ## zsh配置conda
 * cd anaconda的安装目录下的bin目录
 * 执行conda init zsh `conda init zsh`
+> 优化conda速度(注释掉费时代码)：
+```shell
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+    if [ -f "/opt/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda/bin:$PATH"
+    fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+```
 

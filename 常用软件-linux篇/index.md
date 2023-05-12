@@ -108,6 +108,7 @@
 ### 环境管理
 * docker(容器)
 * nvm(nodejs和npm环境管理)
+> nvm严重拖累zsh速度，可以使用fnm
 * conda(python环境管理)
 * Vmware/VirtualBox/EXSI/kvm+kvm-qemu-libvirt-virtmanager(虚拟机管理)
 ### 后端
