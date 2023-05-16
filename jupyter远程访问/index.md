@@ -3,6 +3,8 @@
 ## 使用ssh远程使用
 * 在服务器上运行`jupyter notebook -no-browser --port=8080` 
 * 在本地终端运行`ssh -NfL localhost:port:localhost:port -p sshport username@ip`
+> 第一个是本地，第二个是远程
+> 将本地的localhost:port映射到远程的localhost:port上
 > N代表没有命令要被远程执行，f代表后台执行，L是端口映射操作
 * 打开浏览器访问`https://localhost:port/`
 

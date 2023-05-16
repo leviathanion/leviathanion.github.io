@@ -26,7 +26,7 @@
     <pubDate>Fri, 28 Oct 2022 17:17:25 &#43;0800</pubDate>
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/jupyter%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</guid>
-    <description><![CDATA[使用ssh远程使用 在服务器上运行jupyter notebook -no-browser --port=8080 在本地终端运行ssh -NfL localhost:port:localhost:port -p sshport username@ip N代表没有命令要被远程执行，f代表后台执行，L是端口映射操]]></description>
+    <description><![CDATA[使用ssh远程使用 在服务器上运行jupyter notebook -no-browser --port=8080 在本地终端运行ssh -NfL localhost:port:localhost:port -p sshport username@ip 第一个是本地，第二个是远程 将本地的localhost:po]]></description>
 </item>
 </channel>
 </rss>
