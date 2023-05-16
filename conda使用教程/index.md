@@ -23,7 +23,7 @@
 * 切换环境：`conda activate <env_name>`
 * 退出环境：`conda deactivate`
 ## 删除环境或依赖
-* 删除环境：`conda remove -n/--name <env_name>`
+* 删除环境：`conda remove -n/--name <env_name> --all`
 * 删除依赖：`conda remove -n/--name <env_name> <package_name>`
 ## 导出和导入环境
 * 导出环境：`conda list --explicit > /path/to/file`
