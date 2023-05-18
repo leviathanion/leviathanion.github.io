@@ -19,4 +19,6 @@
 * 移动窗格`Ctrl+b 方向键`
 * 关闭当前窗格`Ctrl+b x`
 * 调整窗格大小`Ctrl+b Ctrl+方向键`
+## 使用技巧
+* 鼠标支持`Ctrl + b :set mouse on`
 
