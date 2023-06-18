@@ -1,0 +1,88 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - loveLZZ的个人博客</title>
+        <link>https://leviathanion.github.io/categories/</link>
+        <description>Categories - Category - loveLZZ的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sun, 14 May 2023 00:31:52 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux</title>
+    <link>https://leviathanion.github.io/categories/linux/</link>
+    <pubDate>Sun, 14 May 2023 00:31:52 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/linux/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>软件使用教程</title>
+    <link>https://leviathanion.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Tue, 09 May 2023 09:34:28 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>软件配置教程</title>
+    <link>https://leviathanion.github.io/categories/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+    <pubDate>Thu, 06 Apr 2023 09:40:51 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>日常随想</title>
+    <link>https://leviathanion.github.io/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/</link>
+    <pubDate>Mon, 03 Apr 2023 13:42:04 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>技术科普</title>
+    <link>https://leviathanion.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/</link>
+    <pubDate>Tue, 28 Mar 2023 12:28:10 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>科学上网</title>
+    <link>https://leviathanion.github.io/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</link>
+    <pubDate>Tue, 07 Mar 2023 09:06:22 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Vim</title>
+    <link>https://leviathanion.github.io/categories/vim/</link>
+    <pubDate>Wed, 15 Feb 2023 15:16:42 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/vim/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>深度学习</title>
+    <link>https://leviathanion.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+    <pubDate>Fri, 28 Oct 2022 10:11:28 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>KG</title>
+    <link>https://leviathanion.github.io/categories/kg/</link>
+    <pubDate>Fri, 01 Jul 2022 13:37:07 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/kg/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>编程语言</title>
+    <link>https://leviathanion.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</link>
+    <pubDate>Sat, 02 Apr 2022 14:10:51 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

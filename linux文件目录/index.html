@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  2028 ,
+        },"genre": "posts","keywords": "Linux","wordcount":  1286 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95\/","datePublished": "2021-12-21T21:38:39+08:00","dateModified": "2021-12-21T21:38:39+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,8 +115,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux文件目录</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2028 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-12-21">2021-12-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1286 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -132,12 +132,6 @@
         <li><a href="#持久性可变系统文件">持久性可变系统文件</a></li>
         <li><a href="#虚拟内核和api文件系统">虚拟内核和API文件系统</a></li>
         <li><a href="#兼容性符号链接">兼容性符号链接</a></li>
-      </ul>
-    </li>
-    <li><a href="#linux基本目录规范-xdg">Linux基本目录规范-XDG</a>
-      <ul>
-        <li><a href="#用户层面">用户层面</a></li>
-        <li><a href="#系统层面">系统层面</a></li>
       </ul>
     </li>
   </ul>
@@ -236,36 +230,6 @@
 <li><code>/lib64/</code>-&gt;<code>/usr/lib64/</code></li>
 <li><code>/var/run/</code>-&gt;<code>/run/</code></li>
 </ul>
-<h2 id="linux基本目录规范-xdg">Linux基本目录规范-XDG</h2>
-<p>XDG Base Directory Specification</p>
-<blockquote>
-<p>该规范定义了一套指向应用程序的环境变量，这些变量指明的就是这些程序应该存储的基准目录。而变量的具体值取决于用户，若用户未指定，将由程序本身指向一个默认目录。</p>
-</blockquote>
-<h3 id="用户层面">用户层面</h3>
-<ul>
-<li><code>XDG_CONFIG_HOME</code>:存储用户特定的配置文件，默认为<code>$HOME/.config/</code></li>
-<li><code>XDG_CACHE_HOME</code>:存储用户特定非重要缓存数据，默认为<code>$HOME/.cache/</code></li>
-<li><code>XDG_DATA_HOME</code>:存储用户特定的数据文件，默认为<code>$HOME/.local/share/</code></li>
-<li><code>XDG_STATE_HOME</code>:存储用户特定的状态文件，默认为<code>$HOME/.local/state/</code></li>
-<li><code>XDG_RUNTIME_HOME</code>:用户特定的不重要的运行时文件和其他文件对象（例如套接字，命名管道…）存储的基本目录。
-<ul>
-<li>不要求有默认值；如果没有设置或提供等价物，应发出警告。</li>
-<li>该目录必须由用户拥有，并且他必须是唯一具有读写访问权限的目录。它的Unix访问模式必须是0700。</li>
-<li>按照操作系统的标准，文件系统功能齐全。</li>
-<li>必须在本地文件系统上。</li>
-<li>可能会被定期清理。</li>
-<li>每6小时修改一次，如果需要持久性，则设置粘性位。</li>
-<li>只能在用户登录的时间内存在。</li>
-<li>不应存储大文件，因为它可能被挂载为临时文件。</li>
-<li>pam_systemd将其设置为/run/user/$UID。</li>
-</ul>
-</li>
-</ul>
-<h3 id="系统层面">系统层面</h3>
-<ul>
-<li><code>XDG_DATA_DIRs</code>:定义了一套按照偏好顺序的基准目录集，用来搜索除了 $XDG_DATA_HOME 目录之外的数据文件。该目录中的文件夹应该用冒号（:）隔开。默认值是 /usr/local/share/:/usr/share/。</li>
-<li><code>XDG_CONFIG_DIRS</code>:定义了一套按照偏好顺序的基准目录集，用来搜索除了 $XDG_CONFIG_HOME 目录之外的配置文件。该目录中的文件夹应该用冒号（:）隔开。默认值是 /etc/xdg。</li>
-</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -294,7 +258,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.113.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

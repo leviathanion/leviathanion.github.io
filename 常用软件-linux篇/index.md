@@ -144,6 +144,7 @@
 * feh(图片查看和壁纸配置)
 * flameshot(截图工具)
 * syncthing(备份同步工具)
+* screenkey(实时显示输入的按键)
 * kvm，qemu,libvirt,virt-manager,virtio(虚拟机)
 ![虚拟机](/常用软件/kvm-qemu-libvirt-virtmanager.png "虚拟机架构")
 
