@@ -127,6 +127,7 @@
 * **创建分支**`git branch dev`
 * **切换到分支**`git checkout dev`或者`git switch dev`
 * **查看分支情况**`git branch`
+* **查看本地分支关联的远程分支情况**`git branch -vv`
 * **创建并切换到分支** `git checkout -b dev`或`git switch -c dev`
 * **将别的分支合并到当前分支**`git merge 分支名`或者`git rebase 分支名`
   * 如果存在冲突，需要解决冲突
