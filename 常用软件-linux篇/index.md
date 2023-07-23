@@ -79,6 +79,7 @@
 * zsh/ohmyzsh/powerlevel10k(zsh/优化/主题)
 * p7zip/rar/unrar/zip/unzip/tar/Unarchiver(压缩和解压工具)
 * rsync(拷贝和同步命令)
+* rename(批量重命名)
 * wget/curl(下载/模拟http请求)
 * tldr(命令提示工具)
 * playerctl(MPRIS的音频管理)
