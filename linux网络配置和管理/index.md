@@ -2,11 +2,51 @@
 
 # 网络管理
 > 可查询此链接[linux网络命令](http://linux-ip.net/html/index.html)查看linux网络命令的使用
-## `systemd-networkd`配置
+## 网络检查步骤
+1. `ip link show`查看网卡情况
+2. `ip addr show`查看ip情况
+3. `networkctl`查看网络接管情况
+4. `resolvectl`查看dns情况
+5. `ping baidu.com`查看网络最终情况
 
 ## `systemd-resolved`配置
+* 自动管理dns配置: `ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf`
+    * 配置文件中包含了上级dns服务器及搜索域名
+* 手动dns文件配置在两个地方`/etc/systemd/resolved.conf`或者`/etc/systemd/resolved.conf.d/*`
+    * 在`/etc/systemd/resolved.conf.d/dns_servers.conf`中配置
+    ```
+    [Resolve]
+    DNS=114.114.114.114
+    Domains=~.
+    ```
+    * 在`/etc/systemd/resolved.conf.d/fallback_dns.conf`中配置
+    ```
+    [Resolve]
+    FallbackDNS=8.8.8.8
+    ```
+    如果要禁用fallback_dns 功能,则不设置FallbackDNS参数
+* 上述配置等效于`在/etc/systemd/resolved.conf`将二者一起配置
 
+## `systemd-networkd`配置
+* 需要在`/etc/systemd/network/自定义.network`中自己配置
+```
+[Match]
+Name=enp1s0 # 也支持 en* 的正则表达式
+[Network]
+DHCP=yes/ipv4/ipv6
+DHCPServer=
+DNS=
+Address=
+Gateway=
+Domains=
+[DHCP]/[DHCPv4]/[DHCPv6]
+RouteMetric=
+```
 ## `iwd`无线网配置
+* `iwctl`命令进入wifi连接界面
+* `station wlan0 get-network`查看目前wifi情况
+* `station wlan0 scan`扫描wifi
+* `station wlan0 connect wifi名`连接wifi
 
 ## 多网卡路由配置
 
