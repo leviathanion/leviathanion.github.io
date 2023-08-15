@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>设计模式 - loveLZZ的个人博客</title><meta name="Description" content="loveLZZ的个人博客"><meta property="og:title" content="设计模式" />
+<meta property="og:description" content="设计模式 设计原则 开闭原则 对扩展开放 对修改关闭 通过扩展来实现变化，而不是通过修改已有代码来实现变化 里氏替换原则 子类可以实现父类的抽象方法，但不" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" /><meta property="og:image" content="https://leviathanion.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-11T14:38:20+08:00" />
+<meta property="article:modified_time" content="2023-06-11T14:38:20+08:00" /><meta property="og:site_name" content="loveLZZ的个人博客" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://leviathanion.github.io/"/>
+
+<meta name="twitter:title" content="设计模式"/>
+<meta name="twitter:description" content="设计模式 设计原则 开闭原则 对扩展开放 对修改关闭 通过扩展来实现变化，而不是通过修改已有代码来实现变化 里氏替换原则 子类可以实现父类的抽象方法，但不"/>
+<meta name="application-name" content="loveLZZ的个人博客">
+<meta name="apple-mobile-web-app-title" content="loveLZZ的个人博客"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/images/avatar.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" /><link rel="prev" href="https://leviathanion.github.io/linux%E5%B0%84%E9%A2%91%E7%AE%A1%E7%90%86/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><meta name="google-site-verification" content="SD6c9n666kMvMODF_Z2kC7C36DuHWBr3Q7FYNpXPYDM" /><meta name="baidu-site-verification" content="codeva-NCtxeKmI6G" /><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "设计模式",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/leviathanion.github.io\/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F\/"
+        },"genre": "posts","keywords": "后端开发","wordcount":  991 ,
+        "url": "https:\/\/leviathanion.github.io\/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F\/","datePublished": "2023-06-11T14:38:20+08:00","dateModified": "2023-06-11T14:38:20+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "loveLzz"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="loveLZZ的个人博客"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/avatar.png"
+        data-srcset="/images/avatar.png, /images/avatar.png 1.5x, /images/avatar.png 2x"
+        data-sizes="auto"
+        alt="/images/avatar.png"
+        title="/images/avatar.png" /><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>loveLZZ的个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/leviathanion" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">设计模式</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>后端开发</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-11">2023-06-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;991 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#设计原则">设计原则</a></li>
+    <li><a href="#常用设计模式">常用设计模式</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="设计模式">设计模式</h1>
+<h2 id="设计原则">设计原则</h2>
+<ul>
+<li>开闭原则
+<ul>
+<li>对扩展开放</li>
+<li>对修改关闭</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>通过扩展来实现变化，而不是通过修改已有代码来实现变化</p>
+</blockquote>
+<ul>
+<li>里氏替换原则
+<ul>
+<li>子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法</li>
+<li>子类可以有自己独有的方法</li>
+<li>覆盖或实现父类的方法时，输入参数可以被放大，更宽松</li>
+<li>覆盖或实现父类的方法时，输出参数可以被缩小，更严格</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>保证将所有父类替换为子类，程序的运行没有任何问题</p>
+</blockquote>
+<ul>
+<li>迪米特原则
+<ul>
+<li>一个对象应该对其他对象保持最少的了解</li>
+<li>只与直接的朋友通信</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>高内聚，只暴露接口，且不跨多级调用</p>
+</blockquote>
+<ul>
+<li>单一职责原则：一个类只负责一项指责</li>
+</ul>
+<blockquote>
+<p>当一个类负责太多指责时，会有多个原因导致类的变更，影响开发</p>
+</blockquote>
+<ul>
+<li>接口分离原则
+<ul>
+<li>客户端不应该依赖他不需要的接口</li>
+<li>类间的依赖关系建立在最小的接口上</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>细化，建立单一指责的接口</li>
+<li>要适度细化，接口太小也会造成模型的复杂</li>
+</ul>
+</blockquote>
+<ul>
+<li>依赖倒置原则
+<ul>
+<li>高层模块（稳定）不应该依赖于底层模块（不稳定），二者都应该依赖于抽象（稳定）</li>
+<li>抽象（稳定）不应该依赖于实现细节（不稳定），实现细节应该依赖于抽象（稳定）</li>
+</ul>
+</li>
+<li>组合聚合复用原则
+<ul>
+<li>尽量使用组合/聚合来复用</li>
+<li>减少继承的使用</li>
+</ul>
+</li>
+</ul>
+<h2 id="常用设计模式">常用设计模式</h2>
+<ul>
+<li>工厂模式：工厂模式是模板方法的一个特殊形式</li>
+<li>建造者模式</li>
+<li>单例模式</li>
+<li>观察者模式
+<ul>
+<li>发布者：将自身状态通知给其他对象</li>
+<li>订阅者：关注发布者状态变化的对象</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>实现</p>
+<ul>
+<li>订阅者：实现一个统一的通知接口。</li>
+<li>发布者
+<ul>
+<li>存储订阅对象引用的成员变量（一般定义一个独立的EventManager类来管理订阅者和其关心的消息，使用hashmap来实现）</li>
+<li>添加和删除订阅者的共有方法</li>
+<li>一个通知方法，调用订阅者的通知接口</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>与发布订阅模式的区别</p>
+<ul>
+<li>在观察者模式中，发布者维护观察者列表，而发布订阅模式，使用中间层进行消息代理，二者不互相依赖</li>
+<li>观察者模式以同步方式进行消息传递，发布订阅模式主要使用异步方式（消息队列）</li>
+<li>观察者模式往往是同一应用，而发布订阅模式可以跨应用访问</li>
+</ul>
+</blockquote>
+<ul>
+<li>模板方法
+<ul>
+<li>将算法分解为一系列步骤，并进行实现，在“模板方法”中依次调用这些步骤</li>
+<li>步骤可以是抽象的,也可以是默认的一些实现</li>
+<li>子类继承模板方法，并实现抽象步骤或者重写一些步骤</li>
+</ul>
+</li>
+<li>策略模式
+<ul>
+<li>定义策略接口让策略类去实现</li>
+<li>定义一个上下文类来利用各种策略</li>
+<li>上下文类应该首先设置策略类，然后执行方法</li>
+</ul>
+</li>
+<li>代理模式
+<ul>
+<li>在不改变原有类的基础上，增强其功能</li>
+<li>静态代理
+<ul>
+<li>定义代理类</li>
+<li>实现增强的功能</li>
+<li>在代理类内部new出被代理的对象</li>
+</ul>
+</li>
+<li>动态代理
+<ul>
+<li>JDK代理，通过其对应的接口，利用反射来实例化被代理类</li>
+<li>cglib代理，生成一个被代理类的子类来拦截被代理的方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-06-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title="设计模式" data-hashtags="后端开发"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-hashtag="后端开发"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title="设计模式"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title="设计模式"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-title="设计模式"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">后端开发</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/linux%E5%B0%84%E9%A2%91%E7%AE%A1%E7%90%86/" class="prev" rel="prev" title="Linux射频管理"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Linux射频管理</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.117.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'G-K1YDRX0E5S', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-K1YDRX0E5S" async></script></body>
+</html>

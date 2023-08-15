@@ -4,9 +4,17 @@
         <link>https://leviathanion.github.io/</link>
         <description>loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sun, 14 May 2023 00:31:52 &#43;0800</lastBuildDate>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sun, 11 Jun 2023 14:38:20 &#43;0800</lastBuildDate>
             <atom:link href="https://leviathanion.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>设计模式</title>
+    <link>https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Sun, 11 Jun 2023 14:38:20 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[设计模式 设计原则 开闭原则 对扩展开放 对修改关闭 通过扩展来实现变化，而不是通过修改已有代码来实现变化 里氏替换原则 子类可以实现父类的抽象方法，但不]]></description>
+</item>
+<item>
     <title>Linux射频管理</title>
     <link>https://leviathanion.github.io/linux%E5%B0%84%E9%A2%91%E7%AE%A1%E7%90%86/</link>
     <pubDate>Sun, 14 May 2023 00:31:52 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/</guid>
     <description><![CDATA[常用软件-Linux篇 办公 wps全家桶 对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低 音视频 vlc mpv(视频播放器)]]></description>
-</item>
-<item>
-    <title>NFC,RFID,ID,IC卡科普</title>
-    <link>https://leviathanion.github.io/nfcrfididic%E5%8D%A1%E7%A7%91%E6%99%AE/</link>
-    <pubDate>Tue, 28 Mar 2023 12:28:10 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/nfcrfididic%E5%8D%A1%E7%A7%91%E6%99%AE/</guid>
-    <description><![CDATA[NFC,RFID,IC,ID科普 RFID RFID是(Radio Frequency Identification)射频识别技术的缩写，一般用来在读卡器和标签之间通信。]]></description>
 </item>
 </channel>
 </rss>

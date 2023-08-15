@@ -183,7 +183,7 @@
 </span></span><span class="line"><span class="cl"><span class="nl">l</span><span class="p">:</span>  <span class="err">向右移动</span>
 </span></span><span class="line"><span class="cl"><span class="nl">j</span><span class="p">:</span>  <span class="err">向下移动</span>
 </span></span><span class="line"><span class="cl"><span class="nl">k</span><span class="p">:</span>  <span class="err">向上移动</span>
-</span></span><span class="line"><span class="cl"><span class="nl">nh</span><span class="p">:</span>  <span class="err">向左移动</span><span class="n">n</span><span class="err">个字符距离</span>
+</span></span><span class="line"><span class="cl"><span class="nl">nh</span><span class="p">:</span>  <span class="err">向左移动</span><span class="n">n个字符距离</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="单词移动">单词移动</h3>
@@ -223,11 +223,11 @@
 </span></span><span class="line"><span class="cl"><span class="mi">0</span><span class="o">:</span>  <span class="err">将光标移动到当前行的行首</span>
 </span></span><span class="line"><span class="cl"><span class="o">^:</span>  <span class="err">将光标移动到当前行的第一个非空字符（行首和当前行非空字符不是一个位置）</span>
 </span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">|:</span>  <span class="err">移到当前行的第</span><span class="mi">2</span><span class="err">列</span>
-</span></span><span class="line"><span class="cl"><span class="nl">fx</span><span class="p">:</span>  <span class="err">将光标移动到当前行的第一个字符</span><span class="n">x</span><span class="err">上</span>
-</span></span><span class="line"><span class="cl"><span class="mf">3f</span><span class="nl">x</span><span class="p">:</span> <span class="err">将光标移动到航前行的第</span><span class="mi">3</span><span class="err">个字符</span><span class="n">x</span><span class="err">上</span>
-</span></span><span class="line"><span class="cl"><span class="nl">tx</span><span class="p">:</span>   <span class="err">将光标移动到目标字符</span><span class="n">x</span><span class="err">的前一个字符上</span>
+</span></span><span class="line"><span class="cl"><span class="nl">fx</span><span class="p">:</span>  <span class="err">将光标移动到当前行的第一个字符</span><span class="n">x上</span>
+</span></span><span class="line"><span class="cl"><span class="mf">3f</span><span class="nl">x</span><span class="p">:</span> <span class="err">将光标移动到航前行的第</span><span class="mi">3</span><span class="err">个字符</span><span class="n">x上</span>
+</span></span><span class="line"><span class="cl"><span class="nl">tx</span><span class="p">:</span>   <span class="err">将光标移动到目标字符</span><span class="n">x的前一个字符上</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">fx</span><span class="err">和</span><span class="n">tx</span><span class="err">可以通过</span><span class="p">;</span><span class="err">和</span><span class="p">,</span><span class="err">进行重复移动，一个是正向重复，一个是反向重复</span>
+</span></span><span class="line"><span class="cl"><span class="n">fx和tx可以通过</span><span class="p">;</span><span class="err">和</span><span class="p">,</span><span class="err">进行重复移动，一个是正向重复，一个是反向重复</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="文本块移动">文本块移动</h3>
@@ -260,7 +260,7 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">xG</span><span class="p">:</span>  <span class="err">跳转到指定的第</span><span class="n">x</span><span class="err">行，</span><span class="n">G</span><span class="err">移动到文件按末尾，``（</span><span class="mi">2</span><span class="err">次单引号</span><span class="p">)</span><span class="err">返回到跳转前的位置</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">xG</span><span class="p">:</span>  <span class="err">跳转到指定的第</span><span class="n">x行</span><span class="err">，</span><span class="n">G移动到文件按末尾</span><span class="err">，``（</span><span class="mi">2</span><span class="err">次单引号</span><span class="p">)</span><span class="err">返回到跳转前的位置</span>
 </span></span><span class="line"><span class="cl"><span class="nl">gg</span><span class="p">:</span>  <span class="err">移动到文件开头</span>
 </span></span><span class="line"><span class="cl"><span class="n">CTRL</span><span class="o">-</span><span class="nl">U</span><span class="p">:</span>  <span class="err">上移半屏</span>
 </span></span><span class="line"><span class="cl"><span class="n">CTRL</span><span class="o">-</span><span class="nl">D</span><span class="p">:</span>  <span class="err">下移半屏</span>
@@ -290,9 +290,9 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">mx</span><span class="p">,</span><span class="n">my</span><span class="p">,</span><span class="n">mz</span><span class="err">设置三个位置</span>
-</span></span><span class="line"><span class="cl"><span class="err">`</span><span class="n">x</span><span class="p">,</span><span class="err">`</span><span class="n">y</span><span class="p">,</span><span class="err">`</span><span class="n">z</span><span class="err">跳转到设置</span>
-</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="nl">marks</span><span class="p">:</span>  <span class="err">显示所有书签</span>
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">mx</span><span class="p">,</span><span class="n">my</span><span class="p">,</span><span class="n">mz设置三个位置</span>
+</span></span><span class="line"><span class="cl"><span class="err">`</span><span class="n">x</span><span class="p">,</span><span class="err">`</span><span class="n">y</span><span class="p">,</span><span class="err">`</span><span class="nl">z跳转到设置</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="nl">marks</span><span class="p">:</span>  <span class="err">显示所有书签</span>
 </span></span><span class="line"><span class="cl"><span class="o">:</span><span class="n">delm</span> <span class="nl">a</span><span class="p">:</span>  <span class="err">删除缓冲区标签</span><span class="nl">a</span>
 </span></span><span class="line"><span class="cl"><span class="p">:</span><span class="n">delm</span><span class="o">!:</span>  <span class="err">删除所有缓冲区标签</span><span class="p">(</span><span class="err">小写字母</span><span class="p">),</span> <span class="err">不能删除文件标签和数字标签</span>
 </span></span></code></pre></td></tr></table>
@@ -454,7 +454,7 @@
 </span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="nl">yy</span><span class="p">:</span>  <span class="err">复制从当前光标所在行开始的</span><span class="mi">2</span><span class="err">行</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="err">复制文本块</span>
-</span></span><span class="line"><span class="cl">    <span class="mf">1.</span><span class="err">首先进入</span><span class="n">visual</span><span class="err">模式：</span><span class="n">v</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">1.</span><span class="err">首先进入</span><span class="n">visual模式</span><span class="err">：</span><span class="n">v</span>
 </span></span><span class="line"><span class="cl">    <span class="mf">2.</span><span class="err">移动光标选择文本</span>
 </span></span><span class="line"><span class="cl">    <span class="mf">3.</span><span class="err">复制与粘贴的操作</span>
 </span></span></code></pre></td></tr></table>
@@ -508,14 +508,14 @@
 </span></span><span class="line"><span class="cl"><span class="n">N</span>                   <span class="err">向相反方向执行上一次搜索</span>
 </span></span><span class="line"><span class="cl"><span class="o">*</span>                   <span class="err">向前搜索光标下的单词</span>
 </span></span><span class="line"><span class="cl"><span class="cp">#                   向后搜索光标下的单词
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="o">:</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>          <span class="err">将当前行中全替换</span><span class="n">p1</span><span class="err">为</span><span class="nl">p2</span>
-</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>         <span class="err">将当前文件中全替换</span><span class="n">p1</span><span class="err">为</span><span class="nl">p2</span>
-</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">gc</span>        <span class="err">将当前文件中全替换</span><span class="n">p1</span><span class="err">为</span><span class="n">p2</span><span class="err">，并且每处询问你是否替换</span>
-</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>     <span class="err">将第</span><span class="mi">10</span><span class="err">到</span><span class="mi">20</span><span class="err">行中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
-</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="n">ns</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>      <span class="err">将当前行到</span><span class="n">n</span><span class="err">行中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
-</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="o">+</span><span class="mi">10</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>    <span class="err">将当前行到相对当前行加</span><span class="mi">10</span><span class="err">行的区间中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
-</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="err">$</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>      <span class="err">将当前行到最后一行中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
-</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="mi">0</span><span class="p">,.</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>       <span class="err">将第一行到当前行中所有</span><span class="n">p1</span><span class="err">替换为</span><span class="nl">p2</span>
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="o">:</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>          <span class="err">将当前行中全替换</span><span class="nl">p1为p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>         <span class="err">将当前文件中全替换</span><span class="nl">p1为p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">gc</span>        <span class="err">将当前文件中全替换</span><span class="n">p1为p2</span><span class="err">，并且每处询问你是否替换</span>
+</span></span><span class="line"><span class="cl"><span class="o">:</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>     <span class="err">将第</span><span class="mi">10</span><span class="err">到</span><span class="mi">20</span><span class="err">行中所有</span><span class="nl">p1替换为p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="n">ns</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>      <span class="err">将当前行到</span><span class="nl">n行中所有p1替换为p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="o">+</span><span class="mi">10</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>    <span class="err">将当前行到相对当前行加</span><span class="mi">10</span><span class="err">行的区间中所有</span><span class="nl">p1替换为p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:.,</span> <span class="err">$</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>      <span class="err">将当前行到最后一行中所有</span><span class="nl">p1替换为p2</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="mi">0</span><span class="p">,.</span><span class="n">s</span><span class="o">/</span><span class="n">p1</span><span class="o">/</span><span class="n">p2</span><span class="o">/</span><span class="n">g</span>       <span class="err">将第一行到当前行中所有</span><span class="nl">p1替换为p2</span>
 </span></span><span class="line"><span class="cl"><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="mi">1</span><span class="err">\\</span><span class="mi">2</span><span class="err">\</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="mi">123</span><span class="o">/</span><span class="n">g</span>   <span class="err">将“</span><span class="mi">1</span><span class="err">\</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="err">”</span> <span class="err">替换为</span> <span class="err">“</span><span class="mi">123</span><span class="err">”（特殊字符使用反斜杠标注）</span>
 </span></span><span class="line"><span class="cl"><span class="o">:%</span><span class="n">s</span><span class="o">/</span><span class="err">\</span><span class="n">r</span><span class="c1">//g           删除 DOS 换行符 ^M
 </span></span></span></code></pre></td></tr></table>
@@ -580,7 +580,7 @@
 </span></span><span class="line"><span class="cl"><span class="n">q</span>                   <span class="err">结束录制宏</span>
 </span></span><span class="line"><span class="cl"><span class="err">@</span><span class="n">a</span>                  <span class="err">播放名字为</span> <span class="n">a</span> <span class="err">的宏</span>
 </span></span><span class="line"><span class="cl"><span class="err">@@</span>                  <span class="err">播放上一个宏</span>
-</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="o">:</span>                  <span class="err">重复上一个</span><span class="n">ex</span><span class="err">命令（即冒号命令）</span>
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="o">:</span>                  <span class="err">重复上一个</span><span class="n">ex命令</span><span class="err">（即冒号命令）</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;?yy                复制当前行到寄存器 ? ，问号代表 0-9 的寄存器名称</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;?d3j               删除光标下三行内容，并放到寄存器 ? ，问号代表 0-9 的寄存器名称</span>
 </span></span><span class="line"><span class="cl"><span class="s">&#34;?p                 将寄存器 ? 的内容粘贴到光标后</span>
@@ -632,7 +632,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.115.4">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.117.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">loveLzz</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>
