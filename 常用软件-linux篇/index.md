@@ -43,6 +43,8 @@
 * libinput(wayland触摸板驱动)
 * libinput+xf86-input-libinput(xorg触摸板驱动)
 > libinput是一组接收和检测设备输入的函数库，xf86-input-libinput是其的一个包装，使其可以用于x
+* libinput-gestures配置触摸板手势
+* xdotool是模拟按键的小工具,主要用来配合libinput-gestures
 ### 打印
 * cups(打印服务)
 > wps打印不可用时要下载cups
@@ -69,6 +71,10 @@
 > * steam需要添加`__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME="nvidia" __VK_LAYER_NV_optimus="NVIDIA_only" %command%`
 ### 磁盘
 * ntfs-3g(ntfs支持)
+
+### 系统工具
+* xprop查看窗口属性
+* xev查看按键映射
 
 ## 输入法
 * fcitx5/fcitx5-chinese-addons/fcitx5-pinyin-moegirl/fcitx5-material-color(输入法/中文输入/萌娘百科词库/输入法主题)
