@@ -4,9 +4,17 @@
         <link>https://leviathanion.github.io/</link>
         <description>loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sun, 11 Jun 2023 14:38:20 &#43;0800</lastBuildDate>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 15 Aug 2023 12:44:05 &#43;0800</lastBuildDate>
             <atom:link href="https://leviathanion.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Linux触摸板配置</title>
+    <link>https://leviathanion.github.io/linux%E8%A7%A6%E6%91%B8%E6%9D%BF%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Tue, 15 Aug 2023 12:44:05 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E8%A7%A6%E6%91%B8%E6%9D%BF%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[Linux触摸板配置 libinput libinput是一个函数库，在 Wayland 上用来接收设备的输入，在 X.Org 上提供输入设备的驱动。它提供对设备事件的检测和接收。对输入]]></description>
+</item>
+<item>
     <title>设计模式</title>
     <link>https://leviathanion.github.io/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <pubDate>Sun, 11 Jun 2023 14:38:20 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-android%E7%AF%87/</guid>
     <description><![CDATA[常用软件-Android篇 NFC工具 Mifare Classic Tool(读取标签)]]></description>
-</item>
-<item>
-    <title>常用软件-Linux篇</title>
-    <link>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/</link>
-    <pubDate>Mon, 03 Apr 2023 13:41:50 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87/</guid>
-    <description><![CDATA[常用软件-Linux篇 办公 wps全家桶 对于arch而言，有两个源cn和国际版，国际版没有云同步功能，资源占用更低 音视频 vlc mpv(视频播放器)]]></description>
 </item>
 </channel>
 </rss>

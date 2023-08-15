@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/categories/linux/</link>
         <description>Linux - Category - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Sun, 14 May 2023 00:31:52 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Tue, 15 Aug 2023 12:44:05 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Linux触摸板配置</title>
+    <link>https://leviathanion.github.io/linux%E8%A7%A6%E6%91%B8%E6%9D%BF%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Tue, 15 Aug 2023 12:44:05 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E8%A7%A6%E6%91%B8%E6%9D%BF%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[Linux触摸板配置 libinput libinput是一个函数库，在 Wayland 上用来接收设备的输入，在 X.Org 上提供输入设备的驱动。它提供对设备事件的检测和接收。对输入]]></description>
+</item>
+<item>
     <title>Linux射频管理</title>
     <link>https://leviathanion.github.io/linux%E5%B0%84%E9%A2%91%E7%AE%A1%E7%90%86/</link>
     <pubDate>Sun, 14 May 2023 00:31:52 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</guid>
     <description><![CDATA[Linux权限管理 Linux系统下对于用户和文件的权限有着严格的规定，我们首先回顾Linux下的用户管理 用户管理 涉及四个文件，主要需要修改p]]></description>
-</item>
-<item>
-    <title>Linux文件目录</title>
-    <link>https://leviathanion.github.io/linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/</link>
-    <pubDate>Tue, 21 Dec 2021 21:38:39 &#43;0800</pubDate>
-    <author>loveLZZ</author>
-    <guid>https://leviathanion.github.io/linux%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/</guid>
-    <description><![CDATA[Linux文件目录 Linux文件系统层次概述 文件系统包含了很多不同的初始路径，本节对不同的路径名称进行概述，可以通过man file-hier]]></description>
 </item>
 </channel>
 </rss>
