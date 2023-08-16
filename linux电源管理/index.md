@@ -91,4 +91,7 @@ SCHED_POWERSAVE_ON_BAT=1
 USB_AUTOSUSPEND=1
 ```
 * 启动`TLP`:`sudo systemctl enable tlp.service`
+## 功耗查看
+* 安装`powertop`
+* `sudo powertop`,使用`Tab`键切换界面
 
