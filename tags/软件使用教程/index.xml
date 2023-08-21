@@ -21,7 +21,7 @@
     <description><![CDATA[Docker使用教程 Docker架构 image(镜像)：可以看作是一个root文件系统，是对环境和软件的包装 container(容器)：镜像]]></description>
 </item>
 <item>
-    <title>Tmux使用</title>
+    <title>Tmux使用教程</title>
     <link>https://leviathanion.github.io/tmux%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
     <pubDate>Tue, 05 Jul 2022 11:27:28 &#43;0800</pubDate>
     <author>loveLzz</author>
