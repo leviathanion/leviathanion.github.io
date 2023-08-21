@@ -4,7 +4,15 @@
         <link>https://leviathanion.github.io/categories/linux/</link>
         <description>Linux - Category - loveLZZ的个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>chu.quntao@gmail.com (loveLzz)</managingEditor>
-            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Wed, 16 Aug 2023 00:17:29 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chu.quntao@gmail.com (loveLzz)</webMaster><lastBuildDate>Mon, 21 Aug 2023 10:35:37 &#43;0800</lastBuildDate><atom:link href="https://leviathanion.github.io/categories/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Systemd配置</title>
+    <link>https://leviathanion.github.io/systemd%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Mon, 21 Aug 2023 10:35:37 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/systemd%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[Systemd配置 一、由来 历史上，Linux 的启动一直采用init 进程。 下面的命令用来启动服务。 1 2 3 $ sudo /etc/init.d/apache2 start # 或者 $ service apache2 start 这种方法有两个缺]]></description>
+</item>
+<item>
     <title>Linux电源管理</title>
     <link>https://leviathanion.github.io/linux%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86/</link>
     <pubDate>Wed, 16 Aug 2023 00:17:29 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</guid>
     <description><![CDATA[Ubuntu配置 网络配置 缺少ifconfig等工具时，下载net-tools包(不建议使用) 目前iproute2已逐渐取代net-tools]]></description>
-</item>
-<item>
-    <title>Linux字体调教</title>
-    <link>https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/</link>
-    <pubDate>Wed, 15 Feb 2023 22:01:23 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/linux%E5%AD%97%E4%BD%93%E8%B0%83%E6%95%99/</guid>
-    <description><![CDATA[Linux字体调教 本文参考自12 前瞻知识 一个字体文件，可以提供多个字体族名 (family)。 比如 Arch Linux 用户在安装 wqy-microhei 后 系统端增加了 wqy-microhei.ttc 这个字体文件]]></description>
 </item>
 </channel>
 </rss>
