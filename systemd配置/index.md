@@ -286,6 +286,10 @@ $ systemctl list-dependencies --all nginx.service
 
 Systemd 默认从目录`/etc/systemd/system/`读取配置文件。但是，里面存放的大部分文件都是符号链接，指向目录`/usr/lib/systemd/system/`，真正的配置文件存放在那个目录。
 
+* `/etc/systemd/system`目录的优先级高于`/usr/lib/systemd/system`
+* `/usr/lib/systemd/system/`:软件包安装的单元
+* `/etc/systemd/system/`:系统管理员安装或配置的单元
+
 
 `systemctl enable`命令用于在上面两个目录之间，建立符号链接关系。
 

@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/systemd%E9%85%8D%E7%BD%AE\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  5639 ,
+        },"genre": "posts","keywords": "Linux","wordcount":  5756 ,
         "url": "https:\/\/leviathanion.github.io\/systemd%E9%85%8D%E7%BD%AE\/","datePublished": "2023-08-21T10:35:37+08:00","dateModified": "2023-08-21T10:35:37+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Systemd配置</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-21">2023-08-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5639 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-21">2023-08-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5756 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -551,6 +551,11 @@
 <h3 id="51-概述">5.1 概述</h3>
 <p>每一个 Unit 都有一个配置文件，告诉 Systemd 怎么启动这个 Unit 。</p>
 <p>Systemd 默认从目录<code>/etc/systemd/system/</code>读取配置文件。但是，里面存放的大部分文件都是符号链接，指向目录<code>/usr/lib/systemd/system/</code>，真正的配置文件存放在那个目录。</p>
+<ul>
+<li><code>/etc/systemd/system</code>目录的优先级高于<code>/usr/lib/systemd/system</code></li>
+<li><code>/usr/lib/systemd/system/</code>:软件包安装的单元</li>
+<li><code>/etc/systemd/system/</code>:系统管理员安装或配置的单元</li>
+</ul>
 <p><code>systemctl enable</code>命令用于在上面两个目录之间，建立符号链接关系。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
