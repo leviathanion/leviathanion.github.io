@@ -2,6 +2,24 @@
 
 # Linux字体调教
 > 本文参考自[^2][^3]
+## 具体字体配置
+* 使用pacman安装字体,或将其放到指定目录中
+* 执行`fc-cache -fv`更新字体缓存
+* 对于不支持fontconfig的旧程序
+    * 在字体目录创建索引`mkfontscale` `mkfontdir`
+    * 执行`xset +fp $dir`添加字体目录 
+    * `xset fp rehash`强制刷新
+    * `xlsfonts | grep fontname`查看是否生效
+    * 或者在`/etc/X11/xorg.conf`添加以下代码
+    ```shell
+    # 让X.org知道自定义字体目录 
+    Section "Files"
+     FontPath    "/usr/share/fonts/100dpi"
+     FontPath    "/usr/share/fonts/75dpi"
+     FontPath    "/usr/share/fonts/TTF"
+     FontPath    "/usr/share/fonts/util"
+    EndSection
+    ```
 ## 前瞻知识
 * 一个字体文件，可以提供多个字体族名 (family)。
 > 比如 Arch Linux 用户在安装 wqy-microhei 后
@@ -203,25 +221,6 @@
 ## 字体渲染
 * 虽然 fontconfig 本身不负责渲染字体，实际渲染是由程序交给 freetype 来完成的；但是 fontconfig 在处理 font pattern 的时候可以修改一些渲染参数，比如是否开启 hinting 和子像素渲染，是否开启连字特性。同时也可以根据实际情况来选择和过滤字体，比如根据像素尺寸分别指定字体，又或者控制何时使用点阵字体。
 * 具体可参考arch wiki中的配置[^1]
-
-## 具体字体配置
-* 使用pacman安装字体
-* 执行fc-cache -fv更新字体缓存
-* 对于不支持fontconfig的旧程序
-    * 在字体目录创建索引`mkfontscale` `mkfontdir`
-    * 执行`xset +fp $dir`添加字体目录 
-    * `xset fp rehash`强制刷新
-    * `xlsfonts | grep fontname`查看是否生效
-    * 或者在`/etc/X11/xorg.conf`添加以下代码
-    ```shell
-    # 让X.org知道自定义字体目录 
-    Section "Files"
-     FontPath    "/usr/share/fonts/100dpi"
-     FontPath    "/usr/share/fonts/75dpi"
-     FontPath    "/usr/share/fonts/TTF"
-     FontPath    "/usr/share/fonts/util"
-    EndSection
-    ```
 
 
 [^1]:https://wiki.archlinux.org/title/Font_configuration
