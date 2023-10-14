@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E8%A7%A6%E6%91%B8%E6%9D%BF%E9%85%8D%E7%BD%AE\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  886 ,
+        },"genre": "posts","keywords": "Linux","wordcount":  943 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E8%A7%A6%E6%91%B8%E6%9D%BF%E9%85%8D%E7%BD%AE\/","datePublished": "2023-08-15T12:44:05+08:00","dateModified": "2023-08-15T12:44:05+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -115,7 +115,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux触摸板配置</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-15">2023-08-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;886 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-08-15">2023-08-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;943 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -146,6 +146,7 @@
 <h2 id="配置">配置</h2>
 <p><code>Wayland</code>下没有<code>libinput</code>的配置文件,不同桌面具有不同的支持</p>
 <p><code>Xorg</code>默认配置文件位于<code>/usr/share/X11/xorg.conf.d/40-libinput.conf</code>中</p>
+<p><code>Xorg</code>应将自定义配置文件放到<code>/etc/X11/xorg.conf.d/</code>目录下，防止软件更新后覆盖了之前的配置文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

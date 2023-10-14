@@ -11,6 +11,8 @@
 
 `Xorg`默认配置文件位于`/usr/share/X11/xorg.conf.d/40-libinput.conf`中
 
+`Xorg`应将自定义配置文件放到`/etc/X11/xorg.conf.d/`目录下，防止软件更新后覆盖了之前的配置文件
+
 ```shell
 libinput list-devices
 ```
