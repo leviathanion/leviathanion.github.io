@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/"
-        },"genre": "posts","keywords": "Docker, 软件使用教程","wordcount":  3215 ,
+        },"genre": "posts","keywords": "Docker, 软件使用教程","wordcount":  3304 ,
         "url": "https:\/\/leviathanion.github.io\/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/","datePublished": "2023-04-29T11:03:25+08:00","dateModified": "2023-04-29T11:03:25+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker使用教程</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件使用教程</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-29">2023-04-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3215 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-29">2023-04-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3304 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -641,12 +641,19 @@ Docker默认提供几种网络模式：bridge（桥接模式）、host（主机�
 </span><span class="lnt">49
 </span><span class="lnt">50
 </span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">version</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="n">networks</span><span class="p">:</span>                         <span class="c1">#自定义网络</span>
 </span></span><span class="line"><span class="cl">  <span class="n">monitoring</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">driver</span><span class="p">:</span> <span class="n">bridge</span>
+</span></span><span class="line"><span class="cl"><span class="n">volumes</span><span class="p">:</span>                          <span class="c1">#定义一个docker命名卷，使用方式等同于本地路径，由docker自动管理位置，通常位于/var/lib/docker/volumes</span>
+</span></span><span class="line"><span class="cl">  <span class="n">data</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">services</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">  <span class="n">jenkins</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">    <span class="n">image</span><span class="p">:</span> <span class="n">jenkins</span><span class="o">/</span><span class="n">jenkins</span><span class="p">:</span><span class="n">lts</span>    <span class="c1">#镜像名称</span>
@@ -663,6 +670,7 @@ Docker默认提供几种网络模式：bridge（桥接模式）、host（主机�
 </span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span>
 </span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">docker</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">docker</span>
 </span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libltdl</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mi">7</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libltdl</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mi">7</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">data</span> <span class="c1">#挂载docker命名卷</span>
 </span></span><span class="line"><span class="cl">    <span class="n">ports</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">8080</span>
 </span></span><span class="line"><span class="cl">    <span class="n">expose</span><span class="p">:</span> <span class="c1">#暴露给其他容器、link的端口号</span>

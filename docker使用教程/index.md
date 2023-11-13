@@ -217,6 +217,9 @@ version: '3'
 networks:                         #自定义网络
   monitoring:
     driver: bridge
+volumes:                          #定义一个docker命名卷，使用方式等同于本地路径，由docker自动管理位置，通常位于/var/lib/docker/volumes
+  data: {}
+
 services:
   jenkins:
     image: jenkins/jenkins:lts    #镜像名称
@@ -233,6 +236,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
       - /usr/lib/x86_64-linux-gnu/libltdl.so.7:/usr/lib/x86_64-linux-gnu/libltdl.so.7
+      - data:/data #挂载docker命名卷
     ports:
       - 8080:8080
     expose: #暴露给其他容器、link的端口号
