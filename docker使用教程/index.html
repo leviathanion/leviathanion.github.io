@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/"
-        },"genre": "posts","keywords": "Docker, 软件使用教程","wordcount":  740 ,
+        },"genre": "posts","keywords": "Docker, 软件使用教程","wordcount":  3215 ,
         "url": "https:\/\/leviathanion.github.io\/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/","datePublished": "2023-04-29T11:03:25+08:00","dateModified": "2023-04-29T11:03:25+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,8 +116,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker使用教程</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件使用教程</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-29">2023-04-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;740 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-29">2023-04-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3215 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -138,9 +138,28 @@
             <li><a href="#运行管理">运行管理</a></li>
           </ul>
         </li>
+        <li><a href="#网络管理">网络管理</a>
+          <ul>
+            <li><a href="#概述">概述</a>
+              <ul>
+                <li><a href="#bridge模式">Bridge模式</a></li>
+                <li><a href="#host模式">Host模式</a></li>
+                <li><a href="#none模式">None模式</a></li>
+                <li><a href="#overlay模式">Overlay模式</a></li>
+                <li><a href="#container模式">Container模式</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#podman">Podman</a></li>
+    <li><a href="#docker-compose">docker-compose</a>
+      <ul>
+        <li><a href="#常用命令">常用命令</a></li>
+        <li><a href="#yml文件配置">yml文件配置</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="docker使用教程">Docker使用教程</h1>
@@ -199,11 +218,485 @@
 <li>启动已终止容器:<code>docker container start &lt;容器名/id&gt;</code></li>
 <li>重启容器:<code>docker container restart &lt;容器名/id&gt;</code></li>
 </ul>
+<h3 id="网络管理">网络管理</h3>
+<h4 id="概述">概述</h4>
+<p>Docker容器的网络允许容器间、容器与宿主机、以及容器与外部网络的通信。
+Docker默认提供几种网络模式：bridge（桥接模式）、host（主机模式）、none（无网络）和overlay（覆盖网络）。</p>
+<ul>
+<li>查看与存在的网络:<code>docker network list</code></li>
+<li>创建自定义网络：<code>docker network create --driver &lt;driver&gt; &lt;network_name&gt;</code></li>
+<li>查看网络信息：<code>docker network inspect &lt;network_name&gt;</code></li>
+<li>连接/断开容器到网络：<code>docker network connect/disconnect &lt;network_name&gt; &lt;container_name&gt;</code></li>
+</ul>
+<h5 id="bridge模式">Bridge模式</h5>
+<ul>
+<li>Bridge模式是Docker默认的网络模式。</li>
+<li>它通过一个虚拟的网络桥接器在宿主机上创建一个网络，使不同容器间可以相互通信。</li>
+<li>适用于单机部署的多个容器需要相互通信的场景。</li>
+<li>不加参数时，docker容器默认运行在bridge模式下</li>
+</ul>
+<ul>
+<li>创建网络：<code>docker network create --driver bridge my_bridge</code></li>
+<li>容器连接到网络：<code>docker run --network=my_bridge -d nginx</code> 或 <code>docker network connect my_bridge my_container</code></li>
+</ul>
+<h5 id="host模式">Host模式</h5>
+<ul>
+<li>在Host模式下，容器共享宿主机的网络命名空间，没有自己的IP地址。</li>
+<li>这种模式下，容器可以直接使用宿主机的网络接口。</li>
+<li>适用于需要直接访问宿主机网络资源的高性能应用。</li>
+<li>运行容器：<code>docker run --network host -d nginx</code></li>
+</ul>
+<h5 id="none模式">None模式</h5>
+<ul>
+<li>None模式为容器提供了隔离的网络命名空间，但不为其配置网络接口。</li>
+<li>容器在这种模式下无法进行网络通信。</li>
+<li>适用于需要完全网络隔离的特定场景。</li>
+<li>创建无网络容器：<code>docker run --network none -d nginx</code></li>
+</ul>
+<h5 id="overlay模式">Overlay模式</h5>
+<ul>
+<li>Overlay模式用于支持Docker Swarm集群中跨主机的容器通信。</li>
+<li>它创建了一个分布式网络层，使得不同主机上的容器能够相互通信。</li>
+<li>适用于大规模的分布式应用部署。</li>
+<li>创建网络：<code>docker network create --driver overlay my_overlay</code></li>
+<li>部署服务：<code>docker service create --network my_overlay nginx</code></li>
+</ul>
+<h5 id="container模式">Container模式</h5>
+<ul>
+<li>Container模式允许一个容器共享另一个容器的网络栈。</li>
+<li>这种模式常用于紧密连接的容器之间，例如当一个辅助容器需要使用主容器的网络接口时。</li>
+<li>运行新容器时使用：<code>docker run --network container:&lt;container_name_or_id&gt; nginx</code></li>
+</ul>
 <h2 id="podman">Podman</h2>
 <ul>
 <li>Podman与docker完全兼容，只需要将docker命令里的docker更换为Podman即可</li>
 </ul>
-</div><div class="post-footer" id="post-footer">
+<h2 id="docker-compose">docker-compose</h2>
+<p>dokcer-compose是本地docker服务编排工具，用于定义和管理多个docker服务。</p>
+<h3 id="常用命令">常用命令</h3>
+<ul>
+<li><code>docker-compose -help</code> 查看帮助。</li>
+<li><code>docker-compose config -q</code> 验证docker-compose.yml文件。当配置正确时，不输出任何内容，当配置错误时，输出错误信息。</li>
+<li><code>docker-compose pull</code> 拉取服务依赖的镜像。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 拉取工程中所有服务依赖的镜像
+</span></span><span class="line"><span class="cl">docker-compose pull
+</span></span><span class="line"><span class="cl"># 拉取工程中 nginx 服务依赖的镜像
+</span></span><span class="line"><span class="cl">docker-compose pull nginx
+</span></span><span class="line"><span class="cl"># 拉取镜像过程中不打印拉取进度信息
+</span></span><span class="line"><span class="cl">docker-compose pull -q
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>docker-compose up</code> 创建并启动所有服务的容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 前台启动
+</span></span><span class="line"><span class="cl">docker-compose up
+</span></span><span class="line"><span class="cl"># 后台启动
+</span></span><span class="line"><span class="cl">docker-compose up -d
+</span></span><span class="line"><span class="cl"># -f 指定使用的 Compose 模板文件，默认为 docker-compose.yml，可以多次指定，指定多个 yml
+</span></span><span class="line"><span class="cl">docker-compose -f docker-compose.yml up -d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>docker-compose logs</code> 查看服务容器的输出日志。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 输出日志，不同的服务输出使用不同的颜色来区分
+</span></span><span class="line"><span class="cl">docker-compose logs
+</span></span><span class="line"><span class="cl"># 跟踪日志输出
+</span></span><span class="line"><span class="cl">docker-compose logs -f
+</span></span><span class="line"><span class="cl"># 关闭颜色
+</span></span><span class="line"><span class="cl">docker-compose logs --no-color
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>docker-compose ps</code> 列出工程中所有服务的容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 列出工程中所有服务的容器
+</span></span><span class="line"><span class="cl">docker-compose ps
+</span></span><span class="line"><span class="cl"># 列出工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose ps nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>docker-compose run</code> 在指定服务容器上额外执行一个命令。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 在工程中指定服务的容器上执行 echo &#34;helloworld&#34;
+</span></span><span class="line"><span class="cl">docker-compose run nginx echo &#34;helloworld&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>docker-compose exec</code>进入服务容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 进入工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose exec nginx bash
+</span></span><span class="line"><span class="cl"># 当一个服务拥有多个容器时，可通过 --index 参数进入到该服务下的任何容器
+</span></span><span class="line"><span class="cl">docker-compose exec --index=1 nginx bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose pause 暂停服务容器</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 暂停工程中所有服务的容器
+</span></span><span class="line"><span class="cl">docker-compose pause
+</span></span><span class="line"><span class="cl"># 暂停工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose pause nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose unpause 恢复服务容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 恢复工程中所有服务的容器
+</span></span><span class="line"><span class="cl">docker-compose unpause
+</span></span><span class="line"><span class="cl"># 恢复工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose unpause nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose restart 重启服务容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 重启工程中所有服务的容器
+</span></span><span class="line"><span class="cl">docker-compose restart
+</span></span><span class="line"><span class="cl"># 重启工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose restart nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose start 启动服务容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 启动工程中所有服务的容器
+</span></span><span class="line"><span class="cl">docker-compose start
+</span></span><span class="line"><span class="cl"># 启动工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose start nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose stop 停止服务容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 停止工程中所有服务的容器
+</span></span><span class="line"><span class="cl">docker-compose stop
+</span></span><span class="line"><span class="cl"># 停止工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose stop nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose kill 通过发送SIGKILL信号停止指定服务的容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 通过发送 SIGKILL 信号停止工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose kill nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose rm 删除服务（停止状态）容器。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 删除所有（停止状态）服务的容器
+</span></span><span class="line"><span class="cl">docker-compose rm
+</span></span><span class="line"><span class="cl"># 先停止所有服务的容器，再删除所有服务的容器
+</span></span><span class="line"><span class="cl">docker-compose rm -s
+</span></span><span class="line"><span class="cl"># 不询问是否删除，直接删除
+</span></span><span class="line"><span class="cl">docker-compose rm -f
+</span></span><span class="line"><span class="cl"># 删除服务容器挂载的数据卷
+</span></span><span class="line"><span class="cl">docker-compose rm -v
+</span></span><span class="line"><span class="cl"># 删除工程中指定服务的容器
+</span></span><span class="line"><span class="cl">docker-compose rm -sv nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose down 停止并删除所有服务的容器、网络、镜像、数据卷。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 停止并删除工程中所有服务的容器、网络
+</span></span><span class="line"><span class="cl">docker-compose stop
+</span></span><span class="line"><span class="cl"># 停止并删除工程中所有服务的容器、网络、镜像
+</span></span><span class="line"><span class="cl">docker-compose down --rmi all
+</span></span><span class="line"><span class="cl"># 停止并删除工程中所有服务的容器、网络、数据卷
+</span></span><span class="line"><span class="cl">docker-compose down -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose images 打印服务容器所对应的镜像。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 打印所有服务的容器所对应的镜像
+</span></span><span class="line"><span class="cl">docker-compose images
+</span></span><span class="line"><span class="cl"># 打印指定服务的容器所对应的镜像
+</span></span><span class="line"><span class="cl">docker-compose images nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose port 打印指定服务容器的某个端口所映射的宿主机端口。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker-compose port nginx 80
+</span></span><span class="line"><span class="cl">0.0.0.0:80
+</span></span><span class="line"><span class="cl">docker-compose port jenkins 8080
+</span></span><span class="line"><span class="cl">0.0.0.0:8088
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>docker-compose top 显示正在运行的进程。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 显示工程中所有服务的容器正在运行的进程
+</span></span><span class="line"><span class="cl">docker-compose top
+</span></span><span class="line"><span class="cl"># 显示工程中指定服务的容器正在运行的进程
+</span></span><span class="line"><span class="cl">docker-compose top nginx
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="yml文件配置">yml文件配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">version</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">networks</span><span class="p">:</span>                         <span class="c1">#自定义网络</span>
+</span></span><span class="line"><span class="cl">  <span class="n">monitoring</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">driver</span><span class="p">:</span> <span class="n">bridge</span>
+</span></span><span class="line"><span class="cl"><span class="n">services</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">jenkins</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image</span><span class="p">:</span> <span class="n">jenkins</span><span class="o">/</span><span class="n">jenkins</span><span class="p">:</span><span class="n">lts</span>    <span class="c1">#镜像名称</span>
+</span></span><span class="line"><span class="cl">    <span class="n">container_name</span><span class="p">:</span> <span class="n">jenkins</span>       <span class="c1">#设置容器名称</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#user: root                   #使用root用户启动</span>
+</span></span><span class="line"><span class="cl">    <span class="n">user</span><span class="p">:</span> <span class="mi">1000</span><span class="p">:</span><span class="mi">994</span>                <span class="c1">#uid=1000(daizhao) gid=1000(daizhao) 组=1000(daizhao),993(docker) 使用uid代替username 避免报错Error response from daemon: unable to find user ubuntuu: no matching entries in passwd file</span>
+</span></span><span class="line"><span class="cl">    <span class="n">privileged</span><span class="p">:</span> <span class="bp">true</span>              <span class="c1">#拥有root用户的权限</span>
+</span></span><span class="line"><span class="cl">    <span class="n">restart</span><span class="p">:</span> <span class="n">always</span>               <span class="c1">#跟随docker的启动而启动</span>
+</span></span><span class="line"><span class="cl">    <span class="n">environment</span><span class="p">:</span>                  <span class="c1">#设置环境变量</span>
+</span></span><span class="line"><span class="cl">        <span class="n">JAVA_OPTS</span><span class="p">:</span> <span class="s1">&#39;-Djava.util.logging.config.file=/var/jenkins_home/log.properties&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">volumes</span><span class="p">:</span>                      <span class="c1">#冒号前为本地路径，冒号后为docker中的路径</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">mount</span><span class="o">/</span><span class="n">jenkins</span><span class="o">/</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">jenkins_home</span>                     <span class="c1">#挂载jenkins工作目录</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">localtime</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">localtime</span>                                             <span class="c1">#挂载时间                                  </span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">docker</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">docker</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libltdl</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mi">7</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">libltdl</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mi">7</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ports</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">8080</span>
+</span></span><span class="line"><span class="cl">    <span class="n">expose</span><span class="p">:</span> <span class="c1">#暴露给其他容器、link的端口号</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="mi">8080</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="mi">50000</span>
+</span></span><span class="line"><span class="cl">    <span class="n">networks</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">monitoring</span>
+</span></span><span class="line"><span class="cl">  <span class="n">nginx</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image</span><span class="p">:</span> <span class="n">nginx</span><span class="p">:</span><span class="n">latest</span>          <span class="c1">#镜像名称 </span>
+</span></span><span class="line"><span class="cl">    <span class="n">container_name</span><span class="p">:</span> <span class="n">nginx</span>        <span class="c1">#设置容器名称</span>
+</span></span><span class="line"><span class="cl">    <span class="n">restart</span><span class="p">:</span> <span class="n">always</span>              <span class="c1">#跟随docker的启动而启动</span>
+</span></span><span class="line"><span class="cl">    <span class="n">network_mode</span><span class="p">:</span> <span class="n">host</span>           <span class="c1">#网络端口模式为主机 设置这个以后 不能再设置端口，类似docker --net: host</span>
+</span></span><span class="line"><span class="cl">    <span class="n">volumes</span><span class="p">:</span>                     <span class="c1">#挂载卷命令</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">mount</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span>                <span class="c1">#映射配置文件入口文件</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">mount</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">html</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">html</span>                           <span class="c1">#nginx静态资源根目录挂载         </span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">mount</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">logs</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="nb">log</span><span class="o">/</span><span class="n">nginx</span>                                  <span class="c1">#日志文件挂载        </span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">mount</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="p">:</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span>                             <span class="c1">#映射配置文件  </span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">daizhao</span><span class="o">/</span><span class="n">web</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">daizhao</span><span class="o">/</span><span class="n">web</span>                                                   <span class="c1">#自定义扩展静态资源目录挂载</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">daizhao</span><span class="o">/</span><span class="k">static</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">daizhao</span><span class="o">/</span><span class="k">static</span>                                             <span class="c1">#自定义扩展静态资源目录挂载</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#ports:                       #宿主主机端口80 映射到 容器端口80</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># - 80:80   </span>
+</span></span><span class="line"><span class="cl">  <span class="n">redis</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">image</span><span class="p">:</span> <span class="n">redis</span><span class="p">:</span><span class="n">latest</span>          <span class="c1">#镜像名称</span>
+</span></span><span class="line"><span class="cl">    <span class="n">container_name</span><span class="p">:</span> <span class="n">redis</span>        <span class="c1">#设置容器名称</span>
+</span></span><span class="line"><span class="cl">    <span class="n">command</span><span class="p">:</span> <span class="n">redis</span><span class="o">-</span><span class="n">server</span> <span class="o">--</span><span class="n">appendonly</span> <span class="n">yes</span> <span class="o">--</span><span class="n">requirepass</span> <span class="s1">&#39;zbwZ1GqfPf7Kmx5*JS_s&#39;</span>   <span class="c1">#开启持久化的支持并设置认证密码 </span>
+</span></span><span class="line"><span class="cl">    <span class="n">restart</span><span class="p">:</span> <span class="n">always</span>              <span class="c1">#跟随docker的启动而启动</span>
+</span></span><span class="line"><span class="cl">    <span class="n">volumes</span><span class="p">:</span>                     
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">mount</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">data</span>                 <span class="c1">#数据文件挂载</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">mount</span><span class="o">/</span><span class="n">redis</span><span class="o">/</span><span class="n">redis</span><span class="o">.</span><span class="n">conf</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">redis</span><span class="o">.</span><span class="n">conf</span> <span class="c1">#配置文件挂载</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ports</span><span class="p">:</span>                       <span class="c1">#宿主主机端口6379 映射到 容器端口6379</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="mi">6379</span><span class="p">:</span><span class="mi">6379</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
