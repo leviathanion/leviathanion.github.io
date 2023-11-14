@@ -50,8 +50,9 @@ Docker默认提供几种网络模式：bridge（桥接模式）、host（主机�
 * 它通过一个虚拟的网络桥接器在宿主机上创建一个网络，使不同容器间可以相互通信。
 * 适用于单机部署的多个容器需要相互通信的场景。
 * 不加参数时，docker容器默认运行在bridge模式下
-- 创建网络：`docker network create --driver bridge my_bridge`
-- 容器连接到网络：`docker run --network=my_bridge -d nginx` 或 `docker network connect my_bridge my_container`
+* 创建网络：`docker network create --driver bridge my_bridge`
+* 容器连接到网络：`docker run --network=my_bridge -d nginx` 或 `docker network connect my_bridge my_container`
+* 同一`bridge`可以通过`container name`作为`ip`来访问对方的网络
 ##### Host模式
 * 在Host模式下，容器共享宿主机的网络命名空间，没有自己的IP地址。
 * 这种模式下，容器可以直接使用宿主机的网络接口。
@@ -78,14 +79,6 @@ Docker默认提供几种网络模式：bridge（桥接模式）、host（主机�
 * Podman与docker完全兼容，只需要将docker命令里的docker更换为Podman即可
 
 ## docker-compose
-> 更新docker 
->
-> 1. docker-compose pull
->
-> 2. docker-compose up -d --remove-orphans
->
-> 3. docker image prune
-
 dokcer-compose是本地docker服务编排工具，用于定义和管理多个docker服务。
 ### 常用命令
 * `docker-compose -help` 查看帮助。
@@ -138,7 +131,7 @@ docker-compose exec nginx bash
 # 当一个服务拥有多个容器时，可通过 --index 参数进入到该服务下的任何容器
 docker-compose exec --index=1 nginx bash
 ```
-* docker-compose pause 暂停服务容器
+* `docker-compose pause`暂停服务容器
 ```
 
 # 暂停工程中所有服务的容器
@@ -146,40 +139,40 @@ docker-compose pause
 # 暂停工程中指定服务的容器
 docker-compose pause nginx
 ```
-* docker-compose unpause 恢复服务容器。
+* `docker-compose unpause`恢复服务容器。
 ```
 # 恢复工程中所有服务的容器
 docker-compose unpause
 # 恢复工程中指定服务的容器
 docker-compose unpause nginx
 ```
-* docker-compose restart 重启服务容器。
+* `docker-compose restart`重启服务容器。
 ```
 # 重启工程中所有服务的容器
 docker-compose restart
 # 重启工程中指定服务的容器
 docker-compose restart nginx
 ```
-* docker-compose start 启动服务容器。
+* `docker-compose start`启动服务容器。
 ```
 # 启动工程中所有服务的容器
 docker-compose start
 # 启动工程中指定服务的容器
 docker-compose start nginx
 ```
-* docker-compose stop 停止服务容器。
+* `docker-compose stop`停止服务容器。
 ```
 # 停止工程中所有服务的容器
 docker-compose stop
 # 停止工程中指定服务的容器
 docker-compose stop nginx
 ```
-* docker-compose kill 通过发送SIGKILL信号停止指定服务的容器。
+* `docker-compose kill`通过发送SIGKILL信号停止指定服务的容器。
 ```
 # 通过发送 SIGKILL 信号停止工程中指定服务的容器
 docker-compose kill nginx
 ```
-* docker-compose rm 删除服务（停止状态）容器。
+* `docker-compose rm`删除服务（停止状态）容器。
 ```
 # 删除所有（停止状态）服务的容器
 docker-compose rm
@@ -192,7 +185,7 @@ docker-compose rm -v
 # 删除工程中指定服务的容器
 docker-compose rm -sv nginx
 ```
-* docker-compose down 停止并删除所有服务的容器、网络、镜像、数据卷。
+* `docker-compose down`停止并删除所有服务的容器、网络、镜像、数据卷。
 ```
 # 停止并删除工程中所有服务的容器、网络
 docker-compose stop
@@ -201,21 +194,21 @@ docker-compose down --rmi all
 # 停止并删除工程中所有服务的容器、网络、数据卷
 docker-compose down -v
 ```
-* docker-compose images 打印服务容器所对应的镜像。
+* `docker-compose images`打印服务容器所对应的镜像。
 ```
 # 打印所有服务的容器所对应的镜像
 docker-compose images
 # 打印指定服务的容器所对应的镜像
 docker-compose images nginx
 ```
-* docker-compose port 打印指定服务容器的某个端口所映射的宿主机端口。
+* `docker-compose port`打印指定服务容器的某个端口所映射的宿主机端口。
 ```
 docker-compose port nginx 80
 0.0.0.0:80
 docker-compose port jenkins 8080
 0.0.0.0:8088
 ```
-* docker-compose top 显示正在运行的进程。
+* `docker-compose top` 显示正在运行的进程。
 ```
 # 显示工程中所有服务的容器正在运行的进程
 docker-compose top
@@ -280,7 +273,20 @@ services:
     ports:                       #宿主主机端口6379 映射到 容器端口6379
       - 6379:6379
 ```
-
-
+## dokcer使用技巧
+### 更新docker景象
+1. docker-compose pull
+2. docker-compose up -d --remove-orphans
+3. docker image prune
+### container访问host网络
+* 使用`host`模式
+* 使用`host.docker.internal`作为ip地址
+> Linux系统需要添加`--add-host=host.docker.internal:host-gateway`到启动命令中
+>
+> `docker-compose`需要在容器定义中添加如下配置:
+> ```
+> extra_hosts:
+    - "host.docker.internal:host-gateway"
+> ```
 
 
