@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/"
-        },"genre": "posts","keywords": "Docker, 软件使用教程","wordcount":  3304 ,
+        },"genre": "posts","keywords": "Docker, 软件使用教程","wordcount":  3364 ,
         "url": "https:\/\/leviathanion.github.io\/docker%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/","datePublished": "2023-04-29T11:03:25+08:00","dateModified": "2023-04-29T11:03:25+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Docker使用教程</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件使用教程</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-29">2023-04-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3304 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-29">2023-04-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3364 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -191,6 +191,7 @@
 <li>列出本机的image文件:<code>docker image ls</code></li>
 <li>根据容器生成image文件:<code>docker commit [选项] &lt;容器名ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</code></li>
 <li>删除本机的image文件:<code>docker image rm [imageName]</code></li>
+<li>删除所有处于停止状态的image:<code>docker image prune</code></li>
 </ul>
 <h3 id="container管理">container管理</h3>
 <h4 id="文件管理">文件管理</h4>
@@ -272,6 +273,20 @@ Docker默认提供几种网络模式：bridge（桥接模式）、host（主机�
 <li>Podman与docker完全兼容，只需要将docker命令里的docker更换为Podman即可</li>
 </ul>
 <h2 id="docker-compose">docker-compose</h2>
+<blockquote>
+<p>更新docker</p>
+<ol>
+<li>
+<p>docker-compose pull</p>
+</li>
+<li>
+<p>docker-compose up -d &ndash;remove-orphans</p>
+</li>
+<li>
+<p>docker image prune</p>
+</li>
+</ol>
+</blockquote>
 <p>dokcer-compose是本地docker服务编排工具，用于定义和管理多个docker服务。</p>
 <h3 id="常用命令">常用命令</h3>
 <ul>
@@ -308,6 +323,8 @@ Docker默认提供几种网络模式：bridge（桥接模式）、host（主机�
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 前台启动
@@ -316,6 +333,8 @@ Docker默认提供几种网络模式：bridge（桥接模式）、host（主机�
 </span></span><span class="line"><span class="cl">docker-compose up -d
 </span></span><span class="line"><span class="cl"># -f 指定使用的 Compose 模板文件，默认为 docker-compose.yml，可以多次指定，指定多个 yml
 </span></span><span class="line"><span class="cl">docker-compose -f docker-compose.yml up -d
+</span></span><span class="line"><span class="cl"># 删除未定义的docker
+</span></span><span class="line"><span class="cl">docker-compose up --remove-orphans
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>

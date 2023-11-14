@@ -17,6 +17,7 @@
 * 列出本机的image文件:`docker image ls`
 * 根据容器生成image文件:`docker commit [选项] <容器名ID或容器名> [<仓库名>[:<标签>]]`
 * 删除本机的image文件:`docker image rm [imageName]`
+* 删除所有处于停止状态的image:`docker image prune`
 ### container管理
 #### 文件管理
 * 列出本机运行的container文件:`docker container ls`
@@ -77,6 +78,14 @@ Docker默认提供几种网络模式：bridge（桥接模式）、host（主机�
 * Podman与docker完全兼容，只需要将docker命令里的docker更换为Podman即可
 
 ## docker-compose
+> 更新docker 
+>
+> 1. docker-compose pull
+>
+> 2. docker-compose up -d --remove-orphans
+>
+> 3. docker image prune
+
 dokcer-compose是本地docker服务编排工具，用于定义和管理多个docker服务。
 ### 常用命令
 * `docker-compose -help` 查看帮助。
@@ -98,6 +107,8 @@ docker-compose up
 docker-compose up -d
 # -f 指定使用的 Compose 模板文件，默认为 docker-compose.yml，可以多次指定，指定多个 yml
 docker-compose -f docker-compose.yml up -d
+# 删除未定义的docker
+docker-compose up --remove-orphans
 ```
 * `docker-compose logs` 查看服务容器的输出日志。
 ```
