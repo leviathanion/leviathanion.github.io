@@ -275,9 +275,9 @@ services:
 ```
 ## dokcer使用技巧
 ### 更新docker景象
-1. docker-compose pull
-2. docker-compose up -d --remove-orphans
-3. docker image prune
+1. `docker-compose pull`
+2. `docker-compose up -d --remove-orphans`
+3. `docker image prune`
 ### container访问host网络
 * 使用`host`模式
 * 使用`host.docker.internal`作为ip地址
