@@ -20,6 +20,7 @@
      FontPath    "/usr/share/fonts/util"
     EndSection
     ```
+* `fc-match [程序名]/[字体名]`查看fontconfig为该程序或该字体匹配的字体
 ## 前瞻知识
 * 一个字体文件，可以提供多个字体族名 (family)。
 > 比如 Arch Linux 用户在安装 wqy-microhei 后
