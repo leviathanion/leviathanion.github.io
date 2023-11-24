@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/"
-        },"genre": "posts","keywords": "Git","wordcount":  5057 ,
+        },"genre": "posts","keywords": "Git","wordcount":  5119 ,
         "url": "https:\/\/leviathanion.github.io\/git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B\/","datePublished": "2021-01-25T20:53:07+08:00","dateModified": "2021-01-25T20:53:07+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Git使用教程</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLZZ</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>软件使用教程</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5057 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-01-25">2021-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;5119 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;11 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -188,6 +188,7 @@
         <li><a href="#远程操作">远程操作</a></li>
       </ul>
     </li>
+    <li><a href="#子模块管理">子模块管理</a></li>
     <li><a href="#差异比较">差异比较</a></li>
     <li><a href="#补丁操作">补丁操作</a>
       <ul>
@@ -486,6 +487,13 @@
 <li>删除远程分支<code>git push &lt;远程仓库别名&gt; -d &lt;tag name&gt;</code></li>
 </ol>
 </li>
+</ul>
+<h2 id="子模块管理">子模块管理</h2>
+<ul>
+<li>添加子模块：<code>git submodule add &lt;submodule url&gt;</code></li>
+<li>克隆含有子模块的项目：<code>git clone &lt;repo url&gt; --recurse-submodules</code></li>
+<li>拉取子模块修改：<code>git submodule update --remote</code></li>
+<li>拉取上游修改：<code>git pull --recurse-submodules</code></li>
 </ul>
 <h2 id="差异比较">差异比较</h2>
 <ul>

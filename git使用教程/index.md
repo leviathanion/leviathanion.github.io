@@ -182,6 +182,12 @@
     2. 删除远程分支：`git push <远程仓库别名> :refs|tags|<tag name>`
     2. 删除远程分支`git push <远程仓库别名> -d <tag name>`
 
+## 子模块管理
+* 添加子模块：`git submodule add <submodule url>`
+* 克隆含有子模块的项目：`git clone <repo url> --recurse-submodules`
+* 拉取子模块修改：`git submodule update --remote`
+* 拉取上游修改：`git pull --recurse-submodules`
+
 ## 差异比较
 * `git diff file`比较**工作区和暂存区**的差异
 * `git diff --cached file`比较**暂存区和仓库区**的区别
