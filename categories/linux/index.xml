@@ -29,6 +29,14 @@
     <description><![CDATA[Linux触摸板配置 libinput libinput是一个函数库，在 Wayland 上用来接收设备的输入，在 X.Org 上提供输入设备的驱动。它提供对设备事件的检测和接收。对输入]]></description>
 </item>
 <item>
+    <title>Linux基础概念扫盲</title>
+    <link>https://leviathanion.github.io/linux%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E6%89%AB%E7%9B%B2/</link>
+    <pubDate>Fri, 19 May 2023 15:31:36 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E6%89%AB%E7%9B%B2/</guid>
+    <description><![CDATA[Linux基础概念扫盲 XDG XDG代表&quot;Cross-Desktop Group&quot;，是来自freedesktop1的一系列规范 旨]]></description>
+</item>
+<item>
     <title>Linux射频管理</title>
     <link>https://leviathanion.github.io/linux%E5%B0%84%E9%A2%91%E7%AE%A1%E7%90%86/</link>
     <pubDate>Sun, 14 May 2023 00:31:52 &#43;0800</pubDate>
@@ -75,14 +83,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/dkms/</guid>
     <description><![CDATA[DKMS DKMS动态内核模块支持（DKMS）是用来生成 Linux 的内核模块的一个框架 虽然可以通过Readme文件或者INSTALL文件来编译新的驱动或者某]]></description>
-</item>
-<item>
-    <title>Ubuntu配置</title>
-    <link>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</link>
-    <pubDate>Fri, 17 Feb 2023 10:35:37 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/ubuntu%E9%85%8D%E7%BD%AE/</guid>
-    <description><![CDATA[Ubuntu配置 网络配置 缺少ifconfig等工具时，下载net-tools包(不建议使用) 目前iproute2已逐渐取代net-tools]]></description>
 </item>
 </channel>
 </rss>

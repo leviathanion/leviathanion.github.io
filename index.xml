@@ -39,6 +39,14 @@
     <description><![CDATA[设计模式 设计原则 开闭原则 对扩展开放 对修改关闭 通过扩展来实现变化，而不是通过修改已有代码来实现变化 里氏替换原则 子类可以实现父类的抽象方法，但不]]></description>
 </item>
 <item>
+    <title>Linux基础概念扫盲</title>
+    <link>https://leviathanion.github.io/linux%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E6%89%AB%E7%9B%B2/</link>
+    <pubDate>Fri, 19 May 2023 15:31:36 &#43;0800</pubDate>
+    <author>loveLzz</author>
+    <guid>https://leviathanion.github.io/linux%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E6%89%AB%E7%9B%B2/</guid>
+    <description><![CDATA[Linux基础概念扫盲 XDG XDG代表&quot;Cross-Desktop Group&quot;，是来自freedesktop1的一系列规范 旨]]></description>
+</item>
+<item>
     <title>Linux射频管理</title>
     <link>https://leviathanion.github.io/linux%E5%B0%84%E9%A2%91%E7%AE%A1%E7%90%86/</link>
     <pubDate>Sun, 14 May 2023 00:31:52 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>loveLzz</author>
     <guid>https://leviathanion.github.io/zsh%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
     <description><![CDATA[Zsh配置教程 安装zsh 安装zsh-autosuggestions(自动建议插件) 安装zsh-syntax-highlighting(代码高]]></description>
-</item>
-<item>
-    <title>Neovim配置教程</title>
-    <link>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
-    <pubDate>Thu, 06 Apr 2023 09:39:52 &#43;0800</pubDate>
-    <author>loveLzz</author>
-    <guid>https://leviathanion.github.io/neovim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
-    <description><![CDATA[nvim配置教程 linux 从github拉取配置文件并放在.config目录下，命名为nvim 1 git clone https://github.com/leviathanion/nvim-config.git ~/.config/nvim 可通过:checkhealth查看各插件情况]]></description>
 </item>
 </channel>
 </rss>
