@@ -89,7 +89,10 @@
 * wget/curl(下载/模拟http请求)
 * tldr(命令提示工具)
 * playerctl(MPRIS的音频管理)
-* 亮度调节:xbacklight `xorg-xbacklight包`/light/acpilight(使用mesa驱动的intel核显无法使用xbacklight)或直接修改`/sys/class/backlight/intel_backlight/brightness`的值
+* 亮度调节
+    * x11: xbacklight `xorg-xbacklight包`(使用mesa驱动的intel核显无法使用xbacklight)
+    * 不依赖于平台：light/acpilight
+    * 直接修改`/sys/class/backlight/intel_backlight/brightness`的值
 
 ## 图形显示(xorg)
 * sddm(开机显示)

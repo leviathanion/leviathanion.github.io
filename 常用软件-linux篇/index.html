@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87\/"
-        },"genre": "posts","keywords": "日常随想","wordcount":  2714 ,
+        },"genre": "posts","keywords": "日常随想","wordcount":  2710 ,
         "url": "https:\/\/leviathanion.github.io\/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6-linux%E7%AF%87\/","datePublished": "2023-04-03T13:41:50+08:00","dateModified": "2023-04-03T13:41:50+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">常用软件-Linux篇</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/%E6%97%A5%E5%B8%B8%E9%9A%8F%E6%83%B3/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>日常随想</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-03">2023-04-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2714 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-03">2023-04-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2710 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -299,7 +299,13 @@
 <li>wget/curl(下载/模拟http请求)</li>
 <li>tldr(命令提示工具)</li>
 <li>playerctl(MPRIS的音频管理)</li>
-<li>亮度调节:xbacklight <code>xorg-xbacklight包</code>/light/acpilight(使用mesa驱动的intel核显无法使用xbacklight)或直接修改<code>/sys/class/backlight/intel_backlight/brightness</code>的值</li>
+<li>亮度调节
+<ul>
+<li>x11: xbacklight <code>xorg-xbacklight包</code>(使用mesa驱动的intel核显无法使用xbacklight)</li>
+<li>不依赖于平台：light/acpilight</li>
+<li>直接修改<code>/sys/class/backlight/intel_backlight/brightness</code>的值</li>
+</ul>
+</li>
 </ul>
 <h2 id="图形显示xorg">图形显示(xorg)</h2>
 <ul>
