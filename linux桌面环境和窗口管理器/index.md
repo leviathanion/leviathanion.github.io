@@ -61,7 +61,7 @@
 * 平铺式
     * Sway(i3)
     * Qtile
-    * dwl(dwm)
+    * river
 
 ### 之后的配置
 * 由于WM缺少很多桌面环境下需要的东西，因此需要手动安装，所有的这些组件都可以在[^1]中找到对应的arch wiki目录
@@ -75,7 +75,7 @@
     * 媒体控制器[^8]:MPRIS+控制组件(Playerctl/mpris-player-control/D-Bus)
     * 锁屏器:各大WM有对应的锁屏器
     * 截图工具:flameshot
-    * 壁纸:feh
+    * 壁纸:feh(xorg),swaybg(wayland)
 
 
 
