@@ -26,7 +26,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/leviathanion.github.io\/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8\/"
-        },"genre": "posts","keywords": "Linux","wordcount":  2454 ,
+        },"genre": "posts","keywords": "Linux","wordcount":  2572 ,
         "url": "https:\/\/leviathanion.github.io\/linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E5%92%8C%E7%AA%97%E5%8F%A3%E7%AE%A1%E7%90%86%E5%99%A8\/","datePublished": "2023-02-18T19:37:55+08:00","dateModified": "2023-02-18T19:37:55+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,8 +116,8 @@
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux桌面环境和窗口管理器</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>loveLzz</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/linux/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Linux</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-18">2023-02-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2454 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-18">2023-02-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2572 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -284,16 +284,18 @@ Wayland上桌面合成器和窗口管理器是同一个东西</li>
 <li>由于WM缺少很多桌面环境下需要的东西，因此需要手动安装，所有的这些组件都可以在<sup id="fnref1:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>中找到对应的arch wiki目录
 <ul>
 <li>通知管理<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>：libnotify+dunst(libnotify提供通知,dunst作为通知服务器)</li>
-<li>音量调节<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup><sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>:安装alsa(pulseaudio/pireware)后使用amixer/alsamixer(pactl/pulsemixer)(alsa和pulseaudio的工具)进行管理(前者命令行,后者提供命令行ui,tui)</li>
+<li>音量调节<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup><sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>:安装pireware(alsa/pulseaudio)后使用amixer/alsamixer(pactl/pulsemixer)(alsa和pulseaudio的工具)进行管理(前者命令行,后者提供命令行ui,tui)</li>
 <li>亮度调节<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>:xbacklight/light/acpilight(使用mesa驱动的intel核显无法使用xbacklight)或直接修改<code>/sys/class/backlight/intel_backlight/brightness</code>的值</li>
 <li>顶部窗口:slstatus(xorg),waybar(wayland)</li>
 <li>显示管理器:SDDM(xorg)</li>
 <li>窗口特效:picom(xorg)</li>
 <li>应用启动器:dmenu/rofi(xorg),bemune/wofi(wayland)</li>
 <li>媒体控制器<sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup>:MPRIS+控制组件(Playerctl/mpris-player-control/D-Bus)</li>
-<li>锁屏器:各大WM有对应的锁屏器</li>
-<li>截图工具:flameshot</li>
+<li>锁屏器:slock(xorg), swaylock(wayland)</li>
+<li>截图工具:flameshot(xorg/wayland),grimshot(wayland)</li>
 <li>壁纸:feh(xorg),swaybg(wayland)</li>
+<li>剪贴板管理器:xclip(xorg),wl-clipboard(wayland)</li>
+<li>文件管理器:gui:thunar(xorg/wayland),terminal:yazi</li>
 </ul>
 </li>
 </ul>

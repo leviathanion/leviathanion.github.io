@@ -22,9 +22,10 @@
 ## 下载
 * Motrix(多线程下载工具)
 * qBittorent(种子下载工具)
+* aria2(命令行下载工具)
 
 ## PDF
-* okular(pdf阅读软件)
+* okular/zathura(pdf阅读软件)
 
 ## 绘图软件
 * drawio
@@ -81,7 +82,7 @@
 
 ## 终端及终端工具
 * fontconfig(字体管理)
-* ranger(文件夹管理)
+* yazi/ranger(文件夹管理)
 * zsh/ohmyzsh/powerlevel10k(zsh/优化/主题)
 * p7zip/rar/unrar/zip/unzip/tar/Unarchiver(压缩和解压工具)
 * rsync(拷贝和同步命令)
@@ -106,6 +107,8 @@
 * slock(锁屏)
 * i3(平铺窗口管理器)
 * feh(壁纸)
+* xclip(剪贴板)
+* flameshot(截图工具)
 
 ## 图形显示(wayland)
 * dunst/libnotify(通知服务器/通知显示)
@@ -115,6 +118,9 @@
 * sway(平铺窗口管理器)
 * waybar(顶部bar显示)
 * swaybg(壁纸)
+* sway(平铺窗口管理器)
+* wl-clipboard(剪贴板)
+* flameshot/grim(截图工具)
 
 ## 开发软件
 ### 环境管理
@@ -147,16 +153,17 @@
 * nagios(相对更加轻量的监控软件)
 
 ## 日用软件
-* clash(科学上网)
+* clash/clash-meta/singbox(科学上网client)
+* v2ray/x2ray/singbox(科学上网server)
 * lattle(docker栏)
-* ark(压缩与解压)
+* p7zip(terminal)/ark(gui)(压缩与解压)
 * osd(录屏)
 * wine,winetricks(windows模拟层)
 * mentohust(校园网连接)
 * feh(图片查看和壁纸配置)
 * flameshot(截图工具)
 * syncthing(备份同步工具)
-* screenkey(实时显示输入的按键)
+* screenkey/wshowkeys or showmethekey(xorg/wayland实时显示输入的按键)
 * kvm，qemu,libvirt,virt-manager,virtio(虚拟机)
 ![虚拟机](/常用软件/kvm-qemu-libvirt-virtmanager.png "虚拟机架构")
 
