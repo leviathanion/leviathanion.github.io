@@ -16,8 +16,8 @@
 * fzf(开源文件搜索工具)
 * ripgrep(开源面向行的搜索器)
 * pandoc(文件类型转换)
-* dolphin(文件夹工具)
-* ranger(命令行文件夹查看器)
+* thunar/dolphin(文件夹工具)
+* ranger/yazi(命令行文件夹查看器)
 
 ## 下载
 * Motrix(多线程下载工具)

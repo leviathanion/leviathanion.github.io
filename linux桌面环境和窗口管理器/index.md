@@ -78,6 +78,8 @@
     * 壁纸:feh(xorg),swaybg(wayland)
     * 剪贴板管理器:xclip(xorg),wl-clipboard(wayland)
     * 文件管理器:gui:thunar(xorg/wayland),terminal:yazi
+    * 输出管理:autorandr(xorg), kanshi(wayland)(可以做热插拔设置)
+    * 权限管理:polkit(xorg/wayland), polkit-gnome(xorg/wayland)
 
 
 
